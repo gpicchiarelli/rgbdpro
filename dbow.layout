@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="demorgb" />
+	<File name="BowVector.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1966" topLine="76" />
+	</File>
+	<File name="BowVector.h" open="0" top="0" tabpos="0">
+		<Cursor position="1154" topLine="68" />
+	</File>
+	<File name="DBoW2.h" open="0" top="0" tabpos="1">
+		<Cursor position="2647" topLine="72" />
+	</File>
+	<File name="DUtils/ConfigFile.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3667" topLine="126" />
+	</File>
+	<File name="DUtils/LineFile.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="0" topLine="136" />
+	</File>
+	<File name="DUtils/Profiler.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1325" topLine="84" />
+	</File>
+	<File name="DUtils/Random.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="0" topLine="108" />
+	</File>
+	<File name="DUtils/StringFunctions.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1188" topLine="34" />
+	</File>
+	<File name="DUtils/StringFunctions.h" open="0" top="0" tabpos="0">
+		<Cursor position="1421" topLine="32" />
+	</File>
+	<File name="DUtils/TimeManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="0" topLine="2" />
+	</File>
+	<File name="DUtilsCV/Drawing.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="8762" topLine="312" />
+	</File>
+	<File name="DUtilsCV/Geometry.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="916" topLine="34" />
+	</File>
+	<File name="DVision/Matches.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2815" topLine="12" />
+	</File>
+	<File name="DVision/PatchFile.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="0" topLine="123" />
+	</File>
+	<File name="DVision/SurfSet.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="13913" topLine="605" />
+	</File>
+	<File name="FBrief.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="1920" topLine="45" />
+	</File>
+	<File name="FNarf.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="1616" topLine="24" />
+	</File>
+	<File name="FNarf.h" open="0" top="0" tabpos="0">
+		<Cursor position="0" topLine="47" />
+	</File>
+	<File name="FSurf64.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="1002" topLine="0" />
+	</File>
+	<File name="FeatureVector.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1854" topLine="61" />
+	</File>
+	<File name="Makefile" open="1" top="1" tabpos="0">
+		<Cursor position="1076" topLine="12" />
+	</File>
+	<File name="QueryResults.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="1357" topLine="18" />
+	</File>
+	<File name="QueryResults.h" open="0" top="0" tabpos="3">
+		<Cursor position="1990" topLine="54" />
+	</File>
+	<File name="ScoringObject.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="6328" topLine="216" />
+	</File>
+	<File name="ScoringObject.h" open="0" top="0" tabpos="0">
+		<Cursor position="2447" topLine="0" />
+	</File>
+	<File name="TemplatedDatabase.h" open="0" top="0" tabpos="6">
+		<Cursor position="8899" topLine="1230" />
+	</File>
+	<File name="TemplatedVocabulary.h" open="0" top="0" tabpos="0">
+		<Cursor position="1436" topLine="97" />
+	</File>
+	<File name="demonarf.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="4247" topLine="125" />
+	</File>
+	<File name="demorgb.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="8637" topLine="295" />
+	</File>
+	<File name="query.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="6457" topLine="297" />
+	</File>
+	<File name="voc.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="115" topLine="225" />
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,1745 @@
+DBoW2 Creazione Vocabolario NARF e Database.
+Estrazione NARF per pcdvoc/depth_1.pcd
+0)depth_1 => ElevatorArea
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_10.pcd
+1)depth_10 => ElevatorArea
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_100.pcd
+2)depth_100 => ElevatorArea
+Estratti 9 descrittori per 9 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1000.pcd
+3)depth_1000 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1001.pcd
+4)depth_1001 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1002.pcd
+5)depth_1002 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1003.pcd
+6)depth_1003 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1004.pcd
+7)depth_1004 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1005.pcd
+8)depth_1005 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1006.pcd
+9)depth_1006 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1007.pcd
+10)depth_1007 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1008.pcd
+11)depth_1008 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1009.pcd
+12)depth_1009 => Corridor
+Estratti 14 descrittori per 14 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_101.pcd
+13)depth_101 => Corridor
+Estratti 14 descrittori per 14 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1010.pcd
+14)depth_1010 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1011.pcd
+15)depth_1011 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1012.pcd
+16)depth_1012 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1013.pcd
+17)depth_1013 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1014.pcd
+18)depth_1014 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1015.pcd
+19)depth_1015 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1016.pcd
+20)depth_1016 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1017.pcd
+21)depth_1017 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1018.pcd
+22)depth_1018 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1019.pcd
+23)depth_1019 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_102.pcd
+24)depth_102 => Corridor
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1020.pcd
+25)depth_1020 => Corridor
+Estratti 10 descrittori per 10 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1021.pcd
+26)depth_1021 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1022.pcd
+27)depth_1022 => Corridor
+Estratti 10 descrittori per 10 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1023.pcd
+28)depth_1023 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1024.pcd
+29)depth_1024 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1025.pcd
+30)depth_1025 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1026.pcd
+31)depth_1026 => Corridor
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1027.pcd
+32)depth_1027 => Corridor
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1028.pcd
+33)depth_1028 => Corridor
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1029.pcd
+34)depth_1029 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_103.pcd
+35)depth_103 => Corridor
+Estratti 10 descrittori per 10 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1030.pcd
+36)depth_1030 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1031.pcd
+37)depth_1031 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1032.pcd
+38)depth_1032 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1033.pcd
+39)depth_1033 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1034.pcd
+40)depth_1034 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1035.pcd
+41)depth_1035 => StudentOffice
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1036.pcd
+42)depth_1036 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1037.pcd
+43)depth_1037 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1038.pcd
+44)depth_1038 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1039.pcd
+45)depth_1039 => StudentOffice
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_104.pcd
+46)depth_104 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1040.pcd
+47)depth_1040 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1041.pcd
+48)depth_1041 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1042.pcd
+49)depth_1042 => StudentOffice
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1043.pcd
+50)depth_1043 => StudentOffice
+Estratti 28 descrittori per 28 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1044.pcd
+51)depth_1044 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1045.pcd
+52)depth_1045 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1046.pcd
+53)depth_1046 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1047.pcd
+54)depth_1047 => StudentOffice
+Estratti 42 descrittori per 42 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1048.pcd
+55)depth_1048 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1049.pcd
+56)depth_1049 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_105.pcd
+57)depth_105 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1050.pcd
+58)depth_1050 => StudentOffice
+Estratti 36 descrittori per 36 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1051.pcd
+59)depth_1051 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1052.pcd
+60)depth_1052 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1053.pcd
+61)depth_1053 => StudentOffice
+Estratti 45 descrittori per 45 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1054.pcd
+62)depth_1054 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1055.pcd
+63)depth_1055 => StudentOffice
+Estratti 48 descrittori per 48 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1056.pcd
+64)depth_1056 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1057.pcd
+65)depth_1057 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1058.pcd
+66)depth_1058 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1059.pcd
+67)depth_1059 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_106.pcd
+68)depth_106 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1060.pcd
+69)depth_1060 => StudentOffice
+Estratti 45 descrittori per 45 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1061.pcd
+70)depth_1061 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1062.pcd
+71)depth_1062 => StudentOffice
+Estratti 48 descrittori per 48 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1063.pcd
+72)depth_1063 => StudentOffice
+Estratti 36 descrittori per 36 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1064.pcd
+73)depth_1064 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1065.pcd
+74)depth_1065 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1066.pcd
+75)depth_1066 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1067.pcd
+76)depth_1067 => StudentOffice
+Estratti 48 descrittori per 48 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1068.pcd
+77)depth_1068 => StudentOffice
+Estratti 55 descrittori per 55 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1069.pcd
+78)depth_1069 => StudentOffice
+Estratti 53 descrittori per 53 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_107.pcd
+79)depth_107 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1070.pcd
+80)depth_1070 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1071.pcd
+81)depth_1071 => StudentOffice
+Estratti 46 descrittori per 46 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1072.pcd
+82)depth_1072 => StudentOffice
+Estratti 48 descrittori per 48 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1073.pcd
+83)depth_1073 => StudentOffice
+Estratti 48 descrittori per 48 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1074.pcd
+84)depth_1074 => StudentOffice
+Estratti 44 descrittori per 44 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1075.pcd
+85)depth_1075 => StudentOffice
+Estratti 28 descrittori per 28 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1076.pcd
+86)depth_1076 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1077.pcd
+87)depth_1077 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1078.pcd
+88)depth_1078 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1079.pcd
+89)depth_1079 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_108.pcd
+90)depth_108 => Corridor
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1080.pcd
+91)depth_1080 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1081.pcd
+92)depth_1081 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1082.pcd
+93)depth_1082 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1083.pcd
+94)depth_1083 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1084.pcd
+95)depth_1084 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1085.pcd
+96)depth_1085 => StudentOffice
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1086.pcd
+97)depth_1086 => StudentOffice
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1087.pcd
+98)depth_1087 => StudentOffice
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1088.pcd
+99)depth_1088 => StudentOffice
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1089.pcd
+100)depth_1089 => StudentOffice
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_109.pcd
+101)depth_109 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1090.pcd
+102)depth_1090 => StudentOffice
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1091.pcd
+103)depth_1091 => StudentOffice
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1092.pcd
+104)depth_1092 => StudentOffice
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1093.pcd
+105)depth_1093 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1094.pcd
+106)depth_1094 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1095.pcd
+107)depth_1095 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1096.pcd
+108)depth_1096 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1097.pcd
+109)depth_1097 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1098.pcd
+110)depth_1098 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1099.pcd
+111)depth_1099 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_11.pcd
+112)depth_11 => ElevatorArea
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_110.pcd
+113)depth_110 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1100.pcd
+114)depth_1100 => StudentOffice
+Estratti 36 descrittori per 36 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1101.pcd
+115)depth_1101 => StudentOffice
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1102.pcd
+116)depth_1102 => StudentOffice
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1103.pcd
+117)depth_1103 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1104.pcd
+118)depth_1104 => StudentOffice
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1105.pcd
+119)depth_1105 => StudentOffice
+Estratti 11 descrittori per 11 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1106.pcd
+120)depth_1106 => StudentOffice
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1107.pcd
+121)depth_1107 => StudentOffice
+Estratti 14 descrittori per 14 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1108.pcd
+122)depth_1108 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1109.pcd
+123)depth_1109 => Corridor
+Estratti 10 descrittori per 10 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_111.pcd
+124)depth_111 => Corridor
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1110.pcd
+125)depth_1110 => Corridor
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1111.pcd
+126)depth_1111 => Corridor
+Estratti 14 descrittori per 14 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1112.pcd
+127)depth_1112 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1113.pcd
+128)depth_1113 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1114.pcd
+129)depth_1114 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1115.pcd
+130)depth_1115 => Corridor
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1116.pcd
+131)depth_1116 => Corridor
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1117.pcd
+132)depth_1117 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1118.pcd
+133)depth_1118 => Corridor
+Estratti 14 descrittori per 14 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1119.pcd
+134)depth_1119 => Corridor
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_112.pcd
+135)depth_112 => Corridor
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1120.pcd
+136)depth_1120 => Corridor
+Estratti 10 descrittori per 10 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1121.pcd
+137)depth_1121 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1122.pcd
+138)depth_1122 => Corridor
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1123.pcd
+139)depth_1123 => Corridor
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1124.pcd
+140)depth_1124 => Corridor
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1125.pcd
+141)depth_1125 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1126.pcd
+142)depth_1126 => Corridor
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1127.pcd
+143)depth_1127 => Corridor
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1128.pcd
+144)depth_1128 => Corridor
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1129.pcd
+145)depth_1129 => Corridor
+Estratti 45 descrittori per 45 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_113.pcd
+146)depth_113 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1130.pcd
+147)depth_1130 => Corridor
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1131.pcd
+148)depth_1131 => Corridor
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1132.pcd
+149)depth_1132 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1133.pcd
+150)depth_1133 => Corridor
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1134.pcd
+151)depth_1134 => Corridor
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1135.pcd
+152)depth_1135 => Corridor
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1136.pcd
+153)depth_1136 => Corridor
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1137.pcd
+154)depth_1137 => Corridor
+Estratti 45 descrittori per 45 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1138.pcd
+155)depth_1138 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1139.pcd
+156)depth_1139 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_114.pcd
+157)depth_114 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1140.pcd
+158)depth_1140 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1141.pcd
+159)depth_1141 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1142.pcd
+160)depth_1142 => StudentOffice
+Estratti 28 descrittori per 28 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1143.pcd
+161)depth_1143 => StudentOffice
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1144.pcd
+162)depth_1144 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1145.pcd
+163)depth_1145 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1146.pcd
+164)depth_1146 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1147.pcd
+165)depth_1147 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1148.pcd
+166)depth_1148 => StudentOffice
+Estratti 36 descrittori per 36 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1149.pcd
+167)depth_1149 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_115.pcd
+168)depth_115 => Corridor
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1150.pcd
+169)depth_1150 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1151.pcd
+170)depth_1151 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1152.pcd
+171)depth_1152 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1153.pcd
+172)depth_1153 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1154.pcd
+173)depth_1154 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1155.pcd
+174)depth_1155 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1156.pcd
+175)depth_1156 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1157.pcd
+176)depth_1157 => StudentOffice
+Estratti 44 descrittori per 44 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1158.pcd
+177)depth_1158 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1159.pcd
+178)depth_1159 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_116.pcd
+179)depth_116 => Corridor
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1160.pcd
+180)depth_1160 => StudentOffice
+Estratti 46 descrittori per 46 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1161.pcd
+181)depth_1161 => StudentOffice
+Estratti 36 descrittori per 36 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1162.pcd
+182)depth_1162 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1163.pcd
+183)depth_1163 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1164.pcd
+184)depth_1164 => StudentOffice
+Estratti 46 descrittori per 46 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1165.pcd
+185)depth_1165 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1166.pcd
+186)depth_1166 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1167.pcd
+187)depth_1167 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1168.pcd
+188)depth_1168 => StudentOffice
+Estratti 48 descrittori per 48 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1169.pcd
+189)depth_1169 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_117.pcd
+190)depth_117 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1170.pcd
+191)depth_1170 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1171.pcd
+192)depth_1171 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1172.pcd
+193)depth_1172 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1173.pcd
+194)depth_1173 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1174.pcd
+195)depth_1174 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1175.pcd
+196)depth_1175 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1176.pcd
+197)depth_1176 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1177.pcd
+198)depth_1177 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1178.pcd
+199)depth_1178 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1179.pcd
+200)depth_1179 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_118.pcd
+201)depth_118 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1180.pcd
+202)depth_1180 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1181.pcd
+203)depth_1181 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1182.pcd
+204)depth_1182 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1183.pcd
+205)depth_1183 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1184.pcd
+206)depth_1184 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1185.pcd
+207)depth_1185 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1186.pcd
+208)depth_1186 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1187.pcd
+209)depth_1187 => StudentOffice
+Estratti 47 descrittori per 47 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1188.pcd
+210)depth_1188 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1189.pcd
+211)depth_1189 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_119.pcd
+212)depth_119 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1190.pcd
+213)depth_1190 => StudentOffice
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1191.pcd
+214)depth_1191 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1192.pcd
+215)depth_1192 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1193.pcd
+216)depth_1193 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1194.pcd
+217)depth_1194 => StudentOffice
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1195.pcd
+218)depth_1195 => StudentOffice
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1196.pcd
+219)depth_1196 => StudentOffice
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1197.pcd
+220)depth_1197 => StudentOffice
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1198.pcd
+221)depth_1198 => StudentOffice
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1199.pcd
+222)depth_1199 => StudentOffice
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_12.pcd
+223)depth_12 => ElevatorArea
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_120.pcd
+224)depth_120 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1200.pcd
+225)depth_1200 => StudentOffice
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1201.pcd
+226)depth_1201 => StudentOffice
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1202.pcd
+227)depth_1202 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1203.pcd
+228)depth_1203 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1204.pcd
+229)depth_1204 => StudentOffice
+Estratti 44 descrittori per 44 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1205.pcd
+230)depth_1205 => StudentOffice
+Estratti 28 descrittori per 28 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1206.pcd
+231)depth_1206 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1207.pcd
+232)depth_1207 => StudentOffice
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1208.pcd
+233)depth_1208 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1209.pcd
+234)depth_1209 => StudentOffice
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_121.pcd
+235)depth_121 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1210.pcd
+236)depth_1210 => StudentOffice
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1211.pcd
+237)depth_1211 => StudentOffice
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1212.pcd
+238)depth_1212 => StudentOffice
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1213.pcd
+239)depth_1213 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1214.pcd
+240)depth_1214 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1215.pcd
+241)depth_1215 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1216.pcd
+242)depth_1216 => StudentOffice
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1217.pcd
+243)depth_1217 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1218.pcd
+244)depth_1218 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1219.pcd
+245)depth_1219 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_122.pcd
+246)depth_122 => Corridor
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1220.pcd
+247)depth_1220 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1221.pcd
+248)depth_1221 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1222.pcd
+249)depth_1222 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1223.pcd
+250)depth_1223 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1224.pcd
+251)depth_1224 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1225.pcd
+252)depth_1225 => StudentOffice
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1226.pcd
+253)depth_1226 => StudentOffice
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1227.pcd
+254)depth_1227 => StudentOffice
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1228.pcd
+255)depth_1228 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1229.pcd
+256)depth_1229 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_123.pcd
+257)depth_123 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1230.pcd
+258)depth_1230 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1231.pcd
+259)depth_1231 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1232.pcd
+260)depth_1232 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1233.pcd
+261)depth_1233 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1234.pcd
+262)depth_1234 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1235.pcd
+263)depth_1235 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1236.pcd
+264)depth_1236 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1237.pcd
+265)depth_1237 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1238.pcd
+266)depth_1238 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1239.pcd
+267)depth_1239 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_124.pcd
+268)depth_124 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1240.pcd
+269)depth_1240 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1241.pcd
+270)depth_1241 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1242.pcd
+271)depth_1242 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1243.pcd
+272)depth_1243 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1244.pcd
+273)depth_1244 => StudentOffice
+Estratti 45 descrittori per 45 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1245.pcd
+274)depth_1245 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1246.pcd
+275)depth_1246 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1247.pcd
+276)depth_1247 => StudentOffice
+Estratti 46 descrittori per 46 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1248.pcd
+277)depth_1248 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1249.pcd
+278)depth_1249 => StudentOffice
+Estratti 44 descrittori per 44 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_125.pcd
+279)depth_125 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1250.pcd
+280)depth_1250 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1251.pcd
+281)depth_1251 => StudentOffice
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1252.pcd
+282)depth_1252 => StudentOffice
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1253.pcd
+283)depth_1253 => StudentOffice
+Estratti 7 descrittori per 7 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1254.pcd
+284)depth_1254 => StudentOffice
+Estratti 14 descrittori per 14 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1255.pcd
+285)depth_1255 => StudentOffice
+Estratti 14 descrittori per 14 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1256.pcd
+286)depth_1256 => StudentOffice
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1257.pcd
+287)depth_1257 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1258.pcd
+288)depth_1258 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1259.pcd
+289)depth_1259 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_126.pcd
+290)depth_126 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1260.pcd
+291)depth_1260 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1261.pcd
+292)depth_1261 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1262.pcd
+293)depth_1262 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1263.pcd
+294)depth_1263 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1264.pcd
+295)depth_1264 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1265.pcd
+296)depth_1265 => StudentOffice
+Estratti 28 descrittori per 28 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1266.pcd
+297)depth_1266 => StudentOffice
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1267.pcd
+298)depth_1267 => StudentOffice
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1268.pcd
+299)depth_1268 => StudentOffice
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1269.pcd
+300)depth_1269 => StudentOffice
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_127.pcd
+301)depth_127 => Corridor
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1270.pcd
+302)depth_1270 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1271.pcd
+303)depth_1271 => Corridor
+Estratti 11 descrittori per 11 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1272.pcd
+304)depth_1272 => Corridor
+Estratti 11 descrittori per 11 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1273.pcd
+305)depth_1273 => Corridor
+Estratti 10 descrittori per 10 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1274.pcd
+306)depth_1274 => Corridor
+Estratti 8 descrittori per 8 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1275.pcd
+307)depth_1275 => Corridor
+Estratti 8 descrittori per 8 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1276.pcd
+308)depth_1276 => Corridor
+Estratti 9 descrittori per 9 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1277.pcd
+309)depth_1277 => Corridor
+Estratti 11 descrittori per 11 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1278.pcd
+310)depth_1278 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1279.pcd
+311)depth_1279 => Corridor
+Estratti 11 descrittori per 11 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_128.pcd
+312)depth_128 => Corridor
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1280.pcd
+313)depth_1280 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1281.pcd
+314)depth_1281 => Corridor
+Estratti 11 descrittori per 11 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1282.pcd
+315)depth_1282 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1283.pcd
+316)depth_1283 => Corridor
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1284.pcd
+317)depth_1284 => Corridor
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1285.pcd
+318)depth_1285 => Corridor
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1286.pcd
+319)depth_1286 => Corridor
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1287.pcd
+320)depth_1287 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1288.pcd
+321)depth_1288 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1289.pcd
+322)depth_1289 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_129.pcd
+323)depth_129 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1290.pcd
+324)depth_1290 => Corridor
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1291.pcd
+325)depth_1291 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1292.pcd
+326)depth_1292 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1293.pcd
+327)depth_1293 => Corridor
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1294.pcd
+328)depth_1294 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1295.pcd
+329)depth_1295 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1296.pcd
+330)depth_1296 => Corridor
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1297.pcd
+331)depth_1297 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1298.pcd
+332)depth_1298 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1299.pcd
+333)depth_1299 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_13.pcd
+334)depth_13 => ElevatorArea
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_130.pcd
+335)depth_130 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1300.pcd
+336)depth_1300 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1301.pcd
+337)depth_1301 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1302.pcd
+338)depth_1302 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1303.pcd
+339)depth_1303 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1304.pcd
+340)depth_1304 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1305.pcd
+341)depth_1305 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1306.pcd
+342)depth_1306 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1307.pcd
+343)depth_1307 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1308.pcd
+344)depth_1308 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1309.pcd
+345)depth_1309 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_131.pcd
+346)depth_131 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1310.pcd
+347)depth_1310 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1311.pcd
+348)depth_1311 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1312.pcd
+349)depth_1312 => Corridor
+Estratti 15 descrittori per 15 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1313.pcd
+350)depth_1313 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1314.pcd
+351)depth_1314 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1315.pcd
+352)depth_1315 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1316.pcd
+353)depth_1316 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1317.pcd
+354)depth_1317 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1318.pcd
+355)depth_1318 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1319.pcd
+356)depth_1319 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_132.pcd
+357)depth_132 => Corridor
+Estratti 13 descrittori per 13 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1320.pcd
+358)depth_1320 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1321.pcd
+359)depth_1321 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1322.pcd
+360)depth_1322 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1323.pcd
+361)depth_1323 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1324.pcd
+362)depth_1324 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1325.pcd
+363)depth_1325 => Corridor
+Estratti 19 descrittori per 19 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1326.pcd
+364)depth_1326 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1327.pcd
+365)depth_1327 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1328.pcd
+366)depth_1328 => Corridor
+Estratti 21 descrittori per 21 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1329.pcd
+367)depth_1329 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_133.pcd
+368)depth_133 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1330.pcd
+369)depth_1330 => Corridor
+Estratti 25 descrittori per 25 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1331.pcd
+370)depth_1331 => Corridor
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1332.pcd
+371)depth_1332 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1333.pcd
+372)depth_1333 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1334.pcd
+373)depth_1334 => Corridor
+Estratti 20 descrittori per 20 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1335.pcd
+374)depth_1335 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1336.pcd
+375)depth_1336 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1337.pcd
+376)depth_1337 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1338.pcd
+377)depth_1338 => Corridor
+Estratti 16 descrittori per 16 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1339.pcd
+378)depth_1339 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_134.pcd
+379)depth_134 => Corridor
+Estratti 11 descrittori per 11 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1340.pcd
+380)depth_1340 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1341.pcd
+381)depth_1341 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1342.pcd
+382)depth_1342 => Corridor
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1343.pcd
+383)depth_1343 => Corridor
+Estratti 22 descrittori per 22 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1344.pcd
+384)depth_1344 => Corridor
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1345.pcd
+385)depth_1345 => Corridor
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1346.pcd
+386)depth_1346 => Corridor
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1347.pcd
+387)depth_1347 => Corridor
+Estratti 36 descrittori per 36 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1348.pcd
+388)depth_1348 => StudentOffice
+Estratti 35 descrittori per 35 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1349.pcd
+389)depth_1349 => StudentOffice
+Estratti 29 descrittori per 29 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_135.pcd
+390)depth_135 => Corridor
+Estratti 12 descrittori per 12 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1350.pcd
+391)depth_1350 => StudentOffice
+Estratti 24 descrittori per 24 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1351.pcd
+392)depth_1351 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1352.pcd
+393)depth_1352 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1353.pcd
+394)depth_1353 => StudentOffice
+Estratti 26 descrittori per 26 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1354.pcd
+395)depth_1354 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1355.pcd
+396)depth_1355 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1356.pcd
+397)depth_1356 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1357.pcd
+398)depth_1357 => StudentOffice
+Estratti 34 descrittori per 34 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1358.pcd
+399)depth_1358 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1359.pcd
+400)depth_1359 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_136.pcd
+401)depth_136 => Corridor
+Estratti 18 descrittori per 18 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1360.pcd
+402)depth_1360 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1361.pcd
+403)depth_1361 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1362.pcd
+404)depth_1362 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1363.pcd
+405)depth_1363 => StudentOffice
+Estratti 39 descrittori per 39 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1364.pcd
+406)depth_1364 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1365.pcd
+407)depth_1365 => StudentOffice
+Estratti 31 descrittori per 31 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1366.pcd
+408)depth_1366 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1367.pcd
+409)depth_1367 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1368.pcd
+410)depth_1368 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1369.pcd
+411)depth_1369 => StudentOffice
+Estratti 27 descrittori per 27 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_137.pcd
+412)depth_137 => Corridor
+Estratti 50 descrittori per 50 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1370.pcd
+413)depth_1370 => StudentOffice
+Estratti 36 descrittori per 36 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1371.pcd
+414)depth_1371 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1372.pcd
+415)depth_1372 => StudentOffice
+Estratti 48 descrittori per 48 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1373.pcd
+416)depth_1373 => StudentOffice
+Estratti 44 descrittori per 44 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1374.pcd
+417)depth_1374 => StudentOffice
+Estratti 49 descrittori per 49 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1375.pcd
+418)depth_1375 => StudentOffice
+Estratti 32 descrittori per 32 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1376.pcd
+419)depth_1376 => StudentOffice
+Estratti 33 descrittori per 33 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1377.pcd
+420)depth_1377 => StudentOffice
+Estratti 28 descrittori per 28 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1378.pcd
+421)depth_1378 => StudentOffice
+Estratti 37 descrittori per 37 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1379.pcd
+422)depth_1379 => StudentOffice
+Estratti 30 descrittori per 30 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_138.pcd
+423)depth_138 => Corridor
+Estratti 23 descrittori per 23 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1380.pcd
+424)depth_1380 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1381.pcd
+425)depth_1381 => StudentOffice
+Estratti 40 descrittori per 40 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1382.pcd
+426)depth_1382 => StudentOffice
+Estratti 52 descrittori per 52 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1383.pcd
+427)depth_1383 => StudentOffice
+Estratti 46 descrittori per 46 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1384.pcd
+428)depth_1384 => StudentOffice
+Estratti 47 descrittori per 47 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1385.pcd
+429)depth_1385 => StudentOffice
+Estratti 54 descrittori per 54 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1386.pcd
+430)depth_1386 => StudentOffice
+Estratti 43 descrittori per 43 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1387.pcd
+431)depth_1387 => StudentOffice
+Estratti 41 descrittori per 41 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1388.pcd
+432)depth_1388 => StudentOffice
+Estratti 42 descrittori per 42 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1389.pcd
+433)depth_1389 => StudentOffice
+Estratti 50 descrittori per 50 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_139.pcd
+434)depth_139 => Toilet
+Estratti 17 descrittori per 17 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcdvoc/depth_1390.pcd
+435)depth_1390 => StudentOffice
+Estratti 38 descrittori per 38 keypoints.
+------------------------------------------------------------

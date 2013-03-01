@@ -1,0 +1,211 @@
+DBoW2 Query NARF: terminato.
+giacomo@mast:~/sviluppo/LoopCloserRGBD/dboworking/dbow$ ./query
+DBoW2 Query NARF.
+Estrazione NARF per pcd/depth_1.pcd
+0) depth_1 => ElevatorArea
+Estratti 2033 descrittori per 2033 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_1054.pcd
+1) depth_1054 => StudentOffice
+Estratti 2157 descrittori per 2157 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_1055.pcd
+2) depth_1055 => StudentOffice
+Estratti 2289 descrittori per 2289 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_1056.pcd
+3) depth_1056 => StudentOffice
+Estratti 2381 descrittori per 2381 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_1057.pcd
+4) depth_1057 => StudentOffice
+Estratti 2298 descrittori per 2298 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_1058.pcd
+5) depth_1058 => StudentOffice
+Estratti 2518 descrittori per 2518 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_2.pcd
+6) depth_2 => ElevatorArea
+Estratti 1994 descrittori per 1994 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_3.pcd
+7) depth_3 => ElevatorArea
+Estratti 2070 descrittori per 2070 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_33.pcd
+8) depth_33 => ElevatorArea
+Estratti 1924 descrittori per 1924 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_34.pcd
+9) depth_34 => ElevatorArea
+Estratti 1998 descrittori per 1998 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_35.pcd
+10) depth_35 => ElevatorArea
+Estratti 1951 descrittori per 1951 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_4.pcd
+11) depth_4 => ElevatorArea
+Estratti 2229 descrittori per 2229 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_5.pcd
+12) depth_5 => ElevatorArea
+Estratti 2180 descrittori per 2180 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_542.pcd
+13) depth_542 => TechnicalRoom
+Estratti 2248 descrittori per 2248 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_543.pcd
+14) depth_543 => TechnicalRoom
+Estratti 2153 descrittori per 2153 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_544.pcd
+15) depth_544 => TechnicalRoom
+Estratti 2054 descrittori per 2054 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_545.pcd
+16) depth_545 => TechnicalRoom
+Estratti 2508 descrittori per 2508 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_551.pcd
+17) depth_551 => TechnicalRoom
+Estratti 2321 descrittori per 2321 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_552.pcd
+18) depth_552 => TechnicalRoom
+Estratti 2502 descrittori per 2502 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_553.pcd
+19) depth_553 => TechnicalRoom
+Estratti 2198 descrittori per 2198 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_554.pcd
+20) depth_554 => TechnicalRoom
+Estratti 1927 descrittori per 1927 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_962.pcd
+21) depth_962 => StudentOffice
+Estratti 1727 descrittori per 1727 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_963.pcd
+22) depth_963 => StudentOffice
+Estratti 1682 descrittori per 1682 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_964.pcd
+23) depth_964 => StudentOffice
+Estratti 1747 descrittori per 1747 keypoints.
+------------------------------------------------------------
+Estrazione NARF per pcd/depth_965.pcd
+24) depth_965 => StudentOffice
+Estratti 1805 descrittori per 1805 keypoints.
+------------------------------------------------------------
+Estrazione terminata.
+Database informazioni: 
+Database: Entries = 25, Using direct index = no. Vocabulary: k = 10, L = 6, Weighting = tf-idf, Scoring = L1-norm, Number of words = 42863
+Interrogo il DB: 
+Cerca immagine 0.  Etichetta: depth_1 => ElevatorArea
+SELF - ID: 0, Score:1, Etichetta: depth_1 => ElevatorArea
+OK - ID: 11, Score:0.867025, Etichetta: depth_4 => ElevatorArea
+
+Cerca immagine 1.  Etichetta: depth_1054 => StudentOffice
+SELF - ID: 1, Score:1, Etichetta: depth_1054 => StudentOffice
+OK - ID: 4, Score:0.857034, Etichetta: depth_1057 => StudentOffice
+
+Cerca immagine 2.  Etichetta: depth_1055 => StudentOffice
+SELF - ID: 2, Score:1, Etichetta: depth_1055 => StudentOffice
+OK - ID: 3, Score:0.853164, Etichetta: depth_1056 => StudentOffice
+
+Cerca immagine 3.  Etichetta: depth_1056 => StudentOffice
+SELF - ID: 3, Score:1, Etichetta: depth_1056 => StudentOffice
+OK - ID: 2, Score:0.853164, Etichetta: depth_1055 => StudentOffice
+
+Cerca immagine 4.  Etichetta: depth_1057 => StudentOffice
+SELF - ID: 4, Score:1, Etichetta: depth_1057 => StudentOffice
+OK - ID: 1, Score:0.857034, Etichetta: depth_1054 => StudentOffice
+
+Cerca immagine 5.  Etichetta: depth_1058 => StudentOffice
+SELF - ID: 5, Score:1, Etichetta: depth_1058 => StudentOffice
+OK - ID: 2, Score:0.850842, Etichetta: depth_1055 => StudentOffice
+
+Cerca immagine 6.  Etichetta: depth_2 => ElevatorArea
+SELF - ID: 6, Score:1, Etichetta: depth_2 => ElevatorArea
+OK - ID: 12, Score:0.86493, Etichetta: depth_5 => ElevatorArea
+
+Cerca immagine 7.  Etichetta: depth_3 => ElevatorArea
+SELF - ID: 7, Score:1, Etichetta: depth_3 => ElevatorArea
+OK - ID: 9, Score:0.853857, Etichetta: depth_34 => ElevatorArea
+
+Cerca immagine 8.  Etichetta: depth_33 => ElevatorArea
+SELF - ID: 8, Score:1, Etichetta: depth_33 => ElevatorArea
+OK - ID: 10, Score:0.856211, Etichetta: depth_35 => ElevatorArea
+
+Cerca immagine 9.  Etichetta: depth_34 => ElevatorArea
+SELF - ID: 9, Score:1, Etichetta: depth_34 => ElevatorArea
+OK - ID: 8, Score:0.854046, Etichetta: depth_33 => ElevatorArea
+
+Cerca immagine 10.  Etichetta: depth_35 => ElevatorArea
+SELF - ID: 10, Score:1, Etichetta: depth_35 => ElevatorArea
+OK - ID: 8, Score:0.856211, Etichetta: depth_33 => ElevatorArea
+
+Cerca immagine 11.  Etichetta: depth_4 => ElevatorArea
+SELF - ID: 11, Score:1, Etichetta: depth_4 => ElevatorArea
+OK - ID: 0, Score:0.867025, Etichetta: depth_1 => ElevatorArea
+
+Cerca immagine 12.  Etichetta: depth_5 => ElevatorArea
+SELF - ID: 12, Score:1, Etichetta: depth_5 => ElevatorArea
+OK - ID: 6, Score:0.86493, Etichetta: depth_2 => ElevatorArea
+
+Cerca immagine 13.  Etichetta: depth_542 => TechnicalRoom
+SELF - ID: 13, Score:1, Etichetta: depth_542 => TechnicalRoom
+OK - ID: 16, Score:0.853439, Etichetta: depth_545 => TechnicalRoom
+
+Cerca immagine 14.  Etichetta: depth_543 => TechnicalRoom
+SELF - ID: 14, Score:1, Etichetta: depth_543 => TechnicalRoom
+OK - ID: 15, Score:0.852032, Etichetta: depth_544 => TechnicalRoom
+
+Cerca immagine 15.  Etichetta: depth_544 => TechnicalRoom
+SELF - ID: 15, Score:1, Etichetta: depth_544 => TechnicalRoom
+OK - ID: 14, Score:0.852032, Etichetta: depth_543 => TechnicalRoom
+
+Cerca immagine 16.  Etichetta: depth_545 => TechnicalRoom
+SELF - ID: 16, Score:1, Etichetta: depth_545 => TechnicalRoom
+OK - ID: 13, Score:0.853439, Etichetta: depth_542 => TechnicalRoom
+
+Cerca immagine 17.  Etichetta: depth_551 => TechnicalRoom
+SELF - ID: 17, Score:1, Etichetta: depth_551 => TechnicalRoom
+OK - ID: 18, Score:0.833255, Etichetta: depth_552 => TechnicalRoom
+
+Cerca immagine 18.  Etichetta: depth_552 => TechnicalRoom
+SELF - ID: 18, Score:1, Etichetta: depth_552 => TechnicalRoom
+OK - ID: 17, Score:0.833255, Etichetta: depth_551 => TechnicalRoom
+
+Cerca immagine 19.  Etichetta: depth_553 => TechnicalRoom
+SELF - ID: 19, Score:1, Etichetta: depth_553 => TechnicalRoom
+OK - ID: 18, Score:0.833174, Etichetta: depth_552 => TechnicalRoom
+
+Cerca immagine 20.  Etichetta: depth_554 => TechnicalRoom
+SELF - ID: 20, Score:1, Etichetta: depth_554 => TechnicalRoom
+NO - ID: 21, Score:0.807869, Etichetta: depth_962 => StudentOffice
+
+Cerca immagine 21.  Etichetta: depth_962 => StudentOffice
+SELF - ID: 21, Score:1, Etichetta: depth_962 => StudentOffice
+OK - ID: 24, Score:0.818333, Etichetta: depth_965 => StudentOffice
+
+Cerca immagine 22.  Etichetta: depth_963 => StudentOffice
+SELF - ID: 22, Score:1, Etichetta: depth_963 => StudentOffice
+OK - ID: 24, Score:0.834051, Etichetta: depth_965 => StudentOffice
+
+Cerca immagine 23.  Etichetta: depth_964 => StudentOffice
+SELF - ID: 23, Score:1, Etichetta: depth_964 => StudentOffice
+OK - ID: 24, Score:0.831954, Etichetta: depth_965 => StudentOffice
+
+Cerca immagine 24.  Etichetta: depth_965 => StudentOffice
+SELF - ID: 24, Score:1, Etichetta: depth_965 => StudentOffice
+NO - ID: 15, Score:0.838921, Etichetta: depth_544 => TechnicalRoom
+
+
+Precisione : 92 %
+DBoW2 Query NARF: terminato.
+ 

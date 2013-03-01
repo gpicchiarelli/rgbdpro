@@ -1,0 +1,26 @@
+Database: Entries = 2667, Using direct index = no. Vocabulary: k = 10, L = 6, Weighting = tf-idf, Scoring = L1-norm, Number of words = 960660
+Interrogo il DB: 
+Cerca immagine 0.  Etichetta: depth_427 => LoungeArea
+SELF - ID: 2032, Score:1, Etichetta: depth_427 => LoungeArea
+NO - ID: 489, Score:0.82646, Etichetta: depth_1439 => StudentOffice
+
+Cerca immagine 1.  Etichetta: depth_435 => LoungeArea
+SELF - ID: 2041, Score:1, Etichetta: depth_435 => LoungeArea
+NO - ID: 2161, Score:0.815196, Etichetta: depth_543 => TechnicalRoom
+
+Cerca immagine 2.  Etichetta: depth_551 => TechnicalRoom
+SELF - ID: 2170, Score:1, Etichetta: depth_551 => TechnicalRoom
+NO - ID: 1765, Score:0.808689, Etichetta: depth_2588 => PrinterRoom
+
+Cerca immagine 3.  Etichetta: depth_843 => StudentOffice
+SELF - ID: 2494, Score:1, Etichetta: depth_843 => StudentOffice
+NO - ID: 2036, Score:0.795703, Etichetta: depth_430 => LoungeArea
+
+Cerca immagine 4.  Etichetta: depth_851 => StudentOffice
+SELF - ID: 2503, Score:1, Etichetta: depth_851 => StudentOffice
+NO - ID: 2107, Score:0.803206, Etichetta: depth_495 => TechnicalRoom
+
+
+Precisione : 0 %
+DBoW2 Query NARF: terminato.
+ 
