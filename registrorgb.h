@@ -27,6 +27,7 @@
 #include <sys/stat.h>
 #include <algorithm>
 #include <pthread.h>
+#include <string.h>
 
 // OpenCV
 #include <opencv/cv.h>
@@ -39,7 +40,8 @@ using namespace std;
 class CoppiaRGB
 {
 public:
-    CoppiaRGB(vector<float> descriptors, vector<cv::KeyPoint> keypoints);
+    CoppiaRGB(string filename,vector<float> descriptors, vector<cv::KeyPoint> keypoints);
+    string name;
     vector<float> descriptors;
     vector<cv::KeyPoint> keypoints;
 

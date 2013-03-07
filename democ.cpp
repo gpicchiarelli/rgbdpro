@@ -68,18 +68,18 @@ void writeFeatures(string nomefile, vector < vector < vector <float > > > &feat)
 void testVocCreation(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &featuresrgb);
 void listFile(string direc, vector<string> *files_lt);
 void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
-void readPoseFile(const char *filename, std::vector<double> &xs, std::vector<double> &ys);
-int inliersRGB(cv::Mat& descriptors1,cv::Mat& descriptors2,vector<cv::KeyPoint> keypoints1,vector<cv::KeyPoint> keypoints2);
+void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
+int inliersRGB(cv::Mat descriptors1,cv::Mat descriptors2,vector<cv::KeyPoint> keypoints1,vector<cv::KeyPoint> keypoints2);
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-std::vector<string> files_list_rgb,files_list_3d;
-std::map<string, string> registro_interno;
-std::map<int, string> registro_aux;
-std::map<int, string> registro_aux_rgb;
+ vector<string> files_list_rgb,files_list_3d;
+ map<string, string> registro_interno;
+ map<int, string> registro_aux;
+ map<int, string> registro_aux_rgb;
 //registri
-std::map<int, string> registro_aux2;
-std::map<int, string> registro_aux3;
+ map<int, string> registro_aux2;
+ map<int, string> registro_aux3;
 
 typedef pair <string, string> PairString;
 typedef pair <int, string> Mappa;
@@ -112,19 +112,19 @@ int main(int nNumberofArgs, char* argv[])
             StringFunctions::trim(parm);
             parametri.push_back(parm);
         }
-        if (std::find(parametri.begin(), parametri.end(), "-l") != parametri.end()){
+        if ( find(parametri.begin(), parametri.end(), "-l") != parametri.end()){
             flag_loop= true;
             cout << "--- OPZIONE LOOP CLOSING ---" << endl;
         }
-        if (std::find(parametri.begin(), parametri.end(), "-vdel") != parametri.end()){
+        if ( find(parametri.begin(), parametri.end(), "-vdel") != parametri.end()){
             flag_voc= true;
             cout << "--- OPZIONE VOCABOLARIO ---" << endl;
         }
-        if (std::find(parametri.begin(), parametri.end(), "-D") != parametri.end()){
+        if ( find(parametri.begin(), parametri.end(), "-D") != parametri.end()){
             flag_debug= true;
             cout << "--- OPZIONE DEBUG ---" << endl;
         }
-        if (std::find(parametri.begin(), parametri.end(), "-h") != parametri.end()){
+        if ( find(parametri.begin(), parametri.end(), "-h") != parametri.end()){
             cout << endl << "DBOW NARF+SURF128 test: " << endl;
             cout << endl;
             cout <<"Nome Vocabolario NARF: "<< filename_voc_3d<< endl;
@@ -211,7 +211,7 @@ void searchRegistro()
     }
 }
 
-void readPoseFile(const char *filename, std::vector<double> &xs, std::vector<double> &ys)
+void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys)
 {
     xs.clear();
     ys.clear();
@@ -253,7 +253,7 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
                 cout << i << " vs "  << ret[j].Id << " -> "<<ret[j].Score << endl;
                 if (ret[j].Score > MATCH_THRESHOLD){ //sanity check
                     CoppiaRGB* dst = reg_RGB[ret[j].Id];
-                    int tyu = inliersRGB((cv::Mat&)src->descriptors, (cv::Mat&)src->keypoints,(cv::Mat&)dst->descriptors,(cv::Mat&)dst->keypoints);
+                    int tyu = inliersRGB((Mat)src->descriptors, (Mat)dst->descriptors,src->keypoints,dst->keypoints);
                     cout << "INLIERS:" << tyu << endl;
                 }
             }
@@ -277,11 +277,11 @@ void writeFeatures(string nomefile, vector < vector < vector <float > > > &feat)
             {
                 if (uu3 == (feat[uu1][uu2].size()-1) )
                 {
-                    f_txt << boost::lexical_cast<std::string>(feat[uu1][uu2][uu3]);
+                    f_txt << boost::lexical_cast<string>(feat[uu1][uu2][uu3]);
                 }
                 else
                 {
-                    f_txt << boost::lexical_cast<std::string>(feat[uu1][uu2][uu3]) << "|";
+                    f_txt << boost::lexical_cast< string>(feat[uu1][uu2][uu3]) << "|";
                 }
             }
         }
@@ -298,11 +298,11 @@ void wait()
     getchar();
 }
 
-int inliersRGB(cv::Mat& descriptors1,cv::Mat& descriptors2,vector<cv::KeyPoint> keypoints1,vector<cv::KeyPoint> keypoints2)
+int inliersRGB(cv::Mat descriptors1,cv::Mat descriptors2,vector<cv::KeyPoint> keypoints1,vector<cv::KeyPoint> keypoints2)
 {
     int numInliers = 0;
-
-    TwoWayMatcher matcher(TWM_BRUTEFORCE_L1);
+    TwoWayMatcher matcher(TWM_FLANN);
+    //TwoWayMatcher matcher(TWM_BRUTEFORCE_L1);
     vector<cv::DMatch> matches;
     cv::Mat mask1, mask2;
     matcher.match(descriptors1, descriptors2, matches, mask1, mask2);
@@ -326,10 +326,10 @@ int inliersRGB(cv::Mat& descriptors1,cv::Mat& descriptors2,vector<cv::KeyPoint> 
         p2It++;
     }
     vector<uchar> inliersMask;
-    if(points1.cols>4 && points1.rows>4 && points2.cols>4 && points2.rows>4){
+    //if(points1.cols>4 && points1.rows>4 && points2.cols>4 && points2.rows>4){
         findHomography(Mat(points1), Mat(points2), inliersMask, CV_FM_RANSAC, 1);
-        numInliers = std::count(inliersMask.begin(), inliersMask.end(), 1);
-    }
+        numInliers =  count(inliersMask.begin(), inliersMask.end(), 1);
+    //}
     points1.empty();
     points2.empty();
     return numInliers;
@@ -367,7 +367,7 @@ void loadFeaturesRGB(vector<vector<vector<float> > > &features)
         surf(image, mask, keypoints, descriptors);
         features.push_back(vector<vector<float> >());
 
-        reg_RGB.push_back(new CoppiaRGB(descriptors,keypoints));
+        reg_RGB.push_back(new CoppiaRGB(filename,descriptors,keypoints));
 
         changeStructure(descriptors, features.back(), surf.descriptorSize());
         cout << "Estratti " << features[i].size() << " descrittori." << endl;
@@ -388,7 +388,7 @@ void changeStructure(const vector<float> &plain, vector<vector<float> > &out,
     for(int i = 0; i < plain.size(); i += L, ++j)
     {
         out[j].resize(L);
-        std::copy(plain.begin() + i, plain.begin() + i + L, out[j].begin());
+         copy(plain.begin() + i, plain.begin() + i + L, out[j].begin());
     }
 }
 
@@ -472,7 +472,7 @@ void loadFeatures(vector<vector<vector<float> > > &features)
         // ------------------------------------------------------
         // -----Calcolo NARF descriptors per i punti di interesse-----
         // ------------------------------------------------------
-        std::vector<int> keypoint_indices2;
+         vector<int> keypoint_indices2;
         keypoint_indices2.resize (keypoint_indices.points.size ());
         for (unsigned int i=0; i<keypoint_indices.size (); ++i) // This step is necessary to get the right vector type
             keypoint_indices2[i]=keypoint_indices.points[i];
@@ -492,7 +492,7 @@ void loadFeatures(vector<vector<vector<float> > > &features)
 
         for (unsigned int p = 0; p < narf_descriptors.size(); p++) {
             vector<float> flot;
-            std::copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L,std::back_inserter(flot));
+             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
         }
@@ -510,7 +510,7 @@ void listFile(string direc, vector<string> *files_lt)
     if( pDIR=opendir(direc.c_str()) ) {
         while(entry = readdir(pDIR)) {
             if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0 ) {
-                std::string str = entry->d_name;
+                 string str = entry->d_name;
                 files_lt->push_back(direc+str);
             }
         }
@@ -591,7 +591,7 @@ void testVocCreation(const vector<vector<vector<float> > > &features,const vecto
         string luogo = registro_aux.at(i);
         vector<string> a;
         boost::split(a, registro_aux.at(i), boost::is_any_of("=>"));
-        a.erase( std::remove_if( a.begin(), a.end(), boost::bind( &std::string::empty, _1 ) ), a.end());
+        a.erase(  remove_if( a.begin(), a.end(), boost::bind( & string::empty, _1 ) ), a.end());
         StringFunctions::trim(a[1]);
         bown << a[1] << ",";
 

@@ -20,8 +20,9 @@
 
 
 
-CoppiaRGB::CoppiaRGB(vector<float> descriptors, vector<cv::KeyPoint> keypoints)
+CoppiaRGB::CoppiaRGB(string filename,vector<float> descriptors, vector<cv::KeyPoint> keypoints)
 {
+    this->name = filename;
     this->descriptors = descriptors;
     this->keypoints = keypoints;
 }
