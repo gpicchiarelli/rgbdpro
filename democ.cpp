@@ -48,6 +48,7 @@
 #include "DBoW2.h"
 
 #include "DUtils/DUtils.h"
+#include "DUtilsCV/DUtilsCV.h"
 #include "DVision/DVision.h"
 #include "TwoWayMatcher.h"
 #include "registrorgb.h"
@@ -73,13 +74,13 @@ int inliersRGB(cv::Mat descriptors1,cv::Mat descriptors2,vector<cv::KeyPoint> ke
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
- vector<string> files_list_rgb,files_list_3d;
- map<string, string> registro_interno;
- map<int, string> registro_aux;
- map<int, string> registro_aux_rgb;
+vector<string> files_list_rgb,files_list_3d;
+map<string, string> registro_interno;
+map<int, string> registro_aux;
+map<int, string> registro_aux_rgb;
 //registri
- map<int, string> registro_aux2;
- map<int, string> registro_aux3;
+map<int, string> registro_aux2;
+map<int, string> registro_aux3;
 
 typedef pair <string, string> PairString;
 typedef pair <int, string> Mappa;
@@ -143,10 +144,8 @@ int main(int nNumberofArgs, char* argv[])
                     directory3d = debug_directory3d;
                     directoryrgb = debug_directoryrgb;
                 }
-
                 listFile(directoryrgb,&files_list_rgb);
                 listFile(directory3d,&files_list_3d);
-
                 if(flag_voc){
                     if( remove(filename_voc_3d.c_str()) != 0 )
                         perror( "Errore cancellazione vocabolario NARF" );
@@ -158,16 +157,14 @@ int main(int nNumberofArgs, char* argv[])
                     else
                         puts( "Vocabolario SURF cancellato." );
                 }
-
                 loadFeaturesRGB(featuresrgb);
                 loadFeatures(features3d);
-
                 VocAux();
                 VocAux2();
-
                 testVocCreation(features3d,featuresrgb);
                 if(flag_loop){
                     loopClosing(features3d,featuresrgb);
+
                 }
             }else{
                 cout << "Errore: nessun parametro. Per la guida usare parametro '-h' " << endl;
@@ -216,52 +213,132 @@ void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys
     xs.clear();
     ys.clear();
 
-    fstream f(filename, ios::in);
-
-    string s;
-    double ts, x, y, t;
-    while(!f.eof())
-    {
-        getline(f, s);
-        if(!f.eof() && !s.empty())
-        {
-            sscanf(s.c_str(), "%lf, %lf, %lf, %lf", &ts, &x, &y, &t);
-            xs.push_back(x);
-            ys.push_back(y);
+    string line;
+    ifstream Myfile;
+    Myfile.open(filename);
+    if(Myfile.is_open()) {
+        while(Myfile.peek() != EOF) {
+            vector<string> w1;
+            getline(Myfile, line);
+            StringFunctions::trim(line);
+            if(line.size() > 0) {
+                //luogo
+                StringFunctions::split(line,w1,",");
+                string w = w1[1];
+                StringFunctions::trim(w);
+                string h = w1[2];
+                xs.push_back(boost::lexical_cast<double>(w));
+                ys.push_back(boost::lexical_cast<double>(h));
+            }
         }
+        Myfile.close();
     }
-    f.close();
 }
 
 void loopClosing(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &features2)
 {
 
-    int const INITIAL_OFFSET = -1;
-    double const MATCH_THRESHOLD = 0.20;
-    int const END_OFFSET = 5;
+    int const INITIAL_OFFSET = 70;
+    double const MATCH_THRESHOLD = 0.40;
+    int const END_OFFSET = INITIAL_OFFSET; //elimino la coda, sicuramente darà buoni risultati e non è un loop
+    int const GOOD_SUBSET = 4; //risultati da considerare validi e su cui determinare inliers
+    int const TEMP_CONS = 3;
+    bool loop_found = false;
+    // load robot poses
+    vector<double> xs, ys;
+    readPoseFile("g_truth_rgb.txt", xs, ys);
+    cout << "Acquisizione Ground Truth" << endl;
+    cout << "xs: " << xs.size() << endl;
+    cout << "ys: " << ys.size() << endl;
+    // prepare visualization windows
+    DUtilsCV::GUI::tWinHandler win = "Immagine Analizzata";
+    DUtilsCV::GUI::tWinHandler winplot = "TraiettoriaRGB";
+
+    DUtilsCV::Drawing::Plot::Style normal_style('b',1); // thickness
+    DUtilsCV::Drawing::Plot::Style loop_style('r', 2); // color, thickness
+
+    DUtilsCV::Drawing::Plot implot(240, 320,
+                                   - *std::max_element(xs.begin(), xs.end()),
+                                   - *std::min_element(xs.begin(), xs.end()),
+                                   *std::min_element(ys.begin(), ys.end()),
+                                   *std::max_element(ys.begin(), ys.end()), 25);
 
     Surf128Vocabulary voc_rgb(filename_voc_rgb);
     Surf128Database db_rgb(voc_rgb, false);
 
+    vector<int> goodSubset;
+    int TMP_INITIAL_OFFSET = INITIAL_OFFSET;
+
+    wait();
+
     for (int i=0;i<files_list_rgb.size();i++){
-        if ((i+1)>INITIAL_OFFSET){
+        loop_found = false;
+        Mat im = imread(files_list_rgb[i]);
+        DUtilsCV::GUI::showImage(im, true, &win, 10);
+        if ((i+1)>TMP_INITIAL_OFFSET){
             QueryResults ret;
             db_rgb.query(features2[i], ret,db_rgb.size());
             CoppiaRGB* src = reg_RGB[i];
-            cout <<files_list_rgb[i] << endl;
             for (int j = 0; j < ret.size(); j++){ //scansiono risultati
-                cout << i << " vs "  << ret[j].Id << " -> "<<ret[j].Score << endl;
                 if (ret[j].Score > MATCH_THRESHOLD){ //sanity check
-                    CoppiaRGB* dst = reg_RGB[ret[j].Id];
-                    int tyu = inliersRGB((Mat)src->descriptors, (Mat)dst->descriptors,src->keypoints,dst->keypoints);
-                    cout << "INLIERS:" << tyu << endl;
+                    if ((i - END_OFFSET) >= ret[j].Id){ //scarto la coda
+                        cout << i << " vs " << ret[j].Id << " score: " << ret[j].Score << endl;
+                        if (goodSubset.size() <= GOOD_SUBSET){
+                            goodSubset.push_back(ret[j].Id);
+                            cout << i << " in goodSubset : " << ret[j].Id << endl;
+                            cout << i << " vs "  << ret[j].Id << " -> "<<ret[j].Score << endl;
+                            cout << "----------------------------" << endl;
+                        }
+                        if (goodSubset.size() == GOOD_SUBSET){
+                            int maxInliers = 0;
+                            int maxIdInliers = -1;
+                            int tyu = 0;
+                            for(int yy = 0; yy < goodSubset.size(); yy++){
+                                CoppiaRGB* dst = reg_RGB[goodSubset[yy]];
+                                cout << "key: " << dst->keypoints.size() << " good: " << goodSubset[yy] << endl;
+                                tyu = inliersRGB((Mat)src->descriptors, (Mat)dst->descriptors,src->keypoints,dst->keypoints);
+                                if (maxInliers < tyu){ //trovo il massimo del subset buono.
+                                    maxInliers = tyu;
+                                    maxIdInliers = goodSubset[yy];
+                                }
+                            }
+                            //consistenza temporale
+                            BowVector v1, v2;
+
+                            voc_rgb.transform(features[ret[j].Id], v1);
+                            for(int yy = 0; yy < TEMP_CONS; yy++)
+                            {
+                                voc_rgb.transform(features[maxIdInliers - yy], v2);
+                                double score = voc_rgb.score(v1, v2);
+                                if (score >= MATCH_THRESHOLD){
+                                    cout << "Image " << i << " vs Image " << maxIdInliers - yy << ": " << score << endl;
+                                }else{
+                                    break;
+                                }
+                            }
+                            cout << "LOOP TROVATO - INLIERS MAX:" << tyu << ". "<< i <<" per immagine: " << maxIdInliers << endl;
+                            TMP_INITIAL_OFFSET = INITIAL_OFFSET + i; // se individuo un loop devo ripartire.
+                            implot.line(-xs[maxIdInliers], ys[maxIdInliers], -xs[i], ys[i], loop_style);
+                            j = ret.size();
+                        }
+                    }
                 }
             }
+            goodSubset.clear();
+            ret.clear();
         }
+        implot.line(-xs[i-1], ys[i-1], -xs[i], ys[i], normal_style);
+        DUtilsCV::GUI::showImage(implot.getImage(), true, &winplot, 10);
         db_rgb.add(features2[i]);
     }
-    NarfVocabulary voc_3d(filename_voc_3d);
-    NarfDatabase db_3d(voc_3d, false);
+    db_rgb.clear();
+
+    wait();
+
+    //    NarfVocabulary voc_3d(filename_voc_3d);
+    //    NarfDatabase db_3d(voc_3d, false);
+
+    //db_3d.clear();
 }
 
 void writeFeatures(string nomefile, vector < vector < vector <float > > > &feat)
@@ -318,20 +395,29 @@ int inliersRGB(cv::Mat descriptors1,cv::Mat descriptors2,vector<cv::KeyPoint> ke
     Mat_<Point2f>::iterator p2It = points2.begin<Point2f > ();
     for (matchIt = matches.begin(); matchIt != matches.end(); matchIt++)
     {
-        (*p1It).x = keypoints1[(*matchIt).queryIdx].pt.x;
-        (*p1It).y = keypoints1[(*matchIt).queryIdx].pt.y;
-        (*p2It).x = keypoints2[(*matchIt).trainIdx].pt.x;
-        (*p2It).y = keypoints2[(*matchIt).trainIdx].pt.y;
-        p1It++;
-        p2It++;
+        try{
+            (*p1It).x = keypoints1[(*matchIt).queryIdx].pt.x;
+            (*p1It).y = keypoints1[(*matchIt).queryIdx].pt.y;
+            (*p2It).x = keypoints2[(*matchIt).trainIdx].pt.x;
+            (*p2It).y = keypoints2[(*matchIt).trainIdx].pt.y;
+            p1It++;
+            p2It++;
+        }
+        catch (std::exception& e)
+        {
+            std::cerr << "exception caught: " << e.what() << '\n';
+        }
     }
     vector<uchar> inliersMask;
     //if(points1.cols>4 && points1.rows>4 && points2.cols>4 && points2.rows>4){
-        findHomography(Mat(points1), Mat(points2), inliersMask, CV_FM_RANSAC, 1);
-        numInliers =  count(inliersMask.begin(), inliersMask.end(), 1);
+    findHomography(Mat(points1), Mat(points2), inliersMask, CV_FM_RANSAC, 1);
+    numInliers =  count(inliersMask.begin(), inliersMask.end(), 1);
     //}
     points1.empty();
     points2.empty();
+    p1vec.clear();
+    p2vec.clear();
+
     return numInliers;
 }
 
@@ -339,7 +425,7 @@ void loadFeaturesRGB(vector<vector<vector<float> > > &features)
 {
     features.clear();
     features.reserve(files_list_rgb.size());
-    cv::SURF surf(200, 4, 2, true);
+    cv::SURF surf(300, 5, 4, true);
 
     string file_name_work,filename;
     ofstream save("vocsurf.aux");
@@ -388,14 +474,14 @@ void changeStructure(const vector<float> &plain, vector<vector<float> > &out,
     for(int i = 0; i < plain.size(); i += L, ++j)
     {
         out[j].resize(L);
-         copy(plain.begin() + i, plain.begin() + i + L, out[j].begin());
+        copy(plain.begin() + i, plain.begin() + i + L, out[j].begin());
     }
 }
 
 // ----------------------------------------------------------------------------
 typedef pcl::PointXYZ PointType;
-float angular_resolution = pcl::deg2rad (0.2); //0.08
-float support_size = 0.1f;
+float angular_resolution = pcl::deg2rad (0.5); //0.08
+float support_size = 0.2f;
 pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
 
 void loadFeatures(vector<vector<vector<float> > > &features)
@@ -437,6 +523,8 @@ void loadFeatures(vector<vector<vector<float> > > &features)
         vec1.clear();
         vec2.clear();
 
+
+
         // -----------------------------------------------
         // -----Crea RangeImage dal PointCloud-----
         // -----------------------------------------------
@@ -472,7 +560,7 @@ void loadFeatures(vector<vector<vector<float> > > &features)
         // ------------------------------------------------------
         // -----Calcolo NARF descriptors per i punti di interesse-----
         // ------------------------------------------------------
-         vector<int> keypoint_indices2;
+        vector<int> keypoint_indices2;
         keypoint_indices2.resize (keypoint_indices.points.size ());
         for (unsigned int i=0; i<keypoint_indices.size (); ++i) // This step is necessary to get the right vector type
             keypoint_indices2[i]=keypoint_indices.points[i];
@@ -492,7 +580,7 @@ void loadFeatures(vector<vector<vector<float> > > &features)
 
         for (unsigned int p = 0; p < narf_descriptors.size(); p++) {
             vector<float> flot;
-             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
+            copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
         }
@@ -510,7 +598,7 @@ void listFile(string direc, vector<string> *files_lt)
     if( pDIR=opendir(direc.c_str()) ) {
         while(entry = readdir(pDIR)) {
             if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0 ) {
-                 string str = entry->d_name;
+                string str = entry->d_name;
                 files_lt->push_back(direc+str);
             }
         }
@@ -524,7 +612,7 @@ void listFile(string direc, vector<string> *files_lt)
 void testVocCreation(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &featuresrgb)
 {
     // branching factor and depth levels
-    const int k = 9;
+    const int k = 10;
     const int L = 3;
     const ScoringType score = L1_NORM;
     const WeightingType weight = TF_IDF;

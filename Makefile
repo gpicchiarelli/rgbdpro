@@ -1,4 +1,4 @@
-CC=ccache gcc -w -O3
+CC=ccache gcc -g -w -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG
 CFLAGS+=$(shell pkg-config --cflags opencv )
 #Giacomo Picchiarelli
@@ -14,6 +14,9 @@ DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h 
   TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h
 
 OBJS=BowVector.o FSurf64.o FSurf128.o FBrief.o FNarf.o ScoringObject.o QueryResults.o FeatureVector.o TwoWayMatcher.o registrorgb.o
+
+OBJSDEMOC=TwoWayMatcher.o registrorgb.o
+
 	
 DEPS_SO=DUtils/libDUtils.so DUtilsCV/libDUtilsCV.so DVision/libDVision.so
 TARGET=libDBoW2.so
@@ -26,7 +29,7 @@ demo: $(OBJS) demo.o $(TARGET)
 demo.o: demo.cpp $(DEPS)
 	$(CC) $(CFLAGS) -O3 -Wall -c $< -o $@
 
-democ: $(OBJS) democ.o $(TARGET)
+democ: $(OBJSDEMOC) democ.o $(TARGET)
 	$(CC) $^ $(LFLAGS) -O3 -o $@
 
 democ.o: democ.cpp $(DEPS)
