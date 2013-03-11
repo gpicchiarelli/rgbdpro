@@ -8,16 +8,14 @@ LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs op
   -lDVision -lDUtilsCV -lDUtils -lstdc++ \
 -lpcl_apps -lpcl_common -lpcl_features -lpcl_filters -lpcl_io -lpcl_kdtree -lpcl_keypoints -lpcl_octree \
 -lpcl_registration -lpcl_sample_consensus \
--lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization -lvtkCommon -lvtkFiltering -lpthread
+-lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization -lvtkCommon -lvtkFiltering -lpthread -lboost_thread
 
 DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h TemplatedVocabulary.h \
-  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h
+  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h
 
-OBJS=BowVector.o FSurf64.o FSurf128.o FBrief.o FNarf.o ScoringObject.o QueryResults.o FeatureVector.o TwoWayMatcher.o registrorgb.o
+OBJS=BowVector.o FSurf64.o FSurf128.o FBrief.o FNarf.o ScoringObject.o QueryResults.o FeatureVector.o \
+	TwoWayMatcher.o registrorgb.o registro3d.o 
 
-OBJSDEMOC=TwoWayMatcher.o registrorgb.o
-
-	
 DEPS_SO=DUtils/libDUtils.so DUtilsCV/libDUtilsCV.so DVision/libDVision.so
 TARGET=libDBoW2.so
 
@@ -29,7 +27,7 @@ demo: $(OBJS) demo.o $(TARGET)
 demo.o: demo.cpp $(DEPS)
 	$(CC) $(CFLAGS) -O3 -Wall -c $< -o $@
 
-democ: $(OBJSDEMOC) democ.o $(TARGET)
+democ: $(OBJS) democ.o $(TARGET)
 	$(CC) $^ $(LFLAGS) -O3 -o $@
 
 democ.o: democ.cpp $(DEPS)

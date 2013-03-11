@@ -1,0 +1,1 @@
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/PCDTextToBinary/CMakeFiles/pcd_tb.dir

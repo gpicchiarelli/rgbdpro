@@ -39,10 +39,14 @@
 #include <pcl/io/pcd_io.h>
 #include <pcl/visualization/range_image_visualizer.h>
 #include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/visualization/image_viewer.h>
 #include <pcl/features/range_image_border_extractor.h>
 #include <pcl/keypoints/narf_keypoint.h>
 #include <pcl/features/narf_descriptor.h>
 #include <pcl/console/parse.h>
+#include <pcl/visualization/cloud_viewer.h>
+#include <pcl/common/common_headers.h>
+#include <pcl/features/normal_3d.h>
 
 // DBoW2
 #include "DBoW2.h"
@@ -66,14 +70,14 @@ void searchRegistro();
 void VocAux();
 void VocAux2();
 void loopClosing(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &features2);
-void loadFeatures(vector<vector<vector<float> > > &features);
+void loadFeatures3d(vector<vector<vector<float> > > &features);
 void loadFeaturesRGB(vector<vector<vector<float> > > &features);
-void writeFeatures(string nomefile, vector < vector < vector <float > > > &feat);
 void testVocCreation(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &featuresrgb);
 void listFile(string direc, vector<string> *files_lt);
 void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
 void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
 int inliersRGB(int origine, int destinazione);
+boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud);
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -100,13 +104,13 @@ int main(int nNumberofArgs, char* argv[])
 {
 
     string directory3d = "pcd/";
+    string directory3dbin = "pcdbin/";
     string directoryrgb = "_images/";
-
     string debug_directory3d = "debug_pcd/";
     string debug_directoryrgb = "debug_images/";
 
     vector<vector<vector<float> > > featuresrgb,features3d;
-    bool flag_voc=false, flag_debug=false,flag_loop = false;
+    bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false;
 
     if(nNumberofArgs > 0){
         vector<string> parametri;
@@ -115,6 +119,10 @@ int main(int nNumberofArgs, char* argv[])
             string parm = argv[y];
             StringFunctions::trim(parm);
             parametri.push_back(parm);
+        }
+        if ( find(parametri.begin(), parametri.end(), "-b") != parametri.end()){
+            flag_loop= true;
+            cout << "--- OPZIONE DEPTH IN FORMATO BINARIO ---" << endl;
         }
         if ( find(parametri.begin(), parametri.end(), "-l") != parametri.end()){
             flag_loop= true;
@@ -137,6 +145,7 @@ int main(int nNumberofArgs, char* argv[])
             cout << "[ -h ]: Guida" << endl;
             cout << "[ -vdel ]: Cancella i vecchi vocabolari." << endl;
             cout << "[ -l ]: Loop Closing." << endl;
+            cout << "[ -b ]: Si utilizzano il file depth in formato binario." << endl;
             cout << "[ -D ]: Modalità DEBUG. Usa un dataset ridotto nelle cartelle debug_{*}" << endl;
             exit(0);
         }else{
@@ -147,6 +156,10 @@ int main(int nNumberofArgs, char* argv[])
                     directory3d = debug_directory3d;
                     directoryrgb = debug_directoryrgb;
                 }
+                if(flag_loop){
+                    directory3d = directory3dbin;
+                }
+
                 listFile(directoryrgb,&files_list_rgb);
                 listFile(directory3d,&files_list_3d);
                 if(flag_voc){
@@ -160,8 +173,9 @@ int main(int nNumberofArgs, char* argv[])
                     else
                         puts( "Vocabolario SURF cancellato." );
                 }
+
                 loadFeaturesRGB(featuresrgb);
-                loadFeatures(features3d);
+                loadFeatures3d(features3d);
                 VocAux();
                 VocAux2();
                 testVocCreation(features3d,featuresrgb);
@@ -250,9 +264,8 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
     // load robot poses
     vector<double> xs, ys;
     readPoseFile("g_truth_rgb.txt", xs, ys);
-    cout << "Acquisizione Ground Truth" << endl;
-    cout << "xs: " << xs.size() << endl;
-    cout << "ys: " << ys.size() << endl;
+    cout << "RGB: Acquisizione Ground Truth" << endl;
+
     // prepare visualization windows
     DUtilsCV::GUI::tWinHandler win = "Immagine Analizzata";
     DUtilsCV::GUI::tWinHandler winplot = "TraiettoriaRGB";
@@ -273,7 +286,7 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
     vector<int> goodSubset;
     int TMP_INITIAL_OFFSET = INITIAL_OFFSET;
 
-   if (!DEBUG) { wait(); }
+    if (!DEBUG) { wait(); }
 
     for (int i=0;i<files_list_rgb.size();i++){
         loop_found = false;
@@ -305,7 +318,6 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
                             }
                             //consistenza temporale
                             BowVector v1, v2;
-
                             voc_rgb.transform(features[ret[j].Id], v1);
                             for(int yy = 0; yy < TEMP_CONS; yy++)
                             {
@@ -338,37 +350,8 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
 
     //    NarfVocabulary voc_3d(filename_voc_3d);
     //    NarfDatabase db_3d(voc_3d, false);
-
-    //db_3d.clear();
+    //    db_3d.clear();
 }
-
-void writeFeatures(string nomefile, vector < vector < vector <float > > > &feat)
-{
-    ofstream f_txt(nomefile.c_str());
-    for(int uu1 = 0; uu1 < feat.size(); uu1++)
-    {
-        f_txt << uu1 << "|";
-        for(int uu2 = 0; uu2 < feat[uu1].size(); uu2++)
-        {
-            f_txt << uu2 << "|";
-            for(int uu3 = 0; uu3 < feat[uu1][uu2].size(); uu3++)
-            {
-                if (uu3 == (feat[uu1][uu2].size()-1) )
-                {
-                    f_txt << boost::lexical_cast<string>(feat[uu1][uu2][uu3]);
-                }
-                else
-                {
-                    f_txt << boost::lexical_cast< string>(feat[uu1][uu2][uu3]) << "|";
-                }
-            }
-        }
-        f_txt << "#";
-    }
-    f_txt.close();
-    //f = boost::lexical_cast<float>(s);
-}
-
 
 void wait()
 {
@@ -407,23 +390,11 @@ int inliersRGB(int origine,int destinazione)
     Mat points1(p1vec);
     Mat points2(p2vec);
 
-    vector<DMatch>::iterator matchIt;
-    Mat_<Point2f>::iterator p1It = points1.begin<Point2f > ();
-    Mat_<Point2f>::iterator p2It = points2.begin<Point2f > ();
-//    for (matchIt = matches.begin(); matchIt != matches.end(); matchIt++)
-//    {
-//        (*p1It).x = keypoints1[(*matchIt).queryIdx].pt.x;
-//        (*p1It).y = keypoints1[(*matchIt).queryIdx].pt.y;
-//        (*p2It).x = keypoints2[(*matchIt).trainIdx].pt.x;
-//        (*p2It).y = keypoints2[(*matchIt).trainIdx].pt.y;
-//        p1It++;
-//        p2It++;
-//    }
     vector<uchar> inliersMask;
-    //if(points1.cols>4 && points1.rows>4 && points2.cols>4 && points2.rows>4){
+
     findHomography(Mat(points1), Mat(points2), inliersMask, CV_FM_RANSAC, 1);
     numInliers =  count(inliersMask.begin(), inliersMask.end(), 1);
-    //}
+
     inliersMask.clear();
     p1vec.clear();
     p2vec.clear();
@@ -488,19 +459,30 @@ void changeStructure(const vector<float> &plain, vector<vector<float> > &out,
 }
 
 // ----------------------------------------------------------------------------
-typedef pcl::PointXYZ PointType;
-float angular_resolution = pcl::deg2rad (0.5); //0.08
-float support_size = 0.2f;
-pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
-
-void loadFeatures(vector<vector<vector<float> > > &features)
+void loadFeatures3d(vector<vector<vector<float> > > &features)
 {
+    typedef pcl::PointXYZ PointType;
+    float angular_resolution = pcl::deg2rad (0.14);
+    float support_size = 0.1f;
+    pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
+    pcl::visualization::RangeImageVisualizer range_image_widget ("Visualizzazione 3D - [Range image]");
+
     features.clear();
     features.reserve(files_list_3d.size());
 
     string filename;
     string file_name_work;
     ofstream save("voc.aux");
+
+    float noise_level = 0.0f;
+    float min_range = 0.0f;
+    int border_size = 1;
+
+    range_image_widget.setSize(300,300);
+    range_image_widget.setPosition(200,200);
+
+    boost::shared_ptr<pcl::RangeImage> range_image_ptr (new pcl::RangeImage);
+    pcl::RangeImage& range_image = *range_image_ptr;
 
     for (int i = 0; i < files_list_3d.size(); ++i) {
         pcl::PointCloud<PointType>::Ptr point_cloud_ptr (new pcl::PointCloud<PointType>);
@@ -532,31 +514,16 @@ void loadFeatures(vector<vector<vector<float> > > &features)
         vec1.clear();
         vec2.clear();
 
-
-
-        // -----------------------------------------------
-        // -----Crea RangeImage dal PointCloud-----
-        // -----------------------------------------------
-        float noise_level = 0.0f;
-        float min_range = 0.0f;
-        int border_size = 1;
-        boost::shared_ptr<pcl::RangeImage> range_image_ptr (new pcl::RangeImage);
-        pcl::RangeImage& range_image = *range_image_ptr;
         range_image.createFromPointCloud (point_cloud, angular_resolution, pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
                                           scene_sensor_pose, coordinate_frame, noise_level, min_range, border_size);
         //range_image.integrateFarRanges (far_ranges);
         range_image.setUnseenToMaxRange();
-        point_cloud.clear();
-        // --------------------------------
-        // -----Estraggo NARF keypoints----
-        // --------------------------------
+
         pcl::RangeImageBorderExtractor range_image_border_extractor;
         pcl::NarfKeypoint narf_keypoint_detector;
         narf_keypoint_detector.setRangeImageBorderExtractor (&range_image_border_extractor);
         narf_keypoint_detector.setRangeImage (&range_image);
         narf_keypoint_detector.getParameters().support_size = support_size;
-
-
 
         //euristiche, per avvicinarsi al real time
         narf_keypoint_detector.getParameters().max_no_of_threads = 3;
@@ -583,16 +550,25 @@ void loadFeatures(vector<vector<vector<float> > > &features)
         features.push_back(vector<vector<float> >());
         cout << "------------------------------------------------------------" << endl;
 
-        range_image.clear();
-        keypoint_indices.clear();
-        keypoint_indices2.clear();
-
         for (unsigned int p = 0; p < narf_descriptors.size(); p++) {
             vector<float> flot;
             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
         }
+
+        range_image_widget.showRangeImage (range_image);
+//      for (size_t tt=0; tt<keypoint_indices.points.size (); ++tt){
+//            range_image_widget.markPoint (keypoint_indices.points[tt]%range_image.width,
+//                                          keypoint_indices.points[tt]/range_image.width,
+//                                          pcl::visualization::Vector3ub (1, 0, 0));
+//      }
+        range_image_widget.spinOnce(true);
+
+        //cleaning
+
+        range_image.clear();
+        point_cloud.clear();
         narf_descriptors.clear();
         narf_descriptor = NULL;
     }

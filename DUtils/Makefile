@@ -1,6 +1,5 @@
-CC=gcc
-CFLAGS=-DNDEBUG
-
+CC=gcc 
+CFLAGS=-DNDEBUG -O3 
 
 DEPS=BinaryFile.h DUtils.h LineFile.h Random.h Timestamp.h DException.h \
   FileModes.h Math.hpp Profiler.h STL.h StringFunctions.h ConfigFile.h \

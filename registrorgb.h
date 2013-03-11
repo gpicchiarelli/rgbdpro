@@ -2,7 +2,7 @@
  * File: democ.cpp
  * Date: November 2012
  * Author: Giacomo Picchiarelli <gpicchiarelli@gmail.com>
- * Description: test NARF - SIRF features (pcl library, opencv)
+ * Description: test NARF - SURF features (pcl library, opencv)
  *
  * This file is licensed under a Creative Commons
  * Attribution-NonCommercial-ShareAlike 3.0 license.
