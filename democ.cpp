@@ -53,6 +53,9 @@
 #include "TwoWayMatcher.h"
 #include "registrorgb.h"
 
+//impostazioni utili al debug
+#define DEBUG 0
+
 using namespace std;
 using namespace DBoW2;
 using namespace DUtils;
@@ -70,7 +73,7 @@ void testVocCreation(const vector<vector<vector<float> > > &features,const vecto
 void listFile(string direc, vector<string> *files_lt);
 void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
 void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
-int inliersRGB(cv::Mat descriptors1,cv::Mat descriptors2,vector<cv::KeyPoint> keypoints1,vector<cv::KeyPoint> keypoints2);
+int inliersRGB(int origine, int destinazione);
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -254,8 +257,9 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
     DUtilsCV::GUI::tWinHandler win = "Immagine Analizzata";
     DUtilsCV::GUI::tWinHandler winplot = "TraiettoriaRGB";
 
-    DUtilsCV::Drawing::Plot::Style normal_style('b',1); // thickness
-    DUtilsCV::Drawing::Plot::Style loop_style('r', 2); // color, thickness
+    DUtilsCV::Drawing::Plot::Style normal_style(2); // thickness
+    DUtilsCV::Drawing::Plot::Style good_style('b',3); // thickness
+    DUtilsCV::Drawing::Plot::Style loop_style('r', 3); // color, thickness
 
     DUtilsCV::Drawing::Plot implot(240, 320,
                                    - *std::max_element(xs.begin(), xs.end()),
@@ -269,7 +273,7 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
     vector<int> goodSubset;
     int TMP_INITIAL_OFFSET = INITIAL_OFFSET;
 
-    wait();
+   if (!DEBUG) { wait(); }
 
     for (int i=0;i<files_list_rgb.size();i++){
         loop_found = false;
@@ -278,7 +282,6 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
         if ((i+1)>TMP_INITIAL_OFFSET){
             QueryResults ret;
             db_rgb.query(features2[i], ret,db_rgb.size());
-            CoppiaRGB* src = reg_RGB[i];
             for (int j = 0; j < ret.size(); j++){ //scansiono risultati
                 if (ret[j].Score > MATCH_THRESHOLD){ //sanity check
                     if ((i - END_OFFSET) >= ret[j].Id){ //scarto la coda
@@ -286,18 +289,16 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
                         if (goodSubset.size() <= GOOD_SUBSET){
                             goodSubset.push_back(ret[j].Id);
                             cout << i << " in goodSubset : " << ret[j].Id << endl;
-                            cout << i << " vs "  << ret[j].Id << " -> "<<ret[j].Score << endl;
                             cout << "----------------------------" << endl;
+                            implot.line(-xs[i-1], ys[i-1], -xs[i], ys[i], good_style);
                         }
                         if (goodSubset.size() == GOOD_SUBSET){
                             int maxInliers = 0;
                             int maxIdInliers = -1;
                             int tyu = 0;
                             for(int yy = 0; yy < goodSubset.size(); yy++){
-                                CoppiaRGB* dst = reg_RGB[goodSubset[yy]];
-                                cout << "key: " << dst->keypoints.size() << " good: " << goodSubset[yy] << endl;
-                                tyu = inliersRGB((Mat)src->descriptors, (Mat)dst->descriptors,src->keypoints,dst->keypoints);
-                                if (maxInliers < tyu){ //trovo il massimo del subset buono.
+                                tyu = inliersRGB(i,goodSubset[yy]);
+                                if (maxInliers < tyu){
                                     maxInliers = tyu;
                                     maxIdInliers = goodSubset[yy];
                                 }
@@ -333,7 +334,7 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
     }
     db_rgb.clear();
 
-    wait();
+    if (!DEBUG) { wait(); }
 
     //    NarfVocabulary voc_3d(filename_voc_3d);
     //    NarfDatabase db_3d(voc_3d, false);
@@ -375,13 +376,29 @@ void wait()
     getchar();
 }
 
-int inliersRGB(cv::Mat descriptors1,cv::Mat descriptors2,vector<cv::KeyPoint> keypoints1,vector<cv::KeyPoint> keypoints2)
+int inliersRGB(int origine,int destinazione)
 {
+
     int numInliers = 0;
+
+    CoppiaRGB* src = reg_RGB[origine];
+    CoppiaRGB* dst = reg_RGB[destinazione];
+
+    cv::Mat descriptors1;
+    cv::Mat descriptors2;
+    vector<cv::KeyPoint> keypoints1;
+    vector<cv::KeyPoint> keypoints2;
+
+    descriptors1 = Mat(src->descriptors);
+    descriptors2 = Mat(dst->descriptors);
+
+    keypoints1 = src->keypoints;
+    keypoints2 = dst->keypoints;
+
     TwoWayMatcher matcher(TWM_FLANN);
     //TwoWayMatcher matcher(TWM_BRUTEFORCE_L1);
-    vector<cv::DMatch> matches;
-    cv::Mat mask1, mask2;
+    vector<DMatch> matches;
+    Mat mask1, mask2;
     matcher.match(descriptors1, descriptors2, matches, mask1, mask2);
 
     // Initializes points lists
@@ -393,28 +410,21 @@ int inliersRGB(cv::Mat descriptors1,cv::Mat descriptors2,vector<cv::KeyPoint> ke
     vector<DMatch>::iterator matchIt;
     Mat_<Point2f>::iterator p1It = points1.begin<Point2f > ();
     Mat_<Point2f>::iterator p2It = points2.begin<Point2f > ();
-    for (matchIt = matches.begin(); matchIt != matches.end(); matchIt++)
-    {
-        try{
-            (*p1It).x = keypoints1[(*matchIt).queryIdx].pt.x;
-            (*p1It).y = keypoints1[(*matchIt).queryIdx].pt.y;
-            (*p2It).x = keypoints2[(*matchIt).trainIdx].pt.x;
-            (*p2It).y = keypoints2[(*matchIt).trainIdx].pt.y;
-            p1It++;
-            p2It++;
-        }
-        catch (std::exception& e)
-        {
-            std::cerr << "exception caught: " << e.what() << '\n';
-        }
-    }
+//    for (matchIt = matches.begin(); matchIt != matches.end(); matchIt++)
+//    {
+//        (*p1It).x = keypoints1[(*matchIt).queryIdx].pt.x;
+//        (*p1It).y = keypoints1[(*matchIt).queryIdx].pt.y;
+//        (*p2It).x = keypoints2[(*matchIt).trainIdx].pt.x;
+//        (*p2It).y = keypoints2[(*matchIt).trainIdx].pt.y;
+//        p1It++;
+//        p2It++;
+//    }
     vector<uchar> inliersMask;
     //if(points1.cols>4 && points1.rows>4 && points2.cols>4 && points2.rows>4){
     findHomography(Mat(points1), Mat(points2), inliersMask, CV_FM_RANSAC, 1);
     numInliers =  count(inliersMask.begin(), inliersMask.end(), 1);
     //}
-    points1.empty();
-    points2.empty();
+    inliersMask.clear();
     p1vec.clear();
     p2vec.clear();
 
@@ -452,7 +462,6 @@ void loadFeaturesRGB(vector<vector<vector<float> > > &features)
         vector<float> descriptors;
         surf(image, mask, keypoints, descriptors);
         features.push_back(vector<vector<float> >());
-
         reg_RGB.push_back(new CoppiaRGB(filename,descriptors,keypoints));
 
         changeStructure(descriptors, features.back(), surf.descriptorSize());
