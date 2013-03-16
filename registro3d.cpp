@@ -19,9 +19,39 @@
 
 #include "registro3d.h"
 
-Coppia3d::Coppia3d()
-{
-
+Registro3D::Registro3D(int size){
+    this->_reg_int_names.reserve(size);
+    this->_reg_int_points.reserve(size);
+    this->_reg_int_descri.reserve(size);
+    pcl::PointCloud<pcl::PointXYZ>::Ptr aligned___ (new pcl::PointCloud<pcl::PointXYZ>());
+    this->aligned = aligned___;
 }
 
-Coppia3d::~Coppia3d(){}
+void Registro3D::addFrame(string name,pcl::PointCloud<pcl::PointXYZ> points, pcl::PointCloud<pcl::Narf36> narf_descriptors)
+{
+    this->_reg_int_names.push_back(name);
+    this->_reg_int_points.push_back(points);
+    this->_reg_int_descri.push_back(narf_descriptors);
+}
+
+double Registro3D::getScoreFit(int src_p, int dst_p)
+{
+    pcl::PointCloud<pcl::PointXYZ>::Ptr src_ptr( new pcl::PointCloud<pcl::PointXYZ>() );
+    *src_ptr = this->_reg_int_points[src_p];
+
+    pcl::PointCloud<pcl::PointXYZ>::Ptr dst_ptr( new pcl::PointCloud<pcl::PointXYZ>() );
+    *dst_ptr = this->_reg_int_points[dst_p];
+
+    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+    icp.setMaxCorrespondenceDistance (0.05);
+    icp.setRANSACOutlierRejectionThreshold (0.1);
+    icp.setTransformationEpsilon (1e-8);
+    icp.setMaximumIterations (20);
+    icp.setInputCloud (src_ptr);
+    icp.setInputTarget (dst_ptr);
+    icp.align (*(this->aligned));
+    this->refined_T = icp.getFinalTransformation ();
+    double res = icp.getFitnessScore();
+
+    return res;
+}

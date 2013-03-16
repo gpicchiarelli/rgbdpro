@@ -47,6 +47,10 @@
 #include <pcl/visualization/cloud_viewer.h>
 #include <pcl/common/common_headers.h>
 #include <pcl/features/normal_3d.h>
+#include <pcl/registration/ia_ransac.h>
+#include <pcl/registration/icp.h>
+#include <pcl/point_cloud.h>
+#include <pcl/filters/filter.h>
 
 // DBoW2
 #include "DBoW2.h"
@@ -56,6 +60,7 @@
 #include "DVision/DVision.h"
 #include "TwoWayMatcher.h"
 #include "registrorgb.h"
+#include "registro3d.h"
 
 //impostazioni utili al debug
 #define DEBUG 0
@@ -77,7 +82,6 @@ void listFile(string direc, vector<string> *files_lt);
 void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
 void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
 int inliersRGB(int origine, int destinazione);
-boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud);
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -97,11 +101,11 @@ string filename_voc_3d = "voc_3d.yml.gz";
 string filename_voc_rgb = "voc_rgb.yml.gz";
 
 vector<CoppiaRGB*> reg_RGB;
-
+Registro3D* reg_3D;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 int main(int nNumberofArgs, char* argv[])
 {
+
 
     string directory3d = "pcd/";
     string directory3dbin = "pcdbin/";
@@ -348,9 +352,9 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
 
     if (!DEBUG) { wait(); }
 
-    //    NarfVocabulary voc_3d(filename_voc_3d);
-    //    NarfDatabase db_3d(voc_3d, false);
-    //    db_3d.clear();
+    NarfVocabulary voc_3d(filename_voc_3d);
+    NarfDatabase db_3d(voc_3d, false);
+    db_3d.clear();
 }
 
 void wait()
@@ -462,10 +466,15 @@ void changeStructure(const vector<float> &plain, vector<vector<float> > &out,
 void loadFeatures3d(vector<vector<vector<float> > > &features)
 {
     typedef pcl::PointXYZ PointType;
-    float angular_resolution = pcl::deg2rad (0.14);
+    float angular_resolution = pcl::deg2rad (0.2);
     float support_size = 0.1f;
     pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
-    pcl::visualization::RangeImageVisualizer range_image_widget ("Visualizzazione 3D - [Range image]");
+
+    reg_3D = new Registro3D(files_list_3d.size());
+
+//    pcl::visualization::RangeImageVisualizer range_image_widget ("Visualizzazione 3D - [Range image]");
+//    range_image_widget.setSize(300,300);
+//    range_image_widget.setPosition(200,200);
 
     features.clear();
     features.reserve(files_list_3d.size());
@@ -478,27 +487,28 @@ void loadFeatures3d(vector<vector<vector<float> > > &features)
     float min_range = 0.0f;
     int border_size = 1;
 
-    range_image_widget.setSize(300,300);
-    range_image_widget.setPosition(200,200);
-
     boost::shared_ptr<pcl::RangeImage> range_image_ptr (new pcl::RangeImage);
     pcl::RangeImage& range_image = *range_image_ptr;
 
     for (int i = 0; i < files_list_3d.size(); ++i) {
-        pcl::PointCloud<PointType>::Ptr point_cloud_ptr (new pcl::PointCloud<PointType>);
-        pcl::PointCloud<PointType>& point_cloud = *point_cloud_ptr;
+        pcl::PointCloud<PointType>::Ptr point_cloud (new pcl::PointCloud<PointType>);
 
         filename = files_list_3d[i];
-        pcl::io::loadPCDFile (filename, point_cloud);
+        pcl::io::loadPCDFile (filename, *point_cloud);
+
+        //filtraggio valori NaN
+        std::vector<int> indices;
+        pcl::removeNaNFromPointCloud (*point_cloud,*point_cloud,indices);
+
 
         cout << "Estrazione NARF per " << filename << endl;
 
         Eigen::Affine3f scene_sensor_pose (Eigen::Affine3f::Identity());
         //SCENE_SENSOR_POSE
-        scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f (point_cloud.sensor_origin_[0],
-                                                                   point_cloud.sensor_origin_[1],
-                                                                   point_cloud.sensor_origin_[2])) *
-                Eigen::Affine3f (point_cloud.sensor_orientation_);
+        scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f ((*point_cloud).sensor_origin_[0],
+                                                                   (*point_cloud).sensor_origin_[1],
+                                                                   (*point_cloud).sensor_origin_[2])) *
+                Eigen::Affine3f ((*point_cloud).sensor_orientation_);
 
         //ricavo il nome file e lo registro
         vector<string> vec1,vec2;
@@ -514,9 +524,8 @@ void loadFeatures3d(vector<vector<vector<float> > > &features)
         vec1.clear();
         vec2.clear();
 
-        range_image.createFromPointCloud (point_cloud, angular_resolution, pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
+        range_image.createFromPointCloud (*point_cloud, angular_resolution, pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
                                           scene_sensor_pose, coordinate_frame, noise_level, min_range, border_size);
-        //range_image.integrateFarRanges (far_ranges);
         range_image.setUnseenToMaxRange();
 
         pcl::RangeImageBorderExtractor range_image_border_extractor;
@@ -550,27 +559,22 @@ void loadFeatures3d(vector<vector<vector<float> > > &features)
         features.push_back(vector<vector<float> >());
         cout << "------------------------------------------------------------" << endl;
 
-        for (unsigned int p = 0; p < narf_descriptors.size(); p++) {
+        reg_3D->addFrame(files_list_3d[i],*point_cloud,narf_descriptors);
+
+        for (int p = 0; p < narf_descriptors.size(); p++) {
             vector<float> flot;
             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
         }
+//        range_image_widget.showRangeImage (range_image);
+//        range_image_widget.spinOnce(true);
 
-        range_image_widget.showRangeImage (range_image);
-//      for (size_t tt=0; tt<keypoint_indices.points.size (); ++tt){
-//            range_image_widget.markPoint (keypoint_indices.points[tt]%range_image.width,
-//                                          keypoint_indices.points[tt]/range_image.width,
-//                                          pcl::visualization::Vector3ub (1, 0, 0));
-//      }
-        range_image_widget.spinOnce(true);
-
-        //cleaning
-
-        range_image.clear();
-        point_cloud.clear();
-        narf_descriptors.clear();
-        narf_descriptor = NULL;
+        if (i > 2) {cout << reg_3D->getScoreFit(0,i)<<endl;}
+        //range_image.clear();
+        //(*point_cloud).clear();
+        //narf_descriptors.clear();
+        //narf_descriptor = NULL;
     }
     cout << "Estrazione terminata." << endl;
 }
