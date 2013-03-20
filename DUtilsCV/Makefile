@@ -1,4 +1,4 @@
-CC=gcc
+CC=gcc -O3
 CFLAGS=-I../DUtils -DNDEBUG
 LFLAGS=-L/usr/local/lib 
 

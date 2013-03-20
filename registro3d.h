@@ -43,25 +43,29 @@
 #include <pcl/features/normal_3d.h>
 #include <pcl/registration/ia_ransac.h>
 #include <pcl/registration/icp.h>
+#include <pcl/visualization/registration_visualizer.h>
 #include <pcl/point_cloud.h>
 #include <pcl/filters/filter.h>
+#include <pcl/kdtree/kdtree_flann.h>
+#include <pcl/filters/passthrough.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/approximate_voxel_grid.h>
 
 
 
 class Registro3D {
-    typedef pcl::PointCloud<pcl::PointXYZ> p_cloud;
-    typedef pcl::PointCloud<pcl::Narf36> p_narf;
     public:
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
-        Registro3D(int size);
+        Registro3D(string directory);
         double getScoreFit(int src,int dst);
-        void addFrame(string name,pcl::PointCloud<pcl::PointXYZ> points, pcl::PointCloud<pcl::Narf36> narf_descriptors);
+        pcl::RangeImage getRangeImageAt(int position);
     private:
-        vector<string> _reg_int_names;
-        vector<p_cloud> _reg_int_points;
-        vector<p_narf> _reg_int_descri;
         Eigen::Matrix4f refined_T;
         pcl::PointCloud<pcl::PointXYZ>::Ptr aligned;
+        vector<string> __files_list_3d;
+        void listFile(string direc, vector<string> *files_lt);
+        pcl::RegistrationVisualizer<pcl::PointXYZ, pcl::PointXYZ> registrationVisualizer;
+
 };
 
 

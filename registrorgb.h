@@ -1,6 +1,6 @@
 /**
- * File: democ.cpp
- * Date: November 2012
+ * File: registrorgb.cpp
+ * Date: March 2013
  * Author: Giacomo Picchiarelli <gpicchiarelli@gmail.com>
  * Description: test NARF - SURF features (pcl library, opencv)
  *
@@ -34,19 +34,26 @@
 #include <opencv/highgui.h>
 #include <opencv2/nonfree/features2d.hpp>
 
+#include "TwoWayMatcher.h"
+
 using namespace cv;
 using namespace std;
 
-class CoppiaRGB
+class RegistroRGB
 {
 public:
-    CoppiaRGB(string filename,vector<float> descriptors, vector<cv::KeyPoint> keypoints);
-    string name;
-    vector<float> descriptors;
-    vector<cv::KeyPoint> keypoints;
+    typedef vector<float> p_desc;
+    typedef vector<cv::KeyPoint> p_keyp;
+
+    RegistroRGB(int size);
+    void addFrame(string name, p_desc descriptor, p_keyp keypoints);
+    int inliersRGB(int src,int dst);
+    Mat getImageAt(int pos);
 
 private:
-
+    vector<string> _name;
+    vector<p_desc> _descriptors;
+    vector<p_keyp> _keypoints;
 };
 
 #endif // REGISTRORGB_H

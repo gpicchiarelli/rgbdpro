@@ -47,18 +47,19 @@
 #include <pcl/visualization/cloud_viewer.h>
 #include <pcl/common/common_headers.h>
 #include <pcl/features/normal_3d.h>
-#include <pcl/registration/ia_ransac.h>
-#include <pcl/registration/icp.h>
 #include <pcl/point_cloud.h>
 #include <pcl/filters/filter.h>
+#include <pcl/kdtree/kdtree_flann.h>
+#include <pcl/filters/passthrough.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/approximate_voxel_grid.h>
 
 // DBoW2
 #include "DBoW2.h"
-
 #include "DUtils/DUtils.h"
 #include "DUtilsCV/DUtilsCV.h"
 #include "DVision/DVision.h"
-#include "TwoWayMatcher.h"
+
 #include "registrorgb.h"
 #include "registro3d.h"
 
@@ -70,14 +71,16 @@ using namespace DBoW2;
 using namespace DUtils;
 using namespace cv;
 
+typedef vector<vector<vector<float> > > BoWFeatures;
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void searchRegistro();
 void VocAux();
 void VocAux2();
-void loopClosing(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &features2);
-void loadFeatures3d(vector<vector<vector<float> > > &features);
-void loadFeaturesRGB(vector<vector<vector<float> > > &features);
-void testVocCreation(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &featuresrgb);
+void loopClosing(BoWFeatures &features,BoWFeatures &features2);
+void loadFeatures3d(BoWFeatures &features);
+void loadFeaturesRGB(BoWFeatures &features);
+void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb);
 void listFile(string direc, vector<string> *files_lt);
 void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
 void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
@@ -100,7 +103,7 @@ typedef pair <int, int> PivotMappa;
 string filename_voc_3d = "voc_3d.yml.gz";
 string filename_voc_rgb = "voc_rgb.yml.gz";
 
-vector<CoppiaRGB*> reg_RGB;
+RegistroRGB* reg_RGB;
 Registro3D* reg_3D;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 int main(int nNumberofArgs, char* argv[])
@@ -113,8 +116,8 @@ int main(int nNumberofArgs, char* argv[])
     string debug_directory3d = "debug_pcd/";
     string debug_directoryrgb = "debug_images/";
 
-    vector<vector<vector<float> > > featuresrgb,features3d;
-    bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false;
+    BoWFeatures featuresrgb,features3d;
+    bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_db=false;
 
     if(nNumberofArgs > 0){
         vector<string> parametri;
@@ -124,8 +127,13 @@ int main(int nNumberofArgs, char* argv[])
             StringFunctions::trim(parm);
             parametri.push_back(parm);
         }
+        if ( find(parametri.begin(), parametri.end(), "-S") != parametri.end()){
+            flag_db= true;
+            cout << "--- OPZIONE SALVA DATABASE ---" << endl;
+        }
+
         if ( find(parametri.begin(), parametri.end(), "-b") != parametri.end()){
-            flag_loop= true;
+            flag_bin= true;
             cout << "--- OPZIONE DEPTH IN FORMATO BINARIO ---" << endl;
         }
         if ( find(parametri.begin(), parametri.end(), "-l") != parametri.end()){
@@ -150,9 +158,31 @@ int main(int nNumberofArgs, char* argv[])
             cout << "[ -vdel ]: Cancella i vecchi vocabolari." << endl;
             cout << "[ -l ]: Loop Closing." << endl;
             cout << "[ -b ]: Si utilizzano il file depth in formato binario." << endl;
+            cout << "[ -S ]: Salva DATABASE ed esce." << endl;
             cout << "[ -D ]: Modalità DEBUG. Usa un dataset ridotto nelle cartelle debug_{*}" << endl;
             exit(0);
         }else{
+            if(flag_db){
+                searchRegistro();
+                listFile(directoryrgb,&files_list_rgb);
+                listFile(directory3d,&files_list_3d);
+                if(flag_voc){
+                    if( remove(filename_voc_3d.c_str()) != 0 )
+                        perror( "Errore cancellazione vocabolario NARF" );
+                    else
+                        puts( "Vocabolario NARF cancellato." );
+
+                    if( remove( filename_voc_rgb.c_str() ) != 0 )
+                        perror( "Errore cancellazione vocabolario SURF" );
+                    else
+                        puts( "Vocabolario SURF cancellato." );
+                }
+                loadFeaturesRGB(featuresrgb);
+                loadFeatures3d(features3d);
+                testVocCreation(features3d,featuresrgb);
+                //salvaDB todo
+                exit(0);
+            }
             if (flag_voc || flag_loop){
                 searchRegistro();
 
@@ -160,7 +190,7 @@ int main(int nNumberofArgs, char* argv[])
                     directory3d = debug_directory3d;
                     directoryrgb = debug_directoryrgb;
                 }
-                if(flag_loop){
+                if(flag_bin){
                     directory3d = directory3dbin;
                 }
 
@@ -185,7 +215,6 @@ int main(int nNumberofArgs, char* argv[])
                 testVocCreation(features3d,featuresrgb);
                 if(flag_loop){
                     loopClosing(features3d,featuresrgb);
-
                 }
             }else{
                 cout << "Errore: nessun parametro. Per la guida usare parametro '-h' " << endl;
@@ -256,15 +285,18 @@ void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys
     }
 }
 
-void loopClosing(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &features2)
+void loopClosing(BoWFeatures &features,BoWFeatures &features2)
 {
 
-    int const INITIAL_OFFSET = 70;
-    double const MATCH_THRESHOLD = 0.40;
+    int const INITIAL_OFFSET = 80; //70 RGB
+    double const MATCH_THRESHOLD = 0.71; //0.4 per RgB
     int const END_OFFSET = INITIAL_OFFSET; //elimino la coda, sicuramente darà buoni risultati e non è un loop
     int const GOOD_SUBSET = 4; //risultati da considerare validi e su cui determinare inliers
     int const TEMP_CONS = 3;
     bool loop_found = false;
+    /*
+     *
+     *
     // load robot poses
     vector<double> xs, ys;
     readPoseFile("g_truth_rgb.txt", xs, ys);
@@ -314,7 +346,7 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
                             int maxIdInliers = -1;
                             int tyu = 0;
                             for(int yy = 0; yy < goodSubset.size(); yy++){
-                                tyu = inliersRGB(i,goodSubset[yy]);
+                                tyu = reg_RGB->inliersRGB(i,goodSubset[yy]);
                                 if (maxInliers < tyu){
                                     maxInliers = tyu;
                                     maxIdInliers = goodSubset[yy];
@@ -333,7 +365,7 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
                                     break;
                                 }
                             }
-                            cout << "LOOP TROVATO - INLIERS MAX:" << tyu << ". "<< i <<" per immagine: " << maxIdInliers << endl;
+                            cout << "LOOP TROVATO - INLIERS MAX:" << maxInliers << ". "<< i <<" per immagine: " << maxIdInliers << endl;
                             TMP_INITIAL_OFFSET = INITIAL_OFFSET + i; // se individuo un loop devo ripartire.
                             implot.line(-xs[maxIdInliers], ys[maxIdInliers], -xs[i], ys[i], loop_style);
                             j = ret.size();
@@ -348,13 +380,94 @@ void loopClosing(const vector<vector<vector<float> > > &features,const vector<ve
         DUtilsCV::GUI::showImage(implot.getImage(), true, &winplot, 10);
         db_rgb.add(features2[i]);
     }
-    db_rgb.clear();
-
+    db_3d.save("DBRGB.yml.gz");;
+*/
+/////////////////////////////////////////////////////////////////////////////////////////////////
     if (!DEBUG) { wait(); }
+//soglia 0.71 per 3D
+    vector<int> goodSubset;
+    int TMP_INITIAL_OFFSET = INITIAL_OFFSET;
 
+    vector<double> xs, ys;
+    readPoseFile("g_truth_3d.txt", xs, ys);
+    cout << "3D: Acquisizione Ground Truth" << endl;
+
+    // prepare visualization windows
+
+    DUtilsCV::GUI::tWinHandler winplot = "Traiettoria3D";
+
+    DUtilsCV::Drawing::Plot::Style normal_style(2); // thickness
+    DUtilsCV::Drawing::Plot::Style good_style('b',3); // thickness
+    DUtilsCV::Drawing::Plot::Style loop_style('r', 3); // color, thickness
+
+    DUtilsCV::Drawing::Plot implot(240, 320,
+                                   - *std::max_element(xs.begin(), xs.end()),
+                                   - *std::min_element(xs.begin(), xs.end()),
+                                   *std::min_element(ys.begin(), ys.end()),
+                                   *std::max_element(ys.begin(), ys.end()), 25);
     NarfVocabulary voc_3d(filename_voc_3d);
     NarfDatabase db_3d(voc_3d, false);
-    db_3d.clear();
+
+    for (int i=0;i<files_list_3d.size();i++){
+        loop_found = false;
+        if ((i+1)>TMP_INITIAL_OFFSET){
+            QueryResults ret;
+            db_3d.query(features[i], ret,db_3d.size());
+            for (int j = 0; j < ret.size(); j++){ //scansiono risultati
+                if (ret[j].Score > MATCH_THRESHOLD){ //sanity check
+                    if ((i - END_OFFSET) >= ret[j].Id){ //scarto la coda
+                        cout << i << " vs " << ret[j].Id << " score: " << ret[j].Score << endl;
+                        if (goodSubset.size() <= GOOD_SUBSET){
+                            goodSubset.push_back(ret[j].Id);
+                            cout << i << " in goodSubset : " << ret[j].Id << endl;
+                            cout << "----------------------------" << endl;
+                            implot.line(-xs[i-1], ys[i-1], -xs[i], ys[i], good_style);
+                        }
+                        if (goodSubset.size() == GOOD_SUBSET){
+                            double maxInliers = 0;
+                            int maxIdInliers = -1;
+                            double tyu = 0;
+                            maxInliers = std::numeric_limits<double>::max();
+                            maxIdInliers = maxIdInliers;
+                            for(int yy = 0; yy < goodSubset.size(); yy++){
+                                tyu = reg_3D->getScoreFit(i,goodSubset[yy]);
+                                if (maxInliers > tyu){
+                                    maxInliers = tyu;
+                                    maxIdInliers = goodSubset[yy];
+                                }
+                            }
+                            //consistenza temporale
+                            BowVector v1, v2;
+                            voc_3d.transform(features[ret[j].Id], v1);
+                            for(int yy = 0; yy < TEMP_CONS; yy++)
+                            {
+
+                                voc_3d.transform(features[maxIdInliers - yy], v2);
+                                double score = voc_3d.score(v1, v2);
+                                if (score >= MATCH_THRESHOLD){
+                                    cout << "Image " << i << " vs Image " << maxIdInliers - yy << ": " << score << endl;
+                                }else{
+                                    break;
+                                }
+                            }
+                            cout << "LOOP TROVATO : " << maxInliers << ". "<< i <<" per immagine: " << maxIdInliers << endl;
+                            TMP_INITIAL_OFFSET = INITIAL_OFFSET + i; // se individuo un loop devo ripartire.
+                            implot.line(-xs[maxIdInliers], ys[maxIdInliers], -xs[i], ys[i], loop_style);
+                            j = ret.size();
+                        }
+                    }
+                }
+            }
+            goodSubset.clear();
+            ret.clear();
+        }
+        implot.line(-xs[i-1], ys[i-1], -xs[i], ys[i], normal_style);
+        DUtilsCV::GUI::showImage(implot.getImage(), true, &winplot, 10);
+        db_3d.add(features[i]);
+    }
+    db_3d.save("DB3D.yml.gz");
+
+    wait();
 }
 
 void wait()
@@ -363,50 +476,9 @@ void wait()
     getchar();
 }
 
-int inliersRGB(int origine,int destinazione)
-{
 
-    int numInliers = 0;
 
-    CoppiaRGB* src = reg_RGB[origine];
-    CoppiaRGB* dst = reg_RGB[destinazione];
-
-    cv::Mat descriptors1;
-    cv::Mat descriptors2;
-    vector<cv::KeyPoint> keypoints1;
-    vector<cv::KeyPoint> keypoints2;
-
-    descriptors1 = Mat(src->descriptors);
-    descriptors2 = Mat(dst->descriptors);
-
-    keypoints1 = src->keypoints;
-    keypoints2 = dst->keypoints;
-
-    TwoWayMatcher matcher(TWM_FLANN);
-    //TwoWayMatcher matcher(TWM_BRUTEFORCE_L1);
-    vector<DMatch> matches;
-    Mat mask1, mask2;
-    matcher.match(descriptors1, descriptors2, matches, mask1, mask2);
-
-    // Initializes points lists
-    vector<cv::Point2f > p1vec(matches.size());
-    vector<cv::Point2f > p2vec(matches.size());
-    Mat points1(p1vec);
-    Mat points2(p2vec);
-
-    vector<uchar> inliersMask;
-
-    findHomography(Mat(points1), Mat(points2), inliersMask, CV_FM_RANSAC, 1);
-    numInliers =  count(inliersMask.begin(), inliersMask.end(), 1);
-
-    inliersMask.clear();
-    p1vec.clear();
-    p2vec.clear();
-
-    return numInliers;
-}
-
-void loadFeaturesRGB(vector<vector<vector<float> > > &features)
+void loadFeaturesRGB(BoWFeatures &features)
 {
     features.clear();
     features.reserve(files_list_rgb.size());
@@ -414,6 +486,8 @@ void loadFeaturesRGB(vector<vector<vector<float> > > &features)
 
     string file_name_work,filename;
     ofstream save("vocsurf.aux");
+
+    reg_RGB = new RegistroRGB(files_list_rgb.size());
 
     for (int i = 0; i < files_list_rgb.size(); ++i) {
 
@@ -437,7 +511,7 @@ void loadFeaturesRGB(vector<vector<vector<float> > > &features)
         vector<float> descriptors;
         surf(image, mask, keypoints, descriptors);
         features.push_back(vector<vector<float> >());
-        reg_RGB.push_back(new CoppiaRGB(filename,descriptors,keypoints));
+        reg_RGB->addFrame(filename,descriptors,keypoints);
 
         changeStructure(descriptors, features.back(), surf.descriptorSize());
         cout << "Estratti " << features[i].size() << " descrittori." << endl;
@@ -463,18 +537,14 @@ void changeStructure(const vector<float> &plain, vector<vector<float> > &out,
 }
 
 // ----------------------------------------------------------------------------
-void loadFeatures3d(vector<vector<vector<float> > > &features)
+void loadFeatures3d(BoWFeatures &features)
 {
     typedef pcl::PointXYZ PointType;
-    float angular_resolution = pcl::deg2rad (0.2);
+    float angular_resolution = pcl::deg2rad (0.3);
     float support_size = 0.1f;
     pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
 
-    reg_3D = new Registro3D(files_list_3d.size());
-
-//    pcl::visualization::RangeImageVisualizer range_image_widget ("Visualizzazione 3D - [Range image]");
-//    range_image_widget.setSize(300,300);
-//    range_image_widget.setPosition(200,200);
+    reg_3D = new Registro3D("pcd/");
 
     features.clear();
     features.reserve(files_list_3d.size());
@@ -491,15 +561,21 @@ void loadFeatures3d(vector<vector<vector<float> > > &features)
     pcl::RangeImage& range_image = *range_image_ptr;
 
     for (int i = 0; i < files_list_3d.size(); ++i) {
+        pcl::PointCloud<PointType>::Ptr point_cloud_wf (new pcl::PointCloud<PointType>);
         pcl::PointCloud<PointType>::Ptr point_cloud (new pcl::PointCloud<PointType>);
 
         filename = files_list_3d[i];
-        pcl::io::loadPCDFile (filename, *point_cloud);
+        pcl::io::loadPCDFile (filename, *point_cloud_wf);
 
         //filtraggio valori NaN
         std::vector<int> indices;
-        pcl::removeNaNFromPointCloud (*point_cloud,*point_cloud,indices);
-
+        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
+        //filtraggio con pixel volumetrici
+        const float VOXEL_GRID_SIZE = 0.01f;
+        pcl::VoxelGrid<pcl::PointXYZ> vox_grid;
+        vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );
+        vox_grid.setInputCloud( point_cloud_wf );
+        vox_grid.filter( *point_cloud );
 
         cout << "Estrazione NARF per " << filename << endl;
 
@@ -559,22 +635,17 @@ void loadFeatures3d(vector<vector<vector<float> > > &features)
         features.push_back(vector<vector<float> >());
         cout << "------------------------------------------------------------" << endl;
 
-        reg_3D->addFrame(files_list_3d[i],*point_cloud,narf_descriptors);
-
         for (int p = 0; p < narf_descriptors.size(); p++) {
             vector<float> flot;
             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
         }
-//        range_image_widget.showRangeImage (range_image);
-//        range_image_widget.spinOnce(true);
-
-        if (i > 2) {cout << reg_3D->getScoreFit(0,i)<<endl;}
-        //range_image.clear();
-        //(*point_cloud).clear();
-        //narf_descriptors.clear();
-        //narf_descriptor = NULL;
+        range_image.clear();
+        (*point_cloud).clear();
+        (*point_cloud_wf).clear();
+        narf_descriptors.clear();
+        narf_descriptor = NULL;
     }
     cout << "Estrazione terminata." << endl;
 }
@@ -598,7 +669,7 @@ void listFile(string direc, vector<string> *files_lt)
 
 // ----------------------------------------------------------------------------
 
-void testVocCreation(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &featuresrgb)
+void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb)
 {
     // branching factor and depth levels
     const int k = 10;
@@ -639,46 +710,46 @@ void testVocCreation(const vector<vector<vector<float> > > &features,const vecto
         cout << "Vocabolario RGB: " << endl << voc2 << endl << endl;
     }
 
-    BowVector v1, v2;
-    ofstream bown("bow.txt");
-    const static int taglia = (pow(k,L)*2) + 1; //il +1 si riferisce all'etichetta del luogo.
-    const static int offset = taglia/2;
+//    BowVector v1, v2;
+//    ofstream bown("bow.txt");
+//    const static int taglia = (pow(k,L)*2) + 1; //il +1 si riferisce all'etichetta del luogo.
+//    const static int offset = taglia/2;
 
-    for(int i ; i < files_list_3d.size(); i++)
-    {
-        voc.transform(features[i], v1);
-        voc2.transform(featuresrgb[i], v2);
+//    for(int i ; i < files_list_3d.size(); i++)
+//    {
+//        voc.transform(features[i], v1);
+//        voc2.transform(featuresrgb[i], v2);
 
-        double bbow[taglia];
-        for(int jay = 0; jay < taglia;jay++){
-            bbow[jay] = 0;
-        }
-        //RGB
-        for(BowVector::iterator vit = v2.begin(); vit != v2.end(); vit++){
-            int pivot = vit->first;
-            bbow[pivot] = vit->second;
-        }
-        //3D
-        for(BowVector::iterator vit = v1.begin(); vit != v1.end(); vit++){
-            int pivot = offset + vit->first;
-            bbow[pivot] = vit->second;
-        }
+//        double bbow[taglia];
+//        for(int jay = 0; jay < taglia;jay++){
+//            bbow[jay] = 0;
+//        }
+//        //RGB
+//        for(BowVector::iterator vit = v2.begin(); vit != v2.end(); vit++){
+//            int pivot = vit->first;
+//            bbow[pivot] = vit->second;
+//        }
+//        //3D
+//        for(BowVector::iterator vit = v1.begin(); vit != v1.end(); vit++){
+//            int pivot = offset + vit->first;
+//            bbow[pivot] = vit->second;
+//        }
 
-        //inserimento etichetta luogo per generare il file che verrà inviato all'apprendimento.
-        string luogo = registro_aux.at(i);
-        vector<string> a;
-        boost::split(a, registro_aux.at(i), boost::is_any_of("=>"));
-        a.erase(  remove_if( a.begin(), a.end(), boost::bind( & string::empty, _1 ) ), a.end());
-        StringFunctions::trim(a[1]);
-        bown << a[1] << ",";
+//        //inserimento etichetta luogo per generare il file che verrà inviato all'apprendimento.
+//        string luogo = registro_aux.at(i);
+//        vector<string> a;
+//        boost::split(a, registro_aux.at(i), boost::is_any_of("=>"));
+//        a.erase(  remove_if( a.begin(), a.end(), boost::bind( & string::empty, _1 ) ), a.end());
+//        StringFunctions::trim(a[1]);
+//        bown << a[1] << ",";
 
-        for(int jay = 0; jay < taglia;jay++){
-            bown << bbow[jay];
-            if (jay < taglia - 1){ bown << ","; }
-        }
-        bown << endl;
-    }
-    bown.close();
+//        for(int jay = 0; jay < taglia;jay++){
+//            bown << bbow[jay];
+//            if (jay < taglia - 1){ bown << ","; }
+//        }
+//        bown << endl;
+//    }
+//    bown.close();
 }
 
 // ----------------------------------------------------------------------------

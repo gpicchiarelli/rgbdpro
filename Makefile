@@ -2,16 +2,17 @@ CC=ccache gcc -w -g -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG
 CFLAGS+=$(shell pkg-config --cflags opencv )
 #Giacomo Picchiarelli
-CFLAGS+= -I /usr/local/include -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3 -I /usr/include/openni
+CFLAGS+= -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3
 #####
 LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs opencv) \
   -lDVision -lDUtilsCV -lDUtils -lstdc++ \
 -lpcl_apps -lpcl_common -lpcl_features -lpcl_filters -lpcl_io -lpcl_kdtree -lpcl_keypoints -lpcl_octree \
 -lpcl_registration -lpcl_sample_consensus \
--lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization -lvtkCommon -lvtkFiltering -lpthread -lboost_thread
+-lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization \
+-lvtkCommon -lvtkFiltering -lvtkRendering -lpthread -lboost_thread
 
 DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h TemplatedVocabulary.h \
-  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h
+  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h 
 
 OBJS=BowVector.o FSurf64.o FSurf128.o FBrief.o FNarf.o ScoringObject.o QueryResults.o FeatureVector.o \
 	TwoWayMatcher.o registrorgb.o registro3d.o 
