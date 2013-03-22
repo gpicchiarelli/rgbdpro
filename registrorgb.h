@@ -48,7 +48,6 @@ public:
     RegistroRGB(int size);
     void addFrame(string name, p_desc descriptor, p_keyp keypoints);
     int inliersRGB(int src,int dst);
-    Mat getImageAt(int pos);
 
 private:
     vector<string> _name;

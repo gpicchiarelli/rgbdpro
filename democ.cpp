@@ -62,7 +62,7 @@
 
 #include "registrorgb.h"
 #include "registro3d.h"
-
+  
 //impostazioni utili al debug
 #define DEBUG 0
 
@@ -159,7 +159,7 @@ int main(int nNumberofArgs, char* argv[])
             cout << "[ -l ]: Loop Closing." << endl;
             cout << "[ -b ]: Si utilizzano il file depth in formato binario." << endl;
             cout << "[ -S ]: Salva DATABASE ed esce." << endl;
-            cout << "[ -D ]: Modalità DEBUG. Usa un dataset ridotto nelle cartelle debug_{*}" << endl;
+            cout << "[ -D ]: Modalità DEBUG. Dataset ridotto cartelle debug_{*}" << endl;
             exit(0);
         }else{
             if(flag_db){

@@ -1,4 +1,5 @@
-CC=ccache gcc -w -g -O3
+CC=ccache gcc -w -O3
+CCDBG=ccache gcc -w -g -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG
 CFLAGS+=$(shell pkg-config --cflags opencv )
 #Giacomo Picchiarelli
@@ -14,27 +15,24 @@ LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs op
 DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h TemplatedVocabulary.h \
   TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h 
 
-OBJS=BowVector.o FSurf64.o FSurf128.o FBrief.o FNarf.o ScoringObject.o QueryResults.o FeatureVector.o \
-	TwoWayMatcher.o registrorgb.o registro3d.o 
+OBJS=build/BowVector.o build/FSurf64.o build/FSurf128.o build/FBrief.o build/FNarf.o build/ScoringObject.o build/QueryResults.o build/FeatureVector.o build/TwoWayMatcher.o build/registrorgb.o build/registro3d.o 
 
 DEPS_SO=DUtils/libDUtils.so DUtilsCV/libDUtilsCV.so DVision/libDVision.so
-TARGET=libDBoW2.so
+TARGET=build/libDBoW2.so
 
-all: $(TARGET) democ demo
+all: $(TARGET) build/democ
 
-demo: $(OBJS) demo.o $(TARGET)
+build/democ: $(OBJS) build/democ.o $(TARGET)
 	$(CC) $^ $(LFLAGS) -O3 -o $@
+	rm -f build/*.o
+	make -C DUtils clean && \
+	make -C DUtilsCV clean && \
+	make -C DVision clean
 
-demo.o: demo.cpp $(DEPS)
+build/democ.o: democ.cpp $(DEPS)
 	$(CC) $(CFLAGS) -O3 -Wall -c $< -o $@
 
-democ: $(OBJS) democ.o $(TARGET)
-	$(CC) $^ $(LFLAGS) -O3 -o $@
-
-democ.o: democ.cpp $(DEPS)
-	$(CC) $(CFLAGS) -O3 -Wall -c $< -o $@
-
-%.o: %.cpp $(DEPS)
+build/%.o: %.cpp $(DEPS)
 	$(CC) $(CFLAGS) -fPIC -O3 -Wall -c $< -o $@
 
 $(TARGET): $(OBJS) $(DEPS_SO)
@@ -50,11 +48,12 @@ DVision/libDVision.so:
 	make -C DVision
 
 clean:
-	rm -f *.o $(TARGET) demo demonarf voc query && \
+	rm -f *.o $(TARGET) build/democ pcd_tb && \
+	rm -f build/*.o $(TARGET) democ && \
 	make -C DUtils clean && \
 	make -C DUtilsCV clean && \
-	make -C DVision clean && \
-	rm -f small_db.yml.gz small_voc.yml.gz
+	make -C DVision clean
+	
 
 install: $(TARGET)
 	cp $(TARGET)  /usr/local/lib/ && \
