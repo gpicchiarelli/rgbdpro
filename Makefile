@@ -1,4 +1,4 @@
-CC=ccache gcc -w -O3
+CC=ccache gcc -w -g -O3
 CCDBG=ccache gcc -w -g -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG
 CFLAGS+=$(shell pkg-config --cflags opencv )
@@ -22,15 +22,11 @@ TARGET=build/libDBoW2.so
 
 all: $(TARGET) build/democ
 
-build/democ: $(OBJS) build/democ.o $(TARGET)
-	$(CC) $^ $(LFLAGS) -O3 -o $@
-	rm -f build/*.o
-	make -C DUtils clean && \
-	make -C DUtilsCV clean && \
-	make -C DVision clean
+build/democ: $(OBJS) build/democ.o
+	$(CC) $(CFLAGS) $^ $(LFLAGS) -O3 -o $@
 
 build/democ.o: democ.cpp $(DEPS)
-	$(CC) $(CFLAGS) -O3 -Wall -c $< -o $@
+	$(CC) $(CFLAGS) -fPIC -O3 -Wall -c $< -o $@
 
 build/%.o: %.cpp $(DEPS)
 	$(CC) $(CFLAGS) -fPIC -O3 -Wall -c $< -o $@

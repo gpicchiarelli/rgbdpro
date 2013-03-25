@@ -30,7 +30,7 @@ namespace DBoW2 {
 /// Functions to manipulate NARF descriptors
 class FNarf: protected FClass
 {
-public:
+public: 
 
   /// Descriptor type
   typedef std::vector<float> TDescriptor;

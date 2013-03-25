@@ -45,7 +45,6 @@ int RegistroRGB::inliersRGB(int src,int dst)
     keypoints2 = this->_keypoints[dst];
 
     TwoWayMatcher matcher(TWM_FLANN);
-    //TwoWayMatcher matcher(TWM_BRUTEFORCE_L1);
     vector<DMatch> matches;
     Mat mask1, mask2;
     matcher.match(descriptors1, descriptors2, matches, mask1, mask2);
