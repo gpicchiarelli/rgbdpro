@@ -1,0 +1,21 @@
+** Giacomo Picchiarelli <gpicchiarelli@gmail.com> **
+
+- compilare ed installare opencv 2.4.4 o 2.4.2(entrambi testati) con supporto multithreading
+
+    cd opencv
+    mkdir release
+    cd release
+    cmake -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local  CC="gcc" CXX="g++" cmake -D CMAKE_CXX_COMPILER="ccache" -D CMAKE_CXX_COMPILER_ARG1="g++" -D CMAKE_C_COMPILER="ccache" -D CMAKE_C_COMPILER_ARG1="gcc" ..
+    make
+    sudo make install
+
+    cfr:http://www.samontab.com/web/2012/06/installing-opencv-2-4-1-ubuntu-12-04-lts/
+
+- compilare ed installare yaml-cpp, utilizzare apposita cartella.
+  
+  cmake -DBUILD_SHARED_LIBS=ON . .
+  make -j2
+  sudo make install
+  
+- lanciare make,sudo make install.
+- eseguire democ nella cartella build/

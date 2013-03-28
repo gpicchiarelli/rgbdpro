@@ -51,8 +51,6 @@
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/filters/approximate_voxel_grid.h>
 
-
-
 class Registro3D {
     public:
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
@@ -65,7 +63,6 @@ class Registro3D {
         vector<string> __files_list_3d;
         void listFile(string direc, vector<string> *files_lt);
         pcl::RegistrationVisualizer<pcl::PointXYZ, pcl::PointXYZ> registrationVisualizer;
-
 };
 
 

@@ -2,6 +2,8 @@
  * File: TemplatedDatabase.h
  * Date: March 2011
  * Author: Dorian Galvez-Lopez
+ * Date: March 2013
+ * Author: Giacomo Picchiarelli //patch direct index
  * Description: templated database of images
  *
  * This file is licensed under a Creative Commons
@@ -25,27 +27,40 @@
 #include <string>
 #include <list>
 #include <set>
+#include <iostream>
+#include <boost/iostreams/filtering_streambuf.hpp>
+#include <boost/iostreams/categories.hpp>
+#include <boost/iostreams/operations.hpp>
+#include <boost/iostreams/filtering_stream.hpp>
+#include <boost/iostreams/copy.hpp>
+#include <boost/iostreams/filter/bzip2.hpp>
+#include <boost/iostreams/device/file_descriptor.hpp>
+#include <boost/iostreams/device/file.hpp>
+#include <boost/iostreams/device/array.hpp>
+#include <boost/iostreams/filter/zlib.hpp>
+#include <boost/iostreams/device/back_inserter.hpp>
 
 #include "TemplatedVocabulary.h"
 #include "QueryResults.h"
 #include "ScoringObject.h"
 #include "BowVector.h"
 #include "FeatureVector.h"
-
 #include "DUtils/DUtils.h"
+#include "yaml-cpp/yaml.h"
+#include <zlib.h>
 
 using namespace std;
 
 namespace DBoW2 {
-
+ 
 /// @param TDescriptor class of descriptor
 /// @param F class of descriptor functions
 template<class TDescriptor, class F>
 /// Generic Database
 class TemplatedDatabase
 {
-public:
-
+public: 
+    
   /**
    * Creates an empty database without vocabulary
    * @param use_di a direct index is used to store feature indexes
@@ -225,7 +240,7 @@ public:
   void load(cv::FileStorage &fs, const std::string &name = "database");
 
 protected:
-
+  
   /// Query with L1 scoring
   void queryL1(const BowVector &vec, QueryResults &ret,
     int max_results, int max_id) const;
@@ -299,7 +314,7 @@ protected:
   // DirectFile[entry_id] --> [ directentry, ... ]
 
 protected:
-
+  string FileName;
   /// Associated vocabulary
   TemplatedVocabulary<TDescriptor, F> m_voc;
 
@@ -317,7 +332,8 @@ protected:
   DirectFile m_dfile;
 
   /// Number of valid entries in m_dfile
-  int m_nentries;
+  int m_nentries;  
+  
 
 };
 
@@ -356,6 +372,7 @@ template<class TDescriptor, class F>
 TemplatedDatabase<TDescriptor, F>::TemplatedDatabase
   (const std::string &filename)
 {
+  FileName = (string)filename.data(); 
   load(filename);
 }
 
@@ -365,6 +382,7 @@ template<class TDescriptor, class F>
 TemplatedDatabase<TDescriptor, F>::TemplatedDatabase
   (const char *filename)
 {
+  FileName = (string)filename; 
   load(filename);
 }
 
@@ -382,13 +400,14 @@ TemplatedDatabase<TDescriptor,F>& TemplatedDatabase<TDescriptor,F>::operator=
   (const TemplatedDatabase<TDescriptor,F> &db)
 {
   if(this != &db)
-  {
+  {      
     m_dfile = db.m_dfile;
     m_dilevels = db.m_dilevels;
     m_ifile = db.m_ifile;
     m_nentries = db.m_nentries;
     m_use_di = db.m_use_di;
     m_voc = db.m_voc;
+    FileName = db.FileName;
   }
   return *this;
 }
@@ -1064,7 +1083,6 @@ void TemplatedDatabase<TDescriptor, F>::save(const string &filename) const
 {
   cv::FileStorage fs(filename.c_str(), cv::FileStorage::WRITE);
   if(!fs.isOpened()) throw string("Could not open file ") + filename;
-
   save(fs);
 }
 
@@ -1172,7 +1190,6 @@ void TemplatedDatabase<TDescriptor, F>::load(const string &filename)
 {
   cv::FileStorage fs(filename.c_str(), cv::FileStorage::READ);
   if(!fs.isOpened()) throw string("Could not open file ") + filename;
-
   load(fs);
 }
 
@@ -1214,30 +1231,49 @@ void TemplatedDatabase<TDescriptor, F>::load(cv::FileStorage &fs,
 
     m_dfile.resize(fn.size());
     assert(m_nentries == fn.size());
-
+    
+    stringstream decompressed;
+    try{
+        boost::iostreams::zlib_params p;
+        p.window_bits = 16 + MAX_WBITS;        
+        ifstream file(FileName.c_str(), ios_base::in | ios_base::binary);
+        boost::iostreams::filtering_streambuf<boost::iostreams::input> in;        
+        in.push(boost::iostreams::zlib_decompressor(p));
+        in.push(file);        
+        boost::iostreams::copy(in,decompressed);    
+    }    
+    catch(boost::iostreams::zlib_error& e)
+    {
+        cout << "zlib_error: " << e.error()<< endl;
+    }
+    
+    YAML::Node ffl = YAML::Load(decompressed.str());
+    YAML::Node di_t = ffl["directIndex"];
     FeatureVector::iterator dit;
     for(EntryId eid = 0; eid < fn.size(); ++eid)
     {
       cv::FileNode fe = fn[eid];
-
+      YAML::Node fe_t = di_t[eid];
       m_dfile[eid].clear();
       for(unsigned int i = 0; i < fe.size(); ++i)
       {
         NodeId nid = (int)fe[i]["nodeId"];
-
         dit = m_dfile[eid].insert(m_dfile[eid].end(),
           make_pair(nid, vector<unsigned int>() ));
-
         // this failed to compile with some opencv versions (2.3.1)
         //fe[i]["features"] >> dit->second;
-        vector<int> aux;
-        fe[i]["features"] >> aux;
+        vector<int> aux; 
+        //fe[i]["features"] >> aux;
+
+        //cout << nid_t[i]["features"].as<std::string>() << endl;            
+//        string gg = (string)fe[i]["features"];
+//        cout << gg << endl;
+        
         dit->second.resize(aux.size());
         std::copy(aux.begin(), aux.end(), dit->second.begin());
       }
     } // for each entry
   } // if use_id
-
 }
 
 // --------------------------------------------------------------------------

@@ -1,0 +1,7 @@
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/CMakeFiles/debuggable.dir
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/util/CMakeFiles/parse.dir
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/util/CMakeFiles/read.dir
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/CMakeFiles/releasable.dir
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/test/CMakeFiles/run-tests.dir
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/util/CMakeFiles/sandbox.dir
+/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/CMakeFiles/yaml-cpp.dir

@@ -1,24 +1,25 @@
-CC=ccache gcc -w -g -O3
+CC=ccache gcc -w -O3
 CCDBG=ccache gcc -w -g -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG
 CFLAGS+=$(shell pkg-config --cflags opencv )
 #Giacomo Picchiarelli
-CFLAGS+= -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3
+CFLAGS+= -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3 -I include 
 #####
 LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs opencv) \
-  -lDVision -lDUtilsCV -lDUtils -lstdc++ \
+ -lyaml-cpp -lDVision -lDUtilsCV -lDUtils -lstdc++ \
 -lpcl_apps -lpcl_common -lpcl_features -lpcl_filters -lpcl_io -lpcl_kdtree -lpcl_keypoints -lpcl_octree \
 -lpcl_registration -lpcl_sample_consensus \
 -lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization \
--lvtkCommon -lvtkFiltering -lvtkRendering -lpthread -lboost_thread
+-lvtkCommon -lvtkFiltering -lvtkRendering -lpthread -lboost_thread -lboost_system -lboost_iostreams
 
 DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h TemplatedVocabulary.h \
-  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h 
+  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h democ.h
 
-OBJS=build/BowVector.o build/FSurf64.o build/FSurf128.o build/FBrief.o build/FNarf.o build/ScoringObject.o build/QueryResults.o build/FeatureVector.o build/TwoWayMatcher.o build/registrorgb.o build/registro3d.o 
+OBJS=build/BowVector.o build/FSurf64.o build/FSurf128.o build/FBrief.o build/FNarf.o build/ScoringObject.o \
+build/QueryResults.o build/FeatureVector.o build/TwoWayMatcher.o build/registrorgb.o build/registro3d.o 
 
-DEPS_SO=DUtils/libDUtils.so DUtilsCV/libDUtilsCV.so DVision/libDVision.so
-TARGET=build/libDBoW2.so
+DEPS_SO=DUtils/libDUtils.so DUtilsCV/libDUtilsCV.so DVision/libDVision.so build/lib/libyaml-cpp.so
+TARGET=build/lib/libDBoW2.so
 
 all: $(TARGET) build/democ
 

@@ -2,7 +2,7 @@
  * File: democ.cpp
  * Date: November 2012
  * Author: Giacomo Picchiarelli <gpicchiarelli@gmail.com>
- * Description: test NARF - SIRF features (pcl library, opencv)
+ * Description: test NARF - SURF features (pcl library, opencv)
  *
  * This file is licensed under a Creative Commons
  * Attribution-NonCommercial-ShareAlike 3.0 license.
@@ -15,93 +15,11 @@
  * details.
  *
  */
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <dirent.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <algorithm>
-#include <pthread.h>
 
-// OpenCV
-#include <opencv/cv.h>
-#include <opencv/highgui.h>
-#include <opencv2/nonfree/features2d.hpp>
-
-#include <boost/thread/thread.hpp>
-#include <boost/multi_index_container.hpp>
-#include <boost/multi_index/global_fun.hpp>
-#include <boost/multi_index/mem_fun.hpp>
-#include <boost/multi_index/ordered_index.hpp>
-
-#include <pcl/range_image/range_image.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl/visualization/range_image_visualizer.h>
-#include <pcl/visualization/pcl_visualizer.h>
-#include <pcl/visualization/image_viewer.h>
-#include <pcl/features/range_image_border_extractor.h>
-#include <pcl/keypoints/narf_keypoint.h>
-#include <pcl/features/narf_descriptor.h>
-#include <pcl/console/parse.h>
-#include <pcl/visualization/cloud_viewer.h>
-#include <pcl/common/common_headers.h>
-#include <pcl/features/normal_3d.h>
-#include <pcl/point_cloud.h>
-#include <pcl/filters/filter.h>
-#include <pcl/kdtree/kdtree_flann.h>
-#include <pcl/filters/passthrough.h>
-#include <pcl/filters/voxel_grid.h>
-#include <pcl/filters/approximate_voxel_grid.h>
-
-// DBoW2
-#include "DBoW2.h"
-#include "DUtils/DUtils.h"
-#include "DUtilsCV/DUtilsCV.h"
-#include "DVision/DVision.h"
-
-#include "registrorgb.h"
-#include "registro3d.h"
+#include "democ.h"
 
 //impostazioni utili al debug
-#define DEBUG 0
-
-using namespace std;
-using namespace DBoW2;
-using namespace DUtils;
-using namespace cv;
-
-typedef vector<vector<vector<float> > > BoWFeatures;
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-void searchRegistro();
-void VocAuxNarf();
-void VocAuxSurf();
-
-void loopClosingRGB(BoWFeatures &features);
-void loopClosing3d(BoWFeatures &features);
-
-void loadFeatures3d(BoWFeatures &features);
-void loadFeaturesRGB(BoWFeatures &features);
-void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb);
-void listFile(string direc, vector<string> *files_lt);
-void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
-void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
-int inliersRGB(int origine, int destinazione);
-void wait();
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-vector<string> files_list_rgb,files_list_3d;
-map<string, string> registro_interno;
-map<int, string> registro_aux;
-map<int, string> registro_aux_rgb;
-//registri
-map<int, string> registro_aux2;
-map<int, string> registro_aux3;
-
-typedef pair <string, string> PairString;
-typedef pair <int, string> Mappa;
-typedef pair <int, int> PivotMappa;
+#define DEBUG 1 
 
 string filename_voc_3d = "voc_3d.yml.gz";
 string filename_voc_rgb = "voc_rgb.yml.gz";
@@ -109,15 +27,14 @@ string filename_voc_rgb = "voc_rgb.yml.gz";
 RegistroRGB* reg_RGB;
 Registro3D* reg_3D;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+string directory3d = "pcd/";
+string directory3dbin = "pcdbin/";
+string directoryrgb = "_images/";
+string debug_directory3d = "debug_pcd/";
+string debug_directoryrgb = "debug_images/";
+
 int main(int nNumberofArgs, char* argv[])
-{
-    
-    string directory3d = "debug_pcd/";
-    string directory3dbin = "pcdbin/";
-    string directoryrgb = "_images/";
-    string debug_directory3d = "debug_pcd/";
-    string debug_directoryrgb = "debug_images/";
-    
+{    
     BoWFeatures featuresrgb,features3d;
     bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_db=false;
     
@@ -181,6 +98,7 @@ int main(int nNumberofArgs, char* argv[])
                 }
                 loadFeaturesRGB(featuresrgb);
                 loadFeatures3d(features3d);
+                
                 testVocCreation(features3d,featuresrgb);
                 //salvaDB todo
                 exit(0);
@@ -192,12 +110,13 @@ int main(int nNumberofArgs, char* argv[])
                     directory3d = debug_directory3d;
                     directoryrgb = debug_directoryrgb;
                 }
-                if(flag_bin){
+                if(flag_bin && !flag_debug){
                     directory3d = directory3dbin;
                 }
                 
                 listFile(directoryrgb,&files_list_rgb);
                 listFile(directory3d,&files_list_3d);
+
                 if(flag_voc){
                     if( remove(filename_voc_3d.c_str()) != 0 )
                         perror( "Errore cancellazione vocabolario NARF" );
@@ -208,16 +127,13 @@ int main(int nNumberofArgs, char* argv[])
                         perror( "Errore cancellazione vocabolario SURF" );
                     else
                         puts( "Vocabolario SURF cancellato." );
-                }
-                
+                }                
                 loadFeaturesRGB(featuresrgb);
-                loadFeatures3d(features3d);
-                VocAuxNarf();
-                VocAuxSurf();
+                loadFeatures3d(features3d);   
                 testVocCreation(features3d,featuresrgb);
                 if(flag_loop){
-                    loopClosingRGB(featuresrgb);
-                    //loopClosing3d(features3d);
+                    //loopClosingRGB(featuresrgb);
+                    loopClosing3d(features3d);
                 }
             }else{
                 cout << "Errore: nessun parametro. Per la guida usare parametro '-h' " << endl;
@@ -230,62 +146,6 @@ int main(int nNumberofArgs, char* argv[])
     }
     cout << "DBoW2 TEST: terminato." << endl;
     return 0;
-}
-
-void searchRegistro()
-{
-    string line;
-    ifstream Myfile;
-    Myfile.open("registro.txt");
-    if(Myfile.is_open()) {
-        while(Myfile.peek() != EOF) {
-            vector<string> w1,w2;
-            getline(Myfile, line);
-            StringFunctions::trim(line);
-            if(line.size() > 0) {
-                //luogo
-                StringFunctions::split(line,w1,":");
-                string w = w1[1];
-                StringFunctions::trim(w);
-                string h = w1[0];
-                //nome immagine
-                StringFunctions::split(h,w2,"."); //prendo solo il nome file
-                h = w2[0];
-                StringFunctions::trim(h);
-                registro_interno.insert(PairString(h,w));
-            }
-        }
-        Myfile.close();
-    } else {
-        cout<<"registro.txt NON TROVATO."<<endl;
-    }
-}
-
-void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys)
-{
-    xs.clear();
-    ys.clear();
-    
-    string line;
-    ifstream Myfile;
-    Myfile.open(filename);
-    if(Myfile.is_open()) {
-        while(Myfile.peek() != EOF) {
-            vector<string> w1;
-            getline(Myfile, line);
-            StringFunctions::trim(line);
-            if(line.size() > 0) {
-                //luogo
-                StringFunctions::split(line,w1,",");
-                string w = w1[1];
-                StringFunctions::trim(w);
-                string h = w1[2];
-                xs.push_back(boost::lexical_cast<double>(w));
-                ys.push_back(boost::lexical_cast<double>(h));
-            }
-        }
-        Myfile.close();
-    }
 }
 
 void loopClosingRGB(BoWFeatures &features){
@@ -317,7 +177,7 @@ void loopClosingRGB(BoWFeatures &features){
                                    *std::max_element(ys.begin(), ys.end()), 25);
     
     Surf128Vocabulary voc_rgb(filename_voc_rgb);
-    Surf128Database db_rgb(voc_rgb, false);
+    Surf128Database db_rgb(voc_rgb, true);
     
     vector<int> bucket;
     if (!DEBUG) { wait(); }
@@ -326,15 +186,14 @@ void loopClosingRGB(BoWFeatures &features){
         loop_found = false;
         Mat im = imread(files_list_rgb[i]);
         DUtilsCV::GUI::showImage(im, true, &win, 10);
-        if ((i+1)>INITIAL_OFFSET){
-            
+        if ((i+1)>INITIAL_OFFSET){            
             BowVector v1, v2;
             voc_rgb.transform(features[i], v1);                
             voc_rgb.transform(features[i-1], v2);    
             if (voc_rgb.score(v1,v2) >= SANITY_THRESHOLD){           
                 QueryResults ret;
                 db_rgb.query(features[i], ret,db_rgb.size());
-                for (int j = 0; j < ret.size(); j++){                 
+                for (int j = 0; j < ret.size(); j++){            
                     if (ret[j].Score > MATCH_THRESHOLD){ 
                         if ((i - END_OFFSET) >= ret[j].Id){
                             if (bucket.size() < SIZE_BUCKET){
@@ -355,23 +214,26 @@ void loopClosingRGB(BoWFeatures &features){
                     for (int aa = 0 ; aa < bucket.size(); aa++){                    
                         for (int xx = 0;xx< TEMP_CONS;xx++){
                             int pivot = xx+1;
-                            int cursore = bucket[aa] - pivot;                        
-                            voc_rgb.transform(features[i-pivot], v1);                        
-                            voc_rgb.transform(features[cursore], v2);
-                            double score = voc_rgb.score(v1, v2);   
-                            cout << (i-pivot) << " vs " << cursore << " score: " << score<<endl;
-                            if (!(score >= MATCH_THRESHOLD)){               
+                            int cursore = bucket[aa] - pivot; 
+                            if(cursore >= 0){
+                                voc_rgb.transform(features[i-pivot], v1);                        
+                                voc_rgb.transform(features[cursore], v2);
+                                double score = voc_rgb.score(v1, v2);   
+                                cout << (i-pivot) << " vs " << cursore << " score: " << score<<endl;
+                                if (!(score >= MATCH_THRESHOLD)){               
+                                    bucket[aa] = -1;
+                                    break;
+                                }
+                            }else{
                                 bucket[aa] = -1;
                                 break;
                             }
                         }
                     }
-                }
-                
+                }                
                 int maxInliers = 0;
                 int maxIdInliers = -1;
-                int tyu = 0;
-                
+                int tyu = 0;                
                 for(int yy = 0; yy < bucket.size(); yy++){
                     if(bucket[yy] != -1) {
                         tyu = reg_RGB->inliersRGB(i,bucket[yy]);
@@ -396,17 +258,15 @@ void loopClosingRGB(BoWFeatures &features){
     db_rgb.save("DBRGB.yml.gz");    
 }
 
-
-
-
-
 void loopClosing3d(BoWFeatures &features)
 {
+    
+    
     int const INITIAL_OFFSET = 80; 
     double const SANITY_THRESHOLD = 0.85;
     double const MATCH_THRESHOLD = 0.71;
-    int const END_OFFSET = INITIAL_OFFSET; //elimino la coda, sicuramente darà buoni risultati e non è un loop
-    int const SIZE_BUCKET = 5; //risultati da considerare validi e su cui determinare inliers
+    int const END_OFFSET = INITIAL_OFFSET;
+    int const SIZE_BUCKET = 5;
     int const TEMP_CONS = 4;
     bool loop_found = false;
     
@@ -430,8 +290,12 @@ void loopClosing3d(BoWFeatures &features)
                                    - *std::min_element(xs.begin(), xs.end()),
                                    *std::min_element(ys.begin(), ys.end()),
                                    *std::max_element(ys.begin(), ys.end()), 25);
+    
+    NarfDatabase gg("DB3D.yml.gz");
+    FeatureVector vv = gg.retrieveFeatures(2);
+    
     NarfVocabulary voc_3d(filename_voc_3d);
-    NarfDatabase db_3d(voc_3d, false);
+    NarfDatabase db_3d(voc_3d, true);
     
     for (int i=0;i<files_list_3d.size();i++){
         loop_found = false;
@@ -442,9 +306,9 @@ void loopClosing3d(BoWFeatures &features)
             if (voc_3d.score(v1,v2) >= SANITY_THRESHOLD){           
                 QueryResults ret;
                 db_3d.query(features[i], ret,db_3d.size());
-                for (int j = 0; j < ret.size(); j++){                
-                    if (ret[j].Score > MATCH_THRESHOLD){ 
-                        if ((i - END_OFFSET) >= ret[j].Id){ 
+                for (int j = 0; j < ret.size(); j++){ //scansiono risultati                
+                    if (ret[j].Score > MATCH_THRESHOLD){ //sanity check
+                        if ((i - END_OFFSET) >= ret[j].Id){ //scarto la coda
                             if (bucket.size() < SIZE_BUCKET){
                                 bucket.push_back(ret[j].Id);
                                 cout << i <<"-> bucket: " << ret[j].Id<<endl;
@@ -463,12 +327,17 @@ void loopClosing3d(BoWFeatures &features)
                     for (int aa = 0 ; aa < bucket.size(); aa++){                    
                         for (int xx = 0;xx< TEMP_CONS;xx++){
                             int pivot = xx+1;
-                            int cursore = bucket[aa] - pivot;                        
-                            voc_3d.transform(features[i-pivot], v1);                        
-                            voc_3d.transform(features[cursore], v2);
-                            double score = voc_3d.score(v1, v2);   
-                            cout << (i-pivot) << " vs " << cursore << " score: " << score<<endl;
-                            if (!(score >= MATCH_THRESHOLD)){               
+                            int cursore = bucket[aa] - pivot;    
+                            if (cursore>=0){
+                                voc_3d.transform(features[i-pivot], v1);                        
+                                voc_3d.transform(features[cursore], v2);
+                                double score = voc_3d.score(v1, v2);   
+                                cout << (i-pivot) << " vs " << cursore << " score: " << score<<endl;
+                                if (!(score >= MATCH_THRESHOLD)){               
+                                    bucket[aa] = -1;
+                                    break;
+                                }
+                            }else{
                                 bucket[aa] = -1;
                                 break;
                             }
@@ -476,14 +345,13 @@ void loopClosing3d(BoWFeatures &features)
                     }
                 }
                 
-                int maxInliers = 0;
+                double maxInliers = numeric_limits<double>::max();
                 int maxIdInliers = -1;
-                int tyu = 0;
-                
+                int tyu = 0;                
                 for(int yy = 0; yy < bucket.size(); yy++){
                     if(bucket[yy] != -1) {
                         tyu = reg_3D->getScoreFit(i,bucket[yy]);
-                        if (maxInliers < tyu){
+                        if (maxInliers > tyu){
                             maxInliers = tyu;
                             maxIdInliers = bucket[yy];
                         }
@@ -504,40 +372,19 @@ void loopClosing3d(BoWFeatures &features)
     db_3d.save("DB3D.yml.gz");
 }
 
-void wait()
-{
-    cout << "Premi 'enter' per continuare." << endl;
-    getchar();
-}
-
-
-
 void loadFeaturesRGB(BoWFeatures &features)
 {
     features.clear();
     features.reserve(files_list_rgb.size());
     cv::SURF surf(300, 5, 4, true);
     
-    string file_name_work,filename;
-    ofstream save("vocsurf.aux");
-    
+    string filename;    
     reg_RGB = new RegistroRGB(files_list_rgb.size());
     
     for (int i = 0; i < files_list_rgb.size(); ++i) {
         
         filename = files_list_rgb[i];
-        cout << "Estrazione SURF per " << filename << endl;
-        
-        vector<string> vec1,vec2;
-        StringFunctions::split(filename,vec1,"/");
-        string w = vec1[vec1.size()-1];
-        StringFunctions::trim(w);
-        StringFunctions::split(w,vec2,".");
-        file_name_work = vec2[0];
-        
-        cout << i<<") "<< file_name_work << " => " << registro_interno.find(file_name_work)->second <<endl;
-        save << i << ":" << file_name_work << " => " <<registro_interno.find(file_name_work)->second << endl;
-        registro_aux_rgb.insert(Mappa(i,file_name_work+" => "+registro_interno.find(file_name_work)->second));
+        cout << "Estrazione SURF: " << filename;
         
         cv::Mat image = cv::imread(filename);
         cv::Mat mask;
@@ -545,11 +392,9 @@ void loadFeaturesRGB(BoWFeatures &features)
         vector<float> descriptors;
         surf(image, mask, keypoints, descriptors);
         features.push_back(vector<vector<float> >());
-        reg_RGB->addFrame(filename,descriptors,keypoints);
-        
+        reg_RGB->addFrame(filename,descriptors,keypoints);         
         changeStructure(descriptors, features.back(), surf.descriptorSize());
-        cout << "Estratti " << features[i].size() << " descrittori." << endl;
-        cout << "-------------------------------------------------------" << endl;
+        cout << ". Estratti " << features[i].size() << " descrittori." << endl;
         descriptors.clear();
         keypoints.clear();
     }
@@ -557,85 +402,55 @@ void loadFeaturesRGB(BoWFeatures &features)
 }
 
 // ----------------------------------------------------------------------------
-
-void changeStructure(const vector<float> &plain, vector<vector<float> > &out,
-                     int L)
-{
-    out.resize(plain.size() / L);
-    int j = 0;
-    for(int i = 0; i < plain.size(); i += L, ++j)
-    {
-        out[j].resize(L);
-        copy(plain.begin() + i, plain.begin() + i + L, out[j].begin());
-    }
-}
-
-// ----------------------------------------------------------------------------
 void loadFeatures3d(BoWFeatures &features)
 {
     typedef pcl::PointXYZ PointType;
-    float angular_resolution = pcl::deg2rad (0.3);
+    float angular_resolution = pcl::deg2rad (0.2);
     float support_size = 0.1f;
-    pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
     
-    reg_3D = new Registro3D("pcd/");
+    reg_3D = new Registro3D(directory3d);
     
     features.clear();
     features.reserve(files_list_3d.size());
     
     string filename;
-    string file_name_work;
-    ofstream save("voc.aux");
-    
+
     float noise_level = 0.0f;
     float min_range = 0.0f;
     int border_size = 1;
     
-    boost::shared_ptr<pcl::RangeImage> range_image_ptr (new pcl::RangeImage);
-    pcl::RangeImage& range_image = *range_image_ptr;
-    
-    for (int i = 0; i < files_list_3d.size(); ++i) {
-        pcl::PointCloud<PointType>::Ptr point_cloud_wf (new pcl::PointCloud<PointType>);
-        pcl::PointCloud<PointType>::Ptr point_cloud (new pcl::PointCloud<PointType>);
+   for (int i = 0; i < files_list_3d.size(); ++i) {     
+        pcl::PointCloud<PointType>::Ptr point_cloud_wf_ptr (new pcl::PointCloud<PointType>,null_deleter());
+        pcl::PointCloud<PointType>& point_cloud_wf = *point_cloud_wf_ptr; 
         
+        pcl::PointCloud<PointType>::Ptr point_cloud_ptr (new pcl::PointCloud<PointType>,null_deleter());
+        pcl::PointCloud<PointType>& point_cloud = *point_cloud_ptr;
+      
         filename = files_list_3d[i];
-        pcl::io::loadPCDFile (filename, *point_cloud_wf);
+        pcl::io::loadPCDFile (filename, point_cloud_wf);
         
         //filtraggio valori NaN
         std::vector<int> indices;
-        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
+        pcl::removeNaNFromPointCloud (point_cloud_wf,point_cloud_wf,indices);
         //filtraggio con pixel volumetrici
         const float VOXEL_GRID_SIZE = 0.01f;
-        pcl::VoxelGrid<pcl::PointXYZ> vox_grid;
+        pcl::VoxelGrid<PointType> vox_grid;
         vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );
-        vox_grid.setInputCloud( point_cloud_wf );
-        vox_grid.filter( *point_cloud );
+        vox_grid.setInputCloud(point_cloud_wf_ptr);
+        vox_grid.filter(point_cloud);
         
-        cout << "Estrazione NARF per " << filename << endl;
+        cout << "Estrazione NARF: " << filename ;
         
         Eigen::Affine3f scene_sensor_pose (Eigen::Affine3f::Identity());
-        //SCENE_SENSOR_POSE
-        scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f ((*point_cloud).sensor_origin_[0],
-                                             (*point_cloud).sensor_origin_[1],
-                (*point_cloud).sensor_origin_[2])) *
-                Eigen::Affine3f ((*point_cloud).sensor_orientation_);
+        scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f (point_cloud.sensor_origin_[0],
+                                                                   point_cloud.sensor_origin_[1],
+                                                                   point_cloud.sensor_origin_[2])) *
+                            Eigen::Affine3f (point_cloud.sensor_orientation_);
         
-        //ricavo il nome file e lo registro
-        vector<string> vec1,vec2;
-        StringFunctions::split(filename,vec1,"/");
-        string w = vec1[vec1.size()-1];
-        StringFunctions::trim(w);
-        StringFunctions::split(w,vec2,".");
-        file_name_work = vec2[0];
-        cout << i<<") "<< file_name_work << " => " << registro_interno.find(file_name_work)->second <<endl;
-        save << i << ":" << file_name_work << " => " <<registro_interno.find(file_name_work)->second << endl;
-        registro_aux.insert(Mappa(i,file_name_work+" => "+registro_interno.find(file_name_work)->second));
-        
-        vec1.clear();
-        vec2.clear();
-        
-        range_image.createFromPointCloud (*point_cloud, angular_resolution, pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
-                                          scene_sensor_pose, coordinate_frame, noise_level, min_range, border_size);
+        pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;      
+        pcl::RangeImage::Ptr range_image_ptr (new pcl::RangeImage,null_deleter());
+        pcl::RangeImage& range_image = *range_image_ptr;
+        range_image.createFromPointCloud (point_cloud,angular_resolution,pcl::deg2rad(360.0f),pcl::deg2rad(180.0f),scene_sensor_pose,coordinate_frame,noise_level,min_range,border_size);
         range_image.setUnseenToMaxRange();
         
         pcl::RangeImageBorderExtractor range_image_border_extractor;
@@ -652,9 +467,6 @@ void loadFeatures3d(BoWFeatures &features)
         pcl::PointCloud<int> keypoint_indices;
         narf_keypoint_detector.compute (keypoint_indices);
         
-        // ------------------------------------------------------
-        // -----Calcolo NARF descriptors per i punti di interesse-----
-        // ------------------------------------------------------
         vector<int> keypoint_indices2;
         keypoint_indices2.resize (keypoint_indices.points.size ());
         for (unsigned int i=0; i<keypoint_indices.size (); ++i) // This step is necessary to get the right vector type
@@ -664,47 +476,24 @@ void loadFeatures3d(BoWFeatures &features)
         narf_descriptor.getParameters().rotation_invariant = true;
         pcl::PointCloud<pcl::Narf36> narf_descriptors;
         narf_descriptor.compute (narf_descriptors);
-        cout << "Estratti "<<narf_descriptors.size ()<<" descrittori per "
-             <<keypoint_indices.points.size ()<< " keypoints.\n";
+        cout << ". Estratti "<<narf_descriptors.size ()<<" descrittori. Punti: " <<keypoint_indices.points.size ()<< "."<<endl;
         features.push_back(vector<vector<float> >());
-        cout << "------------------------------------------------------------" << endl;
-        
+       
         for (int p = 0; p < narf_descriptors.size(); p++) {
             vector<float> flot;
             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
         }
+        point_cloud.clear();
+        point_cloud_wf.clear();
         range_image.clear();
-        (*point_cloud).clear();
-        (*point_cloud_wf).clear();
-        narf_descriptors.clear();
-        narf_descriptor = NULL;
     }
     cout << "Estrazione terminata." << endl;
 }
-
-void listFile(string direc, vector<string> *files_lt)
-{
-    DIR *pDIR;
-    struct dirent *entry;
-    
-    if( pDIR=opendir(direc.c_str()) ) {
-        while(entry = readdir(pDIR)) {
-            if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0 ) {
-                string str = entry->d_name;
-                files_lt->push_back(direc+str);
-            }
-        }
-    }
-    closedir(pDIR);
-    sort(files_lt->begin(), files_lt->end());
-}
-
-// ----------------------------------------------------------------------------
-
+ 
 void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb)
-{
+{ 
     // branching factor and depth levels
     const int k = 10;
     const int L = 3;
@@ -713,7 +502,7 @@ void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb)
     
     NarfVocabulary voc;
     Surf128Vocabulary voc2;
-    
+      
     string nomefile_3d = filename_voc_3d;
     string nomefile_rgb = filename_voc_rgb;
     
@@ -736,7 +525,7 @@ void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb)
         voc.save(nomefile_3d);
         voc2.save(nomefile_rgb);
     }
-    else
+    else 
     {
         voc.load(nomefile_3d);
         voc2.load(nomefile_rgb);
@@ -784,61 +573,4 @@ void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb)
     //        bown << endl;
     //    }
     //    bown.close();
-}
-
-// ----------------------------------------------------------------------------
-void VocAuxSurf()
-{
-    string line;
-    ifstream Myfile;
-    Myfile.open("vocsurf.aux");
-    
-    if(Myfile.is_open()) {
-        while(Myfile.peek() != EOF) {
-            vector<string> w1;
-            getline(Myfile, line);
-            StringFunctions::trim(line);
-            if(line.size() > 0) {
-                //luogo
-                StringFunctions::split(line,w1,":");
-                string w = w1[1];
-                StringFunctions::trim(w);
-                string h = w1[0];
-                StringFunctions::trim(h);
-                registro_aux3.insert(Mappa(atoi(h.c_str()),w));
-                
-            }
-        }
-        Myfile.close();
-    } else {
-        cout<<"vocsurf.aux NON TROVATO."<<endl;
-    }
-}
-
-void VocAuxNarf()
-{
-    string line;
-    ifstream Myfile;
-    Myfile.open("voc.aux");
-    
-    if(Myfile.is_open()) {
-        while(Myfile.peek() != EOF) {
-            vector<string> w1;
-            getline(Myfile, line);
-            StringFunctions::trim(line);
-            if(line.size() > 0) {
-                //luogo 
-                StringFunctions::split(line,w1,":");
-                string w = w1[1];
-                StringFunctions::trim(w);
-                string h = w1[0];
-                StringFunctions::trim(h);
-                registro_aux2.insert(Mappa(atoi(h.c_str()),w));
-                
-            }
-        }
-        Myfile.close();
-    } else {
-        cout<<"voc.aux NON TROVATO."<<endl;
-    }
 }

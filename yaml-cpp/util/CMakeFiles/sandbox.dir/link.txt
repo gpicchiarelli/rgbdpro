@@ -1,0 +1,1 @@
+/usr/bin/ccache  g++  -Wall  -Wextra -pedantic -Wno-long-long  -O2    CMakeFiles/sandbox.dir/sandbox.cpp.o  -o sandbox -rdynamic ../libyaml-cpp.so.0.5.0 -Wl,-rpath,/home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp 
