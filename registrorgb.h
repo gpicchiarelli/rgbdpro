@@ -44,15 +44,14 @@ class RegistroRGB
 public:
     typedef vector<float> p_desc;
     typedef vector<cv::KeyPoint> p_keyp;
-
-    RegistroRGB(int size);
+    cv::Mat getImageAt(int i);
+    RegistroRGB(string directory);
     void addFrame(string name, p_desc descriptor, p_keyp keypoints);
     int inliersRGB(int src,int dst);
-
+    void listFile(string direc, vector<string> *files_lt);
+    
 private:
-    vector<string> _name;
-    vector<p_desc> _descriptors;
-    vector<p_keyp> _keypoints;
+    vector<string> __files_list_rgb;    
 };
 
 #endif // REGISTRORGB_H

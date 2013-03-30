@@ -10,7 +10,8 @@ LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs op
 -lpcl_apps -lpcl_common -lpcl_features -lpcl_filters -lpcl_io -lpcl_kdtree -lpcl_keypoints -lpcl_octree \
 -lpcl_registration -lpcl_sample_consensus \
 -lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization \
--lvtkCommon -lvtkFiltering -lvtkRendering -lpthread -lboost_thread -lboost_system -lboost_iostreams
+-lvtkCommon -lvtkFiltering -lvtkRendering -lpthread -lboost_thread -lboost_system -lboost_iostreams\
+-lboost_serialization
 
 DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h TemplatedVocabulary.h \
   TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h democ.h

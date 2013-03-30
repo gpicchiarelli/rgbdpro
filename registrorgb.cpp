@@ -18,31 +18,33 @@
 
 #include "registrorgb.h"
 
-RegistroRGB::RegistroRGB(int size)
+RegistroRGB::RegistroRGB(string directory)
 {
-    this->_name.reserve(size);
-    this->_descriptors.reserve(size);
-    this->_keypoints.reserve(size);
+    this->listFile(directory,&this->__files_list_rgb);
 }
-void RegistroRGB::addFrame(string name, p_desc descriptor, p_keyp keypoints){
-    this->_name.push_back(name);
-    this->_descriptors.push_back(descriptor);
-    this->_keypoints.push_back(keypoints);
+
+
+cv::Mat RegistroRGB::getImageAt(int i){
+    return cv::imread(this->__files_list_rgb[i]);   
 }
+
 int RegistroRGB::inliersRGB(int src,int dst)
 {
     int numInliers = 0;
-
-    cv::Mat descriptors1;
-    cv::Mat descriptors2;
+    
+    cv::SURF surf(300, 5, 4, true);
+   
+    cv::Mat image1 = cv::imread(this->__files_list_rgb[src]);
+    cv::Mat msk1;
     vector<cv::KeyPoint> keypoints1;
+    cv::Mat descriptors1;
+    surf(image1, msk1, keypoints1, descriptors1);
+    
+    cv::Mat image2 = cv::imread(this->__files_list_rgb[dst]);
+    cv::Mat msk2;
     vector<cv::KeyPoint> keypoints2;
-
-    descriptors1 = Mat(this->_descriptors[src]);
-    descriptors2 = Mat(this->_descriptors[dst]);
-
-    keypoints1 = this->_keypoints[src];
-    keypoints2 = this->_keypoints[dst];
+    cv::Mat descriptors2;
+    surf(image2, msk2, keypoints2, descriptors2);
 
     TwoWayMatcher matcher(TWM_FLANN);
     vector<DMatch> matches;
@@ -66,3 +68,21 @@ int RegistroRGB::inliersRGB(int src,int dst)
 
     return numInliers;
 }
+
+void RegistroRGB::listFile(string direc, vector<string> *files_lt)
+{
+    DIR *pDIR;
+    struct dirent *entry;
+
+    if( pDIR=opendir(direc.c_str()) ) {
+        while(entry = readdir(pDIR)) {
+            if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0 ) {
+                string str = entry->d_name;
+                files_lt->push_back(direc+str);
+            }
+        }
+    }
+    closedir(pDIR);
+    sort(files_lt->begin(), files_lt->end());
+}
+

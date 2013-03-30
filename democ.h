@@ -28,6 +28,14 @@
 #include <boost/multi_index/global_fun.hpp>
 #include <boost/multi_index/mem_fun.hpp>
 #include <boost/multi_index/ordered_index.hpp>
+#include <boost/archive/text_oarchive.hpp> 
+#include <boost/archive/text_iarchive.hpp> 
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/serialization/string.hpp> 
+#include <boost/serialization/export.hpp> 
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/list.hpp>
 
 #include <pcl/range_image/range_image.h>
 #include <pcl/io/pcd_io.h>
@@ -69,12 +77,64 @@
 #include <sys/stat.h>
 #include <algorithm>
 #include <pthread.h>
+#include <iostream> 
+#include <sstream> 
+
+#include "yaml-cpp/yaml.h"
+
 
 using namespace std;
 using namespace DBoW2;
 using namespace DUtils;
 using namespace cv;
+using namespace YAML;
 
+
+namespace YAML {
+template<>
+struct convert< vector<float> > {
+    static Node encode(const vector<float>& rhs) {
+        Node node;
+        for(int y=0;y<rhs.size();y++){
+            node.push_back(rhs[y]);
+        }
+        return node;
+    }
+    
+    static bool decode(const Node& node, vector<float>& rhs) {
+        if(!node.IsSequence()){
+            cout << "no seq"<<endl;
+            return false;
+        }
+        for(int y=0;y<rhs.size();y++){
+            rhs.push_back(node[y].as<float>());
+        }
+        return true;
+    }
+};
+
+template<>
+struct convert< vector <vector<float> > > {
+    static Node encode(const vector<vector<float> >& rhs) {
+        Node node;
+        for(int y=0;y<rhs.size();y++){
+            node.push_back(rhs[y]);
+        }
+        return node;
+    }
+    
+    static bool decode(const Node& node, vector<vector<float> >& rhs) {
+        if(!node.IsSequence()){
+            cout << "no seq"<<endl;
+            return false;
+        }
+        for(int y=0;y<rhs.size();y++){
+            rhs.push_back(node[y].as< vector<float> >());
+        }
+        return true;
+    }
+};
+}
 
 vector<string> files_list_rgb,files_list_3d;
 map<string, string> registro_interno;
@@ -82,7 +142,7 @@ map<string, string> registro_interno;
 typedef pair <string, string> PairString;
 typedef vector<vector<vector<float> > > BoWFeatures;
 
-//avoid boost:: invalid free
+//avoid boost:: invalid free for static allocation
 struct null_deleter
 {
     void operator()(void const *) const
@@ -96,13 +156,31 @@ void loopClosing3d(BoWFeatures &features);
 void loadFeatures3d(BoWFeatures &features);
 void loadFeaturesRGB(BoWFeatures &features);
 void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb);
-
+void saveFeaturesFile(BoWFeatures &features,string filename);
+void loadFeaturesFile(BoWFeatures &features,string filename);
 void searchRegistro();
 void listFile(string direc, vector<string> *files_lt);
 void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
 void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+void saveFeaturesFile(BoWFeatures &features, string filename){ 
+    ofstream out(filename.c_str());
+    stringstream ss;
+    boost::archive::binary_oarchive oa(ss); 
+    oa << features;
+    out << ss.str();
+    out.close();    
+}
+
+void loadFeaturesFile(BoWFeatures &features, string filename){
+    ifstream in(filename.c_str());
+    boost::archive::binary_iarchive ia(in); 
+    ia >> features;    
+    in.close();
+}
+
 void wait()
 {
     cout << "Premi 'enter' per continuare." << endl;
