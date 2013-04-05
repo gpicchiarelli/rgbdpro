@@ -18,4 +18,4 @@
   sudo make install
   
 - lanciare make,sudo make install.
-- eseguire democ nella cartella build/
+- eseguire lk nella cartella build/

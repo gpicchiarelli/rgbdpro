@@ -85,9 +85,9 @@ double Registro3D::getScoreFit(int src_p, int dst_p)
     vox_grid.filter( *dst_ptr_f );
 
     pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
-    icp.setMaxCorrespondenceDistance (0.1);
-    icp.setRANSACOutlierRejectionThreshold (0.1);
-    icp.setTransformationEpsilon (1e-02); //e-8
+    icp.setMaxCorrespondenceDistance (1);
+    icp.setRANSACOutlierRejectionThreshold (0.3);
+    icp.setTransformationEpsilon (4); //e-8
     icp.setMaximumIterations (5);
     icp.setInputCloud (src_ptr_f);
     icp.setInputTarget (dst_ptr_f);

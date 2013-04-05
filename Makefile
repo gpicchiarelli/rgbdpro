@@ -1,4 +1,4 @@
-CC=ccache gcc -w -O3
+CC=ccache gcc -w -g -O3
 CCDBG=ccache gcc -w -g -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG
 CFLAGS+=$(shell pkg-config --cflags opencv )
@@ -14,20 +14,21 @@ LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs op
 -lboost_serialization
 
 DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h TemplatedVocabulary.h \
-  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h democ.h
+  TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h lk.h\
+stats.h
 
 OBJS=build/BowVector.o build/FSurf64.o build/FSurf128.o build/FBrief.o build/FNarf.o build/ScoringObject.o \
-build/QueryResults.o build/FeatureVector.o build/TwoWayMatcher.o build/registrorgb.o build/registro3d.o 
+build/QueryResults.o build/FeatureVector.o build/TwoWayMatcher.o build/registrorgb.o build/registro3d.o build/stats.o
 
 DEPS_SO=DUtils/libDUtils.so DUtilsCV/libDUtilsCV.so DVision/libDVision.so build/lib/libyaml-cpp.so
 TARGET=build/lib/libDBoW2.so
 
-all: $(TARGET) build/democ
+all: $(TARGET) build/lk
 
-build/democ: $(OBJS) build/democ.o
+build/lk: $(OBJS) build/lk.o
 	$(CC) $(CFLAGS) $^ $(LFLAGS) -O3 -o $@
 
-build/democ.o: democ.cpp $(DEPS)
+build/lk.o: lk.cpp $(DEPS)
 	$(CC) $(CFLAGS) -fPIC -O3 -Wall -c $< -o $@
 
 build/%.o: %.cpp $(DEPS)
@@ -46,8 +47,8 @@ DVision/libDVision.so:
 	make -C DVision
 
 clean:
-	rm -f *.o $(TARGET) build/democ pcd_tb && \
-	rm -f build/*.o $(TARGET) democ && \
+	rm -f *.o $(TARGET) build/lk pcd_tb && \
+	rm -f build/*.o $(TARGET) lk && \
 	make -C DUtils clean && \
 	make -C DUtilsCV clean && \
 	make -C DVision clean

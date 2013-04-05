@@ -1,0 +1,272 @@
+/**
+ * File: democ.h
+ * Date: March 2013
+ * Author: Giacomo Picchiarelli <gpicchiarelli@gmail.com>
+ * Description: test NARF - SURF features (pcl library, opencv)
+ *
+ * This file is licensed under a Creative Commons
+ * Attribution-NonCommercial-ShareAlike 3.0 license.
+ * This file can be freely used and users can use, download and edit this file
+ * provided that credit is attributed to the original author. No users are
+ * permitted to use this file for commercial purposes unless explicit permission
+ * is given by the original author. Derivative works must be licensed using the
+ * same or similar license.
+ * Check http://creativecommons.org/licenses/by-nc-sa/3.0/ to obtain further
+ * details.
+ *
+ */
+#ifndef LK_H
+#define LK_H
+
+// OpenCV
+#include <opencv/cv.h>
+#include <opencv/highgui.h>
+#include <opencv2/nonfree/features2d.hpp>
+
+#include <boost/thread/thread.hpp>
+#include <boost/multi_index_container.hpp>
+#include <boost/multi_index/global_fun.hpp>
+#include <boost/multi_index/mem_fun.hpp>
+#include <boost/multi_index/ordered_index.hpp>
+#include <boost/archive/text_oarchive.hpp> 
+#include <boost/archive/text_iarchive.hpp> 
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/serialization/string.hpp> 
+#include <boost/serialization/export.hpp> 
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/list.hpp>
+#include <boost/algorithm/string/predicate.hpp>
+
+#include <pcl/range_image/range_image.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/visualization/range_image_visualizer.h>
+#include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/visualization/image_viewer.h>
+#include <pcl/features/range_image_border_extractor.h>
+#include <pcl/keypoints/narf_keypoint.h>
+#include <pcl/features/narf_descriptor.h>
+#include <pcl/console/parse.h>
+#include <pcl/visualization/cloud_viewer.h>
+#include <pcl/common/common_headers.h>
+#include <pcl/features/normal_3d.h>
+#include <pcl/point_cloud.h>
+#include <pcl/filters/filter.h>
+#include <pcl/kdtree/kdtree_flann.h>
+#include <pcl/filters/passthrough.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/approximate_voxel_grid.h>
+
+// DBoW2
+#include "DBoW2.h"
+#include "DUtils/DUtils.h"
+#include "DUtilsCV/DUtilsCV.h"
+#include "DVision/DVision.h"
+
+//yaml-cpp
+#include "yaml-cpp/yaml.h"
+
+
+#include "registrorgb.h"
+#include "registro3d.h"
+#include "stats.h"
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <dirent.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <algorithm>
+#include <pthread.h>
+#include <iostream> 
+#include <sstream> 
+#include <fstream>
+
+#include "yaml-cpp/yaml.h"
+
+
+using namespace std;
+using namespace DBoW2;
+using namespace DUtils;
+using namespace cv;
+using namespace YAML;
+
+
+namespace YAML {
+template<>
+struct convert< vector<float> > {
+    static Node encode(const vector<float>& rhs) {
+        Node node;
+        for(int y=0;y<rhs.size();y++){
+            node.push_back(rhs[y]);
+        }
+        return node;
+    }
+    
+    static bool decode(const Node& node, vector<float>& rhs) {
+        if(!node.IsSequence()){
+            cout << "no seq"<<endl;
+            return false;
+        }
+        for(int y=0;y<rhs.size();y++){
+            rhs.push_back(node[y].as<float>());
+        }
+        return true;
+    }
+};
+
+template<>
+struct convert< vector <vector<float> > > {
+    static Node encode(const vector<vector<float> >& rhs) {
+        Node node;
+        for(int y=0;y<rhs.size();y++){
+            node.push_back(rhs[y]);
+        }
+        return node;
+    }
+    
+    static bool decode(const Node& node, vector<vector<float> >& rhs) {
+        if(!node.IsSequence()){
+            cout << "no seq"<<endl;
+            return false;
+        }
+        for(int y=0;y<rhs.size();y++){
+            rhs.push_back(node[y].as< vector<float> >());
+        }
+        return true;
+    }
+};
+}
+
+vector<string> files_list_rgb,files_list_3d;
+map<int, int> registro_interno;
+
+typedef pair <int, int> PairInt;
+typedef vector<vector<vector<float> > > BoWFeatures;
+
+//avoid boost:: invalid free for static allocation
+struct null_deleter
+{
+    void operator()(void const *) const
+    {
+    }
+};
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+void loopClosingRGB(BoWFeatures &features);
+void loopClosing3d(BoWFeatures &features);
+void loadFeatures3d(BoWFeatures &features);
+void loadFeaturesRGB(BoWFeatures &features);
+void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb);
+void saveFeaturesFile(BoWFeatures &features,string filename);
+void loadFeaturesFile(BoWFeatures &features,string filename);
+void searchRegistro(string pos);
+void listFile(string direc, vector<string> *files_lt);
+void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
+void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
+void wait();
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+void saveFeaturesFile(BoWFeatures &features, string filename){ 
+    ofstream out(filename.c_str());
+    stringstream ss;
+    boost::archive::binary_oarchive oa(ss); 
+    oa << features;
+    out << ss.str();
+    out.close();    
+}
+
+void loadFeaturesFile(BoWFeatures &features, string filename){
+    ifstream in(filename.c_str());
+    boost::archive::binary_iarchive ia(in); 
+    ia >> features;    
+    in.close();
+}
+
+void wait()
+{
+    cout << "Premi 'invio' per continuare." << endl;
+    getchar();
+}
+
+void listFile(string direc, vector<string> *files_lt)
+{
+    DIR *pDIR;
+    struct dirent *entry;
+    
+    if( pDIR=opendir(direc.c_str()) ) {
+        while(entry = readdir(pDIR)) {
+            if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0 ) {
+                string str = entry->d_name;
+                files_lt->push_back(direc+str);
+            }
+        }
+    }
+    closedir(pDIR);
+    sort(files_lt->begin(), files_lt->end());
+}
+void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys)
+{
+    xs.clear();
+    ys.clear();
+    
+    string line;
+    ifstream Myfile;
+    Myfile.open(filename);
+    if(Myfile.is_open()) {
+        while(Myfile.peek() != EOF) {
+            vector<string> w1;
+            getline(Myfile, line);
+            StringFunctions::trim(line);
+            if(line.size() > 0) {
+                //luogo
+                StringFunctions::split(line,w1,",");
+                string w = w1[1];
+                StringFunctions::trim(w);
+                string h = w1[2];
+                xs.push_back(boost::lexical_cast<double>(w));
+                ys.push_back(boost::lexical_cast<double>(h));
+            }
+        }
+        Myfile.close();
+    }
+}
+void searchRegistro(string pos)
+{
+    string line;
+    ifstream Myfile;
+    Myfile.open(pos.c_str());
+    if(Myfile.is_open()) {
+        while(Myfile.peek() != EOF) {
+            vector<string> w1;
+            getline(Myfile, line);
+            StringFunctions::trim(line);
+            if(line.size() > 0) {
+                //luogo
+                StringFunctions::split(line,w1,":");
+                string w = w1[1];
+                StringFunctions::trim(w);
+                string h = w1[0];
+                //nome immagine
+                StringFunctions::trim(h);
+                registro_interno.insert(PairInt(lexical_cast<int>(h),lexical_cast<int>(w)));
+            }
+        }
+        Myfile.close();
+    } else {
+        cout<<"registro.txt NON TROVATO."<<endl;
+    }
+}
+void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L)
+{
+    out.resize(plain.size() / L);
+    int j = 0;
+    for(int i = 0; i < plain.size(); i += L, ++j)
+    {
+        out[j].resize(L);
+        copy(plain.begin() + i, plain.begin() + i + L, out[j].begin());
+    }
+}
+
+#endif // LK_H
