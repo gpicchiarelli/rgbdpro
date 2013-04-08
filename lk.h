@@ -37,6 +37,7 @@
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/list.hpp>
 #include <boost/algorithm/string/predicate.hpp>
+#include <boost/serialization/static_warning.hpp>
 
 #include <pcl/range_image/range_image.h>
 #include <pcl/io/pcd_io.h>
@@ -154,12 +155,12 @@ struct null_deleter
 };
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-void loopClosingRGB(BoWFeatures &features);
-void loopClosing3d(BoWFeatures &features);
+void loopClosingRGB(const BoWFeatures &features);
+void loopClosing3d(const BoWFeatures &features);
 void loadFeatures3d(BoWFeatures &features);
 void loadFeaturesRGB(BoWFeatures &features);
-void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb);
-void saveFeaturesFile(BoWFeatures &features,string filename);
+void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb);
+void saveFeaturesFile(const BoWFeatures &features,string filename);
 void loadFeaturesFile(BoWFeatures &features,string filename);
 void searchRegistro(string pos);
 void listFile(string direc, vector<string> *files_lt);
@@ -168,7 +169,7 @@ void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-void saveFeaturesFile(BoWFeatures &features, string filename){ 
+void saveFeaturesFile(const BoWFeatures &features, string filename){ 
     ofstream out(filename.c_str());
     stringstream ss;
     boost::archive::binary_oarchive oa(ss); 

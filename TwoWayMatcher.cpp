@@ -13,9 +13,11 @@
 using namespace std;
 using namespace cv;
 
+//ratio 0.65f
+//distance 3.0
 TwoWayMatcher::TwoWayMatcher(int type)
-: matcherType(type), _ratio(0.65f), refineF(true),
-confidence(0.99), distance(3.0) {
+: matcherType(type), _ratio(0.45f), refineF(false),
+confidence(0.99), distance(6.0) {
     switch (type) {
         case TWM_BRUTEFORCE_L2:
         {

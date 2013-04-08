@@ -1,0 +1,134 @@
+./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.86 --offset=35
+
+3D
+ ======== Statistiche (%) =========
+Precision: 61.2903
+Recall: 12.4183
+Accuracy: 83.5955
+
+TP:19
+FP:12
+TN:725
+FN:134
+
+./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.85 --offset=35
+3D
+ ======== Statistiche (%) ========= 
+Precision: 41.5094
+Recall: 14.966
+Accuracy: 82.4719
+
+TP:22
+FP:31
+TN:712
+FN:125
+
+
+./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.81 --offset=35
+3D
+ ======== Statistiche (%) ========= 
+Precision: 60
+Recall: 7.64331
+Accuracy: 82.809
+
+TP:12
+FP:8
+TN:725
+FN:145
+
+./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.78 --offset=35 
+ ======== Statistiche (%) ========= 
+Precision: 34.4828
+Recall: 19.4805
+Accuracy: 79.6629
+
+TP:30
+FP:57
+TN:679
+FN:124
+
+./lk -l-3d -U --dataset=caffe_extended  --offset=80 --s-3d=0.86 --offset=50
+3D
+ ======== Statistiche (%) ========= 
+Precision: 25
+Recall: 15.2672
+Accuracy: 80.4571
+
+TP:20
+FP:60
+TN:684
+FN:111
+
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.28 --offset=35
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 78.125
+Recall: 27.4725
+Accuracy: 83.5955
+
+TP:50
+FP:14
+TN:694
+FN:132
+
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.28 --offset=35
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 76.7857
+Recall: 24.2938
+Accuracy: 83.4831
+
+TP:43
+FP:13
+TN:700
+FN:134
+
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.24 --offset=35
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 51.3699
+Recall: 40.5405
+Accuracy: 79.6629
+
+TP:75
+FP:71
+TN:634
+FN:110
+
+
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.27 --offset=35
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 71.7949
+Recall: 30.6011
+Accuracy: 83.2584
+
+TP:56
+FP:22
+TN:685
+FN:127
+
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.27 --offset=35
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 67.9487
+Recall: 29.4444
+Accuracy: 82.9213
+
+TP:53
+FP:25
+TN:685
+FN:127
+
+------------vecchia acquisizione RGB -------------------------------------------
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.24 --offset=35
+RGB
+======== Statistiche (%) ========= 
+Precision: 70.4918
+Recall: 25.1462
+Accuracy: 83.5955
+
+TP:43
+FP:18
+TN:701
+FN:128

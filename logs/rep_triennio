@@ -1,0 +1,27 @@
+./lk -U -l-rgb --s-rgb=0.28 --sanity=0.1 --dataset=triennio
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 31.4815
+Recall: 100
+Accuracy: 92.1776
+
+TP:17
+FP:37
+TN:419
+FN:0
+
+
+
+./lk -U -l-rgb --s-rgb=0.33 --sanity=0.4  --dataset=triennio
+
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 66.6667
+Recall: 4.44444
+Accuracy: 90.6977
+
+TP:2
+FP:1
+TN:427
+FN:43
+ 

@@ -1,0 +1,36 @@
+./lk -U --dataset=meccanica -l-rgb --sanity=0.2 --s-rgb=0.3
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 70.4918
+Recall: 25.1462
+Accuracy: 83.5955
+
+TP:43
+FP:18
+TN:701
+FN:128
+
+./lk -U --dataset=meccanica -l-rgb --sanity=0.2 --s-rgb=0.32
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 42.8571
+Recall: 18.4932
+Accuracy: 78.352
+
+TP:27
+FP:36
+TN:534
+FN:119
+
+./lk -U --dataset=meccanica -l-rgb --sanity=0.1 --s-rgb=0.34
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 45.2381
+Recall: 13.0137
+Accuracy: 79.0503
+
+TP:19
+FP:23
+TN:547
+FN:127
+

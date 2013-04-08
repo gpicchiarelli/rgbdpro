@@ -32,6 +32,12 @@ string debug_directoryrgb = "debug_images/";
 string datasets_root = "Dataset/";
 string filename_voc_3d,filename_voc_rgb,dataset_sub;
 
+double SOGLIA_3D = 0.71;
+double SOGLIA_RGB = 0.45;
+int I_OFFSET = 80;
+int VOC = 3;
+double SANITY = 0.6;
+
 int main(int nNumberofArgs, char* argv[])
 {    
     BoWFeatures featuresrgb,features3d;
@@ -45,6 +51,31 @@ int main(int nNumberofArgs, char* argv[])
             string parm = argv[y];
             StringFunctions::trim(parm);
             parametri.push_back(parm);  
+            if (boost::starts_with(parm,"--s-3d=")){   
+                string h = argv[y];
+                boost::erase_all(h, "--s-3d="); 
+                SOGLIA_3D = lexical_cast<double>(h);            
+             }
+            if (boost::starts_with(parm,"--s-rgb=")){   
+                string h = argv[y];
+                boost::erase_all(h, "--s-rgb="); 
+                SOGLIA_RGB = lexical_cast<double>(h);
+             }
+            if (boost::starts_with(parm,"--offset=")){   
+                string h = argv[y];
+                boost::erase_all(h, "--offset="); 
+                I_OFFSET = lexical_cast<int>(h);
+             }
+            if (boost::starts_with(parm,"--sanity=")){   
+                string h = argv[y];
+                boost::erase_all(h, "--sanity="); 
+                SANITY = lexical_cast<double>(h);
+             }
+            if (boost::starts_with(parm,"--voc=")){   
+                string h = argv[y];
+                boost::erase_all(h, "--voc="); 
+                VOC = lexical_cast<int>(h);
+             }
             if (boost::starts_with(parm,"--root-datasets=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--root-datasets=");               
@@ -118,13 +149,16 @@ int main(int nNumberofArgs, char* argv[])
             cout << "[ -vdel ]: Cancella i vecchi vocabolari." << endl;
             cout << "[ -l ]: Loop Closing." << endl;
             cout << "[ -l-rgb ]: Loop Closing RGB." << endl;
-            cout << "[ -l-3d ]: Loop Closing RGB." << endl;
+            cout << "[ -l-3d ]: Loop Closing 3D." << endl;
             cout << "[ -b ]: Si utilizzano il file depth in formato binario." << endl;
             cout << "[ -S ]: Salva DATABASE ed esce." << endl;
             cout << "[ -D ]: Modalità DEBUG. Dataset ridotto cartelle debug_{*}" << endl;
             cout << "[ --dataset=NOMEDATASET ]: Sottocartella di Dataset. Specifica un dataset." << endl;
             cout << "[ --root-datasets=CARTELLADATASETS ]: Specifica una directory di datasets. DEFAULT=Datasets" << endl;  
-            cout << "[ --root-datasets=CARTELLADATASETS ]: Specifica una directory di datasets. DEFAULT=Datasets" << endl;           
+            cout << "[ --s-rgb=sogliargb ]: soglia per il match rgb" << endl;           
+            cout << "[ --s-3d=soglia3d ]: soglia per il match 3d" << endl;    
+            cout << "[ --offset=offset ]: offset" << endl; 
+            cout << "[ --sanity=sanity ]: match per sanity check" << endl; 
             cout << "[ --stats ]: Valuta solo statistiche, se presenti file di report" << endl;           
             
             exit(0);
@@ -136,9 +170,9 @@ int main(int nNumberofArgs, char* argv[])
                 }catch(std::exception& e){
                     cout << "errore: searchRegistro()"	<<endl;
                 }
-                stats* owl = new stats("report_3d.rep",registro_interno,80,"3D");
+                stats* owl = new stats("report_3d.rep",registro_interno,I_OFFSET,"3D");
                 cout << owl->toString();
-                stats* owl2 = new stats("report_rgb.rep",registro_interno,80,"RGB");
+                stats* owl2 = new stats("report_rgb.rep",registro_interno,I_OFFSET,"RGB");
                 cout << owl2->toString();
             }
             
@@ -184,8 +218,7 @@ int main(int nNumberofArgs, char* argv[])
                         loadFeatures3d(features3d);
                     }
                 }
-                if(flag_s){
-                    
+                if(flag_s){                    
                     loadFeaturesRGB(featuresrgb);
                     saveFeaturesFile(featuresrgb,dataset_sub+"feat_rgb.dat");
                     featuresrgb.clear();
@@ -194,6 +227,8 @@ int main(int nNumberofArgs, char* argv[])
                     saveFeaturesFile(features3d,dataset_sub+"feat_3d.dat");
                     features3d.clear();
                     
+                    loadFeaturesFile(features3d,dataset_sub+"feat_3d.dat");
+                    loadFeaturesFile(featuresrgb,dataset_sub+"feat_rgb.dat");
                     testVocCreation(features3d,featuresrgb);
                     return 0;
                 }
@@ -219,13 +254,13 @@ int main(int nNumberofArgs, char* argv[])
     return 0;
 }
 
-void loopClosingRGB(BoWFeatures &features){
+void loopClosingRGB(const BoWFeatures &features){
     
-    int const OFFSET = 80;
-    double const MATCH_THRESHOLD = 0.49;
-    double const SANITY_THRESHOLD = 0.6;
-    int const SIZE_BUCKET = 5;
-    int const TEMP_CONS = 4;
+    int OFFSET = I_OFFSET;
+    double MATCH_THRESHOLD = SOGLIA_RGB;
+    double SANITY_THRESHOLD = SANITY;
+    int SIZE_BUCKET = 5;
+    int TEMP_CONS = 4;
     bool loop_found = false;
     
     // load robot poses
@@ -240,7 +275,7 @@ void loopClosingRGB(BoWFeatures &features){
     DUtilsCV::GUI::tWinHandler win = "Immagine Analizzata";
     DUtilsCV::GUI::tWinHandler winplot = "TraiettoriaRGB";
     
-    DUtilsCV::Drawing::Plot::Style normal_style(2); // thickness
+    DUtilsCV::Drawing::Plot::Style normal_style(1); // thickness
     DUtilsCV::Drawing::Plot::Style loop_style('r', 2); // color, thickness
     
     DUtilsCV::Drawing::Plot implot(240, 320,
@@ -263,8 +298,9 @@ void loopClosingRGB(BoWFeatures &features){
             BowVector v1, v2;
             voc.transform(features[i], v1);
             voc.transform(features[i-1], v2);
-            cout << "SANITY:" << voc.score(v1,v2) <<endl;
-            if (voc.score(v1,v2) >= SANITY_THRESHOLD){
+            double san =  voc.score(v1,v2);
+            cout << "S:" << san << endl;
+            if (san >= SANITY_THRESHOLD){
                 QueryResults ret;
                 db.query(features[i], ret,db.size());
                 for (int j = 0; j < ret.size(); j++){
@@ -305,7 +341,7 @@ void loopClosingRGB(BoWFeatures &features){
                         }
                     }
                 }
-                bucket.erase(std::remove( bucket.begin(), bucket.end(),-1), bucket.end());             
+                bucket.erase(std::remove( bucket.begin(), bucket.end(),-1), bucket.end()); 
                 int maxInliers = 0;
                 int maxIdInliers = -1;
                 int tyu = 0;
@@ -314,7 +350,8 @@ void loopClosingRGB(BoWFeatures &features){
                 }else{                    
                     for(int yy = 0; yy < bucket.size(); yy++){                        
                         tyu = reg_RGB->inliersRGB(i,bucket[yy]);
-                        if (maxInliers > tyu){
+                        cout << "Inliers: " << tyu << " per immagine " << bucket[yy] << endl;
+                        if (maxInliers < tyu){
                             maxInliers = tyu;
                             maxIdInliers = bucket[yy];
                         }                        
@@ -332,7 +369,6 @@ void loopClosingRGB(BoWFeatures &features){
                     ii = boost::lexical_cast<string>(i);
                     maxid = boost::lexical_cast<string>(maxIdInliers);
                     report << i <<":"<< maxIdInliers <<endl;
-                    report.flush();
                 }
             }
         }
@@ -345,13 +381,13 @@ void loopClosingRGB(BoWFeatures &features){
     cout << owl->toString();
 }
 
-void loopClosing3d(BoWFeatures &features)
+void loopClosing3d(const BoWFeatures &features)
 {    
-    int const OFFSET = 80;
-    double const SANITY_THRESHOLD = 0.6;
-    double const MATCH_THRESHOLD = 0.73;
-    int const SIZE_BUCKET = 5;
-    int const TEMP_CONS = 4;
+    int OFFSET = I_OFFSET;
+    double SANITY_THRESHOLD = SANITY;
+    double MATCH_THRESHOLD = SOGLIA_3D;
+    int SIZE_BUCKET = 5;
+    int TEMP_CONS = 4;
     bool loop_found = false;
     
     if (!DEBUG) { wait(); }
@@ -364,7 +400,7 @@ void loopClosing3d(BoWFeatures &features)
     
     DUtilsCV::GUI::tWinHandler winplot = "Traiettoria3D";
     
-    DUtilsCV::Drawing::Plot::Style normal_style(2); // thickness
+    DUtilsCV::Drawing::Plot::Style normal_style(1); // thickness
     DUtilsCV::Drawing::Plot::Style loop_style('r', 2); // color, thickness
     
     DUtilsCV::Drawing::Plot implot(240, 320,
@@ -383,8 +419,9 @@ void loopClosing3d(BoWFeatures &features)
             BowVector v1, v2;
             voc.transform(features[i], v1);
             voc.transform(features[i-1], v2);
-            cout << "SANITY:" << voc.score(v1,v2) <<endl;
-            if (voc.score(v1,v2) >= SANITY_THRESHOLD){
+            double san =  voc.score(v1,v2);
+            cout << "S:" << san << endl;
+            if (san >= SANITY_THRESHOLD){
                 QueryResults ret;
                 db.query(features[i], ret,db.size());
                 for (int j = 0; j < ret.size(); j++){ //scansiono risultati
@@ -458,8 +495,7 @@ void loopClosing3d(BoWFeatures &features)
         }
         db.add(features[i]);
         implot.line(-xs[i-1], ys[i-1], -xs[i], ys[i], normal_style);
-        DUtilsCV::GUI::showImage(implot.getImage(), true, &winplot, 10);
-        
+        DUtilsCV::GUI::showImage(implot.getImage(), true, &winplot, 10);        
     }
     report.close();
     stats* owl = new stats("report_3d.rep",registro_interno,OFFSET,"3D");
@@ -470,7 +506,7 @@ void loadFeaturesRGB(BoWFeatures &features)
 {
     features.clear();
     features.reserve(files_list_rgb.size());
-    cv::SURF surf(300, 5, 4, true);
+    cv::SURF surf(300, 4, 3, true);
     
     
     for (int i = 0; i < files_list_rgb.size(); ++i) {
@@ -496,7 +532,7 @@ void loadFeaturesRGB(BoWFeatures &features)
 void loadFeatures3d(BoWFeatures &features)
 {
     typedef pcl::PointXYZ PointType;
-    float angular_resolution = pcl::deg2rad (0.2);
+    float angular_resolution = pcl::deg2rad (0.3);
     float support_size = 0.1f;
     
     features.clear();
@@ -507,20 +543,20 @@ void loadFeatures3d(BoWFeatures &features)
     int border_size = 1;
     
     for (int i = 0; i < files_list_3d.size(); ++i) {
-        pcl::PointCloud<PointType>::Ptr point_cloud_wf (new pcl::PointCloud<PointType>);
+        //pcl::PointCloud<PointType>::Ptr point_cloud_wf (new pcl::PointCloud<PointType>);
         pcl::PointCloud<PointType>::Ptr point_cloud (new pcl::PointCloud<PointType>);
         
-        pcl::io::loadPCDFile (files_list_3d[i], *point_cloud_wf);
+        pcl::io::loadPCDFile (files_list_3d[i], *point_cloud);
         
         //filtraggio valori NaN
-        std::vector<int> indices;
-        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
-        //filtraggio con pixel volumetrici
-        const float VOXEL_GRID_SIZE = 0.01f;
-        pcl::VoxelGrid<PointType> vox_grid;
-        vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );
-        vox_grid.setInputCloud(point_cloud_wf);
-        vox_grid.filter(*point_cloud);
+//        std::vector<int> indices;
+//        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
+//        //filtraggio con pixel volumetrici
+//        const float VOXEL_GRID_SIZE = 0.01f;
+//        pcl::VoxelGrid<PointType> vox_grid;
+//        vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );
+//        vox_grid.setInputCloud(point_cloud_wf);
+//        vox_grid.filter(*point_cloud);
         
         cout << "Estrazione NARF: " << files_list_3d[i] ;
         
@@ -531,7 +567,7 @@ void loadFeatures3d(BoWFeatures &features)
                 Eigen::Affine3f ((*point_cloud).sensor_orientation_);
         
         pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
-        pcl::RangeImage::Ptr range_image_ptr (new pcl::RangeImage,null_deleter());
+        pcl::RangeImage::Ptr range_image_ptr (new pcl::RangeImage);
         pcl::RangeImage& range_image = *range_image_ptr;
         range_image.createFromPointCloud ((*point_cloud),angular_resolution,pcl::deg2rad(360.0f),pcl::deg2rad(180.0f),scene_sensor_pose,coordinate_frame,noise_level,min_range,border_size);
         range_image.setUnseenToMaxRange();
@@ -541,11 +577,11 @@ void loadFeatures3d(BoWFeatures &features)
         narf_keypoint_detector.setRangeImageBorderExtractor (&range_image_border_extractor);
         narf_keypoint_detector.setRangeImage (&range_image);
         narf_keypoint_detector.getParameters().support_size = support_size;
-        
         //euristiche, per avvicinarsi al real time
         narf_keypoint_detector.getParameters().max_no_of_threads = 3;
-        narf_keypoint_detector.getParameters().calculate_sparse_interest_image=false;
-        narf_keypoint_detector.getParameters().use_recursive_scale_reduction=true;
+        narf_keypoint_detector.getParameters().calculate_sparse_interest_image=false; //false
+        narf_keypoint_detector.getParameters().use_recursive_scale_reduction=true; //true
+        //narf_keypoint_detector.getParameters().add_points_on_straight_edges=true; 
         
         pcl::PointCloud<int> keypoint_indices;
         narf_keypoint_detector.compute (keypoint_indices);
@@ -568,14 +604,14 @@ void loadFeatures3d(BoWFeatures &features)
             features.back().push_back(flot);
             flot.clear();
         }
-        indices.clear();
+        //indices.clear();
         range_image_border_extractor.clearData();
         narf_keypoint_detector.clearData();
         (*range_image_ptr).clear();
         keypoint_indices.clear();
         keypoint_indices2.clear();
         (*point_cloud).clear();
-        (*point_cloud_wf).clear();
+       // (*point_cloud_wf).clear();
         range_image.clear();
         narf_descriptors.clear();
         narf_descriptor = NULL;
@@ -583,11 +619,11 @@ void loadFeatures3d(BoWFeatures &features)
     cout << "Estrazione terminata." << endl;
 }
 
-void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb)
+void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb)
 { 
     // branching factor and depth levels
     const int k = 10;
-    const int L = 3;
+    const int L = VOC;
     const ScoringType score = L1_NORM;
     const WeightingType weight = TF_IDF;
     
@@ -603,9 +639,16 @@ void testVocCreation(BoWFeatures &features,BoWFeatures &featuresrgb)
     if ((!fs.isOpened()) || (!fs2.isOpened()))
     {
         NarfVocabulary voc(k, L, weight, score);
-        voc.create(features);
+        BoWFeatures tmp,tmp2; 
+        for(int yy=0; yy<features.size(); yy+=5){
+            tmp.push_back(features[yy]);
+        }
+        for(int yy=0; yy<featuresrgb.size(); yy+=5){
+            tmp2.push_back(featuresrgb[yy]);
+        }
+        voc.create(tmp);
         Surf128Vocabulary voc2(k, L, weight, score);
-        voc2.create(featuresrgb);
+        voc2.create(tmp2);
         
         cout << "Creazione " << k << "^" << L << " vocabolario 3D terminata." << endl;
         cout << "Vocabolario 3D: " << endl << voc << endl << endl;

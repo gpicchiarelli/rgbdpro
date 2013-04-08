@@ -1,0 +1,35 @@
+./lk -U -l-3d --s-3d=0.72 --dataset=caffe
+
+3D
+ ======== Statistiche (%) ========= 
+Precision: 88
+Recall: 70.2128
+Accuracy: 95.9161
+
+TP:66
+FP:9
+TN:803
+FN:28
+
+precedente versione hardcode
+3D
+ ======== Statistiche =========
+Precision: 100
+Recall: 49.0909
+Accuracy: 96.9095
+
+TP:27
+FP:0
+TN:851
+FN:28
+
+RGB
+ ======== Statistiche =========
+Precision: 100
+Recall: 20.4082
+Accuracy: 95.6954
+
+TP:10
+FP:0
+TN:857
+FN:39

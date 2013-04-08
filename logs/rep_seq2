@@ -1,0 +1,26 @@
+./lk -U -l-rgb --dataset=seq2 --s-rgb=0.35
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 13.0435
+Recall: 8.57143
+Accuracy: 87.7069
+
+TP:6
+FP:40
+TN:736
+FN:64
+
+
+./lk -U -l-rgb --dataset=seq2
+ RGB
+ ======== Statistiche (%) ========= 
+Precision: 26.087
+Recall: 7.89474
+Accuracy: 89.7163
+
+TP:6
+FP:17
+TN:753
+FN:70
+DBoW2 TEST: terminato.
+

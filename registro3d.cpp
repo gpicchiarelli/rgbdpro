@@ -57,8 +57,8 @@ pcl::RangeImage Registro3D::getRangeImageAt(int position){
 
 double Registro3D::getScoreFit(int src_p, int dst_p)
 {
-    //units are meters
-    const float VOXEL_GRID_SIZE = 0.001;
+    //units are meters 0.01
+    const float VOXEL_GRID_SIZE = 0.1;
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr src_ptr( new pcl::PointCloud<pcl::PointXYZ>() );
     pcl::io::loadPCDFile (this->__files_list_3d[src_p], *src_ptr);
@@ -86,7 +86,7 @@ double Registro3D::getScoreFit(int src_p, int dst_p)
 
     pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
     icp.setMaxCorrespondenceDistance (1);
-    icp.setRANSACOutlierRejectionThreshold (0.3);
+    icp.setRANSACOutlierRejectionThreshold (0.6);
     icp.setTransformationEpsilon (4); //e-8
     icp.setMaximumIterations (5);
     icp.setInputCloud (src_ptr_f);
