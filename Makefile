@@ -1,6 +1,6 @@
-CC=ccache gcc -w -g -O3
+CC=ccache gcc -w -O3
 CCDBG=ccache gcc -w -g -O3
-CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG
+CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG -Wall -O3 -pipe -fopenmp
 CFLAGS+=$(shell pkg-config --cflags opencv )
 #Giacomo Picchiarelli
 CFLAGS+= -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3 -I include 
@@ -18,7 +18,7 @@ DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h 
 stats.h
 
 OBJS=build/BowVector.o build/FSurf64.o build/FSurf128.o build/FBrief.o build/FNarf.o build/ScoringObject.o \
-build/QueryResults.o build/FeatureVector.o build/TwoWayMatcher.o build/registrorgb.o build/registro3d.o build/stats.o
+build/QueryResults.o build/FeatureVector.o build/TwoWayMatcher.o build/registrorgb.o build/registro3d.o build/stats.o 
 
 DEPS_SO=DUtils/libDUtils.so DUtilsCV/libDUtilsCV.so DVision/libDVision.so build/lib/libyaml-cpp.so
 TARGET=build/lib/libDBoW2.so
@@ -49,16 +49,16 @@ DVision/libDVision.so:
 clean:
 	rm -f *.o $(TARGET) build/lk pcd_tb && \
 	rm -f build/*.o $(TARGET) lk && \
-	make -C DUtils clean && \
-	make -C DUtilsCV clean && \
-	make -C DVision clean
+	$(MAKE) -C DUtils clean && \
+	$(MAKE) -C DUtilsCV clean && \
+	$(MAKE) -C DVision clean
 	
 
 install: $(TARGET)
 	cp $(TARGET)  /usr/local/lib/ && \
 	mkdir -p /usr/local/include/DBoW2 && \
 	cp $(DEPS) /usr/local/include/DBoW2 && \
-	make -C DUtils install && \
-	make -C DUtilsCV install && \
-	make -C DVision install
+	$(MAKE) -C DUtils install && \
+	$(MAKE) -C DUtilsCV install && \
+	$(MAKE) -C DVision install
 

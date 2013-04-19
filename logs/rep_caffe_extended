@@ -1,5 +1,58 @@
-./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.86 --offset=35
+./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.67
+3D voc 10^6
+ ======== Statistiche (%) ========= 
+Precision: 13.4752
+Recall: 30.1587
+Accuracy: 80.355
 
+TP:19
+FP:122
+TN:660
+FN:44
+
+
+ ./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.81
+3D voc 10^3
+ ======== Statistiche (%) ========= 
+Precision: 15
+Recall: 4.22535
+Accuracy: 89.9408
+
+TP:3
+FP:17
+TN:757
+FN:68
+
+
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.32
+RGB non riconosce corridoi lunghi.
+ ======== Statistiche (%) ========= 
+Precision: 62.1212
+Recall: 39.4231
+Accuracy: 89.5858
+
+TP:41
+FP:25
+TN:716
+FN:63
+
+
+./lk -l-rgb -U --dataset=caffe_extended --sanity=0.1 --s-rgb=0.28
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 45.3988
+Recall: 60.6557
+Accuracy: 83.787
+
+TP:74
+FP:89
+TN:634
+FN:48
+
+
+---------------------------------------------------------- vecchia temporal consistency ---------------------------------------------------
+
+./lk -l-3d -U --dataset=caffe_extended  --s-3d=0.86 --offset=35
 3D
  ======== Statistiche (%) =========
 Precision: 61.2903

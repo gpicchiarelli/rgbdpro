@@ -1,5 +1,5 @@
 ** Giacomo Picchiarelli <gpicchiarelli@gmail.com> **
-
+sudo aptitude install libboost-graph-dev libboost-regex-dev libboost-serialization-dev freeglut3-dev libxmu-dev libxi-dev
 - compilare ed installare opencv 2.4.4 o 2.4.2(entrambi testati) con supporto multithreading
 
     cd opencv

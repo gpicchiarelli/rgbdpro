@@ -1,6 +1,6 @@
 /**
  * File: stats.cpp
- * Date: April 2012
+ * Date: April 2013
  * Author: Giacomo Picchiarelli <gpicchiarelli@gmail.com>
  * Description: test NARF - SURF features (pcl library, opencv)
  *

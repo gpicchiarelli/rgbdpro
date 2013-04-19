@@ -29,6 +29,7 @@
 #include <pthread.h>
 #include <string.h>
 
+#include <pcl/registration/correspondence_rejection_sample_consensus.h>
 #include <pcl/range_image/range_image.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/visualization/range_image_visualizer.h>
@@ -50,19 +51,64 @@
 #include <pcl/filters/passthrough.h>
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/filters/approximate_voxel_grid.h>
+#include <pcl/registration/correspondence_estimation.h>
+#include <pcl/impl/point_types.hpp>
+#include <pcl/point_representation.h>
+#include <pcl/registration/correspondence_estimation.h>
+#include <pcl/impl/point_types.hpp>
+
+#include <boost/thread/thread.hpp>
+#include <boost/multi_index_container.hpp>
+#include <boost/multi_index/global_fun.hpp>
+#include <boost/multi_index/mem_fun.hpp>
+#include <boost/multi_index/ordered_index.hpp>
+#include <boost/archive/text_oarchive.hpp> 
+#include <boost/archive/text_iarchive.hpp> 
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/serialization/string.hpp> 
+#include <boost/serialization/export.hpp> 
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/list.hpp>
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/serialization/static_warning.hpp>
+
+using namespace pcl;
+
+typedef PointXYZ PointType;
+
+// Define new PointRepresentation for NARF36
+class NARFPointRepresenation : public PointRepresentation<Narf36>
+{
+public:
+  NARFPointRepresenation () 
+  { 
+    this->nr_dimensions_ = 36; 
+  }
+  
+  void copyToFloatArray (const Narf36 &p, float *out) const
+  {
+    for(int i=0; i < 36; ++i)
+    	out[i] = p.descriptor[i];
+  }
+};
 
 class Registro3D {
     public:
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
         Registro3D(string directory);
         double getScoreFit(int src,int dst);
+        pcl::PointCloud<pcl::PointXYZ> getTra(int src_p, int dst_p);
         pcl::RangeImage getRangeImageAt(int position);
+        float getCorrispondences(int src,int dst);
+        void addFrame(PointCloud<Narf36> frame,string name);
     private:
         Eigen::Matrix4f refined_T;
         pcl::PointCloud<pcl::PointXYZ>::Ptr aligned;
         vector<string> __files_list_3d;
         void listFile(string direc, vector<string> *files_lt);
         pcl::RegistrationVisualizer<pcl::PointXYZ, pcl::PointXYZ> registrationVisualizer;
+        string __directory;
 };
 
 

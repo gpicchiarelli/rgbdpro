@@ -39,6 +39,10 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/serialization/static_warning.hpp>
 
+#include <pcl/features/normal_3d.h>
+#include <pcl/registration/icp.h>
+#include <pcl/registration/icp_nl.h>
+#include <pcl/filters/statistical_outlier_removal.h>
 #include <pcl/range_image/range_image.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/visualization/range_image_visualizer.h>
@@ -57,6 +61,20 @@
 #include <pcl/filters/passthrough.h>
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/filters/approximate_voxel_grid.h>
+#include <pcl/filters/statistical_outlier_removal.h>
+#include <pcl/point_types.h>
+#include <pcl/features/fpfh.h>
+#include <pcl/ModelCoefficients.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/point_types.h>
+#include <pcl/sample_consensus/method_types.h>
+#include <pcl/sample_consensus/model_types.h>
+#include <pcl/segmentation/sac_segmentation.h>
+#include <pcl/filters/extract_indices.h>
+#include <pcl/registration/transforms.h>
+#include <pcl/features/integral_image_normal.h>
+#include <pcl/features/fpfh_omp.h>
+#include <pcl/features/normal_3d_omp.h>
 
 // DBoW2
 #include "DBoW2.h"
@@ -166,16 +184,19 @@ void searchRegistro(string pos);
 void listFile(string direc, vector<string> *files_lt);
 void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);
 void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
+pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t);
 void wait();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void saveFeaturesFile(const BoWFeatures &features, string filename){ 
+    cout <<"Salvataggio: " <<filename << endl;
     ofstream out(filename.c_str());
     stringstream ss;
     boost::archive::binary_oarchive oa(ss); 
     oa << features;
     out << ss.str();
     out.close();    
+    cout <<"Salvataggio: " <<filename << " OK." <<  endl;    
 }
 
 void loadFeaturesFile(BoWFeatures &features, string filename){
