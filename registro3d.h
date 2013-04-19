@@ -73,6 +73,8 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/serialization/static_warning.hpp>
 
+#include "DBoW2.h"
+
 using namespace pcl;
 
 typedef PointXYZ PointType;
@@ -98,6 +100,7 @@ class Registro3D {
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
         Registro3D(string directory);
         double getScoreFit(int src,int dst);
+        double getScoreFix(vector<vector<float> > src, vector<vector<float> > dst);        
         pcl::PointCloud<pcl::PointXYZ> getTra(int src_p, int dst_p);
         pcl::RangeImage getRangeImageAt(int position);
         float getCorrispondences(int src,int dst);

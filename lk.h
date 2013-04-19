@@ -82,10 +82,6 @@
 #include "DUtilsCV/DUtilsCV.h"
 #include "DVision/DVision.h"
 
-//yaml-cpp
-#include "yaml-cpp/yaml.h"
-
-
 #include "registrorgb.h"
 #include "registro3d.h"
 #include "stats.h"
@@ -102,61 +98,10 @@
 #include <sstream> 
 #include <fstream>
 
-#include "yaml-cpp/yaml.h"
-
-
 using namespace std;
 using namespace DBoW2;
 using namespace DUtils;
 using namespace cv;
-using namespace YAML;
-
-
-namespace YAML {
-template<>
-struct convert< vector<float> > {
-    static Node encode(const vector<float>& rhs) {
-        Node node;
-        for(int y=0;y<rhs.size();y++){
-            node.push_back(rhs[y]);
-        }
-        return node;
-    }
-    
-    static bool decode(const Node& node, vector<float>& rhs) {
-        if(!node.IsSequence()){
-            cout << "no seq"<<endl;
-            return false;
-        }
-        for(int y=0;y<rhs.size();y++){
-            rhs.push_back(node[y].as<float>());
-        }
-        return true;
-    }
-};
-
-template<>
-struct convert< vector <vector<float> > > {
-    static Node encode(const vector<vector<float> >& rhs) {
-        Node node;
-        for(int y=0;y<rhs.size();y++){
-            node.push_back(rhs[y]);
-        }
-        return node;
-    }
-    
-    static bool decode(const Node& node, vector<vector<float> >& rhs) {
-        if(!node.IsSequence()){
-            cout << "no seq"<<endl;
-            return false;
-        }
-        for(int y=0;y<rhs.size();y++){
-            rhs.push_back(node[y].as< vector<float> >());
-        }
-        return true;
-    }
-};
-}
 
 vector<string> files_list_rgb,files_list_3d;
 map<int, int> registro_interno;

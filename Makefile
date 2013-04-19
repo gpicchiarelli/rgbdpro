@@ -3,15 +3,19 @@ CCDBG=ccache gcc -w -g -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG -Wall -O3 -pipe -fopenmp
 CFLAGS+=$(shell pkg-config --cflags opencv )
 #Giacomo Picchiarelli
-CFLAGS+= -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3 -I include 
+CFLAGS+= -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3 -Iinclude 
+CFLAGS+= -I /usr/local/include/pcl-1.7
+
 #####
 LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs opencv) \
- -lyaml-cpp -lDVision -lDUtilsCV -lDUtils -lstdc++ \
--lpcl_apps -lpcl_common -lpcl_features -lpcl_filters -lpcl_io -lpcl_kdtree -lpcl_keypoints -lpcl_octree \
+ -lDVision -lDUtilsCV -lDUtils -lstdc++ \
+ -lpcl_common -lpcl_features -lpcl_filters -lpcl_io -lpcl_kdtree -lpcl_keypoints -lpcl_octree \
 -lpcl_registration -lpcl_sample_consensus \
 -lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization \
 -lvtkCommon -lvtkFiltering -lvtkRendering -lpthread -lboost_thread -lboost_system -lboost_iostreams\
 -lboost_serialization
+
+# con la 1.6 -lpcl_apps
 
 DEPS=BowVector.h FClass.h FSurf64.h FSurf128.h FBrief.h FNarf.h ScoringObject.h TemplatedVocabulary.h \
   TemplatedDatabase.h QueryResults.h  FeatureVector.h DBoW2.h TwoWayMatcher.h registrorgb.h registro3d.h lk.h\

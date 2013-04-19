@@ -515,14 +515,15 @@ void loopClosing3d(const BoWFeatures &features)
                     }
                 }
                 bucket.erase(std::remove( bucket.begin(), bucket.end(),-1), bucket.end());
-                double maxInliers = numeric_limits<double>::max();
+                double maxInliers = 0;//maxInliers = numeric_limits<double>::max();
                 double maxIdInliers = -1;
                 double tyu = 0;
                 if(bucket.size() == 1){
                     maxIdInliers = bucket[0];
                 }else{                    
-                    for(int yy = 0; yy < bucket.size(); yy++){                        
-                        tyu = reg_3D->getScoreFit(i,bucket[yy]);
+                    for(int yy = 0; yy < bucket.size(); yy++){  
+                        int term = bucket[yy];
+                        tyu = reg_3D->getScoreFix(features[i],features[term]);//reg_3D->getScoreFit(i,bucket[yy]);
                         cout << "score: " << tyu <<endl;
                         if (maxInliers > tyu){
                             maxInliers = tyu;
@@ -601,7 +602,7 @@ pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd
     if (inliers->indices.size () == 0)
     {
         std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
-    }  
+    }
     // Extract the inliers
     extract.setInputCloud (pcd);
     extract.setIndices (inliers);

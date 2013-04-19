@@ -15,5 +15,7 @@
 /home/giacomo/sviluppo/LoopCloserRGBD/dboworking/dbow/yaml-cpp/test
 /usr/lib/include
 /usr/include/pcl-1.6
+/usr/local/include/pcl-1.7
+~/sviluppo/pcl-trunk/registration/include/
 /usr/include/eigen3
 /usr/include/boost

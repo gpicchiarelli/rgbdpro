@@ -122,6 +122,14 @@ double Registro3D::getScoreFit(int src_p, int dst_p)
     return icp.getFitnessScore();
 }
 
+double Registro3D::getScoreFix(vector<vector<float> > src, vector<vector<float> > dst)
+{
+    /*
+    for()
+    boost::lexical_cast<double>(pcl::L1_Norm(src[],dst[],36));
+    */
+}
+
 void Registro3D::listFile(string direc, vector<string> *files_lt)
 {
     DIR *pDIR;
