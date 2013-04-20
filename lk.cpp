@@ -348,9 +348,13 @@ void loopClosingRGB(const BoWFeatures &features){
                         for (int cc = 0; cc<i_back.size();cc++){                            
                             voc.transform(features[i - (cc+1)],v1);                            
                             if (max_id == -1 || centro == -1){ centro = bucket[aa]; }                           
-                            
+
                             for(int bb = (centro - (TEMP_CONS/2) - 1) ; bb < centro + (TEMP_CONS/2); bb++){
                                 int cursore = bb + 1;
+                                
+                                max_id = -1;
+                                max_score = 0;
+                                
                                 if (cursore < 0) {max_id = -1; continue;}
                                 
                                 voc.transform(features[cursore],v2);
@@ -489,10 +493,12 @@ void loopClosing3d(const BoWFeatures &features)
                         
                         for (int cc = 0; cc<i_back.size();cc++){                            
                             voc.transform(features[i - (cc+1)],v1);                            
-                            if (max_id == -1 || centro == -1){ centro = bucket[aa]; }                           
+                            if (max_id == -1 || centro == -1){ centro = bucket[aa]; }          
                             
                             for(int bb = (centro - (TEMP_CONS/2) - 1) ; bb < centro + (TEMP_CONS/2); bb++){
                                 int cursore = bb + 1;
+                                max_id = -1;
+                                max_score = 0;
                                 if (cursore < 0) {max_id = -1; continue;}
                                 voc.transform(features[cursore],v2);
                                 double score = voc.score(v1,v2);
@@ -500,7 +506,7 @@ void loopClosing3d(const BoWFeatures &features)
                                 if (score >= MATCH_THRESHOLD && score > max_score){
                                     max_id = cursore;
                                     max_score = score;
-                                }                                
+                                }                              
                             }
                             if (max_id == -1){
                                 bucket[aa] = -1; 
@@ -523,9 +529,9 @@ void loopClosing3d(const BoWFeatures &features)
                 }else{                    
                     for(int yy = 0; yy < bucket.size(); yy++){  
                         int term = bucket[yy];
-                        tyu = reg_3D->getScoreFix(features[i],features[term]);//reg_3D->getScoreFit(i,bucket[yy]);
+                        tyu = reg_3D->getScoreFit(i,bucket[yy]);//reg_3D->getScoreFix(features[i],features[term]);//
                         cout << "score: " << tyu <<endl;
-                        if (maxInliers > tyu){
+                        if (maxInliers < tyu){
                             maxInliers = tyu;
                             maxIdInliers = bucket[yy];
                         }                        
@@ -629,7 +635,7 @@ void loadFeatures3d(BoWFeatures &features)
     //pcl::visualization::RangeImageVisualizer range_image_widget ("Range image");
     pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
     pcl::RangeImage::Ptr range_image_ptr (new pcl::RangeImage);
-    pcl::RangeImage& range_image = *range_image_ptr;    
+    pcl::RangeImage& range_image = *range_image_ptr;
     
     for (int i = 0; i < files_list_3d.size(); ++i) {
         pcl::PointCloud<PointType>::Ptr point_cloud_wf (new pcl::PointCloud<PointType>);
@@ -639,13 +645,13 @@ void loadFeatures3d(BoWFeatures &features)
         
         //filtraggio valori NaN
         std::vector<int> indices;
-        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);        
+        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
         
         const float VOXEL_GRID_SIZE = 0.01f;
         pcl::VoxelGrid<PointType> vox_grid;
         vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );
         vox_grid.setInputCloud(point_cloud_wf);
-        vox_grid.filter(*point_cloud);     
+        vox_grid.filter(*point_cloud);
         
         pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
         sor.setInputCloud (point_cloud);
@@ -659,7 +665,7 @@ void loadFeatures3d(BoWFeatures &features)
         scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f ((*point_cloud).sensor_origin_[0],
                                              (*point_cloud).sensor_origin_[1],
                 (*point_cloud).sensor_origin_[2])) *
-                Eigen::Affine3f ((*point_cloud).sensor_orientation_);        
+                Eigen::Affine3f ((*point_cloud).sensor_orientation_);
         
         range_image.max_no_of_threads = 2;
         range_image.createFromPointCloud ((*point_cloud),angular_resolution,pcl::deg2rad(360.0f),pcl::deg2rad(180.0f),scene_sensor_pose,coordinate_frame,noise_level,min_range,border_size);
@@ -672,11 +678,11 @@ void loadFeatures3d(BoWFeatures &features)
         narf_keypoint_detector.setRangeImageBorderExtractor (&range_image_border_extractor);
         narf_keypoint_detector.setRangeImage (&range_image);
         narf_keypoint_detector.getParameters().support_size = support_size;
-        //euristiche, per avvicinarsi al real time 
+        //euristiche, per avvicinarsi al real time
         narf_keypoint_detector.getParameters().max_no_of_threads = 2;
         narf_keypoint_detector.getParameters().calculate_sparse_interest_image=false; //false
-        narf_keypoint_detector.getParameters().use_recursive_scale_reduction=false; //true 
-        //narf_keypoint_detector.getParameters().add_points_on_straight_edges=true; 
+        narf_keypoint_detector.getParameters().use_recursive_scale_reduction=false; //true
+        //narf_keypoint_detector.getParameters().add_points_on_straight_edges=true;
         
         pcl::PointCloud<int> keypoint_indices;
         narf_keypoint_detector.compute (keypoint_indices);
@@ -692,16 +698,15 @@ void loadFeatures3d(BoWFeatures &features)
         
         narf_descriptor.compute (narf_descriptors);
         
-        cout << ". Estratti "<<narf_descriptors.size ()<<" descrittori. Punti: " <<keypoint_indices.points.size ()<< "."<<endl;        
+        cout << ". Estratti "<<narf_descriptors.size ()<<" descrittori. Punti: " <<keypoint_indices.points.size ()<< "."<<endl;
         
-        features.push_back(vector<vector<float> >());       
+        features.push_back(vector<vector<float> >());
         for (int p = 0; p < narf_descriptors.size(); p++) {
             vector<float> flot;
             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
-        }
-        
+        }       
         
         indices.clear();
         range_image_border_extractor.clearData();

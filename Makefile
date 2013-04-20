@@ -4,11 +4,10 @@ CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG -Wall -O3 -pipe -fopenmp
 CFLAGS+=$(shell pkg-config --cflags opencv )
 #Giacomo Picchiarelli
 CFLAGS+= -I /usr/include/vtk-5.8 -I /usr/include/pcl-1.6 -I /usr/include/eigen3 -Iinclude 
-CFLAGS+= -I /usr/local/include/pcl-1.7
-
-#####
+#CFLAGS+= -I /usr/local/include/pcl-1.7
+######
 LFLAGS= -lopencv_core -LDUtils -LDUtilsCV -LDVision $(shell pkg-config --libs opencv) \
- -lDVision -lDUtilsCV -lDUtils -lstdc++ \
+ -lpcl_apps -lDVision -lDUtilsCV -lDUtils -lstdc++ \
  -lpcl_common -lpcl_features -lpcl_filters -lpcl_io -lpcl_kdtree -lpcl_keypoints -lpcl_octree \
 -lpcl_registration -lpcl_sample_consensus \
 -lpcl_search -lpcl_segmentation -lpcl_surface -lpcl_visualization \
