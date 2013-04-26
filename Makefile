@@ -1,4 +1,4 @@
-CC=ccache gcc -w -O3
+CC=ccache gcc -w -g -O3
 CCDBG=ccache gcc -w -g -O3
 CFLAGS=-IDUtils -IDUtilsCV -IDVision -DNDEBUG -Wall -O3 -pipe -fopenmp
 CFLAGS+=$(shell pkg-config --cflags opencv )

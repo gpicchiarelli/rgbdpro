@@ -28,14 +28,96 @@ Registro3D::Registro3D(string directory){
     this->listFile(directory,&this->__files_list_3d);
 }
 
+/* method untested http://www.pcl-users.org/Feature-correspondence-using-NARF-descriptors-td2444164.html */
 float Registro3D::getCorrispondences(int src_p,int dst_p){
-    //units are meters 0.01
+    PointCloud<Narf36> n1,n2;
+    n1 = this->extractNARF(src_p);
+    n2 = this->extractNARF(dst_p);
+    
+    KdTreeFLANN<Narf36> kdtree;
+	kdtree.setPointRepresentation (boost::make_shared <NARFPointRepresenation>());
+  	PointCloud<Narf36>::Ptr narf_descriptors2Ptr (&n2);
+	kdtree.setInputCloud(narf_descriptors2Ptr) ;
+	int k = 20 ; //Find k nearset neighbours 
+	vector<int> k_indices (k); //k matched indices
+  	vector<float> k_distances (k); //distances of k matched indices
+	kdtree.nearestKSearch (n1.points[10], k, k_indices, k_distances);
+	cout<<"k_indices k_distances"<<endl;
+	for (int i=0; i < k; ++i)
+	{
+		cout<<k_indices[i]<<" "<<k_distances[i]<<endl ;
+	}
+    return k_indices.size();
+}
 
-    PointCloud<Narf36> nd1,nd2;
-    string h1 = (this->__directory)+"3d_descriptors/"+boost::lexical_cast<string>(src_p);
-    string h2 = (this->__directory)+"3d_descriptors/"+boost::lexical_cast<string>(dst_p);
-    pcl::io::loadPCDFile(h1.c_str(),nd1);
-    pcl::io::loadPCDFile(h2.c_str(),nd2);
+
+PointCloud<pcl::Narf36> Registro3D::extractNARF(int i){  
+
+    typedef pcl::PointXYZ PointType;
+    float angular_resolution = pcl::deg2rad (0.3f);
+    float support_size = 0.1f;
+    
+    float noise_level = 0.0f;
+    float min_range = 0.0f;
+    int border_size = 1;
+    
+    //pcl::visualization::RangeImageVisualizer range_image_widget ("Range image");
+    pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
+    pcl::RangeImage::Ptr range_image_ptr (new pcl::RangeImage);
+    pcl::RangeImage& range_image = *range_image_ptr;
+    
+    pcl::PointCloud<PointType>::Ptr point_cloud_wf (new pcl::PointCloud<PointType>);
+    pcl::PointCloud<PointType>::Ptr point_cloud (new pcl::PointCloud<PointType>);
+    
+    pcl::io::loadPCDFile (this->__files_list_3d[i], *point_cloud_wf);
+    
+    //filtraggio valori NaN
+    std::vector<int> indices;
+    pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
+    
+    const float VOXEL_GRID_SIZE = 0.01f;
+    pcl::VoxelGrid<PointType> vox_grid;
+    vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );
+    vox_grid.setInputCloud(point_cloud_wf);
+    vox_grid.filter(*point_cloud);
+    
+    Eigen::Affine3f scene_sensor_pose (Eigen::Affine3f::Identity());
+    scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f ((*point_cloud).sensor_origin_[0],
+                                         (*point_cloud).sensor_origin_[1],
+            (*point_cloud).sensor_origin_[2])) *
+            Eigen::Affine3f ((*point_cloud).sensor_orientation_);
+    
+    range_image.max_no_of_threads = 2;
+    range_image.createFromPointCloud ((*point_cloud),angular_resolution,pcl::deg2rad(360.0f),pcl::deg2rad(180.0f),scene_sensor_pose,coordinate_frame,noise_level,min_range,border_size);
+    range_image.setUnseenToMaxRange();
+    
+    //range_image_widget.showRangeImage (range_image);
+    
+    pcl::RangeImageBorderExtractor range_image_border_extractor;
+    pcl::NarfKeypoint narf_keypoint_detector;
+    narf_keypoint_detector.setRangeImageBorderExtractor (&range_image_border_extractor);
+    narf_keypoint_detector.setRangeImage (&range_image);
+    narf_keypoint_detector.getParameters().support_size = support_size;
+    //euristiche, per avvicinarsi al real time
+    narf_keypoint_detector.getParameters().max_no_of_threads = 2;
+    narf_keypoint_detector.getParameters().calculate_sparse_interest_image=false; //false
+    narf_keypoint_detector.getParameters().use_recursive_scale_reduction=false; //true
+    //narf_keypoint_detector.getParameters().add_points_on_straight_edges=true;
+    
+    pcl::PointCloud<int> keypoint_indices;
+    narf_keypoint_detector.compute (keypoint_indices);
+    
+    vector<int> keypoint_indices2;
+    keypoint_indices2.resize (keypoint_indices.points.size ());
+    for (unsigned int i=0; i<keypoint_indices.size (); ++i) // This step is necessary to get the right vector type
+        keypoint_indices2[i]=keypoint_indices.points[i];
+    pcl::NarfDescriptor narf_descriptor (&range_image, &keypoint_indices2);
+    narf_descriptor.getParameters().support_size = support_size;
+    narf_descriptor.getParameters().rotation_invariant = true;
+    pcl::PointCloud<pcl::Narf36> narf_descriptors;
+    
+    narf_descriptor.compute (narf_descriptors);
+    return narf_descriptors;    
 }
 
 void Registro3D::addFrame(PointCloud<Narf36> frame,string name)
@@ -80,7 +162,7 @@ double Registro3D::getScoreFit(int src_p, int dst_p)
     typedef pcl::search::KdTree<pcl::PointXYZ> SearchMethod;
     
     //units are meters 0.01
-    const float VOXEL_GRID_SIZE = 0.01;
+    const float VOXEL_GRID_SIZE = 0.08;
     
     pcl::PointCloud<pcl::PointXYZ>::Ptr src_ptr( new pcl::PointCloud<pcl::PointXYZ>() );
     pcl::io::loadPCDFile (this->__files_list_3d[src_p], *src_ptr);

@@ -1,3 +1,79 @@
+./lk -l-rgb --s-rgb=0.36 -U --dataset=caffe
+RGB new new
+ ======== Statistiche (%) ========= 
+Precision: 100
+Recall: 49.0909
+Accuracy: 96.9095
+
+TP:27
+FP:0
+TN:851
+FN:28
+
+
+./lk -l-rgb --s-rgb=0.35 -U --dataset=caffe
+RGB new new
+ ======== Statistiche (%) ========= 
+Precision: 96.4286
+Recall: 49.0909
+Accuracy: 96.7991
+
+TP:27
+FP:1
+TN:850
+FN:28
+
+
+./lk -l-rgb --s-rgb=0.34 -U --dataset=caffe
+RGB new new
+ ======== Statistiche (%) ========= 
+Precision: 84.6154
+Recall: 54.0984
+Accuracy: 96.2472
+
+TP:33
+FP:6
+TN:839
+FN:28
+
+./lk -l-3d -U --dataset=caffe  --s-3d=0.81
+3D new new
+ ======== Statistiche (%) ========= 
+Precision: 100
+Recall: 54.0984
+Accuracy: 96.9095
+
+TP:33
+FP:0
+TN:845
+FN:28
+
+./lk -l-3d -U --dataset=caffe  --s-3d=0.79
+3D new new
+ ======== Statistiche (%) ========= 
+Precision: 87.8049
+Recall: 72
+Accuracy: 95.8057
+
+TP:72
+FP:10
+TN:796
+FN:28
+
+
+./lk -l-3d -U --dataset=caffe  --s-3d=0.8
+3D new new
+ ======== Statistiche (%) ========= 
+Precision: 97.7273
+Recall: 60.5634
+Accuracy: 96.7991
+
+TP:43
+FP:1
+TN:834
+FN:28
+
+
 ./lk -l-3d --dataset=caffe -U --s-3d=0.78
 3D
  ======== Statistiche (%) ========= 
@@ -50,7 +126,7 @@ FN:28
 
 
 ./lk -l-rgb --dataset=caffe -U --s-rgb=0.36
-RGB con nuova temporal consistency
+RGB con vecchia temporal consistency
  ======== Statistiche (%) ========= 
 Precision: 85.1852
 Recall: 45.098
@@ -76,7 +152,7 @@ FN:28
 
 
 ./lk -l-3d --dataset=caffe -U --s-3d=0.79
-3D con nuova temporal consistency
+3D con vecchia temporal consistency
  ======== Statistiche (%) ========= 
 Precision: 66.1157
 Recall: 74.0741

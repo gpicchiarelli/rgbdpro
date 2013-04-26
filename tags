@@ -1,0 +1,972 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BHATTACHARYYA	BowVector.h	/^  BHATTACHARYYA,$/;"	e	enum:DBoW2::ScoringType
+BINARY	BowVector.h	/^  BINARY$/;"	e	enum:DBoW2::WeightingType
+BhattacharyyaScoring::score	ScoringObject.cpp	/^double BhattacharyyaScoring::score(const BowVector &v1, $/;"	f	class:BhattacharyyaScoring	signature:(const BowVector &v1, const BowVector &v2) const
+BoWFeatures	lk.h	/^typedef vector<vector<vector<float> > > BoWFeatures;$/;"	t
+BowVector	BowVector.cpp	/^BowVector::BowVector(void)$/;"	f	class:DBoW2::BowVector	signature:(void)
+BowVector	BowVector.h	/^	BowVector(void);$/;"	p	class:DBoW2::BowVector	access:public	signature:(void)
+BowVector	BowVector.h	/^class BowVector: $/;"	c	namespace:DBoW2	inherits:std::map
+BriefDatabase	DBoW2.h	/^  BriefDatabase;$/;"	t
+BriefVocabulary	DBoW2.h	/^  BriefVocabulary;$/;"	t
+CHI_SQUARE	BowVector.h	/^  CHI_SQUARE,$/;"	e	enum:DBoW2::ScoringType
+ChiSquareScoring::score	ScoringObject.cpp	/^double ChiSquareScoring::score(const BowVector &v1, const BowVector &v2) $/;"	f	class:ChiSquareScoring	signature:(const BowVector &v1, const BowVector &v2) const
+DBoW2	BowVector.cpp	/^namespace DBoW2 {$/;"	n	file:
+DBoW2	BowVector.h	/^namespace DBoW2 {$/;"	n
+DBoW2	DBoW2.h	/^namespace DBoW2$/;"	n
+DBoW2	FBrief.cpp	/^namespace DBoW2 {$/;"	n	file:
+DBoW2	FBrief.h	/^namespace DBoW2 {$/;"	n
+DBoW2	FClass.h	/^namespace DBoW2 {$/;"	n
+DBoW2	FNarf.cpp	/^namespace DBoW2 {$/;"	n	file:
+DBoW2	FNarf.h	/^namespace DBoW2 {$/;"	n
+DBoW2	FSurf128.cpp	/^namespace DBoW2 {$/;"	n	file:
+DBoW2	FSurf128.h	/^namespace DBoW2 {$/;"	n
+DBoW2	FSurf64.cpp	/^namespace DBoW2 {$/;"	n	file:
+DBoW2	FSurf64.h	/^namespace DBoW2 {$/;"	n
+DBoW2	FeatureVector.cpp	/^namespace DBoW2 {$/;"	n	file:
+DBoW2	FeatureVector.h	/^namespace DBoW2 {$/;"	n
+DBoW2	QueryResults.cpp	/^namespace DBoW2$/;"	n	file:
+DBoW2	QueryResults.h	/^namespace DBoW2 {$/;"	n
+DBoW2	ScoringObject.h	/^namespace DBoW2 {$/;"	n
+DBoW2	TemplatedDatabase.h	/^namespace DBoW2 {$/;"	n
+DBoW2	TemplatedVocabulary.h	/^namespace DBoW2 {$/;"	n
+DBoW2::BHATTACHARYYA	BowVector.h	/^  BHATTACHARYYA,$/;"	e	enum:DBoW2::ScoringType
+DBoW2::BINARY	BowVector.h	/^  BINARY$/;"	e	enum:DBoW2::WeightingType
+DBoW2::BowVector	BowVector.h	/^class BowVector: $/;"	c	namespace:DBoW2	inherits:std::map
+DBoW2::BowVector::BowVector	BowVector.cpp	/^BowVector::BowVector(void)$/;"	f	class:DBoW2::BowVector	signature:(void)
+DBoW2::BowVector::BowVector	BowVector.h	/^	BowVector(void);$/;"	p	class:DBoW2::BowVector	access:public	signature:(void)
+DBoW2::BowVector::addIfNotExist	BowVector.cpp	/^void BowVector::addIfNotExist(WordId id, WordValue v)$/;"	f	class:DBoW2::BowVector	signature:(WordId id, WordValue v)
+DBoW2::BowVector::addIfNotExist	BowVector.h	/^	void addIfNotExist(WordId id, WordValue v);$/;"	p	class:DBoW2::BowVector	access:public	signature:(WordId id, WordValue v)
+DBoW2::BowVector::addWeight	BowVector.cpp	/^void BowVector::addWeight(WordId id, WordValue v)$/;"	f	class:DBoW2::BowVector	signature:(WordId id, WordValue v)
+DBoW2::BowVector::addWeight	BowVector.h	/^	void addWeight(WordId id, WordValue v);$/;"	p	class:DBoW2::BowVector	access:public	signature:(WordId id, WordValue v)
+DBoW2::BowVector::normalize	BowVector.cpp	/^void BowVector::normalize(LNorm norm_type)$/;"	f	class:DBoW2::BowVector	signature:(LNorm norm_type)
+DBoW2::BowVector::normalize	BowVector.h	/^	void normalize(LNorm norm_type);$/;"	p	class:DBoW2::BowVector	access:public	signature:(LNorm norm_type)
+DBoW2::BowVector::operator <<	BowVector.h	/^	friend std::ostream& operator<<(std::ostream &out, const BowVector &v);$/;"	p	class:DBoW2::BowVector	access:friend	signature:(std::ostream &out, const BowVector &v)
+DBoW2::BowVector::~BowVector	BowVector.cpp	/^BowVector::~BowVector(void)$/;"	f	class:DBoW2::BowVector	signature:(void)
+DBoW2::BowVector::~BowVector	BowVector.h	/^	~BowVector(void);$/;"	p	class:DBoW2::BowVector	access:public	signature:(void)
+DBoW2::CHI_SQUARE	BowVector.h	/^  CHI_SQUARE,$/;"	e	enum:DBoW2::ScoringType
+DBoW2::DOT_PRODUCT	BowVector.h	/^  DOT_PRODUCT$/;"	e	enum:DBoW2::ScoringType
+DBoW2::EntryId	QueryResults.h	/^typedef unsigned int EntryId;$/;"	t	namespace:DBoW2
+DBoW2::FBrief	FBrief.h	/^class FBrief: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+DBoW2::FBrief::TDescriptor	FBrief.h	/^  typedef DVision::BRIEF::bitset TDescriptor;$/;"	t	class:DBoW2::FBrief	access:public
+DBoW2::FBrief::distance	FBrief.cpp	/^double FBrief::distance(const FBrief::TDescriptor &a,$/;"	f	class:DBoW2::FBrief	signature:(const FBrief::TDescriptor &a, const FBrief::TDescriptor &b)
+DBoW2::FBrief::distance	FBrief.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FBrief	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+DBoW2::FBrief::fromString	FBrief.cpp	/^void FBrief::fromString(FBrief::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FBrief	signature:(FBrief::TDescriptor &a, const std::string &s)
+DBoW2::FBrief::fromString	FBrief.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FBrief	access:public	signature:(TDescriptor &a, const std::string &s)
+DBoW2::FBrief::meanValue	FBrief.cpp	/^void FBrief::meanValue(const std::vector<FBrief::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FBrief	signature:(const std::vector<FBrief::pDescriptor> &descriptors, FBrief::TDescriptor &mean)
+DBoW2::FBrief::meanValue	FBrief.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::FBrief	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+DBoW2::FBrief::pDescriptor	FBrief.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FBrief	access:public
+DBoW2::FBrief::toMat32F	FBrief.cpp	/^void FBrief::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FBrief	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FBrief::toMat32F	FBrief.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	p	class:DBoW2::FBrief	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FBrief::toString	FBrief.cpp	/^std::string FBrief::toString(const FBrief::TDescriptor &a)$/;"	f	class:DBoW2::FBrief	signature:(const FBrief::TDescriptor &a)
+DBoW2::FBrief::toString	FBrief.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FBrief	access:public	signature:(const TDescriptor &a)
+DBoW2::FClass	FClass.h	/^class FClass$/;"	c	namespace:DBoW2
+DBoW2::FClass::distance	FClass.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FClass	access:private	signature:(const TDescriptor &a, const TDescriptor &b)
+DBoW2::FClass::fromString	FClass.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FClass	access:private	signature:(TDescriptor &a, const std::string &s)
+DBoW2::FClass::meanValue	FClass.h	/^  virtual void meanValue(const std::vector<pDescriptor> &descriptors, $/;"	p	class:DBoW2::FClass	access:private	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+DBoW2::FClass::pDescriptor	FClass.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FClass	access:private
+DBoW2::FClass::toMat32F	FClass.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors, $/;"	p	class:DBoW2::FClass	access:private	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FClass::toString	FClass.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FClass	access:private	signature:(const TDescriptor &a)
+DBoW2::FNarf	FNarf.h	/^class FNarf: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+DBoW2::FNarf::L	FNarf.h	/^  static const int L = 36; $/;"	m	class:DBoW2::FNarf	access:public
+DBoW2::FNarf::TDescriptor	FNarf.h	/^  typedef std::vector<float> TDescriptor;$/;"	t	class:DBoW2::FNarf	access:public
+DBoW2::FNarf::distance	FNarf.cpp	/^double FNarf::distance(const FNarf::TDescriptor &a, const FNarf::TDescriptor &b)$/;"	f	class:DBoW2::FNarf	signature:(const FNarf::TDescriptor &a, const FNarf::TDescriptor &b)
+DBoW2::FNarf::distance	FNarf.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FNarf	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+DBoW2::FNarf::fromString	FNarf.cpp	/^void FNarf::fromString(FNarf::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FNarf	signature:(FNarf::TDescriptor &a, const std::string &s)
+DBoW2::FNarf::fromString	FNarf.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FNarf	access:public	signature:(TDescriptor &a, const std::string &s)
+DBoW2::FNarf::meanValue	FNarf.cpp	/^void FNarf::meanValue(const std::vector<FNarf::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FNarf	signature:(const std::vector<FNarf::pDescriptor> &descriptors, FNarf::TDescriptor &mean)
+DBoW2::FNarf::meanValue	FNarf.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::FNarf	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+DBoW2::FNarf::pDescriptor	FNarf.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FNarf	access:public
+DBoW2::FNarf::toMat32F	FNarf.cpp	/^void FNarf::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FNarf	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FNarf::toMat32F	FNarf.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	p	class:DBoW2::FNarf	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FNarf::toString	FNarf.cpp	/^std::string FNarf::toString(const FNarf::TDescriptor &a)$/;"	f	class:DBoW2::FNarf	signature:(const FNarf::TDescriptor &a)
+DBoW2::FNarf::toString	FNarf.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FNarf	access:public	signature:(const TDescriptor &a)
+DBoW2::FSurf128	FSurf128.h	/^class FSurf128: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+DBoW2::FSurf128::L	FSurf128.h	/^  static const int L = 128;$/;"	m	class:DBoW2::FSurf128	access:public
+DBoW2::FSurf128::TDescriptor	FSurf128.h	/^  typedef std::vector<float> TDescriptor;$/;"	t	class:DBoW2::FSurf128	access:public
+DBoW2::FSurf128::dimensions	FSurf128.h	/^  inline static int dimensions()$/;"	f	class:DBoW2::FSurf128	access:public	signature:()
+DBoW2::FSurf128::distance	FSurf128.cpp	/^double FSurf128::distance(const FSurf128::TDescriptor &a, const FSurf128::TDescriptor &b)$/;"	f	class:DBoW2::FSurf128	signature:(const FSurf128::TDescriptor &a, const FSurf128::TDescriptor &b)
+DBoW2::FSurf128::distance	FSurf128.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FSurf128	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+DBoW2::FSurf128::fromString	FSurf128.cpp	/^void FSurf128::fromString(FSurf128::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FSurf128	signature:(FSurf128::TDescriptor &a, const std::string &s)
+DBoW2::FSurf128::fromString	FSurf128.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FSurf128	access:public	signature:(TDescriptor &a, const std::string &s)
+DBoW2::FSurf128::meanValue	FSurf128.cpp	/^void FSurf128::meanValue(const std::vector<FSurf128::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf128	signature:(const std::vector<FSurf128::pDescriptor> &descriptors, FSurf128::TDescriptor &mean)
+DBoW2::FSurf128::meanValue	FSurf128.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf128	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+DBoW2::FSurf128::pDescriptor	FSurf128.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FSurf128	access:public
+DBoW2::FSurf128::toMat32F	FSurf128.cpp	/^void FSurf128::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf128	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FSurf128::toMat32F	FSurf128.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf128	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FSurf128::toString	FSurf128.cpp	/^std::string FSurf128::toString(const FSurf128::TDescriptor &a)$/;"	f	class:DBoW2::FSurf128	signature:(const FSurf128::TDescriptor &a)
+DBoW2::FSurf128::toString	FSurf128.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FSurf128	access:public	signature:(const TDescriptor &a)
+DBoW2::FSurf64	FSurf64.h	/^class FSurf64: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+DBoW2::FSurf64::L	FSurf64.h	/^  static const int L = 64; $/;"	m	class:DBoW2::FSurf64	access:public
+DBoW2::FSurf64::TDescriptor	FSurf64.h	/^  typedef std::vector<float> TDescriptor;$/;"	t	class:DBoW2::FSurf64	access:public
+DBoW2::FSurf64::dimensions	FSurf64.h	/^  inline static int dimensions()$/;"	f	class:DBoW2::FSurf64	access:public	signature:()
+DBoW2::FSurf64::distance	FSurf64.cpp	/^double FSurf64::distance(const FSurf64::TDescriptor &a, const FSurf64::TDescriptor &b)$/;"	f	class:DBoW2::FSurf64	signature:(const FSurf64::TDescriptor &a, const FSurf64::TDescriptor &b)
+DBoW2::FSurf64::distance	FSurf64.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FSurf64	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+DBoW2::FSurf64::fromString	FSurf64.cpp	/^void FSurf64::fromString(FSurf64::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FSurf64	signature:(FSurf64::TDescriptor &a, const std::string &s)
+DBoW2::FSurf64::fromString	FSurf64.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FSurf64	access:public	signature:(TDescriptor &a, const std::string &s)
+DBoW2::FSurf64::meanValue	FSurf64.cpp	/^void FSurf64::meanValue(const std::vector<FSurf64::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf64	signature:(const std::vector<FSurf64::pDescriptor> &descriptors, FSurf64::TDescriptor &mean)
+DBoW2::FSurf64::meanValue	FSurf64.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf64	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+DBoW2::FSurf64::pDescriptor	FSurf64.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FSurf64	access:public
+DBoW2::FSurf64::toMat32F	FSurf64.cpp	/^void FSurf64::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf64	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FSurf64::toMat32F	FSurf64.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf64	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+DBoW2::FSurf64::toString	FSurf64.cpp	/^std::string FSurf64::toString(const FSurf64::TDescriptor &a)$/;"	f	class:DBoW2::FSurf64	signature:(const FSurf64::TDescriptor &a)
+DBoW2::FSurf64::toString	FSurf64.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FSurf64	access:public	signature:(const TDescriptor &a)
+DBoW2::FeatureVector	FeatureVector.h	/^class FeatureVector: $/;"	c	namespace:DBoW2	inherits:std::map
+DBoW2::FeatureVector::FeatureVector	FeatureVector.cpp	/^FeatureVector::FeatureVector(void)$/;"	f	class:DBoW2::FeatureVector	signature:(void)
+DBoW2::FeatureVector::FeatureVector	FeatureVector.h	/^  FeatureVector(void);$/;"	p	class:DBoW2::FeatureVector	access:public	signature:(void)
+DBoW2::FeatureVector::addFeature	FeatureVector.cpp	/^void FeatureVector::addFeature(NodeId id, unsigned int i_feature)$/;"	f	class:DBoW2::FeatureVector	signature:(NodeId id, unsigned int i_feature)
+DBoW2::FeatureVector::addFeature	FeatureVector.h	/^  void addFeature(NodeId id, unsigned int i_feature);$/;"	p	class:DBoW2::FeatureVector	access:public	signature:(NodeId id, unsigned int i_feature)
+DBoW2::FeatureVector::operator <<	FeatureVector.h	/^  friend std::ostream& operator<<(std::ostream &out, const FeatureVector &v);$/;"	p	class:DBoW2::FeatureVector	access:friend	signature:(std::ostream &out, const FeatureVector &v)
+DBoW2::FeatureVector::~FeatureVector	FeatureVector.cpp	/^FeatureVector::~FeatureVector(void)$/;"	f	class:DBoW2::FeatureVector	signature:(void)
+DBoW2::FeatureVector::~FeatureVector	FeatureVector.h	/^  ~FeatureVector(void);$/;"	p	class:DBoW2::FeatureVector	access:public	signature:(void)
+DBoW2::GeneralScoring	ScoringObject.h	/^class GeneralScoring$/;"	c	namespace:DBoW2
+DBoW2::GeneralScoring::LOG_EPS	ScoringObject.h	/^	static const double LOG_EPS; $/;"	m	class:DBoW2::GeneralScoring	access:public
+DBoW2::GeneralScoring::mustNormalize	ScoringObject.h	/^  virtual bool mustNormalize(LNorm &norm) const = 0;$/;"	p	class:DBoW2::GeneralScoring	access:public	signature:(LNorm &norm) const
+DBoW2::GeneralScoring::score	ScoringObject.h	/^  virtual double score(const BowVector &v, const BowVector &w) const = 0;$/;"	p	class:DBoW2::GeneralScoring	access:public	signature:(const BowVector &v, const BowVector &w) const
+DBoW2::IDF	BowVector.h	/^  IDF,$/;"	e	enum:DBoW2::WeightingType
+DBoW2::KL	BowVector.h	/^  KL,$/;"	e	enum:DBoW2::ScoringType
+DBoW2::L1	BowVector.h	/^  L1,$/;"	e	enum:DBoW2::LNorm
+DBoW2::L1_NORM	BowVector.h	/^  L1_NORM,$/;"	e	enum:DBoW2::ScoringType
+DBoW2::L2	BowVector.h	/^  L2$/;"	e	enum:DBoW2::LNorm
+DBoW2::L2_NORM	BowVector.h	/^  L2_NORM,$/;"	e	enum:DBoW2::ScoringType
+DBoW2::LNorm	BowVector.h	/^enum LNorm$/;"	g	namespace:DBoW2
+DBoW2::NodeId	BowVector.h	/^typedef unsigned int NodeId;$/;"	t	namespace:DBoW2
+DBoW2::QueryResults	QueryResults.h	/^class QueryResults: public std::vector<Result>$/;"	c	namespace:DBoW2	inherits:std::vector
+DBoW2::QueryResults::operator <<	QueryResults.h	/^  friend std::ostream & operator<<(std::ostream& os, const QueryResults& ret );$/;"	p	class:DBoW2::QueryResults	access:friend	signature:(std::ostream& os, const QueryResults& ret )
+DBoW2::QueryResults::scaleScores	QueryResults.h	/^  inline void scaleScores(double factor);$/;"	p	class:DBoW2::QueryResults	access:public	signature:(double factor)
+DBoW2::QueryResults::scaleScores	QueryResults.h	/^inline void QueryResults::scaleScores(double factor)$/;"	f	class:DBoW2::QueryResults	signature:(double factor)
+DBoW2::Result	QueryResults.h	/^class Result$/;"	c	namespace:DBoW2
+DBoW2::Result::Id	QueryResults.h	/^  EntryId Id;$/;"	m	class:DBoW2::Result	access:public
+DBoW2::Result::Result	QueryResults.h	/^  inline Result(){}$/;"	f	class:DBoW2::Result	access:public	signature:()
+DBoW2::Result::Result	QueryResults.h	/^  inline Result(EntryId _id, double _score): Id(_id), Score(_score){}$/;"	f	class:DBoW2::Result	access:public	signature:(EntryId _id, double _score)
+DBoW2::Result::Score	QueryResults.h	/^  double Score;$/;"	m	class:DBoW2::Result	access:public
+DBoW2::Result::ge	QueryResults.h	/^  inline static bool ge(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+DBoW2::Result::geq	QueryResults.h	/^  static inline bool geq(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+DBoW2::Result::geqv	QueryResults.h	/^  static inline bool geqv(const Result &a, double s)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, double s)
+DBoW2::Result::gt	QueryResults.h	/^  static inline bool gt(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+DBoW2::Result::ltId	QueryResults.h	/^  static inline bool ltId(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+DBoW2::Result::operator <	QueryResults.h	/^  inline bool operator<(const Result &r) const$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &r) const
+DBoW2::Result::operator <	QueryResults.h	/^  inline bool operator<(double s) const$/;"	f	class:DBoW2::Result	access:public	signature:(double s) const
+DBoW2::Result::operator <<	QueryResults.h	/^  friend std::ostream & operator<<(std::ostream& os, const Result& ret );$/;"	p	class:DBoW2::Result	access:friend	signature:(std::ostream& os, const Result& ret )
+DBoW2::Result::operator ==	QueryResults.h	/^  inline bool operator==(EntryId id) const$/;"	f	class:DBoW2::Result	access:public	signature:(EntryId id) const
+DBoW2::Result::operator >	QueryResults.h	/^  inline bool operator>(const Result &r) const$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &r) const
+DBoW2::Result::operator >	QueryResults.h	/^  inline bool operator>(double s) const$/;"	f	class:DBoW2::Result	access:public	signature:(double s) const
+DBoW2::ScoringType	BowVector.h	/^enum ScoringType$/;"	g	namespace:DBoW2
+DBoW2::TF	BowVector.h	/^  TF,$/;"	e	enum:DBoW2::WeightingType
+DBoW2::TF_IDF	BowVector.h	/^  TF_IDF,$/;"	e	enum:DBoW2::WeightingType
+DBoW2::TemplatedDatabase	TemplatedDatabase.h	/^class TemplatedDatabase$/;"	c	namespace:DBoW2
+DBoW2::TemplatedDatabase::DirectFile	TemplatedDatabase.h	/^  typedef std::vector<FeatureVector> DirectFile;$/;"	t	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::IFPair	TemplatedDatabase.h	/^  struct IFPair$/;"	s	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::IFPair::IFPair	TemplatedDatabase.h	/^    IFPair(){}$/;"	f	struct:DBoW2::TemplatedDatabase::IFPair	access:public	signature:()
+DBoW2::TemplatedDatabase::IFPair::IFPair	TemplatedDatabase.h	/^    IFPair(EntryId eid, WordValue wv): entry_id(eid), word_weight(wv) {}$/;"	f	struct:DBoW2::TemplatedDatabase::IFPair	access:public	signature:(EntryId eid, WordValue wv)
+DBoW2::TemplatedDatabase::IFPair::entry_id	TemplatedDatabase.h	/^    EntryId entry_id;$/;"	m	struct:DBoW2::TemplatedDatabase::IFPair	access:public
+DBoW2::TemplatedDatabase::IFPair::operator ==	TemplatedDatabase.h	/^    inline bool operator==(EntryId eid) const { return entry_id == eid; }$/;"	f	struct:DBoW2::TemplatedDatabase::IFPair	access:public	signature:(EntryId eid) const
+DBoW2::TemplatedDatabase::IFPair::word_weight	TemplatedDatabase.h	/^    WordValue word_weight;$/;"	m	struct:DBoW2::TemplatedDatabase::IFPair	access:public
+DBoW2::TemplatedDatabase::IFRow	TemplatedDatabase.h	/^  typedef std::list<IFPair> IFRow;$/;"	t	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::InvertedFile	TemplatedDatabase.h	/^  typedef std::vector<IFRow> InvertedFile; $/;"	t	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(bool use_di = true, int di_levels = 0);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(bool use_di = true, int di_levels = 0)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const TemplatedDatabase<TDescriptor, F> &db);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedDatabase<TDescriptor, F> &db)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const TemplatedVocabulary<TDescriptor, F> &voc,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedVocabulary<TDescriptor, F> &voc, bool use_di = true, int di_levels = 0)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const char *filename);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const char *filename)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const std::string &filename);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const std::string &filename)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(bool use_di, int di_levels)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedVocabulary<TDescriptor, F> &voc, bool use_di, int di_levels)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const char *filename)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const std::string &filename)
+DBoW2::TemplatedDatabase::TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor,F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedDatabase<TDescriptor,F> &db)
+DBoW2::TemplatedDatabase::add	TemplatedDatabase.h	/^  EntryId add(const BowVector &vec, $/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const BowVector &vec, const FeatureVector &fec = FeatureVector() )
+DBoW2::TemplatedDatabase::add	TemplatedDatabase.h	/^  EntryId add(const vector<TDescriptor> &features,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const vector<TDescriptor> &features, BowVector *bowvec = NULL, FeatureVector *fvec = NULL)
+DBoW2::TemplatedDatabase::add	TemplatedDatabase.h	/^EntryId TemplatedDatabase<TDescriptor, F>::add($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const vector<TDescriptor> &features, BowVector *bowvec, FeatureVector *fvec)
+DBoW2::TemplatedDatabase::add	TemplatedDatabase.h	/^EntryId TemplatedDatabase<TDescriptor, F>::add(const BowVector &v,$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &v, const FeatureVector &fv)
+DBoW2::TemplatedDatabase::allocate	TemplatedDatabase.h	/^  void allocate(int nd = 0, int ni = 0);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(int nd = 0, int ni = 0)
+DBoW2::TemplatedDatabase::allocate	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::allocate(int nd, int ni)$/;"	f	class:DBoW2::TemplatedDatabase	signature:(int nd, int ni)
+DBoW2::TemplatedDatabase::clear	TemplatedDatabase.h	/^  inline void clear();$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:()
+DBoW2::TemplatedDatabase::clear	TemplatedDatabase.h	/^inline void TemplatedDatabase<TDescriptor, F>::clear()$/;"	f	class:DBoW2::TemplatedDatabase	signature:()
+DBoW2::TemplatedDatabase::getDirectIndexLevels	TemplatedDatabase.h	/^  inline int getDirectIndexLevels() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+DBoW2::TemplatedDatabase::getDirectIndexLevels	TemplatedDatabase.h	/^inline int TemplatedDatabase<TDescriptor, F>::getDirectIndexLevels() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+DBoW2::TemplatedDatabase::getVocabulary	TemplatedDatabase.h	/^  inline const TemplatedVocabulary<TDescriptor,F>& getVocabulary() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+DBoW2::TemplatedDatabase::getVocabulary	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::getVocabulary() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+DBoW2::TemplatedDatabase::load	TemplatedDatabase.h	/^  void load(const string &filename);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const string &filename)
+DBoW2::TemplatedDatabase::load	TemplatedDatabase.h	/^  void load(cv::FileStorage &fs, const std::string &name = "database");$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(cv::FileStorage &fs, const std::string &name = Ó)
+DBoW2::TemplatedDatabase::load	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::load(const string &filename)$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const string &filename)
+DBoW2::TemplatedDatabase::load	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::load(cv::FileStorage &fs,$/;"	f	class:DBoW2::TemplatedDatabase	signature:(cv::FileStorage &fs, const std::string &name)
+DBoW2::TemplatedDatabase::m_dfile	TemplatedDatabase.h	/^  DirectFile m_dfile;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::m_dilevels	TemplatedDatabase.h	/^  int m_dilevels;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::m_ifile	TemplatedDatabase.h	/^  InvertedFile m_ifile;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::m_nentries	TemplatedDatabase.h	/^  int m_nentries;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::m_use_di	TemplatedDatabase.h	/^  bool m_use_di;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::m_voc	TemplatedDatabase.h	/^  TemplatedVocabulary<TDescriptor, F> m_voc;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+DBoW2::TemplatedDatabase::operator =	TemplatedDatabase.h	/^  TemplatedDatabase<TDescriptor,F>& operator=($/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:( const TemplatedDatabase<TDescriptor,F> &db)
+DBoW2::TemplatedDatabase::operator =	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor,F>& TemplatedDatabase<TDescriptor,F>::operator=$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedDatabase<TDescriptor,F> &db)
+DBoW2::TemplatedDatabase::query	TemplatedDatabase.h	/^  void query(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const BowVector &vec, QueryResults &ret, int max_results = 1, int max_id = -1) const
+DBoW2::TemplatedDatabase::query	TemplatedDatabase.h	/^  void query(const vector<TDescriptor> &features, QueryResults &ret,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const vector<TDescriptor> &features, QueryResults &ret, int max_results = 1, int max_id = -1) const
+DBoW2::TemplatedDatabase::query	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::query($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::query	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::query($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const vector<TDescriptor> &features, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryBhattacharyya	TemplatedDatabase.h	/^  void queryBhattacharyya(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryBhattacharyya	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryBhattacharyya($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryChiSquare	TemplatedDatabase.h	/^  void queryChiSquare(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryChiSquare	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryChiSquare(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryDotProduct	TemplatedDatabase.h	/^  void queryDotProduct(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryDotProduct	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryDotProduct($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryKL	TemplatedDatabase.h	/^  void queryKL(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryKL	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryKL(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryL1	TemplatedDatabase.h	/^  void queryL1(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryL1	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryL1(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryL2	TemplatedDatabase.h	/^  void queryL2(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::queryL2	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryL2(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+DBoW2::TemplatedDatabase::retrieveFeatures	TemplatedDatabase.h	/^  const FeatureVector& retrieveFeatures(EntryId id) const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(EntryId id) const
+DBoW2::TemplatedDatabase::retrieveFeatures	TemplatedDatabase.h	/^const FeatureVector& TemplatedDatabase<TDescriptor, F>::retrieveFeatures$/;"	f	class:DBoW2::TemplatedDatabase	signature:(EntryId id) const
+DBoW2::TemplatedDatabase::save	TemplatedDatabase.h	/^  void save(const string &filename) const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const string &filename) const
+DBoW2::TemplatedDatabase::save	TemplatedDatabase.h	/^  void save(cv::FileStorage &fs, const std::string &name = "database") const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(cv::FileStorage &fs, const std::string &name = Ó) const
+DBoW2::TemplatedDatabase::save	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::save(const string &filename) const$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const string &filename) const
+DBoW2::TemplatedDatabase::save	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::save(cv::FileStorage &fs,$/;"	f	class:DBoW2::TemplatedDatabase	signature:(cv::FileStorage &fs, const std::string &name) const
+DBoW2::TemplatedDatabase::setVocabulary	TemplatedDatabase.h	/^  inline void setVocabulary(const TemplatedVocabulary<TDescriptor,F> &voc);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedVocabulary<TDescriptor,F> &voc)
+DBoW2::TemplatedDatabase::setVocabulary	TemplatedDatabase.h	/^  inline void setVocabulary(const TemplatedVocabulary<TDescriptor,F> &voc,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedVocabulary<TDescriptor,F> &voc, bool use_di, int di_levels = 0)
+DBoW2::TemplatedDatabase::setVocabulary	TemplatedDatabase.h	/^inline void TemplatedDatabase<TDescriptor, F>::setVocabulary$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedVocabulary<TDescriptor,F>& voc)
+DBoW2::TemplatedDatabase::setVocabulary	TemplatedDatabase.h	/^inline void TemplatedDatabase<TDescriptor, F>::setVocabulary$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedVocabulary<TDescriptor,F>& voc, bool use_di, int di_levels)
+DBoW2::TemplatedDatabase::size	TemplatedDatabase.h	/^  inline unsigned int size() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+DBoW2::TemplatedDatabase::size	TemplatedDatabase.h	/^inline unsigned int TemplatedDatabase<TDescriptor, F>::size() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+DBoW2::TemplatedDatabase::usingDirectIndex	TemplatedDatabase.h	/^  inline bool usingDirectIndex() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+DBoW2::TemplatedDatabase::usingDirectIndex	TemplatedDatabase.h	/^inline bool TemplatedDatabase<TDescriptor, F>::usingDirectIndex() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+DBoW2::TemplatedDatabase::~TemplatedDatabase	TemplatedDatabase.h	/^  virtual ~TemplatedDatabase(void);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(void)
+DBoW2::TemplatedDatabase::~TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::~TemplatedDatabase(void)$/;"	f	class:DBoW2::TemplatedDatabase	signature:(void)
+DBoW2::TemplatedVocabulary	TemplatedVocabulary.h	/^class TemplatedVocabulary$/;"	c	namespace:DBoW2
+DBoW2::TemplatedVocabulary::HKmeansStep	TemplatedVocabulary.h	/^  void HKmeansStep(NodeId parent_id, const vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(NodeId parent_id, const vector<pDescriptor> &descriptors, int current_level)
+DBoW2::TemplatedVocabulary::HKmeansStep	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::HKmeansStep(NodeId parent_id,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(NodeId parent_id, const vector<pDescriptor> &descriptors, int current_level)
+DBoW2::TemplatedVocabulary::Node	TemplatedVocabulary.h	/^  struct Node$/;"	s	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::Node::Node	TemplatedVocabulary.h	/^    Node(): id(0), weight(0), parent(0), word_id(0){}$/;"	f	struct:DBoW2::TemplatedVocabulary::Node	access:public	signature:()
+DBoW2::TemplatedVocabulary::Node::Node	TemplatedVocabulary.h	/^    Node(NodeId _id): id(_id), weight(0), parent(0), word_id(0){}$/;"	f	struct:DBoW2::TemplatedVocabulary::Node	access:public	signature:(NodeId _id)
+DBoW2::TemplatedVocabulary::Node::children	TemplatedVocabulary.h	/^    vector<NodeId> children;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+DBoW2::TemplatedVocabulary::Node::descriptor	TemplatedVocabulary.h	/^    TDescriptor descriptor;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+DBoW2::TemplatedVocabulary::Node::id	TemplatedVocabulary.h	/^    NodeId id;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+DBoW2::TemplatedVocabulary::Node::isLeaf	TemplatedVocabulary.h	/^    inline bool isLeaf() const { return children.empty(); }$/;"	f	struct:DBoW2::TemplatedVocabulary::Node	access:public	signature:() const
+DBoW2::TemplatedVocabulary::Node::parent	TemplatedVocabulary.h	/^    NodeId parent;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+DBoW2::TemplatedVocabulary::Node::weight	TemplatedVocabulary.h	/^    WordValue weight;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+DBoW2::TemplatedVocabulary::Node::word_id	TemplatedVocabulary.h	/^    WordId word_id;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(const TemplatedVocabulary<TDescriptor, F> &voc);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const TemplatedVocabulary<TDescriptor, F> &voc)
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(const char *filename);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const char *filename)
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(const std::string &filename);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::string &filename)
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(int k = 10, int L = 5,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(int k = 10, int L = 5, WeightingType weighting = TF_IDF, ScoringType scoring = L1_NORM)
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const char *filename)
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const std::string &filename)
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(int k, int L, WeightingType weighting, ScoringType scoring)
+DBoW2::TemplatedVocabulary::TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const TemplatedVocabulary<TDescriptor, F> &voc)
+DBoW2::TemplatedVocabulary::create	TemplatedVocabulary.h	/^  void create(const std::vector<std::vector<TDescriptor> > &training_features);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<std::vector<TDescriptor> > &training_features)
+DBoW2::TemplatedVocabulary::create	TemplatedVocabulary.h	/^  void create(const std::vector<std::vector<TDescriptor> > &training_features,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<std::vector<TDescriptor> > &training_features, int k, int L)
+DBoW2::TemplatedVocabulary::create	TemplatedVocabulary.h	/^  void create(const std::vector<std::vector<TDescriptor> > &training_features,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<std::vector<TDescriptor> > &training_features, int k, int L, WeightingType weighting, ScoringType scoring)
+DBoW2::TemplatedVocabulary::create	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::create($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<std::vector<TDescriptor> > &training_features)
+DBoW2::TemplatedVocabulary::create	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::create($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<std::vector<TDescriptor> > &training_features, int k, int L)
+DBoW2::TemplatedVocabulary::create	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::create($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<std::vector<TDescriptor> > &training_features, int k, int L, WeightingType weighting, ScoringType scoring)
+DBoW2::TemplatedVocabulary::createScoringObject	TemplatedVocabulary.h	/^  void createScoringObject();$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:()
+DBoW2::TemplatedVocabulary::createScoringObject	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::createScoringObject()$/;"	f	class:DBoW2::TemplatedVocabulary	signature:()
+DBoW2::TemplatedVocabulary::createWords	TemplatedVocabulary.h	/^  void createWords();$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:()
+DBoW2::TemplatedVocabulary::createWords	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::createWords()$/;"	f	class:DBoW2::TemplatedVocabulary	signature:()
+DBoW2::TemplatedVocabulary::empty	TemplatedVocabulary.h	/^  inline bool empty() const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+DBoW2::TemplatedVocabulary::empty	TemplatedVocabulary.h	/^inline bool TemplatedVocabulary<TDescriptor,F>::empty() const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:() const
+DBoW2::TemplatedVocabulary::getBranchingFactor	TemplatedVocabulary.h	/^  inline int getBranchingFactor() const { return m_k; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+DBoW2::TemplatedVocabulary::getDepthLevels	TemplatedVocabulary.h	/^  inline int getDepthLevels() const { return m_L; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+DBoW2::TemplatedVocabulary::getEffectiveLevels	TemplatedVocabulary.h	/^  float getEffectiveLevels() const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+DBoW2::TemplatedVocabulary::getEffectiveLevels	TemplatedVocabulary.h	/^float TemplatedVocabulary<TDescriptor,F>::getEffectiveLevels() const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:() const
+DBoW2::TemplatedVocabulary::getFeatures	TemplatedVocabulary.h	/^  void getFeatures($/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:( const vector<vector<TDescriptor> > &training_features, vector<pDescriptor> &features) const
+DBoW2::TemplatedVocabulary::getFeatures	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::getFeatures($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const vector<vector<TDescriptor> > &training_features, vector<pDescriptor> &features) const
+DBoW2::TemplatedVocabulary::getParentNode	TemplatedVocabulary.h	/^  NodeId getParentNode(WordId wid, int levelsup) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(WordId wid, int levelsup) const
+DBoW2::TemplatedVocabulary::getParentNode	TemplatedVocabulary.h	/^NodeId TemplatedVocabulary<TDescriptor,F>::getParentNode$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(WordId wid, int levelsup) const
+DBoW2::TemplatedVocabulary::getScoringType	TemplatedVocabulary.h	/^  inline ScoringType getScoringType() const { return m_scoring; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+DBoW2::TemplatedVocabulary::getWeightingType	TemplatedVocabulary.h	/^  inline WeightingType getWeightingType() const { return m_weighting; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+DBoW2::TemplatedVocabulary::getWordsFromNode	TemplatedVocabulary.h	/^  void getWordsFromNode(NodeId nid, std::vector<WordId> &words) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(NodeId nid, std::vector<WordId> &words) const
+DBoW2::TemplatedVocabulary::getWordsFromNode	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::getWordsFromNode$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(NodeId nid, std::vector<WordId> &words) const
+DBoW2::TemplatedVocabulary::initiateClustersKMpp	TemplatedVocabulary.h	/^  void initiateClustersKMpp(const vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const vector<pDescriptor> &descriptors, vector<TDescriptor> &clusters) const
+DBoW2::TemplatedVocabulary::initiateClustersKMpp	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::initiateClustersKMpp($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const vector<pDescriptor> &pfeatures, vector<TDescriptor> &clusters) const
+DBoW2::TemplatedVocabulary::load	TemplatedVocabulary.h	/^  void load(const std::string &filename);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::string &filename)
+DBoW2::TemplatedVocabulary::load	TemplatedVocabulary.h	/^  void load(cv::FileStorage &f, const std::string &name = "vocabulary");$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(cv::FileStorage &f, const std::string &name = Ó)
+DBoW2::TemplatedVocabulary::load	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::load(const std::string &filename)$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const std::string &filename)
+DBoW2::TemplatedVocabulary::load	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::load(cv::FileStorage &f,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(cv::FileStorage &f, const std::string &name)
+DBoW2::TemplatedVocabulary::m_L	TemplatedVocabulary.h	/^  int m_L;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::m_k	TemplatedVocabulary.h	/^  int m_k;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::m_nodes	TemplatedVocabulary.h	/^  std::vector<Node> m_nodes;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::m_scoring	TemplatedVocabulary.h	/^  ScoringType m_scoring;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::m_scoring_object	TemplatedVocabulary.h	/^  GeneralScoring* m_scoring_object;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::m_weighting	TemplatedVocabulary.h	/^  WeightingType m_weighting;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::m_words	TemplatedVocabulary.h	/^  std::vector<Node*> m_words;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::operator =	TemplatedVocabulary.h	/^  TemplatedVocabulary<TDescriptor, F>& operator=($/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:( const TemplatedVocabulary<TDescriptor, F> &voc)
+DBoW2::TemplatedVocabulary::operator =	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::operator=$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TemplatedVocabulary<TDescriptor, F> &voc)
+DBoW2::TemplatedVocabulary::pDescriptor	TemplatedVocabulary.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::TemplatedVocabulary	access:protected
+DBoW2::TemplatedVocabulary::save	TemplatedVocabulary.h	/^  void save(const std::string &filename) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::string &filename) const
+DBoW2::TemplatedVocabulary::save	TemplatedVocabulary.h	/^  void save(cv::FileStorage &f, const std::string &name = "vocabulary") const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(cv::FileStorage &f, const std::string &name = Ó) const
+DBoW2::TemplatedVocabulary::save	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::save(const std::string &filename) const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const std::string &filename) const
+DBoW2::TemplatedVocabulary::save	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::save(cv::FileStorage &f,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(cv::FileStorage &f, const std::string &name) const
+DBoW2::TemplatedVocabulary::score	TemplatedVocabulary.h	/^  inline double score(const BowVector &a, const BowVector &b) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const BowVector &a, const BowVector &b) const
+DBoW2::TemplatedVocabulary::score	TemplatedVocabulary.h	/^inline double TemplatedVocabulary<TDescriptor,F>::score$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const BowVector &v1, const BowVector &v2) const
+DBoW2::TemplatedVocabulary::setNodeWeights	TemplatedVocabulary.h	/^  void setNodeWeights(const vector<vector<TDescriptor> > &features);$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const vector<vector<TDescriptor> > &features)
+DBoW2::TemplatedVocabulary::setNodeWeights	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::setNodeWeights$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const vector<vector<TDescriptor> > &training_features)
+DBoW2::TemplatedVocabulary::size	TemplatedVocabulary.h	/^  inline unsigned int size() const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+DBoW2::TemplatedVocabulary::size	TemplatedVocabulary.h	/^inline unsigned int TemplatedVocabulary<TDescriptor,F>::size() const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:() const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^  WordId transform(const TDescriptor& feature) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const TDescriptor& feature) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^  void transform(const TDescriptor &feature, WordId &id) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const TDescriptor &feature, WordId &id) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^  void transform(const TDescriptor &feature,$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const TDescriptor &feature, WordId &id, WordValue &weight, NodeId* nid = NULL, int levelsup = 0) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^  void transform(const std::vector<TDescriptor>& features, BowVector &v) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<TDescriptor>& features, BowVector &v) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^  void transform(const std::vector<TDescriptor>& features,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<TDescriptor>& features, BowVector &v, FeatureVector &fv, int levelsup) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^WordId TemplatedVocabulary<TDescriptor, F>::transform$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TDescriptor& feature) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TDescriptor &feature, WordId &id) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<TDescriptor>& features, BowVector &v) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<TDescriptor>& features, BowVector &v, FeatureVector &fv, int levelsup) const
+DBoW2::TemplatedVocabulary::transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform(const TDescriptor &feature,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TDescriptor &feature, WordId &word_id, WordValue &weight, NodeId *nid, int levelsup) const
+DBoW2::TemplatedVocabulary::~TemplatedVocabulary	TemplatedVocabulary.h	/^  virtual ~TemplatedVocabulary();$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:()
+DBoW2::TemplatedVocabulary::~TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::~TemplatedVocabulary()$/;"	f	class:DBoW2::TemplatedVocabulary	signature:()
+DBoW2::WeightingType	BowVector.h	/^enum WeightingType$/;"	g	namespace:DBoW2
+DBoW2::WordId	BowVector.h	/^typedef unsigned int WordId;$/;"	t	namespace:DBoW2
+DBoW2::WordValue	BowVector.h	/^typedef double WordValue;$/;"	t	namespace:DBoW2
+DBoW2::__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(BhattacharyyaScoring, true, L1);$/;"	p	namespace:DBoW2	signature:(BhattacharyyaScoring, true, L1)
+DBoW2::__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(ChiSquareScoring, true, L1);$/;"	p	namespace:DBoW2	signature:(ChiSquareScoring, true, L1)
+DBoW2::__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(DotProductScoring, false, L1);$/;"	p	namespace:DBoW2	signature:(DotProductScoring, false, L1)
+DBoW2::__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(KLScoring, true, L1);$/;"	p	namespace:DBoW2	signature:(KLScoring, true, L1)
+DBoW2::__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(L1Scoring, true, L1);$/;"	p	namespace:DBoW2	signature:(L1Scoring, true, L1)
+DBoW2::__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(L2Scoring, true, L2);$/;"	p	namespace:DBoW2	signature:(L2Scoring, true, L2)
+DBoW2::operator <<	BowVector.cpp	/^std::ostream& operator<< (std::ostream &out, const BowVector &v)$/;"	f	namespace:DBoW2	signature:(std::ostream &out, const BowVector &v)
+DBoW2::operator <<	FeatureVector.cpp	/^std::ostream& operator<<(std::ostream &out, $/;"	f	namespace:DBoW2	signature:(std::ostream &out, const FeatureVector &v)
+DBoW2::operator <<	QueryResults.cpp	/^ostream & operator<<(ostream& os, const QueryResults& ret )$/;"	f	namespace:DBoW2	signature:(ostream& os, const QueryResults& ret )
+DBoW2::operator <<	QueryResults.cpp	/^ostream & operator<<(ostream& os, const Result& ret )$/;"	f	namespace:DBoW2	signature:(ostream& os, const Result& ret )
+DBoW2::operator <<	TemplatedDatabase.h	/^std::ostream& operator<<(std::ostream &os, $/;"	f	namespace:DBoW2	signature:(std::ostream &os, const TemplatedDatabase<TDescriptor,F> &db)
+DBoW2::operator <<	TemplatedVocabulary.h	/^std::ostream& operator<<(std::ostream &os,$/;"	f	namespace:DBoW2	signature:(std::ostream &os, const TemplatedVocabulary<TDescriptor,F> &voc)
+DEBUG	lk.cpp	22;"	d	file:
+DOT_PRODUCT	BowVector.h	/^  DOT_PRODUCT$/;"	e	enum:DBoW2::ScoringType
+DirectFile	TemplatedDatabase.h	/^  typedef std::vector<FeatureVector> DirectFile;$/;"	t	class:DBoW2::TemplatedDatabase	access:protected
+DotProductScoring::score	ScoringObject.cpp	/^double DotProductScoring::score(const BowVector &v1, $/;"	f	class:DotProductScoring	signature:(const BowVector &v1, const BowVector &v2) const
+EIGEN_MAKE_ALIGNED_OPERATOR_NEW	registro3d.h	/^        EIGEN_MAKE_ALIGNED_OPERATOR_NEW;$/;"	m	class:Registro3D	access:public
+EXTENDED_SURF	demo.cpp	/^const bool EXTENDED_SURF = false;$/;"	v
+EntryId	QueryResults.h	/^typedef unsigned int EntryId;$/;"	t	namespace:DBoW2
+FBrief	FBrief.h	/^class FBrief: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+FClass	FClass.h	/^class FClass$/;"	c	namespace:DBoW2
+FEATURES_RADIUS	back_sac_align.cpp	/^const double FEATURES_RADIUS = 0.04; \/\/0.08$/;"	v
+FNarf	FNarf.h	/^class FNarf: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+FSurf128	FSurf128.h	/^class FSurf128: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+FSurf64	FSurf64.h	/^class FSurf64: protected FClass$/;"	c	namespace:DBoW2	inherits:FClass
+FalseNegative	stats.h	/^    double FalseNegative;$/;"	m	class:stats	access:private
+FalsePositive	stats.h	/^    double FalsePositive;$/;"	m	class:stats	access:private
+FeatureVector	FeatureVector.cpp	/^FeatureVector::FeatureVector(void)$/;"	f	class:DBoW2::FeatureVector	signature:(void)
+FeatureVector	FeatureVector.h	/^  FeatureVector(void);$/;"	p	class:DBoW2::FeatureVector	access:public	signature:(void)
+FeatureVector	FeatureVector.h	/^class FeatureVector: $/;"	c	namespace:DBoW2	inherits:std::map
+GeneralScoring	ScoringObject.h	/^class GeneralScoring$/;"	c	namespace:DBoW2
+GeneralScoring::LOG_EPS	ScoringObject.cpp	/^const double GeneralScoring::LOG_EPS = log(DBL_EPSILON); \/\/ FLT_EPSILON$/;"	m	class:GeneralScoring	file:
+HKmeansStep	TemplatedVocabulary.h	/^  void HKmeansStep(NodeId parent_id, const vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(NodeId parent_id, const vector<pDescriptor> &descriptors, int current_level)
+HKmeansStep	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::HKmeansStep(NodeId parent_id,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(NodeId parent_id, const vector<pDescriptor> &descriptors, int current_level)
+IDF	BowVector.h	/^  IDF,$/;"	e	enum:DBoW2::WeightingType
+IFPair	TemplatedDatabase.h	/^    IFPair(){}$/;"	f	struct:DBoW2::TemplatedDatabase::IFPair	access:public	signature:()
+IFPair	TemplatedDatabase.h	/^    IFPair(EntryId eid, WordValue wv): entry_id(eid), word_weight(wv) {}$/;"	f	struct:DBoW2::TemplatedDatabase::IFPair	access:public	signature:(EntryId eid, WordValue wv)
+IFPair	TemplatedDatabase.h	/^  struct IFPair$/;"	s	class:DBoW2::TemplatedDatabase	access:protected
+IFRow	TemplatedDatabase.h	/^  typedef std::list<IFPair> IFRow;$/;"	t	class:DBoW2::TemplatedDatabase	access:protected
+I_OFFSET	lk.cpp	/^int I_OFFSET = 80;$/;"	v
+Id	QueryResults.h	/^  EntryId Id;$/;"	m	class:DBoW2::Result	access:public
+InvertedFile	TemplatedDatabase.h	/^  typedef std::vector<IFRow> InvertedFile; $/;"	t	class:DBoW2::TemplatedDatabase	access:protected
+KL	BowVector.h	/^  KL,$/;"	e	enum:DBoW2::ScoringType
+KLScoring::score	ScoringObject.cpp	/^double KLScoring::score(const BowVector &v1, const BowVector &v2) const$/;"	f	class:KLScoring	signature:(const BowVector &v1, const BowVector &v2) const
+L	FNarf.h	/^  static const int L = 36; $/;"	m	class:DBoW2::FNarf	access:public
+L	FSurf128.h	/^  static const int L = 128;$/;"	m	class:DBoW2::FSurf128	access:public
+L	FSurf64.h	/^  static const int L = 64; $/;"	m	class:DBoW2::FSurf64	access:public
+L1	BowVector.h	/^  L1,$/;"	e	enum:DBoW2::LNorm
+L1Scoring::score	ScoringObject.cpp	/^double L1Scoring::score(const BowVector &v1, const BowVector &v2) const$/;"	f	class:L1Scoring	signature:(const BowVector &v1, const BowVector &v2) const
+L1_NORM	BowVector.h	/^  L1_NORM,$/;"	e	enum:DBoW2::ScoringType
+L2	BowVector.h	/^  L2$/;"	e	enum:DBoW2::LNorm
+L2Scoring::score	ScoringObject.cpp	/^double L2Scoring::score(const BowVector &v1, const BowVector &v2) const$/;"	f	class:L2Scoring	signature:(const BowVector &v1, const BowVector &v2) const
+L2_NORM	BowVector.h	/^  L2_NORM,$/;"	e	enum:DBoW2::ScoringType
+LK_H	lk.h	19;"	d
+LNorm	BowVector.h	/^enum LNorm$/;"	g	namespace:DBoW2
+LOG_EPS	ScoringObject.cpp	/^const double GeneralScoring::LOG_EPS = log(DBL_EPSILON); \/\/ FLT_EPSILON$/;"	m	class:GeneralScoring	file:
+LOG_EPS	ScoringObject.h	/^	static const double LOG_EPS; $/;"	m	class:DBoW2::GeneralScoring	access:public
+NARFPointRepresenation	registro3d.h	/^  NARFPointRepresenation () $/;"	f	class:NARFPointRepresenation	access:public	signature:()
+NARFPointRepresenation	registro3d.h	/^class NARFPointRepresenation : public PointRepresentation<Narf36>$/;"	c	inherits:PointRepresentation
+NARFPointRepresenation::NARFPointRepresenation	registro3d.h	/^  NARFPointRepresenation () $/;"	f	class:NARFPointRepresenation	access:public	signature:()
+NARFPointRepresenation::copyToFloatArray	registro3d.h	/^  void copyToFloatArray (const Narf36 &p, float *out) const$/;"	f	class:NARFPointRepresenation	access:public	signature:(const Narf36 &p, float *out) const
+NORMALS_RADIUS	back_sac_align.cpp	/^const double NORMALS_RADIUS = 0.02;$/;"	v
+NarfDatabase	DBoW2.h	/^  NarfDatabase;$/;"	t
+NarfVocabulary	DBoW2.h	/^  NarfVocabulary;$/;"	t
+Node	TemplatedVocabulary.h	/^    Node(): id(0), weight(0), parent(0), word_id(0){}$/;"	f	struct:DBoW2::TemplatedVocabulary::Node	access:public	signature:()
+Node	TemplatedVocabulary.h	/^    Node(NodeId _id): id(_id), weight(0), parent(0), word_id(0){}$/;"	f	struct:DBoW2::TemplatedVocabulary::Node	access:public	signature:(NodeId _id)
+Node	TemplatedVocabulary.h	/^  struct Node$/;"	s	class:DBoW2::TemplatedVocabulary	access:protected
+NodeId	BowVector.h	/^typedef unsigned int NodeId;$/;"	t	namespace:DBoW2
+PairInt	lk.h	/^typedef pair <int, int> PairInt;$/;"	t
+PairInt	stats.h	/^    typedef pair <int, int> PairInt;$/;"	t	class:stats	access:public
+PointType	registro3d.h	/^typedef PointXYZ PointType;$/;"	t
+QueryResults	QueryResults.h	/^class QueryResults: public std::vector<Result>$/;"	c	namespace:DBoW2	inherits:std::vector
+REGISTRO3D_H	registro3d.h	20;"	d
+REGISTRORGB_H	registrorgb.h	20;"	d
+Registro3D	registro3d.cpp	/^Registro3D::Registro3D(string directory){$/;"	f	class:Registro3D	signature:(string directory)
+Registro3D	registro3d.h	/^        Registro3D(string directory);$/;"	p	class:Registro3D	access:public	signature:(string directory)
+Registro3D	registro3d.h	/^class Registro3D {$/;"	c
+Registro3D::EIGEN_MAKE_ALIGNED_OPERATOR_NEW	registro3d.h	/^        EIGEN_MAKE_ALIGNED_OPERATOR_NEW;$/;"	m	class:Registro3D	access:public
+Registro3D::Registro3D	registro3d.cpp	/^Registro3D::Registro3D(string directory){$/;"	f	class:Registro3D	signature:(string directory)
+Registro3D::Registro3D	registro3d.h	/^        Registro3D(string directory);$/;"	p	class:Registro3D	access:public	signature:(string directory)
+Registro3D::__directory	registro3d.h	/^        string __directory;$/;"	m	class:Registro3D	access:private
+Registro3D::__files_list_3d	registro3d.h	/^        vector<string> __files_list_3d;$/;"	m	class:Registro3D	access:private
+Registro3D::addFrame	registro3d.cpp	/^void Registro3D::addFrame(PointCloud<Narf36> frame,string name)$/;"	f	class:Registro3D	signature:(PointCloud<Narf36> frame,string name)
+Registro3D::addFrame	registro3d.h	/^        void addFrame(PointCloud<Narf36> frame,string name);$/;"	p	class:Registro3D	access:public	signature:(PointCloud<Narf36> frame,string name)
+Registro3D::aligned	registro3d.h	/^        pcl::PointCloud<pcl::PointXYZ>::Ptr aligned;$/;"	m	class:Registro3D	access:private
+Registro3D::getCorrispondences	registro3d.cpp	/^float Registro3D::getCorrispondences(int src_p,int dst_p){$/;"	f	class:Registro3D	signature:(int src_p,int dst_p)
+Registro3D::getCorrispondences	registro3d.h	/^        float getCorrispondences(int src,int dst);$/;"	p	class:Registro3D	access:public	signature:(int src,int dst)
+Registro3D::getRangeImageAt	registro3d.cpp	/^pcl::RangeImage Registro3D::getRangeImageAt(int position){$/;"	f	class:Registro3D	signature:(int position)
+Registro3D::getRangeImageAt	registro3d.h	/^        pcl::RangeImage getRangeImageAt(int position);$/;"	p	class:Registro3D	access:public	signature:(int position)
+Registro3D::getScoreFit	registro3d.cpp	/^double Registro3D::getScoreFit(int src_p, int dst_p)$/;"	f	class:Registro3D	signature:(int src_p, int dst_p)
+Registro3D::getScoreFit	registro3d.h	/^        double getScoreFit(int src,int dst);$/;"	p	class:Registro3D	access:public	signature:(int src,int dst)
+Registro3D::getScoreFix	registro3d.cpp	/^double Registro3D::getScoreFix(vector<vector<float> > src, vector<vector<float> > dst)$/;"	f	class:Registro3D	signature:(vector<vector<float> > src, vector<vector<float> > dst)
+Registro3D::getScoreFix	registro3d.h	/^        double getScoreFix(vector<vector<float> > src, vector<vector<float> > dst);        $/;"	p	class:Registro3D	access:public	signature:(vector<vector<float> > src, vector<vector<float> > dst)
+Registro3D::getTra	registro3d.h	/^        pcl::PointCloud<pcl::PointXYZ> getTra(int src_p, int dst_p);$/;"	p	class:Registro3D	access:public	signature:(int src_p, int dst_p)
+Registro3D::listFile	registro3d.cpp	/^void Registro3D::listFile(string direc, vector<string> *files_lt)$/;"	f	class:Registro3D	signature:(string direc, vector<string> *files_lt)
+Registro3D::listFile	registro3d.h	/^        void listFile(string direc, vector<string> *files_lt);$/;"	p	class:Registro3D	access:private	signature:(string direc, vector<string> *files_lt)
+Registro3D::refined_T	registro3d.h	/^        Eigen::Matrix4f refined_T;$/;"	m	class:Registro3D	access:private
+Registro3D::registrationVisualizer	registro3d.h	/^        pcl::RegistrationVisualizer<pcl::PointXYZ, pcl::PointXYZ> registrationVisualizer;$/;"	m	class:Registro3D	access:private
+RegistroRGB	registrorgb.cpp	/^RegistroRGB::RegistroRGB(string directory)$/;"	f	class:RegistroRGB	signature:(string directory)
+RegistroRGB	registrorgb.h	/^    RegistroRGB(string directory);$/;"	p	class:RegistroRGB	access:public	signature:(string directory)
+RegistroRGB	registrorgb.h	/^class RegistroRGB$/;"	c
+RegistroRGB::RegistroRGB	registrorgb.cpp	/^RegistroRGB::RegistroRGB(string directory)$/;"	f	class:RegistroRGB	signature:(string directory)
+RegistroRGB::RegistroRGB	registrorgb.h	/^    RegistroRGB(string directory);$/;"	p	class:RegistroRGB	access:public	signature:(string directory)
+RegistroRGB::__files_list_rgb	registrorgb.h	/^    vector<string> __files_list_rgb;    $/;"	m	class:RegistroRGB	access:private
+RegistroRGB::addFrame	registrorgb.h	/^    void addFrame(string name, p_desc descriptor, p_keyp keypoints);$/;"	p	class:RegistroRGB	access:public	signature:(string name, p_desc descriptor, p_keyp keypoints)
+RegistroRGB::getImageAt	registrorgb.cpp	/^cv::Mat RegistroRGB::getImageAt(int i){$/;"	f	class:RegistroRGB	signature:(int i)
+RegistroRGB::getImageAt	registrorgb.h	/^    cv::Mat getImageAt(int i);$/;"	p	class:RegistroRGB	access:public	signature:(int i)
+RegistroRGB::inliersRGB	registrorgb.cpp	/^int RegistroRGB::inliersRGB(int src,int dst)$/;"	f	class:RegistroRGB	signature:(int src,int dst)
+RegistroRGB::inliersRGB	registrorgb.h	/^    int inliersRGB(int src,int dst);$/;"	p	class:RegistroRGB	access:public	signature:(int src,int dst)
+RegistroRGB::listFile	registrorgb.cpp	/^void RegistroRGB::listFile(string direc, vector<string> *files_lt)$/;"	f	class:RegistroRGB	signature:(string direc, vector<string> *files_lt)
+RegistroRGB::listFile	registrorgb.h	/^    void listFile(string direc, vector<string> *files_lt);$/;"	p	class:RegistroRGB	access:public	signature:(string direc, vector<string> *files_lt)
+RegistroRGB::p_desc	registrorgb.h	/^    typedef vector<float> p_desc;$/;"	t	class:RegistroRGB	access:public
+RegistroRGB::p_keyp	registrorgb.h	/^    typedef vector<cv::KeyPoint> p_keyp;$/;"	t	class:RegistroRGB	access:public
+Result	QueryResults.h	/^  inline Result(){}$/;"	f	class:DBoW2::Result	access:public	signature:()
+Result	QueryResults.h	/^  inline Result(EntryId _id, double _score): Id(_id), Score(_score){}$/;"	f	class:DBoW2::Result	access:public	signature:(EntryId _id, double _score)
+Result	QueryResults.h	/^class Result$/;"	c	namespace:DBoW2
+SAC_MAX_CORRESPONDENCE_DIST	back_sac_align.cpp	/^const double SAC_MAX_CORRESPONDENCE_DIST = 1;$/;"	v
+SAC_MIN_SAMPLE_DIST	back_sac_align.cpp	/^const double SAC_MIN_SAMPLE_DIST = 0.05; $/;"	v
+SANITY	lk.cpp	/^double SANITY = 0.2;$/;"	v
+SOGLIA_3D	lk.cpp	/^double SOGLIA_3D = 0.71;$/;"	v
+SOGLIA_RGB	lk.cpp	/^double SOGLIA_RGB = 0.45;$/;"	v
+STATS_H	stats.h	20;"	d
+Score	QueryResults.h	/^  double Score;$/;"	m	class:DBoW2::Result	access:public
+ScoringType	BowVector.h	/^enum ScoringType$/;"	g	namespace:DBoW2
+Surf128Database	DBoW2.h	/^  Surf128Database;$/;"	t
+Surf128Vocabulary	DBoW2.h	/^  Surf128Vocabulary;$/;"	t
+Surf64Database	DBoW2.h	/^  Surf64Database;$/;"	t
+Surf64Vocabulary	DBoW2.h	/^  Surf64Vocabulary;$/;"	t
+TDescriptor	FBrief.h	/^  typedef DVision::BRIEF::bitset TDescriptor;$/;"	t	class:DBoW2::FBrief	access:public
+TDescriptor	FNarf.h	/^  typedef std::vector<float> TDescriptor;$/;"	t	class:DBoW2::FNarf	access:public
+TDescriptor	FSurf128.h	/^  typedef std::vector<float> TDescriptor;$/;"	t	class:DBoW2::FSurf128	access:public
+TDescriptor	FSurf64.h	/^  typedef std::vector<float> TDescriptor;$/;"	t	class:DBoW2::FSurf64	access:public
+TF	BowVector.h	/^  TF,$/;"	e	enum:DBoW2::WeightingType
+TF_IDF	BowVector.h	/^  TF_IDF,$/;"	e	enum:DBoW2::WeightingType
+TWM_BRUTEFORCE_L1	TwoWayMatcher.h	/^    TWM_BRUTEFORCE_L1, TWM_BRUTEFORCE_L1_INT, TWM_BRUTEFORCE_L2, TWM_FLANN$/;"	e	enum:__anon1
+TWM_BRUTEFORCE_L1_INT	TwoWayMatcher.h	/^    TWM_BRUTEFORCE_L1, TWM_BRUTEFORCE_L1_INT, TWM_BRUTEFORCE_L2, TWM_FLANN$/;"	e	enum:__anon1
+TWM_BRUTEFORCE_L2	TwoWayMatcher.h	/^    TWM_BRUTEFORCE_L1, TWM_BRUTEFORCE_L1_INT, TWM_BRUTEFORCE_L2, TWM_FLANN$/;"	e	enum:__anon1
+TWM_FLANN	TwoWayMatcher.h	/^    TWM_BRUTEFORCE_L1, TWM_BRUTEFORCE_L1_INT, TWM_BRUTEFORCE_L2, TWM_FLANN$/;"	e	enum:__anon1
+TWOWAYMATCHER_H	TwoWayMatcher.h	9;"	d
+TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(bool use_di = true, int di_levels = 0);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(bool use_di = true, int di_levels = 0)
+TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const TemplatedDatabase<TDescriptor, F> &db);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedDatabase<TDescriptor, F> &db)
+TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const TemplatedVocabulary<TDescriptor, F> &voc,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedVocabulary<TDescriptor, F> &voc, bool use_di = true, int di_levels = 0)
+TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const char *filename);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const char *filename)
+TemplatedDatabase	TemplatedDatabase.h	/^  TemplatedDatabase(const std::string &filename);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const std::string &filename)
+TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(bool use_di, int di_levels)
+TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedVocabulary<TDescriptor, F> &voc, bool use_di, int di_levels)
+TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const char *filename)
+TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const std::string &filename)
+TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor,F>::TemplatedDatabase$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedDatabase<TDescriptor,F> &db)
+TemplatedDatabase	TemplatedDatabase.h	/^class TemplatedDatabase$/;"	c	namespace:DBoW2
+TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(const TemplatedVocabulary<TDescriptor, F> &voc);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const TemplatedVocabulary<TDescriptor, F> &voc)
+TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(const char *filename);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const char *filename)
+TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(const std::string &filename);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::string &filename)
+TemplatedVocabulary	TemplatedVocabulary.h	/^  TemplatedVocabulary(int k = 10, int L = 5,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(int k = 10, int L = 5, WeightingType weighting = TF_IDF, ScoringType scoring = L1_NORM)
+TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const char *filename)
+TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const std::string &filename)
+TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(int k, int L, WeightingType weighting, ScoringType scoring)
+TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::TemplatedVocabulary($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const TemplatedVocabulary<TDescriptor, F> &voc)
+TemplatedVocabulary	TemplatedVocabulary.h	/^class TemplatedVocabulary$/;"	c	namespace:DBoW2
+TrueNegative	stats.h	/^    double TrueNegative;$/;"	m	class:stats	access:private
+TruePositive	stats.h	/^    double TruePositive;$/;"	m	class:stats	access:private
+TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::TwoWayMatcher(const Ptr<DescriptorMatcher>& firstMatcher, const Ptr<DescriptorMatcher>& secondMatcher) $/;"	f	class:TwoWayMatcher	signature:(const Ptr<DescriptorMatcher>& firstMatcher, const Ptr<DescriptorMatcher>& secondMatcher)
+TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::TwoWayMatcher(const TwoWayMatcher& orig) {$/;"	f	class:TwoWayMatcher	signature:(const TwoWayMatcher& orig)
+TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::TwoWayMatcher(int type)$/;"	f	class:TwoWayMatcher	signature:(int type)
+TwoWayMatcher	TwoWayMatcher.h	/^    TwoWayMatcher(const TwoWayMatcher& orig);$/;"	p	class:TwoWayMatcher	access:public	signature:(const TwoWayMatcher& orig)
+TwoWayMatcher	TwoWayMatcher.h	/^    TwoWayMatcher(const cv::Ptr<cv::DescriptorMatcher>& matcher1, const cv::Ptr<cv::DescriptorMatcher>& matcher2);$/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Ptr<cv::DescriptorMatcher>& matcher1, const cv::Ptr<cv::DescriptorMatcher>& matcher2)
+TwoWayMatcher	TwoWayMatcher.h	/^    TwoWayMatcher(int type);$/;"	p	class:TwoWayMatcher	access:public	signature:(int type)
+TwoWayMatcher	TwoWayMatcher.h	/^class TwoWayMatcher {$/;"	c
+TwoWayMatcher::TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::TwoWayMatcher(const Ptr<DescriptorMatcher>& firstMatcher, const Ptr<DescriptorMatcher>& secondMatcher) $/;"	f	class:TwoWayMatcher	signature:(const Ptr<DescriptorMatcher>& firstMatcher, const Ptr<DescriptorMatcher>& secondMatcher)
+TwoWayMatcher::TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::TwoWayMatcher(const TwoWayMatcher& orig) {$/;"	f	class:TwoWayMatcher	signature:(const TwoWayMatcher& orig)
+TwoWayMatcher::TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::TwoWayMatcher(int type)$/;"	f	class:TwoWayMatcher	signature:(int type)
+TwoWayMatcher::TwoWayMatcher	TwoWayMatcher.h	/^    TwoWayMatcher(const TwoWayMatcher& orig);$/;"	p	class:TwoWayMatcher	access:public	signature:(const TwoWayMatcher& orig)
+TwoWayMatcher::TwoWayMatcher	TwoWayMatcher.h	/^    TwoWayMatcher(const cv::Ptr<cv::DescriptorMatcher>& matcher1, const cv::Ptr<cv::DescriptorMatcher>& matcher2);$/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Ptr<cv::DescriptorMatcher>& matcher1, const cv::Ptr<cv::DescriptorMatcher>& matcher2)
+TwoWayMatcher::TwoWayMatcher	TwoWayMatcher.h	/^    TwoWayMatcher(int type);$/;"	p	class:TwoWayMatcher	access:public	signature:(int type)
+TwoWayMatcher::_ratio	TwoWayMatcher.h	/^    float _ratio; \/\/max ratio between 1st and 2nd NN$/;"	m	class:TwoWayMatcher	access:private
+TwoWayMatcher::clone	TwoWayMatcher.h	/^    inline virtual cv::Ptr<cv::DescriptorMatcher> clone(bool emptyTrainData = false) const {$/;"	f	class:TwoWayMatcher	access:private	signature:(bool emptyTrainData = false) const
+TwoWayMatcher::confidence	TwoWayMatcher.h	/^    double confidence; \/\/ confidence level (probability)$/;"	m	class:TwoWayMatcher	access:private
+TwoWayMatcher::distance	TwoWayMatcher.h	/^    double distance; \/\/ min distance to epipolar line$/;"	m	class:TwoWayMatcher	access:private
+TwoWayMatcher::match	TwoWayMatcher.cpp	/^void TwoWayMatcher::match(const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask) {$/;"	f	class:TwoWayMatcher	signature:(const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask)
+TwoWayMatcher::match	TwoWayMatcher.h	/^    void match(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches,$/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, const cv::Mat& queryMask = cv::Mat(), const cv::Mat& trainMask = cv::Mat())
+TwoWayMatcher::matcher1	TwoWayMatcher.h	/^    cv::Ptr<cv::DescriptorMatcher> matcher1;$/;"	m	class:TwoWayMatcher	access:private
+TwoWayMatcher::matcher2	TwoWayMatcher.h	/^    cv::Ptr<cv::DescriptorMatcher> matcher2;$/;"	m	class:TwoWayMatcher	access:private
+TwoWayMatcher::matcherType	TwoWayMatcher.h	/^    int matcherType;$/;"	m	class:TwoWayMatcher	access:private
+TwoWayMatcher::ratioTest	TwoWayMatcher.cpp	/^int TwoWayMatcher::ratioTest(vector< vector<DMatch> >& matches) {$/;"	f	class:TwoWayMatcher	signature:(vector< vector<DMatch> >& matches)
+TwoWayMatcher::ratioTest	TwoWayMatcher.h	/^    int ratioTest(std::vector< std::vector<cv::DMatch> >& matches);$/;"	p	class:TwoWayMatcher	access:private	signature:(std::vector< std::vector<cv::DMatch> >& matches)
+TwoWayMatcher::refineF	TwoWayMatcher.h	/^    bool refineF; \/\/if true will refine F matrix$/;"	m	class:TwoWayMatcher	access:private
+TwoWayMatcher::robustMatch	TwoWayMatcher.cpp	/^void TwoWayMatcher::robustMatch($/;"	f	class:TwoWayMatcher	signature:( const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask)
+TwoWayMatcher::robustMatch	TwoWayMatcher.h	/^    void robustMatch(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, $/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, const cv::Mat& queryMask, const cv::Mat& trainMask)
+TwoWayMatcher::robustMatchWNoRatioT	TwoWayMatcher.cpp	/^void TwoWayMatcher::robustMatchWNoRatioT($/;"	f	class:TwoWayMatcher	signature:( const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask)
+TwoWayMatcher::robustMatchWNoRatioT	TwoWayMatcher.h	/^    void robustMatchWNoRatioT(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, $/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, const cv::Mat& queryMask, const cv::Mat& trainMask)
+TwoWayMatcher::symmetryTest	TwoWayMatcher.cpp	/^int TwoWayMatcher::symmetryTest($/;"	f	class:TwoWayMatcher	signature:( const vector< vector<DMatch> >& matches1, const vector< vector<DMatch> >& matches2, vector<DMatch>& symMatches)
+TwoWayMatcher::symmetryTest	TwoWayMatcher.h	/^    int symmetryTest($/;"	p	class:TwoWayMatcher	access:private	signature:( const std::vector< std::vector<cv::DMatch> >& matches1, const std::vector< std::vector<cv::DMatch> >& matches2, std::vector<cv::DMatch>& symMatches)
+TwoWayMatcher::~TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::~TwoWayMatcher() {$/;"	f	class:TwoWayMatcher	signature:()
+TwoWayMatcher::~TwoWayMatcher	TwoWayMatcher.h	/^    virtual ~TwoWayMatcher();$/;"	p	class:TwoWayMatcher	access:public	signature:()
+VOC	lk.cpp	/^int VOC = 3;$/;"	v
+WeightingType	BowVector.h	/^enum WeightingType$/;"	g	namespace:DBoW2
+WordId	BowVector.h	/^typedef unsigned int WordId;$/;"	t	namespace:DBoW2
+WordValue	BowVector.h	/^typedef double WordValue;$/;"	t	namespace:DBoW2
+__D_T_BOW_VECTOR__	BowVector.h	20;"	d
+__D_T_DBOW2__	DBoW2.h	66;"	d
+__D_T_FCLASS__	FClass.h	20;"	d
+__D_T_FEATURE_VECTOR__	FeatureVector.h	20;"	d
+__D_T_F_BRIEF__	FBrief.h	20;"	d
+__D_T_F_NARF__	FNarf.h	20;"	d
+__D_T_F_SURF_128__	FSurf128.h	20;"	d
+__D_T_F_SURF_64__	FSurf64.h	20;"	d
+__D_T_QUERY_RESULTS__	QueryResults.h	20;"	d
+__D_T_SCORING_OBJECT__	ScoringObject.h	20;"	d
+__D_T_TEMPLATED_DATABASE__	TemplatedDatabase.h	20;"	d
+__D_T_TEMPLATED_VOCABULARY__	TemplatedVocabulary.h	20;"	d
+__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(BhattacharyyaScoring, true, L1);$/;"	p	namespace:DBoW2	signature:(BhattacharyyaScoring, true, L1)
+__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(ChiSquareScoring, true, L1);$/;"	p	namespace:DBoW2	signature:(ChiSquareScoring, true, L1)
+__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(DotProductScoring, false, L1);$/;"	p	namespace:DBoW2	signature:(DotProductScoring, false, L1)
+__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(KLScoring, true, L1);$/;"	p	namespace:DBoW2	signature:(KLScoring, true, L1)
+__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(L1Scoring, true, L1);$/;"	p	namespace:DBoW2	signature:(L1Scoring, true, L1)
+__SCORING_CLASS	ScoringObject.h	/^class __SCORING_CLASS(L2Scoring, true, L2);$/;"	p	namespace:DBoW2	signature:(L2Scoring, true, L2)
+__SCORING_CLASS	ScoringObject.h	60;"	d
+__SCORING_CLASS	ScoringObject.h	98;"	d
+__directory	registro3d.h	/^        string __directory;$/;"	m	class:Registro3D	access:private
+__files_list_3d	registro3d.h	/^        vector<string> __files_list_3d;$/;"	m	class:Registro3D	access:private
+__files_list_rgb	registrorgb.h	/^    vector<string> __files_list_rgb;    $/;"	m	class:RegistroRGB	access:private
+__name_report	stats.h	/^    string __name_report,__title;$/;"	m	class:stats	access:private
+__offset	stats.h	/^    int __offset;$/;"	m	class:stats	access:private
+__registro_interno	stats.h	/^    map<int,int> __registro_interno;    $/;"	m	class:stats	access:private
+__report	stats.h	/^    map<int, int> __report;    $/;"	m	class:stats	access:private
+__title	stats.h	/^    string __name_report,__title;$/;"	m	class:stats	access:private
+_ratio	TwoWayMatcher.h	/^    float _ratio; \/\/max ratio between 1st and 2nd NN$/;"	m	class:TwoWayMatcher	access:private
+add	TemplatedDatabase.h	/^  EntryId add(const BowVector &vec, $/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const BowVector &vec, const FeatureVector &fec = FeatureVector() )
+add	TemplatedDatabase.h	/^  EntryId add(const vector<TDescriptor> &features,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const vector<TDescriptor> &features, BowVector *bowvec = NULL, FeatureVector *fvec = NULL)
+add	TemplatedDatabase.h	/^EntryId TemplatedDatabase<TDescriptor, F>::add($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const vector<TDescriptor> &features, BowVector *bowvec, FeatureVector *fvec)
+add	TemplatedDatabase.h	/^EntryId TemplatedDatabase<TDescriptor, F>::add(const BowVector &v,$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &v, const FeatureVector &fv)
+addFeature	FeatureVector.cpp	/^void FeatureVector::addFeature(NodeId id, unsigned int i_feature)$/;"	f	class:DBoW2::FeatureVector	signature:(NodeId id, unsigned int i_feature)
+addFeature	FeatureVector.h	/^  void addFeature(NodeId id, unsigned int i_feature);$/;"	p	class:DBoW2::FeatureVector	access:public	signature:(NodeId id, unsigned int i_feature)
+addFrame	registro3d.cpp	/^void Registro3D::addFrame(PointCloud<Narf36> frame,string name)$/;"	f	class:Registro3D	signature:(PointCloud<Narf36> frame,string name)
+addFrame	registro3d.h	/^        void addFrame(PointCloud<Narf36> frame,string name);$/;"	p	class:Registro3D	access:public	signature:(PointCloud<Narf36> frame,string name)
+addFrame	registrorgb.h	/^    void addFrame(string name, p_desc descriptor, p_keyp keypoints);$/;"	p	class:RegistroRGB	access:public	signature:(string name, p_desc descriptor, p_keyp keypoints)
+addIfNotExist	BowVector.cpp	/^void BowVector::addIfNotExist(WordId id, WordValue v)$/;"	f	class:DBoW2::BowVector	signature:(WordId id, WordValue v)
+addIfNotExist	BowVector.h	/^	void addIfNotExist(WordId id, WordValue v);$/;"	p	class:DBoW2::BowVector	access:public	signature:(WordId id, WordValue v)
+addWeight	BowVector.cpp	/^void BowVector::addWeight(WordId id, WordValue v)$/;"	f	class:DBoW2::BowVector	signature:(WordId id, WordValue v)
+addWeight	BowVector.h	/^	void addWeight(WordId id, WordValue v);$/;"	p	class:DBoW2::BowVector	access:public	signature:(WordId id, WordValue v)
+aligned	registro3d.h	/^        pcl::PointCloud<pcl::PointXYZ>::Ptr aligned;$/;"	m	class:Registro3D	access:private
+allocate	TemplatedDatabase.h	/^  void allocate(int nd = 0, int ni = 0);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(int nd = 0, int ni = 0)
+allocate	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::allocate(int nd, int ni)$/;"	f	class:DBoW2::TemplatedDatabase	signature:(int nd, int ni)
+calc	stats.cpp	/^void stats::calc(){$/;"	f	class:stats	signature:()
+calc	stats.h	/^    void calc();$/;"	p	class:stats	access:private	signature:()
+changeStructure	demo.cpp	/^void changeStructure(const vector<float> &plain, vector<vector<float> > &out,$/;"	f	signature:(const vector<float> &plain, vector<vector<float> > &out, int L)
+changeStructure	demo.cpp	/^void changeStructure(const vector<float> &plain, vector<vector<float> > &out,$/;"	p	file:	signature:(const vector<float> &plain, vector<vector<float> > &out, int L)
+changeStructure	lk.h	/^void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L)$/;"	f	signature:(const vector<float> &plain, vector<vector<float> > &out,int L)
+changeStructure	lk.h	/^void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int L);$/;"	p	signature:(const vector<float> &plain, vector<vector<float> > &out,int L)
+children	TemplatedVocabulary.h	/^    vector<NodeId> children;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+clear	TemplatedDatabase.h	/^  inline void clear();$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:()
+clear	TemplatedDatabase.h	/^inline void TemplatedDatabase<TDescriptor, F>::clear()$/;"	f	class:DBoW2::TemplatedDatabase	signature:()
+clone	TwoWayMatcher.h	/^    inline virtual cv::Ptr<cv::DescriptorMatcher> clone(bool emptyTrainData = false) const {$/;"	f	class:TwoWayMatcher	access:private	signature:(bool emptyTrainData = false) const
+confidence	TwoWayMatcher.h	/^    double confidence; \/\/ confidence level (probability)$/;"	m	class:TwoWayMatcher	access:private
+copyPointCloud	back_sac_align.cpp	/^pcl::copyPointCloud (*point_cloud_wf, *points_with_normals_src);$/;"	m	class:pcl	file:
+copyPointCloud	back_sac_align.cpp	/^pcl::copyPointCloud(*point_cloud_prec, *points_with_normals_tgt);$/;"	m	class:pcl	file:
+copyToFloatArray	registro3d.h	/^  void copyToFloatArray (const Narf36 &p, float *out) const$/;"	f	class:NARFPointRepresenation	access:public	signature:(const Narf36 &p, float *out) const
+create	TemplatedVocabulary.h	/^  void create(const std::vector<std::vector<TDescriptor> > &training_features);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<std::vector<TDescriptor> > &training_features)
+create	TemplatedVocabulary.h	/^  void create(const std::vector<std::vector<TDescriptor> > &training_features,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<std::vector<TDescriptor> > &training_features, int k, int L)
+create	TemplatedVocabulary.h	/^  void create(const std::vector<std::vector<TDescriptor> > &training_features,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<std::vector<TDescriptor> > &training_features, int k, int L, WeightingType weighting, ScoringType scoring)
+create	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::create($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<std::vector<TDescriptor> > &training_features)
+create	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::create($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<std::vector<TDescriptor> > &training_features, int k, int L)
+create	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::create($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<std::vector<TDescriptor> > &training_features, int k, int L, WeightingType weighting, ScoringType scoring)
+createScoringObject	TemplatedVocabulary.h	/^  void createScoringObject();$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:()
+createScoringObject	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::createScoringObject()$/;"	f	class:DBoW2::TemplatedVocabulary	signature:()
+createWords	TemplatedVocabulary.h	/^  void createWords();$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:()
+createWords	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::createWords()$/;"	f	class:DBoW2::TemplatedVocabulary	signature:()
+dataset_sub	lk.cpp	/^string filename_voc_3d,filename_voc_rgb,dataset_sub;$/;"	v
+datasets_root	lk.cpp	/^string datasets_root = "Dataset\/";$/;"	v
+debug_directory3d	lk.cpp	/^string debug_directory3d = "debug_pcd\/";$/;"	v
+debug_directoryrgb	lk.cpp	/^string debug_directoryrgb = "debug_images\/";$/;"	v
+descriptor	TemplatedVocabulary.h	/^    TDescriptor descriptor;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+dimensions	FSurf128.h	/^  inline static int dimensions()$/;"	f	class:DBoW2::FSurf128	access:public	signature:()
+dimensions	FSurf64.h	/^  inline static int dimensions()$/;"	f	class:DBoW2::FSurf64	access:public	signature:()
+directory3d	lk.cpp	/^string directory3d = "pointscloud\/";$/;"	v
+directory3dbin	lk.cpp	/^string directory3dbin = "pcdbin\/";$/;"	v
+directoryrgb	lk.cpp	/^string directoryrgb = "rgb\/";$/;"	v
+distance	FBrief.cpp	/^double FBrief::distance(const FBrief::TDescriptor &a,$/;"	f	class:DBoW2::FBrief	signature:(const FBrief::TDescriptor &a, const FBrief::TDescriptor &b)
+distance	FBrief.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FBrief	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+distance	FClass.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FClass	access:private	signature:(const TDescriptor &a, const TDescriptor &b)
+distance	FNarf.cpp	/^double FNarf::distance(const FNarf::TDescriptor &a, const FNarf::TDescriptor &b)$/;"	f	class:DBoW2::FNarf	signature:(const FNarf::TDescriptor &a, const FNarf::TDescriptor &b)
+distance	FNarf.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FNarf	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+distance	FSurf128.cpp	/^double FSurf128::distance(const FSurf128::TDescriptor &a, const FSurf128::TDescriptor &b)$/;"	f	class:DBoW2::FSurf128	signature:(const FSurf128::TDescriptor &a, const FSurf128::TDescriptor &b)
+distance	FSurf128.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FSurf128	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+distance	FSurf64.cpp	/^double FSurf64::distance(const FSurf64::TDescriptor &a, const FSurf64::TDescriptor &b)$/;"	f	class:DBoW2::FSurf64	signature:(const FSurf64::TDescriptor &a, const FSurf64::TDescriptor &b)
+distance	FSurf64.h	/^  static double distance(const TDescriptor &a, const TDescriptor &b);$/;"	p	class:DBoW2::FSurf64	access:public	signature:(const TDescriptor &a, const TDescriptor &b)
+distance	TwoWayMatcher.h	/^    double distance; \/\/ min distance to epipolar line$/;"	m	class:TwoWayMatcher	access:private
+empty	TemplatedVocabulary.h	/^  inline bool empty() const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+empty	TemplatedVocabulary.h	/^inline bool TemplatedVocabulary<TDescriptor,F>::empty() const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:() const
+endl	back_sac_align.cpp	/^ cout << "ICP align. OK." << endl;$/;"	v
+endl	back_sac_align.cpp	/^cout << "SAC align. OK." << endl;$/;"	v
+endl	back_sac_align.cpp	/^cout<< "FPFH estimated." <<endl;$/;"	v
+endl	back_sac_align.cpp	/^cout<< "Normals estimated." <<endl;$/;"	v
+entry_id	TemplatedDatabase.h	/^    EntryId entry_id;$/;"	m	struct:DBoW2::TemplatedDatabase::IFPair	access:public
+extractIndicesPCD	lk.cpp	/^pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t){ $/;"	f	signature:(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t)
+extractIndicesPCD	lk.h	/^pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t);$/;"	p	signature:(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t)
+filename_voc_3d	lk.cpp	/^string filename_voc_3d,filename_voc_rgb,dataset_sub;$/;"	v
+filename_voc_rgb	lk.cpp	/^string filename_voc_3d,filename_voc_rgb,dataset_sub;$/;"	v
+files_list	demo.cpp	/^std::vector<string> files_list;$/;"	v
+fpfh_prec	back_sac_align.cpp	/^pcl::FPFHEstimationOMP<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33> fpfh_prec;$/;"	v
+fpfh_wf	back_sac_align.cpp	/^pcl::FPFHEstimationOMP<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33> fpfh_wf;$/;"	v
+frame_features	back_sac_align.cpp	/^pcl::PointCloud<pcl::FPFHSignature33>::Ptr frame_features (new pcl::PointCloud<pcl::FPFHSignature33> ());$/;"	p	file:	signature:(new pcl::PointCloud<pcl::FPFHSignature33> ())
+fromString	FBrief.cpp	/^void FBrief::fromString(FBrief::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FBrief	signature:(FBrief::TDescriptor &a, const std::string &s)
+fromString	FBrief.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FBrief	access:public	signature:(TDescriptor &a, const std::string &s)
+fromString	FClass.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FClass	access:private	signature:(TDescriptor &a, const std::string &s)
+fromString	FNarf.cpp	/^void FNarf::fromString(FNarf::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FNarf	signature:(FNarf::TDescriptor &a, const std::string &s)
+fromString	FNarf.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FNarf	access:public	signature:(TDescriptor &a, const std::string &s)
+fromString	FSurf128.cpp	/^void FSurf128::fromString(FSurf128::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FSurf128	signature:(FSurf128::TDescriptor &a, const std::string &s)
+fromString	FSurf128.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FSurf128	access:public	signature:(TDescriptor &a, const std::string &s)
+fromString	FSurf64.cpp	/^void FSurf64::fromString(FSurf64::TDescriptor &a, const std::string &s)$/;"	f	class:DBoW2::FSurf64	signature:(FSurf64::TDescriptor &a, const std::string &s)
+fromString	FSurf64.h	/^  static void fromString(TDescriptor &a, const std::string &s);$/;"	p	class:DBoW2::FSurf64	access:public	signature:(TDescriptor &a, const std::string &s)
+ge	QueryResults.h	/^  inline static bool ge(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+geq	QueryResults.h	/^  static inline bool geq(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+geqv	QueryResults.h	/^  static inline bool geqv(const Result &a, double s)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, double s)
+getAccuracy	stats.cpp	/^double stats::getAccuracy()$/;"	f	class:stats	signature:()
+getAccuracy	stats.h	/^    double getAccuracy();$/;"	p	class:stats	access:public	signature:()
+getBranchingFactor	TemplatedVocabulary.h	/^  inline int getBranchingFactor() const { return m_k; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+getCorrispondences	registro3d.cpp	/^float Registro3D::getCorrispondences(int src_p,int dst_p){$/;"	f	class:Registro3D	signature:(int src_p,int dst_p)
+getCorrispondences	registro3d.h	/^        float getCorrispondences(int src,int dst);$/;"	p	class:Registro3D	access:public	signature:(int src,int dst)
+getDepthLevels	TemplatedVocabulary.h	/^  inline int getDepthLevels() const { return m_L; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+getDirectIndexLevels	TemplatedDatabase.h	/^  inline int getDirectIndexLevels() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+getDirectIndexLevels	TemplatedDatabase.h	/^inline int TemplatedDatabase<TDescriptor, F>::getDirectIndexLevels() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+getEffectiveLevels	TemplatedVocabulary.h	/^  float getEffectiveLevels() const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+getEffectiveLevels	TemplatedVocabulary.h	/^float TemplatedVocabulary<TDescriptor,F>::getEffectiveLevels() const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:() const
+getFalseNegative	stats.cpp	/^int stats::getFalseNegative(){return this->FalseNegative;}$/;"	f	class:stats	signature:()
+getFalseNegative	stats.h	/^    int getFalseNegative();$/;"	p	class:stats	access:public	signature:()
+getFalsePositive	stats.cpp	/^int stats::getFalsePositive(){return this->FalsePositive;}$/;"	f	class:stats	signature:()
+getFalsePositive	stats.h	/^    int getFalsePositive();$/;"	p	class:stats	access:public	signature:()
+getFeatures	TemplatedVocabulary.h	/^  void getFeatures($/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:( const vector<vector<TDescriptor> > &training_features, vector<pDescriptor> &features) const
+getFeatures	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::getFeatures($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const vector<vector<TDescriptor> > &training_features, vector<pDescriptor> &features) const
+getImageAt	registrorgb.cpp	/^cv::Mat RegistroRGB::getImageAt(int i){$/;"	f	class:RegistroRGB	signature:(int i)
+getImageAt	registrorgb.h	/^    cv::Mat getImageAt(int i);$/;"	p	class:RegistroRGB	access:public	signature:(int i)
+getParentNode	TemplatedVocabulary.h	/^  NodeId getParentNode(WordId wid, int levelsup) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(WordId wid, int levelsup) const
+getParentNode	TemplatedVocabulary.h	/^NodeId TemplatedVocabulary<TDescriptor,F>::getParentNode$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(WordId wid, int levelsup) const
+getPrecision	stats.cpp	/^double stats::getPrecision()$/;"	f	class:stats	signature:()
+getPrecision	stats.h	/^    double getPrecision();$/;"	p	class:stats	access:public	signature:()
+getRangeImageAt	registro3d.cpp	/^pcl::RangeImage Registro3D::getRangeImageAt(int position){$/;"	f	class:Registro3D	signature:(int position)
+getRangeImageAt	registro3d.h	/^        pcl::RangeImage getRangeImageAt(int position);$/;"	p	class:Registro3D	access:public	signature:(int position)
+getRecall	stats.cpp	/^double stats::getRecall()$/;"	f	class:stats	signature:()
+getRecall	stats.h	/^    double getRecall();$/;"	p	class:stats	access:public	signature:()
+getScoreFit	registro3d.cpp	/^double Registro3D::getScoreFit(int src_p, int dst_p)$/;"	f	class:Registro3D	signature:(int src_p, int dst_p)
+getScoreFit	registro3d.h	/^        double getScoreFit(int src,int dst);$/;"	p	class:Registro3D	access:public	signature:(int src,int dst)
+getScoreFix	registro3d.cpp	/^double Registro3D::getScoreFix(vector<vector<float> > src, vector<vector<float> > dst)$/;"	f	class:Registro3D	signature:(vector<vector<float> > src, vector<vector<float> > dst)
+getScoreFix	registro3d.h	/^        double getScoreFix(vector<vector<float> > src, vector<vector<float> > dst);        $/;"	p	class:Registro3D	access:public	signature:(vector<vector<float> > src, vector<vector<float> > dst)
+getScoringType	TemplatedVocabulary.h	/^  inline ScoringType getScoringType() const { return m_scoring; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+getTra	registro3d.h	/^        pcl::PointCloud<pcl::PointXYZ> getTra(int src_p, int dst_p);$/;"	p	class:Registro3D	access:public	signature:(int src_p, int dst_p)
+getTrueNegative	stats.cpp	/^int stats::getTrueNegative(){return this->TrueNegative;}$/;"	f	class:stats	signature:()
+getTrueNegative	stats.h	/^    int getTrueNegative();$/;"	p	class:stats	access:public	signature:()
+getTruePositive	stats.cpp	/^int stats::getTruePositive(){return this->TruePositive;}$/;"	f	class:stats	signature:()
+getTruePositive	stats.h	/^    int getTruePositive();$/;"	p	class:stats	access:public	signature:()
+getVocabulary	TemplatedDatabase.h	/^  inline const TemplatedVocabulary<TDescriptor,F>& getVocabulary() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+getVocabulary	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::getVocabulary() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+getWeightingType	TemplatedVocabulary.h	/^  inline WeightingType getWeightingType() const { return m_weighting; }$/;"	f	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+getWordsFromNode	TemplatedVocabulary.h	/^  void getWordsFromNode(NodeId nid, std::vector<WordId> &words) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(NodeId nid, std::vector<WordId> &words) const
+getWordsFromNode	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::getWordsFromNode$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(NodeId nid, std::vector<WordId> &words) const
+gt	QueryResults.h	/^  static inline bool gt(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+icp	back_sac_align.cpp	/^icp.align ((*point_cloud_a));  $/;"	p	file:	signature:(*point_cloud_a)
+icp	back_sac_align.cpp	/^pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;$/;"	v
+id	TemplatedVocabulary.h	/^    NodeId id;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+initiateClustersKMpp	TemplatedVocabulary.h	/^  void initiateClustersKMpp(const vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const vector<pDescriptor> &descriptors, vector<TDescriptor> &clusters) const
+initiateClustersKMpp	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::initiateClustersKMpp($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const vector<pDescriptor> &pfeatures, vector<TDescriptor> &clusters) const
+inliersRGB	registrorgb.cpp	/^int RegistroRGB::inliersRGB(int src,int dst)$/;"	f	class:RegistroRGB	signature:(int src,int dst)
+inliersRGB	registrorgb.h	/^    int inliersRGB(int src,int dst);$/;"	p	class:RegistroRGB	access:public	signature:(int src,int dst)
+isLeaf	TemplatedVocabulary.h	/^    inline bool isLeaf() const { return children.empty(); }$/;"	f	struct:DBoW2::TemplatedVocabulary::Node	access:public	signature:() const
+listFile	demo.cpp	/^void listFile(string direc)$/;"	f	signature:(string direc)
+listFile	demo.cpp	/^void listFile(string direc);$/;"	p	file:	signature:(string direc)
+listFile	lk.h	/^void listFile(string direc, vector<string> *files_lt)$/;"	f	signature:(string direc, vector<string> *files_lt)
+listFile	lk.h	/^void listFile(string direc, vector<string> *files_lt);$/;"	p	signature:(string direc, vector<string> *files_lt)
+listFile	registro3d.cpp	/^void Registro3D::listFile(string direc, vector<string> *files_lt)$/;"	f	class:Registro3D	signature:(string direc, vector<string> *files_lt)
+listFile	registro3d.h	/^        void listFile(string direc, vector<string> *files_lt);$/;"	p	class:Registro3D	access:private	signature:(string direc, vector<string> *files_lt)
+listFile	registrorgb.cpp	/^void RegistroRGB::listFile(string direc, vector<string> *files_lt)$/;"	f	class:RegistroRGB	signature:(string direc, vector<string> *files_lt)
+listFile	registrorgb.h	/^    void listFile(string direc, vector<string> *files_lt);$/;"	p	class:RegistroRGB	access:public	signature:(string direc, vector<string> *files_lt)
+load	TemplatedDatabase.h	/^  void load(const string &filename);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const string &filename)
+load	TemplatedDatabase.h	/^  void load(cv::FileStorage &fs, const std::string &name = "database");$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(cv::FileStorage &fs, const std::string &name = Ó)
+load	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::load(const string &filename)$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const string &filename)
+load	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::load(cv::FileStorage &fs,$/;"	f	class:DBoW2::TemplatedDatabase	signature:(cv::FileStorage &fs, const std::string &name)
+load	TemplatedVocabulary.h	/^  void load(const std::string &filename);$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::string &filename)
+load	TemplatedVocabulary.h	/^  void load(cv::FileStorage &f, const std::string &name = "vocabulary");$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(cv::FileStorage &f, const std::string &name = Ó)
+load	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::load(const std::string &filename)$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const std::string &filename)
+load	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::load(cv::FileStorage &f,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(cv::FileStorage &f, const std::string &name)
+loadFeatures	demo.cpp	/^void loadFeatures(vector<vector<vector<float> > > &features)$/;"	f	signature:(vector<vector<vector<float> > > &features)
+loadFeatures	demo.cpp	/^void loadFeatures(vector<vector<vector<float> > > &features);$/;"	p	file:	signature:(vector<vector<vector<float> > > &features)
+loadFeatures3d	lk.cpp	/^void loadFeatures3d(BoWFeatures &features)$/;"	f	signature:(BoWFeatures &features)
+loadFeatures3d	lk.h	/^void loadFeatures3d(BoWFeatures &features);$/;"	p	signature:(BoWFeatures &features)
+loadFeaturesFile	lk.h	/^void loadFeaturesFile(BoWFeatures &features, string filename){$/;"	f	signature:(BoWFeatures &features, string filename)
+loadFeaturesFile	lk.h	/^void loadFeaturesFile(BoWFeatures &features,string filename);$/;"	p	signature:(BoWFeatures &features,string filename)
+loadFeaturesRGB	lk.cpp	/^void loadFeaturesRGB(BoWFeatures &features)$/;"	f	signature:(BoWFeatures &features)
+loadFeaturesRGB	lk.h	/^void loadFeaturesRGB(BoWFeatures &features);$/;"	p	signature:(BoWFeatures &features)
+loopClosing3d	lk.cpp	/^void loopClosing3d(const BoWFeatures &features)$/;"	f	signature:(const BoWFeatures &features)
+loopClosing3d	lk.h	/^void loopClosing3d(const BoWFeatures &features);$/;"	p	signature:(const BoWFeatures &features)
+loopClosingRGB	lk.cpp	/^void loopClosingRGB(const BoWFeatures &features){$/;"	f	signature:(const BoWFeatures &features)
+loopClosingRGB	lk.h	/^void loopClosingRGB(const BoWFeatures &features);$/;"	p	signature:(const BoWFeatures &features)
+ltId	QueryResults.h	/^  static inline bool ltId(const Result &a, const Result &b)$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &a, const Result &b)
+m_L	TemplatedVocabulary.h	/^  int m_L;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+m_dfile	TemplatedDatabase.h	/^  DirectFile m_dfile;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+m_dilevels	TemplatedDatabase.h	/^  int m_dilevels;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+m_ifile	TemplatedDatabase.h	/^  InvertedFile m_ifile;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+m_k	TemplatedVocabulary.h	/^  int m_k;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+m_nentries	TemplatedDatabase.h	/^  int m_nentries;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+m_nodes	TemplatedVocabulary.h	/^  std::vector<Node> m_nodes;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+m_scoring	TemplatedVocabulary.h	/^  ScoringType m_scoring;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+m_scoring_object	TemplatedVocabulary.h	/^  GeneralScoring* m_scoring_object;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+m_use_di	TemplatedDatabase.h	/^  bool m_use_di;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+m_voc	TemplatedDatabase.h	/^  TemplatedVocabulary<TDescriptor, F> m_voc;$/;"	m	class:DBoW2::TemplatedDatabase	access:protected
+m_weighting	TemplatedVocabulary.h	/^  WeightingType m_weighting;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+m_words	TemplatedVocabulary.h	/^  std::vector<Node*> m_words;$/;"	m	class:DBoW2::TemplatedVocabulary	access:protected
+main	demo.cpp	/^int main()$/;"	f	signature:()
+main	lk.cpp	/^int main(int nNumberofArgs, char* argv[])$/;"	f	signature:(int nNumberofArgs, char* argv[])
+match	TwoWayMatcher.cpp	/^void TwoWayMatcher::match(const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask) {$/;"	f	class:TwoWayMatcher	signature:(const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask)
+match	TwoWayMatcher.h	/^    void match(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches,$/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, const cv::Mat& queryMask = cv::Mat(), const cv::Mat& trainMask = cv::Mat())
+matcher1	TwoWayMatcher.h	/^    cv::Ptr<cv::DescriptorMatcher> matcher1;$/;"	m	class:TwoWayMatcher	access:private
+matcher2	TwoWayMatcher.h	/^    cv::Ptr<cv::DescriptorMatcher> matcher2;$/;"	m	class:TwoWayMatcher	access:private
+matcherType	TwoWayMatcher.h	/^    int matcherType;$/;"	m	class:TwoWayMatcher	access:private
+meanValue	FBrief.cpp	/^void FBrief::meanValue(const std::vector<FBrief::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FBrief	signature:(const std::vector<FBrief::pDescriptor> &descriptors, FBrief::TDescriptor &mean)
+meanValue	FBrief.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::FBrief	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+meanValue	FClass.h	/^  virtual void meanValue(const std::vector<pDescriptor> &descriptors, $/;"	p	class:DBoW2::FClass	access:private	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+meanValue	FNarf.cpp	/^void FNarf::meanValue(const std::vector<FNarf::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FNarf	signature:(const std::vector<FNarf::pDescriptor> &descriptors, FNarf::TDescriptor &mean)
+meanValue	FNarf.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors,$/;"	p	class:DBoW2::FNarf	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+meanValue	FSurf128.cpp	/^void FSurf128::meanValue(const std::vector<FSurf128::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf128	signature:(const std::vector<FSurf128::pDescriptor> &descriptors, FSurf128::TDescriptor &mean)
+meanValue	FSurf128.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf128	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+meanValue	FSurf64.cpp	/^void FSurf64::meanValue(const std::vector<FSurf64::pDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf64	signature:(const std::vector<FSurf64::pDescriptor> &descriptors, FSurf64::TDescriptor &mean)
+meanValue	FSurf64.h	/^  static void meanValue(const std::vector<pDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf64	access:public	signature:(const std::vector<pDescriptor> &descriptors, TDescriptor &mean)
+model_features	back_sac_align.cpp	/^pcl::PointCloud<pcl::FPFHSignature33>::Ptr model_features (new pcl::PointCloud<pcl::FPFHSignature33> ());$/;"	p	file:	signature:(new pcl::PointCloud<pcl::FPFHSignature33> ())
+mustNormalize	ScoringObject.h	/^  virtual bool mustNormalize(LNorm &norm) const = 0;$/;"	p	class:DBoW2::GeneralScoring	access:public	signature:(LNorm &norm) const
+norm_est	back_sac_align.cpp	/^pcl::NormalEstimation<PointXYZ, pcl::Normal> norm_est;$/;"	v
+normalize	BowVector.cpp	/^void BowVector::normalize(LNorm norm_type)$/;"	f	class:DBoW2::BowVector	signature:(LNorm norm_type)
+normalize	BowVector.h	/^	void normalize(LNorm norm_type);$/;"	p	class:DBoW2::BowVector	access:public	signature:(LNorm norm_type)
+null_deleter	lk.h	/^struct null_deleter$/;"	s
+null_deleter::operator ()	lk.h	/^    void operator()(void const *) const$/;"	f	struct:null_deleter	access:public	signature:(void const *) const
+operator ()	lk.h	/^    void operator()(void const *) const$/;"	f	struct:null_deleter	access:public	signature:(void const *) const
+operator ()	stats.cpp	/^    bool operator() (int i,int j) { return (i<j);}$/;"	f	struct:ordering_factory_int	access:public	signature:(int i,int j)
+operator <	QueryResults.h	/^  inline bool operator<(const Result &r) const$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &r) const
+operator <	QueryResults.h	/^  inline bool operator<(double s) const$/;"	f	class:DBoW2::Result	access:public	signature:(double s) const
+operator <<	BowVector.cpp	/^std::ostream& operator<< (std::ostream &out, const BowVector &v)$/;"	f	namespace:DBoW2	signature:(std::ostream &out, const BowVector &v)
+operator <<	BowVector.h	/^	friend std::ostream& operator<<(std::ostream &out, const BowVector &v);$/;"	p	class:DBoW2::BowVector	access:friend	signature:(std::ostream &out, const BowVector &v)
+operator <<	FeatureVector.cpp	/^std::ostream& operator<<(std::ostream &out, $/;"	f	namespace:DBoW2	signature:(std::ostream &out, const FeatureVector &v)
+operator <<	FeatureVector.h	/^  friend std::ostream& operator<<(std::ostream &out, const FeatureVector &v);$/;"	p	class:DBoW2::FeatureVector	access:friend	signature:(std::ostream &out, const FeatureVector &v)
+operator <<	QueryResults.cpp	/^ostream & operator<<(ostream& os, const QueryResults& ret )$/;"	f	namespace:DBoW2	signature:(ostream& os, const QueryResults& ret )
+operator <<	QueryResults.cpp	/^ostream & operator<<(ostream& os, const Result& ret )$/;"	f	namespace:DBoW2	signature:(ostream& os, const Result& ret )
+operator <<	QueryResults.h	/^  friend std::ostream & operator<<(std::ostream& os, const QueryResults& ret );$/;"	p	class:DBoW2::QueryResults	access:friend	signature:(std::ostream& os, const QueryResults& ret )
+operator <<	QueryResults.h	/^  friend std::ostream & operator<<(std::ostream& os, const Result& ret );$/;"	p	class:DBoW2::Result	access:friend	signature:(std::ostream& os, const Result& ret )
+operator <<	TemplatedDatabase.h	/^std::ostream& operator<<(std::ostream &os, $/;"	f	namespace:DBoW2	signature:(std::ostream &os, const TemplatedDatabase<TDescriptor,F> &db)
+operator <<	TemplatedVocabulary.h	/^std::ostream& operator<<(std::ostream &os,$/;"	f	namespace:DBoW2	signature:(std::ostream &os, const TemplatedVocabulary<TDescriptor,F> &voc)
+operator =	TemplatedDatabase.h	/^  TemplatedDatabase<TDescriptor,F>& operator=($/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:( const TemplatedDatabase<TDescriptor,F> &db)
+operator =	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor,F>& TemplatedDatabase<TDescriptor,F>::operator=$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedDatabase<TDescriptor,F> &db)
+operator =	TemplatedVocabulary.h	/^  TemplatedVocabulary<TDescriptor, F>& operator=($/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:( const TemplatedVocabulary<TDescriptor, F> &voc)
+operator =	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::operator=$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TemplatedVocabulary<TDescriptor, F> &voc)
+operator ==	QueryResults.h	/^  inline bool operator==(EntryId id) const$/;"	f	class:DBoW2::Result	access:public	signature:(EntryId id) const
+operator ==	TemplatedDatabase.h	/^    inline bool operator==(EntryId eid) const { return entry_id == eid; }$/;"	f	struct:DBoW2::TemplatedDatabase::IFPair	access:public	signature:(EntryId eid) const
+operator >	QueryResults.h	/^  inline bool operator>(const Result &r) const$/;"	f	class:DBoW2::Result	access:public	signature:(const Result &r) const
+operator >	QueryResults.h	/^  inline bool operator>(double s) const$/;"	f	class:DBoW2::Result	access:public	signature:(double s) const
+ordering_factory_int	stats.cpp	/^struct ordering_factory_int {$/;"	s	file:
+ordering_factory_int::operator ()	stats.cpp	/^    bool operator() (int i,int j) { return (i<j);}$/;"	f	struct:ordering_factory_int	access:public	signature:(int i,int j)
+ordering_now	stats.cpp	/^} ordering_now;$/;"	v	typeref:struct:ordering_factory_int
+pDescriptor	FBrief.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FBrief	access:public
+pDescriptor	FClass.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FClass	access:private
+pDescriptor	FNarf.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FNarf	access:public
+pDescriptor	FSurf128.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FSurf128	access:public
+pDescriptor	FSurf64.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::FSurf64	access:public
+pDescriptor	TemplatedVocabulary.h	/^  typedef const TDescriptor *pDescriptor;$/;"	t	class:DBoW2::TemplatedVocabulary	access:protected
+p_desc	registrorgb.h	/^    typedef vector<float> p_desc;$/;"	t	class:RegistroRGB	access:public
+p_keyp	registrorgb.h	/^    typedef vector<cv::KeyPoint> p_keyp;$/;"	t	class:RegistroRGB	access:public
+parent	TemplatedVocabulary.h	/^    NodeId parent;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+pcl::copyPointCloud	back_sac_align.cpp	/^pcl::copyPointCloud (*point_cloud_wf, *points_with_normals_src);$/;"	m	class:pcl	file:
+pcl::copyPointCloud	back_sac_align.cpp	/^pcl::copyPointCloud(*point_cloud_prec, *points_with_normals_tgt);$/;"	m	class:pcl	file:
+points_with_normals_src	back_sac_align.cpp	/^pcl::PointCloud<pcl::Normal>::Ptr points_with_normals_src (new pcl::PointCloud<pcl::Normal>);$/;"	p	file:	signature:(new pcl::PointCloud<pcl::Normal>)
+points_with_normals_tgt	back_sac_align.cpp	/^pcl::PointCloud<pcl::Normal>::Ptr points_with_normals_tgt (new pcl::PointCloud<pcl::Normal>);$/;"	p	file:	signature:(new pcl::PointCloud<pcl::Normal>)
+query	TemplatedDatabase.h	/^  void query(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const BowVector &vec, QueryResults &ret, int max_results = 1, int max_id = -1) const
+query	TemplatedDatabase.h	/^  void query(const vector<TDescriptor> &features, QueryResults &ret,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const vector<TDescriptor> &features, QueryResults &ret, int max_results = 1, int max_id = -1) const
+query	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::query($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+query	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::query($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const vector<TDescriptor> &features, QueryResults &ret, int max_results, int max_id) const
+queryBhattacharyya	TemplatedDatabase.h	/^  void queryBhattacharyya(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryBhattacharyya	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryBhattacharyya($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryChiSquare	TemplatedDatabase.h	/^  void queryChiSquare(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryChiSquare	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryChiSquare(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryDotProduct	TemplatedDatabase.h	/^  void queryDotProduct(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryDotProduct	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryDotProduct($/;"	f	class:DBoW2::TemplatedDatabase	signature:( const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryKL	TemplatedDatabase.h	/^  void queryKL(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryKL	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryKL(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryL1	TemplatedDatabase.h	/^  void queryL1(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryL1	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryL1(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryL2	TemplatedDatabase.h	/^  void queryL2(const BowVector &vec, QueryResults &ret, $/;"	p	class:DBoW2::TemplatedDatabase	access:protected	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+queryL2	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::queryL2(const BowVector &vec, $/;"	f	class:DBoW2::TemplatedDatabase	signature:(const BowVector &vec, QueryResults &ret, int max_results, int max_id) const
+ratioTest	TwoWayMatcher.cpp	/^int TwoWayMatcher::ratioTest(vector< vector<DMatch> >& matches) {$/;"	f	class:TwoWayMatcher	signature:(vector< vector<DMatch> >& matches)
+ratioTest	TwoWayMatcher.h	/^    int ratioTest(std::vector< std::vector<cv::DMatch> >& matches);$/;"	p	class:TwoWayMatcher	access:private	signature:(std::vector< std::vector<cv::DMatch> >& matches)
+readPoseFile	lk.h	/^void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys)$/;"	f	signature:(const char *filename, vector<double> &xs, vector<double> &ys)
+readPoseFile	lk.h	/^void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);$/;"	p	signature:(const char *filename, vector<double> &xs, vector<double> &ys)
+readReport	stats.h	/^    void readReport();$/;"	p	class:stats	access:private	signature:()
+refineF	TwoWayMatcher.h	/^    bool refineF; \/\/if true will refine F matrix$/;"	m	class:TwoWayMatcher	access:private
+refined_T	registro3d.h	/^        Eigen::Matrix4f refined_T;$/;"	m	class:Registro3D	access:private
+reg_3D	lk.cpp	/^Registro3D* reg_3D;$/;"	v
+reg_RGB	lk.cpp	/^RegistroRGB* reg_RGB;$/;"	v
+registrationVisualizer	registro3d.h	/^        pcl::RegistrationVisualizer<pcl::PointXYZ, pcl::PointXYZ> registrationVisualizer;$/;"	m	class:Registro3D	access:private
+registro_interno	lk.h	/^map<int, int> registro_interno;$/;"	v
+retrieveFeatures	TemplatedDatabase.h	/^  const FeatureVector& retrieveFeatures(EntryId id) const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(EntryId id) const
+retrieveFeatures	TemplatedDatabase.h	/^const FeatureVector& TemplatedDatabase<TDescriptor, F>::retrieveFeatures$/;"	f	class:DBoW2::TemplatedDatabase	signature:(EntryId id) const
+robustMatch	TwoWayMatcher.cpp	/^void TwoWayMatcher::robustMatch($/;"	f	class:TwoWayMatcher	signature:( const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask)
+robustMatch	TwoWayMatcher.h	/^    void robustMatch(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, $/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, const cv::Mat& queryMask, const cv::Mat& trainMask)
+robustMatchWNoRatioT	TwoWayMatcher.cpp	/^void TwoWayMatcher::robustMatchWNoRatioT($/;"	f	class:TwoWayMatcher	signature:( const Mat& queryDescriptors, const Mat& trainDescriptors, vector<DMatch>& matches, const Mat& queryMask, const Mat& trainMask)
+robustMatchWNoRatioT	TwoWayMatcher.h	/^    void robustMatchWNoRatioT(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, $/;"	p	class:TwoWayMatcher	access:public	signature:(const cv::Mat& queryDescriptors, const cv::Mat& trainDescriptors, std::vector<cv::DMatch>& matches, const cv::Mat& queryMask, const cv::Mat& trainMask)
+sac_ia	back_sac_align.cpp	/^pcl::SampleConsensusInitialAlignment<PointXYZ, PointXYZ, pcl::FPFHSignature33> sac_ia;$/;"	v
+save	TemplatedDatabase.h	/^  void save(const string &filename) const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const string &filename) const
+save	TemplatedDatabase.h	/^  void save(cv::FileStorage &fs, const std::string &name = "database") const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(cv::FileStorage &fs, const std::string &name = Ó) const
+save	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::save(const string &filename) const$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const string &filename) const
+save	TemplatedDatabase.h	/^void TemplatedDatabase<TDescriptor, F>::save(cv::FileStorage &fs,$/;"	f	class:DBoW2::TemplatedDatabase	signature:(cv::FileStorage &fs, const std::string &name) const
+save	TemplatedVocabulary.h	/^  void save(const std::string &filename) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::string &filename) const
+save	TemplatedVocabulary.h	/^  void save(cv::FileStorage &f, const std::string &name = "vocabulary") const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(cv::FileStorage &f, const std::string &name = Ó) const
+save	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::save(const std::string &filename) const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const std::string &filename) const
+save	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::save(cv::FileStorage &f,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(cv::FileStorage &f, const std::string &name) const
+saveFeaturesFile	lk.h	/^void saveFeaturesFile(const BoWFeatures &features, string filename){ $/;"	f	signature:(const BoWFeatures &features, string filename)
+saveFeaturesFile	lk.h	/^void saveFeaturesFile(const BoWFeatures &features,string filename);$/;"	p	signature:(const BoWFeatures &features,string filename)
+scaleScores	QueryResults.h	/^  inline void scaleScores(double factor);$/;"	p	class:DBoW2::QueryResults	access:public	signature:(double factor)
+scaleScores	QueryResults.h	/^inline void QueryResults::scaleScores(double factor)$/;"	f	class:DBoW2::QueryResults	signature:(double factor)
+score	ScoringObject.cpp	/^double BhattacharyyaScoring::score(const BowVector &v1, $/;"	f	class:BhattacharyyaScoring	signature:(const BowVector &v1, const BowVector &v2) const
+score	ScoringObject.cpp	/^double ChiSquareScoring::score(const BowVector &v1, const BowVector &v2) $/;"	f	class:ChiSquareScoring	signature:(const BowVector &v1, const BowVector &v2) const
+score	ScoringObject.cpp	/^double DotProductScoring::score(const BowVector &v1, $/;"	f	class:DotProductScoring	signature:(const BowVector &v1, const BowVector &v2) const
+score	ScoringObject.cpp	/^double KLScoring::score(const BowVector &v1, const BowVector &v2) const$/;"	f	class:KLScoring	signature:(const BowVector &v1, const BowVector &v2) const
+score	ScoringObject.cpp	/^double L1Scoring::score(const BowVector &v1, const BowVector &v2) const$/;"	f	class:L1Scoring	signature:(const BowVector &v1, const BowVector &v2) const
+score	ScoringObject.cpp	/^double L2Scoring::score(const BowVector &v1, const BowVector &v2) const$/;"	f	class:L2Scoring	signature:(const BowVector &v1, const BowVector &v2) const
+score	ScoringObject.h	/^  virtual double score(const BowVector &v, const BowVector &w) const = 0;$/;"	p	class:DBoW2::GeneralScoring	access:public	signature:(const BowVector &v, const BowVector &w) const
+score	TemplatedVocabulary.h	/^  inline double score(const BowVector &a, const BowVector &b) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const BowVector &a, const BowVector &b) const
+score	TemplatedVocabulary.h	/^inline double TemplatedVocabulary<TDescriptor,F>::score$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const BowVector &v1, const BowVector &v2) const
+searchRegistro	lk.h	/^void searchRegistro(string pos)$/;"	f	signature:(string pos)
+searchRegistro	lk.h	/^void searchRegistro(string pos);$/;"	p	signature:(string pos)
+searchReport	stats.cpp	/^void stats::searchReport(string pos)$/;"	f	class:stats	signature:(string pos)
+searchReport	stats.h	/^    void searchReport(string pos);$/;"	p	class:stats	access:public	signature:(string pos)
+setInputCloud	back_sac_align.cpp	/^fpfh_prec.setInputCloud (point_cloud_prec);            $/;"	p	file:	signature:(point_cloud_prec)
+setInputCloud	back_sac_align.cpp	/^fpfh_wf.setInputCloud (point_cloud_wf);$/;"	p	file:	signature:(point_cloud_wf)
+setInputCloud	back_sac_align.cpp	/^icp.setInputCloud (point_cloud_wf);$/;"	p	file:	signature:(point_cloud_wf)
+setInputCloud	back_sac_align.cpp	/^norm_est.setInputCloud (point_cloud_prec);$/;"	p	file:	signature:(point_cloud_prec)
+setInputCloud	back_sac_align.cpp	/^norm_est.setInputCloud (point_cloud_wf);$/;"	p	file:	signature:(point_cloud_wf)
+setInputCloud	back_sac_align.cpp	/^sac_ia.setInputCloud( point_cloud_wf );$/;"	p	file:	signature:( point_cloud_wf )
+setInputNormals	back_sac_align.cpp	/^fpfh_prec.setInputNormals (points_with_normals_tgt); $/;"	p	file:	signature:(points_with_normals_tgt)
+setInputNormals	back_sac_align.cpp	/^fpfh_wf.setInputNormals (points_with_normals_src);$/;"	p	file:	signature:(points_with_normals_src)
+setInputTarget	back_sac_align.cpp	/^icp.setInputTarget (point_cloud_prec);            $/;"	p	file:	signature:(point_cloud_prec)
+setInputTarget	back_sac_align.cpp	/^sac_ia.setInputTarget( point_cloud_prec);$/;"	p	file:	signature:( point_cloud_prec)
+setMaxCorrespondenceDistance	back_sac_align.cpp	/^sac_ia.setMaxCorrespondenceDistance(SAC_MAX_CORRESPONDENCE_DIST);$/;"	p	file:	signature:(SAC_MAX_CORRESPONDENCE_DIST)
+setMinSampleDistance	back_sac_align.cpp	/^sac_ia.setMinSampleDistance( SAC_MIN_SAMPLE_DIST );$/;"	p	file:	signature:( SAC_MIN_SAMPLE_DIST )
+setNodeWeights	TemplatedVocabulary.h	/^  void setNodeWeights(const vector<vector<TDescriptor> > &features);$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const vector<vector<TDescriptor> > &features)
+setNodeWeights	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::setNodeWeights$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const vector<vector<TDescriptor> > &training_features)
+setRadiusSearch	back_sac_align.cpp	/^fpfh_prec.setRadiusSearch( FEATURES_RADIUS ); $/;"	p	file:	signature:( FEATURES_RADIUS )
+setRadiusSearch	back_sac_align.cpp	/^fpfh_wf.setRadiusSearch( FEATURES_RADIUS ); $/;"	p	file:	signature:( FEATURES_RADIUS )
+setRadiusSearch	back_sac_align.cpp	/^norm_est.setRadiusSearch( NORMALS_RADIUS );$/;"	p	file:	signature:( NORMALS_RADIUS )
+setSearchMethod	back_sac_align.cpp	/^fpfh_prec.setSearchMethod(tree);$/;"	p	file:	signature:(tree)
+setSearchMethod	back_sac_align.cpp	/^fpfh_wf.setSearchMethod (tree);$/;"	p	file:	signature:(tree)
+setSearchMethod	back_sac_align.cpp	/^norm_est.setSearchMethod (tree);$/;"	p	file:	signature:(tree)
+setSourceFeatures	back_sac_align.cpp	/^sac_ia.setSourceFeatures( frame_features );$/;"	p	file:	signature:( frame_features )
+setTargetFeatures	back_sac_align.cpp	/^sac_ia.setTargetFeatures( model_features );$/;"	p	file:	signature:( model_features )
+setVocabulary	TemplatedDatabase.h	/^  inline void setVocabulary(const TemplatedVocabulary<TDescriptor,F> &voc);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedVocabulary<TDescriptor,F> &voc)
+setVocabulary	TemplatedDatabase.h	/^  inline void setVocabulary(const TemplatedVocabulary<TDescriptor,F> &voc,$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(const TemplatedVocabulary<TDescriptor,F> &voc, bool use_di, int di_levels = 0)
+setVocabulary	TemplatedDatabase.h	/^inline void TemplatedDatabase<TDescriptor, F>::setVocabulary$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedVocabulary<TDescriptor,F>& voc)
+setVocabulary	TemplatedDatabase.h	/^inline void TemplatedDatabase<TDescriptor, F>::setVocabulary$/;"	f	class:DBoW2::TemplatedDatabase	signature:(const TemplatedVocabulary<TDescriptor,F>& voc, bool use_di, int di_levels)
+size	TemplatedDatabase.h	/^  inline unsigned int size() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+size	TemplatedDatabase.h	/^inline unsigned int TemplatedDatabase<TDescriptor, F>::size() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+size	TemplatedVocabulary.h	/^  inline unsigned int size() const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:() const
+size	TemplatedVocabulary.h	/^inline unsigned int TemplatedVocabulary<TDescriptor,F>::size() const$/;"	f	class:DBoW2::TemplatedVocabulary	signature:() const
+stats	stats.cpp	/^stats::stats(string file_report, map<int,int> registro_interno, int offset, string title)$/;"	f	class:stats	signature:(string file_report, map<int,int> registro_interno, int offset, string title)
+stats	stats.h	/^    stats(string file_report, map<int, int> registro_interno, int offset, string title);$/;"	p	class:stats	access:public	signature:(string file_report, map<int, int> registro_interno, int offset, string title)
+stats	stats.h	/^class stats$/;"	c
+stats::FalseNegative	stats.h	/^    double FalseNegative;$/;"	m	class:stats	access:private
+stats::FalsePositive	stats.h	/^    double FalsePositive;$/;"	m	class:stats	access:private
+stats::PairInt	stats.h	/^    typedef pair <int, int> PairInt;$/;"	t	class:stats	access:public
+stats::TrueNegative	stats.h	/^    double TrueNegative;$/;"	m	class:stats	access:private
+stats::TruePositive	stats.h	/^    double TruePositive;$/;"	m	class:stats	access:private
+stats::__name_report	stats.h	/^    string __name_report,__title;$/;"	m	class:stats	access:private
+stats::__offset	stats.h	/^    int __offset;$/;"	m	class:stats	access:private
+stats::__registro_interno	stats.h	/^    map<int,int> __registro_interno;    $/;"	m	class:stats	access:private
+stats::__report	stats.h	/^    map<int, int> __report;    $/;"	m	class:stats	access:private
+stats::__title	stats.h	/^    string __name_report,__title;$/;"	m	class:stats	access:private
+stats::calc	stats.cpp	/^void stats::calc(){$/;"	f	class:stats	signature:()
+stats::calc	stats.h	/^    void calc();$/;"	p	class:stats	access:private	signature:()
+stats::getAccuracy	stats.cpp	/^double stats::getAccuracy()$/;"	f	class:stats	signature:()
+stats::getAccuracy	stats.h	/^    double getAccuracy();$/;"	p	class:stats	access:public	signature:()
+stats::getFalseNegative	stats.cpp	/^int stats::getFalseNegative(){return this->FalseNegative;}$/;"	f	class:stats	signature:()
+stats::getFalseNegative	stats.h	/^    int getFalseNegative();$/;"	p	class:stats	access:public	signature:()
+stats::getFalsePositive	stats.cpp	/^int stats::getFalsePositive(){return this->FalsePositive;}$/;"	f	class:stats	signature:()
+stats::getFalsePositive	stats.h	/^    int getFalsePositive();$/;"	p	class:stats	access:public	signature:()
+stats::getPrecision	stats.cpp	/^double stats::getPrecision()$/;"	f	class:stats	signature:()
+stats::getPrecision	stats.h	/^    double getPrecision();$/;"	p	class:stats	access:public	signature:()
+stats::getRecall	stats.cpp	/^double stats::getRecall()$/;"	f	class:stats	signature:()
+stats::getRecall	stats.h	/^    double getRecall();$/;"	p	class:stats	access:public	signature:()
+stats::getTrueNegative	stats.cpp	/^int stats::getTrueNegative(){return this->TrueNegative;}$/;"	f	class:stats	signature:()
+stats::getTrueNegative	stats.h	/^    int getTrueNegative();$/;"	p	class:stats	access:public	signature:()
+stats::getTruePositive	stats.cpp	/^int stats::getTruePositive(){return this->TruePositive;}$/;"	f	class:stats	signature:()
+stats::getTruePositive	stats.h	/^    int getTruePositive();$/;"	p	class:stats	access:public	signature:()
+stats::readReport	stats.h	/^    void readReport();$/;"	p	class:stats	access:private	signature:()
+stats::searchReport	stats.cpp	/^void stats::searchReport(string pos)$/;"	f	class:stats	signature:(string pos)
+stats::searchReport	stats.h	/^    void searchReport(string pos);$/;"	p	class:stats	access:public	signature:(string pos)
+stats::stats	stats.cpp	/^stats::stats(string file_report, map<int,int> registro_interno, int offset, string title)$/;"	f	class:stats	signature:(string file_report, map<int,int> registro_interno, int offset, string title)
+stats::stats	stats.h	/^    stats(string file_report, map<int, int> registro_interno, int offset, string title);$/;"	p	class:stats	access:public	signature:(string file_report, map<int, int> registro_interno, int offset, string title)
+stats::toString	stats.cpp	/^string stats::toString(){    $/;"	f	class:stats	signature:()
+stats::toString	stats.h	/^    string toString();$/;"	p	class:stats	access:public	signature:()
+symmetryTest	TwoWayMatcher.cpp	/^int TwoWayMatcher::symmetryTest($/;"	f	class:TwoWayMatcher	signature:( const vector< vector<DMatch> >& matches1, const vector< vector<DMatch> >& matches2, vector<DMatch>& symMatches)
+symmetryTest	TwoWayMatcher.h	/^    int symmetryTest($/;"	p	class:TwoWayMatcher	access:private	signature:( const std::vector< std::vector<cv::DMatch> >& matches1, const std::vector< std::vector<cv::DMatch> >& matches2, std::vector<cv::DMatch>& symMatches)
+testDatabase	back_rec.cpp	/^void testDatabase(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &features2)$/;"	f	signature:(const vector<vector<vector<float> > > &features,const vector<vector<vector<float> > > &features2)
+testDatabase	demo.cpp	/^void testDatabase(const vector<vector<vector<float> > > &features)$/;"	f	signature:(const vector<vector<vector<float> > > &features)
+testDatabase	demo.cpp	/^void testDatabase(const vector<vector<vector<float> > > &features);$/;"	p	file:	signature:(const vector<vector<vector<float> > > &features)
+testVocCreation	demo.cpp	/^void testVocCreation(const vector<vector<vector<float> > > &features)$/;"	f	signature:(const vector<vector<vector<float> > > &features)
+testVocCreation	demo.cpp	/^void testVocCreation(const vector<vector<vector<float> > > &features);$/;"	p	file:	signature:(const vector<vector<vector<float> > > &features)
+testVocCreation	lk.cpp	/^void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb)$/;"	f	signature:(const BoWFeatures &features,const BoWFeatures &featuresrgb)
+testVocCreation	lk.h	/^void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb);$/;"	p	signature:(const BoWFeatures &features,const BoWFeatures &featuresrgb)
+toMat32F	FBrief.cpp	/^void FBrief::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FBrief	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FBrief.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	p	class:DBoW2::FBrief	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FClass.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors, $/;"	p	class:DBoW2::FClass	access:private	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FNarf.cpp	/^void FNarf::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FNarf	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FNarf.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	p	class:DBoW2::FNarf	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FSurf128.cpp	/^void FSurf128::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf128	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FSurf128.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf128	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FSurf64.cpp	/^void FSurf64::toMat32F(const std::vector<TDescriptor> &descriptors,$/;"	f	class:DBoW2::FSurf64	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toMat32F	FSurf64.h	/^  static void toMat32F(const std::vector<TDescriptor> &descriptors, $/;"	p	class:DBoW2::FSurf64	access:public	signature:(const std::vector<TDescriptor> &descriptors, cv::Mat &mat)
+toString	FBrief.cpp	/^std::string FBrief::toString(const FBrief::TDescriptor &a)$/;"	f	class:DBoW2::FBrief	signature:(const FBrief::TDescriptor &a)
+toString	FBrief.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FBrief	access:public	signature:(const TDescriptor &a)
+toString	FClass.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FClass	access:private	signature:(const TDescriptor &a)
+toString	FNarf.cpp	/^std::string FNarf::toString(const FNarf::TDescriptor &a)$/;"	f	class:DBoW2::FNarf	signature:(const FNarf::TDescriptor &a)
+toString	FNarf.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FNarf	access:public	signature:(const TDescriptor &a)
+toString	FSurf128.cpp	/^std::string FSurf128::toString(const FSurf128::TDescriptor &a)$/;"	f	class:DBoW2::FSurf128	signature:(const FSurf128::TDescriptor &a)
+toString	FSurf128.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FSurf128	access:public	signature:(const TDescriptor &a)
+toString	FSurf64.cpp	/^std::string FSurf64::toString(const FSurf64::TDescriptor &a)$/;"	f	class:DBoW2::FSurf64	signature:(const FSurf64::TDescriptor &a)
+toString	FSurf64.h	/^  static std::string toString(const TDescriptor &a);$/;"	p	class:DBoW2::FSurf64	access:public	signature:(const TDescriptor &a)
+toString	stats.cpp	/^string stats::toString(){    $/;"	f	class:stats	signature:()
+toString	stats.h	/^    string toString();$/;"	p	class:stats	access:public	signature:()
+transform	TemplatedVocabulary.h	/^  WordId transform(const TDescriptor& feature) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const TDescriptor& feature) const
+transform	TemplatedVocabulary.h	/^  void transform(const TDescriptor &feature, WordId &id) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const TDescriptor &feature, WordId &id) const
+transform	TemplatedVocabulary.h	/^  void transform(const TDescriptor &feature,$/;"	p	class:DBoW2::TemplatedVocabulary	access:protected	signature:(const TDescriptor &feature, WordId &id, WordValue &weight, NodeId* nid = NULL, int levelsup = 0) const
+transform	TemplatedVocabulary.h	/^  void transform(const std::vector<TDescriptor>& features, BowVector &v) const;$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<TDescriptor>& features, BowVector &v) const
+transform	TemplatedVocabulary.h	/^  void transform(const std::vector<TDescriptor>& features,$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:(const std::vector<TDescriptor>& features, BowVector &v, FeatureVector &fv, int levelsup) const
+transform	TemplatedVocabulary.h	/^WordId TemplatedVocabulary<TDescriptor, F>::transform$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TDescriptor& feature) const
+transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TDescriptor &feature, WordId &id) const
+transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<TDescriptor>& features, BowVector &v) const
+transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform($/;"	f	class:DBoW2::TemplatedVocabulary	signature:( const std::vector<TDescriptor>& features, BowVector &v, FeatureVector &fv, int levelsup) const
+transform	TemplatedVocabulary.h	/^void TemplatedVocabulary<TDescriptor,F>::transform(const TDescriptor &feature,$/;"	f	class:DBoW2::TemplatedVocabulary	signature:(const TDescriptor &feature, WordId &word_id, WordValue &weight, NodeId *nid, int levelsup) const
+tree	back_sac_align.cpp	/^pcl::search::KdTree<PointXYZ>::Ptr tree (new pcl::search::KdTree<PointXYZ> ());$/;"	p	file:	signature:(new pcl::search::KdTree<PointXYZ> ())
+usingDirectIndex	TemplatedDatabase.h	/^  inline bool usingDirectIndex() const;$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:() const
+usingDirectIndex	TemplatedDatabase.h	/^inline bool TemplatedDatabase<TDescriptor, F>::usingDirectIndex() const$/;"	f	class:DBoW2::TemplatedDatabase	signature:() const
+wait	demo.cpp	/^void wait()$/;"	f	signature:()
+wait	lk.h	/^void wait()$/;"	f	signature:()
+wait	lk.h	/^void wait();$/;"	p	signature:()
+weight	TemplatedVocabulary.h	/^    WordValue weight;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+word_id	TemplatedVocabulary.h	/^    WordId word_id;$/;"	m	struct:DBoW2::TemplatedVocabulary::Node	access:public
+word_weight	TemplatedDatabase.h	/^    WordValue word_weight;$/;"	m	struct:DBoW2::TemplatedDatabase::IFPair	access:public
+~BowVector	BowVector.cpp	/^BowVector::~BowVector(void)$/;"	f	class:DBoW2::BowVector	signature:(void)
+~BowVector	BowVector.h	/^	~BowVector(void);$/;"	p	class:DBoW2::BowVector	access:public	signature:(void)
+~FeatureVector	FeatureVector.cpp	/^FeatureVector::~FeatureVector(void)$/;"	f	class:DBoW2::FeatureVector	signature:(void)
+~FeatureVector	FeatureVector.h	/^  ~FeatureVector(void);$/;"	p	class:DBoW2::FeatureVector	access:public	signature:(void)
+~TemplatedDatabase	TemplatedDatabase.h	/^  virtual ~TemplatedDatabase(void);$/;"	p	class:DBoW2::TemplatedDatabase	access:public	signature:(void)
+~TemplatedDatabase	TemplatedDatabase.h	/^TemplatedDatabase<TDescriptor, F>::~TemplatedDatabase(void)$/;"	f	class:DBoW2::TemplatedDatabase	signature:(void)
+~TemplatedVocabulary	TemplatedVocabulary.h	/^  virtual ~TemplatedVocabulary();$/;"	p	class:DBoW2::TemplatedVocabulary	access:public	signature:()
+~TemplatedVocabulary	TemplatedVocabulary.h	/^TemplatedVocabulary<TDescriptor,F>::~TemplatedVocabulary()$/;"	f	class:DBoW2::TemplatedVocabulary	signature:()
+~TwoWayMatcher	TwoWayMatcher.cpp	/^TwoWayMatcher::~TwoWayMatcher() {$/;"	f	class:TwoWayMatcher	signature:()
+~TwoWayMatcher	TwoWayMatcher.h	/^    virtual ~TwoWayMatcher();$/;"	p	class:TwoWayMatcher	access:public	signature:()

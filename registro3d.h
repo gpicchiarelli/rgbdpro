@@ -105,6 +105,7 @@ class Registro3D {
         pcl::RangeImage getRangeImageAt(int position);
         float getCorrispondences(int src,int dst);
         void addFrame(PointCloud<Narf36> frame,string name);
+        PointCloud<pcl::Narf36> extractNARF(int i);
     private:
         Eigen::Matrix4f refined_T;
         pcl::PointCloud<pcl::PointXYZ>::Ptr aligned;

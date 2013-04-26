@@ -40,11 +40,12 @@ double SANITY = 0.2;
 
 #include <omp.h>
 
+bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;
+bool flag_l3d=false,flag_lrgb=false,flag_stats=false,flag_s3d=false;
+
 int main(int nNumberofArgs, char* argv[])
 {    
     BoWFeatures featuresrgb,features3d;
-    bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;
-    bool flag_l3d=false,flag_lrgb=false,flag_stats=false,flag_s3d=false;
     if(nNumberofArgs > 0){
         vector<string> parametri;
         bool dataset_splu = false;
@@ -204,7 +205,7 @@ int main(int nNumberofArgs, char* argv[])
                 
                 listFile(directoryrgb,&files_list_rgb);
                 listFile(directory3d,&files_list_3d);
-                
+
                 if(flag_voc){
                     if( remove(filename_voc_3d.c_str()) != 0 )
                         perror( "Errore cancellazione vocabolario NARF" );
@@ -272,8 +273,8 @@ void loopClosingRGB(const BoWFeatures &features){
     int OFFSET = I_OFFSET;
     double MATCH_THRESHOLD = SOGLIA_RGB;
     double SANITY_THRESHOLD = SANITY;
-    int SIZE_BUCKET = 5;
-    int TEMP_CONS = 4;
+    int SIZE_BUCKET = 15;
+    int TEMP_CONS = 6;
     bool loop_found = false;
     
     // load robot poses
@@ -340,39 +341,36 @@ void loopClosingRGB(const BoWFeatures &features){
                         i_back.push_back((i-(yyy+1)));
                     }                    
                     BowVector v1, v2;
-                    int centro;
                     for (int aa = 0 ; aa < bucket.size(); aa++){//per ogni elemento del bucket        
                         
                         double max_score = 0;
-                        int max_id = -1;                        
+                        int max_id = -1;                    
+                        int centro = -1;
+                        
                         for (int cc = 0; cc<i_back.size();cc++){                            
                             voc.transform(features[i - (cc+1)],v1);                            
-                            if (max_id == -1 || centro == -1){ centro = bucket[aa]; }                           
+                            if (centro == -1){ centro = bucket[aa]; }          
 
                             for(int bb = (centro - (TEMP_CONS/2) - 1) ; bb < centro + (TEMP_CONS/2); bb++){
                                 int cursore = bb + 1;
                                 
-                                max_id = -1;
-                                max_score = 0;
-                                
-                                if (cursore < 0) {max_id = -1; continue;}
-                                
+                                if (cursore < 0) {continue;}
                                 voc.transform(features[cursore],v2);
                                 double score = voc.score(v1,v2);
                                 cout << i - (cc+1) << " vs " << cursore << " score: " << score << endl;
-                                if (score >= MATCH_THRESHOLD && score > max_score){
+                                if (score > MATCH_THRESHOLD && score > max_score && cursore != centro){
                                     max_id = cursore;
                                     max_score = score;
-                                }                                
+                                }               
                             }
                             if (max_id == -1){
-                                bucket[aa] = -1;
+                                bucket[aa] = -1; 
                                 centro = -1;
-                                max_score = 0;
-                                break;
+                                max_score = 0;                               
                             }else{
                                 centro = max_id;
                                 max_score = 0;
+                                max_id = -1;
                             }
                         }
                     }
@@ -383,7 +381,8 @@ void loopClosingRGB(const BoWFeatures &features){
                 int tyu = 0;
                 if(bucket.size() == 1){
                     maxIdInliers = bucket[0];
-                }else{                    
+                }else{    
+                    #pragma parallel omp for
                     for(int yy = 0; yy < bucket.size(); yy++){                        
                         tyu = reg_RGB->inliersRGB(i,bucket[yy]);
                         cout << "Inliers: " << tyu << " per immagine " << bucket[yy] << endl;
@@ -423,10 +422,10 @@ void loopClosing3d(const BoWFeatures &features)
     int OFFSET = I_OFFSET;
     double SANITY_THRESHOLD = SANITY;
     double MATCH_THRESHOLD = SOGLIA_3D;
-    int SIZE_BUCKET = 5;
-    int TEMP_CONS = 4;
+    int SIZE_BUCKET = 15;
+    int TEMP_CONS = 6;
     bool loop_found = false;
-    
+
     if (!DEBUG) { wait(); }
     vector<int> bucket;
     vector<double> xs, ys;
@@ -484,38 +483,36 @@ void loopClosing3d(const BoWFeatures &features)
                         i_back.push_back((i-(yyy+1)));
                     }                    
                     BowVector v1, v2;
-                    int centro;
                     for (int aa = 0 ; aa < bucket.size(); aa++){//per ogni elemento del bucket        
                         
                         double max_score = 0;
-                        int max_id = -1;     
-                        
+                        int max_id = -1;                    
+                        int centro = -1;
                         
                         for (int cc = 0; cc<i_back.size();cc++){                            
                             voc.transform(features[i - (cc+1)],v1);                            
-                            if (max_id == -1 || centro == -1){ centro = bucket[aa]; }          
-                            
+                            if (centro == -1){ centro = bucket[aa]; }          
+
                             for(int bb = (centro - (TEMP_CONS/2) - 1) ; bb < centro + (TEMP_CONS/2); bb++){
                                 int cursore = bb + 1;
-                                max_id = -1;
-                                max_score = 0;
-                                if (cursore < 0) {max_id = -1; continue;}
+                                
+                                if (cursore < 0) {continue;}
                                 voc.transform(features[cursore],v2);
                                 double score = voc.score(v1,v2);
                                 cout << i - (cc+1) << " vs " << cursore << " score: " << score << endl;
-                                if (score >= MATCH_THRESHOLD && score > max_score){
+                                if (score > MATCH_THRESHOLD && score > max_score){
                                     max_id = cursore;
                                     max_score = score;
-                                }                              
+                                }               
                             }
                             if (max_id == -1){
                                 bucket[aa] = -1; 
                                 centro = -1;
-                                max_score = 0;
-                                break;
+                                max_score = 0;                               
                             }else{
                                 centro = max_id;
                                 max_score = 0;
+                                max_id = -1;
                             }
                         }
                     }
@@ -526,10 +523,13 @@ void loopClosing3d(const BoWFeatures &features)
                 double tyu = 0;
                 if(bucket.size() == 1){
                     maxIdInliers = bucket[0];
-                }else{                    
+                }else{    
+                    #pragma omp parallel for
                     for(int yy = 0; yy < bucket.size(); yy++){  
-                        int term = bucket[yy];
-                        tyu = reg_3D->getScoreFit(i,bucket[yy]);//reg_3D->getScoreFix(features[i],features[term]);//
+                        BowVector v1,v2;
+                        voc.transform(features[i],v1);                        
+                        voc.transform(features[bucket[yy]],v2);
+                        tyu = voc.score(v1,v2);//reg_3D->getScoreFit(i,bucket[yy]);
                         cout << "score: " << tyu <<endl;
                         if (maxInliers < tyu){
                             maxInliers = tyu;
@@ -645,19 +645,7 @@ void loadFeatures3d(BoWFeatures &features)
         
         //filtraggio valori NaN
         std::vector<int> indices;
-        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
-        
-        const float VOXEL_GRID_SIZE = 0.01f;
-        pcl::VoxelGrid<PointType> vox_grid;
-        vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );
-        vox_grid.setInputCloud(point_cloud_wf);
-        vox_grid.filter(*point_cloud);
-        
-        pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
-        sor.setInputCloud (point_cloud);
-        sor.setMeanK (60);
-        sor.setStddevMulThresh (1.0);
-        sor.filter (*point_cloud);
+        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud,indices);
         
         cout << "Estrazione NARF: " << files_list_3d[i] ;
         
@@ -680,7 +668,7 @@ void loadFeatures3d(BoWFeatures &features)
         narf_keypoint_detector.getParameters().support_size = support_size;
         //euristiche, per avvicinarsi al real time
         narf_keypoint_detector.getParameters().max_no_of_threads = 2;
-        narf_keypoint_detector.getParameters().calculate_sparse_interest_image=false; //false
+        narf_keypoint_detector.getParameters().calculate_sparse_interest_image=true; //false
         narf_keypoint_detector.getParameters().use_recursive_scale_reduction=false; //true
         //narf_keypoint_detector.getParameters().add_points_on_straight_edges=true;
         
@@ -706,7 +694,7 @@ void loadFeatures3d(BoWFeatures &features)
             copy(narf_descriptors[p].descriptor, narf_descriptors[p].descriptor+FNarf::L, back_inserter(flot));
             features.back().push_back(flot);
             flot.clear();
-        }       
+        } 
         
         indices.clear();
         range_image_border_extractor.clearData();
@@ -744,31 +732,34 @@ void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb)
     {
         NarfVocabulary voc(k, L, weight, score);
         BoWFeatures tmp,tmp2; 
-        for(int yy=0; yy<features.size(); yy+=5){
+        for(int yy=0; yy<features.size(); yy+=3){
             tmp.push_back(features[yy]);
         }
-        for(int yy=0; yy<featuresrgb.size(); yy+=5){
+        for(int yy=0; yy<featuresrgb.size(); yy+=3){
             tmp2.push_back(featuresrgb[yy]);
         }
         voc.create(tmp);
         Surf128Vocabulary voc2(k, L, weight, score);
         voc2.create(tmp2);
-        
+
         cout << "Creazione " << k << "^" << L << " vocabolario 3D terminata." << endl;
         cout << "Vocabolario 3D: " << endl << voc << endl << endl;
         
         cout << "Creazione " << k << "^" << L << " vocabolario RGB terminata." << endl;
         cout << "Vocabolario RGB: " << endl << voc2 << endl << endl;
-        
         voc.save(nomefile_3d);
         voc2.save(nomefile_rgb);
     }
     else
-    {
-        voc.load(nomefile_3d);
-        voc2.load(nomefile_rgb);
-        cout << "Vocabolario 3D: " << endl << voc << endl << endl;
-        cout << "Vocabolario RGB: " << endl << voc2 << endl << endl;
+    {        
+        if(flag_loop || flag_l3d){
+            voc.load(nomefile_3d);
+            cout << "Vocabolario 3D: " << endl << voc << endl << endl;
+        }
+        if(flag_loop || flag_lrgb){
+            voc2.load(nomefile_rgb);
+            cout << "Vocabolario RGB: " << endl << voc2 << endl << endl;
+        }
     }
     
     //    BowVector v1, v2;
