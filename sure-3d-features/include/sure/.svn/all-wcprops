@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/15/trunk/include/sure
+END
+octree_value.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/15/trunk/include/sure/octree_value.h
+END
+hue_descriptor.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/5/trunk/include/sure/hue_descriptor.h
+END
+color_surflet.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/13/trunk/include/sure/color_surflet.h
+END
+histogram_emd.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/5/trunk/include/sure/histogram_emd.h
+END
+surflet.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/12/trunk/include/sure/surflet.h
+END
+histogram_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/5/trunk/include/sure/histogram_base.h
+END
+histogram_l2.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/5/trunk/include/sure/histogram_l2.h
+END
+feature.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/12/trunk/include/sure/feature.h
+END
+lightness_descriptor.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/5/trunk/include/sure/lightness_descriptor.h
+END
+range_image.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/5/trunk/include/sure/range_image.h
+END
+point_feature_descriptor.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/5/trunk/include/sure/point_feature_descriptor.h
+END
+map2d.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/5/trunk/include/sure/map2d.h
+END
+normal_histogram.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5/trunk/include/sure/normal_histogram.h
+END
+sure_estimator.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/15/trunk/include/sure/sure_estimator.h
+END
+configuration.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/11/trunk/include/sure/configuration.h
+END

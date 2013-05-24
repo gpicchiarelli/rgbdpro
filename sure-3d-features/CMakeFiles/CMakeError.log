@@ -1,0 +1,29 @@
+Performing C++ SOURCE FILE Test HAVE_SSE4_1_EXTENSIONS failed with the following output:
+Change Dir: /home/giacomo/sviluppo/LoopCloserRGBD/sure-3d-features/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1371963606/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1371963606.dir/build.make CMakeFiles/cmTryCompileExec1371963606.dir/build
+make[1]: ingresso nella directory "/home/giacomo/sviluppo/LoopCloserRGBD/sure-3d-features/CMakeFiles/CMakeTmp"
+/usr/bin/cmake -E cmake_progress_report /home/giacomo/sviluppo/LoopCloserRGBD/sure-3d-features/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1371963606.dir/src.cxx.o
+/usr/bin/ccache  g++   -Wno-deprecated  -DHAVE_SSE4_1_EXTENSIONS -msse4.1   -o CMakeFiles/cmTryCompileExec1371963606.dir/src.cxx.o -c /home/giacomo/sviluppo/LoopCloserRGBD/sure-3d-features/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1371963606
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1371963606.dir/link.txt --verbose=1
+/usr/bin/ccache  g++     -Wno-deprecated  -DHAVE_SSE4_1_EXTENSIONS -msse4.1    CMakeFiles/cmTryCompileExec1371963606.dir/src.cxx.o  -o cmTryCompileExec1371963606 -rdynamic 
+make[1]: uscita dalla directory "/home/giacomo/sviluppo/LoopCloserRGBD/sure-3d-features/CMakeFiles/CMakeTmp"
+
+Return value: FAILED_TO_RUN
+Source file was:
+
+          #include <smmintrin.h>
+          int main()
+          {
+            __m128 a, b;
+            float vals[4] = {1, 2, 3, 4};
+            const int mask = 123;
+            a = _mm_loadu_ps(vals);
+            b = a;
+            b = _mm_dp_ps (a, a, mask);
+            _mm_storeu_ps(vals,b);
+            return 0;
+          }

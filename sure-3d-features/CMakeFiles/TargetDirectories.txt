@@ -1,0 +1,2 @@
+/home/giacomo/sviluppo/LoopCloserRGBD/sure-3d-features/CMakeFiles/sure3d.dir
+/home/giacomo/sviluppo/LoopCloserRGBD/sure-3d-features/CMakeFiles/test_sure.dir

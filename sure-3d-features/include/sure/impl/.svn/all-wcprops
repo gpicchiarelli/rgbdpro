@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/15/trunk/include/sure/impl
+END
+range_image.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/12/trunk/include/sure/impl/range_image.hpp
+END
+histogram_emd.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/12/trunk/include/sure/impl/histogram_emd.hpp
+END
+map2d.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/12/trunk/include/sure/impl/map2d.hpp
+END
+sure_estimator.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/15/trunk/include/sure/impl/sure_estimator.hpp
+END
