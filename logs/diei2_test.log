@@ -1,0 +1,24 @@
+./lk -l-3d --offset=4 --s-3d=0.64 -U --dataset=diei2
+3D
+ ======== Statistiche (%) ========= 
+Precision: 100
+Recall: 66.6667
+Accuracy: 81.25
+
+TP:6
+FP:0
+TN:7
+FN:3
+
+./lk -l-rgb --offset=4 --s-rgb=0.25 -U --dataset=diei2
+RGB
+ ======== Statistiche (%) ========= 
+Precision: 100
+Recall: 62.5
+Accuracy: 80
+
+TP:5
+FP:0
+TN:7
+FN:3
+

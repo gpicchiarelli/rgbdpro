@@ -40,49 +40,51 @@ void stats::calc(){
     
     vector<int> immagini_n,immagini_all;
     for(map<int,int>::iterator it = this->__registro_interno.begin(); it != this->__registro_interno.end(); it++){
-        int a = lexical_cast<int>(it->first); //immagine
+        int a = boost::lexical_cast<int>(it->first); //immagine
         immagini_all.push_back(a);
         immagini_n.push_back(a);
     }
+   
     //valuto positivi
     for(map<int,int>::iterator it = this->__report.begin(); it!=this->__report.end(); it++){
         std::map<int,int>::iterator it_1,it_2;
-        
         it_1 = this->__registro_interno.find(it->first); //loop
         it_2 = this->__registro_interno.find(it->second);        
         
         int z1 = it_1->second;
-        int z2 = it_2->second;
-        
+        int z2 = it_2->second;        
         if (z1 == z2){
-            this->TruePositive++;
+            this->TruePositive++;   
+            cout << "TP: "<< it->first << " = " << it->second << endl;
+            //creo negativi togliendo tutti i positivi che incrementalmente sto valutando
+            immagini_n.erase(std::remove(immagini_n.begin(), immagini_n.end(), it->first), immagini_n.end());                
         }else{
             this->FalsePositive++;
-        }         
-        //creo negativi togliendo tutti i positivi che incrementalmente sto valutando
-        immagini_n.erase(std::remove(immagini_n.begin(), immagini_n.end(), it->first), immagini_n.end());
-    } 
-    
+        }
+    }
     for(int i=0;i<immagini_n.size();i++){
-        bool found = false;
-        if(immagini_n[i] < this->__offset){continue;}
-        for(int j = immagini_n.size() - i - this->__offset; j >= 0 ; j--){
-            if(immagini_n[i]-immagini_all[j] >= this->__offset){
+        bool found = false; 
+        if(immagini_n[i] < this->__offset){this->TrueNegative++; continue;}
+        int yyy = immagini_n[i] - this->__offset;
+        if (yyy < 0) {yyy = 0;}
+        for(int j = yyy; j >= 0 ; j--){
+            cout << immagini_n[i] << " - " << immagini_all[j] << " = " <<immagini_n[i]-immagini_all[j]<< " (" << j << ") "<<endl;
+            if(immagini_n[i]-immagini_all[j] >= this->__offset || yyy == 1){
                 std::map<int,int>::iterator it_1,it_2;                
                 it_1 = this->__registro_interno.find(immagini_n[i]); //loop
-                it_2 = this->__registro_interno.find(immagini_all[j]); 
-
+                it_2 = this->__registro_interno.find(immagini_all[j]);                
                 int z1 = it_1->second;
-                int z2 = it_2->second;
-                
+                int z2 = it_2->second;   
                 if(z1==z2){
                     found=true;
+                    break;
                 }
             }
-        }
+        }  
         if (!found){
             this->TrueNegative++;
         }else{
+            cout << "FN" << immagini_n[i] << endl;            
             this->FalseNegative++;
         } 
     }    
@@ -97,16 +99,16 @@ void stats::searchReport(string pos)
         while(Myfile.peek() != EOF) {
             vector<string> w1;
             getline(Myfile, line);
-            trim(line);
+            boost::algorithm::trim(line);
             if(line.size() > 0) {
                 //luogo               
-                split(w1,line,is_any_of(":"));
+                boost::algorithm::split(w1,line,boost::algorithm::is_any_of(":"));
                 w1.erase( std::remove_if(w1.begin(), w1.end(), bind( &std::string::empty, _1 ) ), w1.end());                
                 string w = w1[1];
-                trim(w);
+                boost::algorithm::trim(w);
                 string h = w1[0];
-                int a = lexical_cast<int>(h);
-                int b = lexical_cast<int>(w);
+                int a = boost::lexical_cast<int>(h);
+                int b = boost::lexical_cast<int>(w);
                 (this->__report).insert(PairInt(a,b));
             }
         }

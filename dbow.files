@@ -410,3 +410,6 @@ stats.h
 stats.cpp
 Makefile
 back_sac_align.cpp
+surelp.cpp
+FSure.h
+FSure.cpp

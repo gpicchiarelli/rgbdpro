@@ -1,0 +1,798 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+APPEND	FileModes.h	/^	APPEND = 4,$/;"	e	enum:DUtils::FILE_MODES
+BinaryFile	BinaryFile.cpp	/^BinaryFile::BinaryFile(const char *filename, const FILE_MODES mode)$/;"	f	class:BinaryFile	signature:(const char *filename, const FILE_MODES mode)
+BinaryFile	BinaryFile.cpp	/^BinaryFile::BinaryFile(const string &filename, const FILE_MODES mode)$/;"	f	class:BinaryFile	signature:(const string &filename, const FILE_MODES mode)
+BinaryFile	BinaryFile.cpp	/^BinaryFile::BinaryFile(void): m_is_little_endian(-1)$/;"	f	class:BinaryFile	signature:(void)
+BinaryFile	BinaryFile.h	/^	BinaryFile(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename, const FILE_MODES mode)
+BinaryFile	BinaryFile.h	/^	BinaryFile(const string &filename, const FILE_MODES mode);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const string &filename, const FILE_MODES mode)
+BinaryFile	BinaryFile.h	/^	BinaryFile(void);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(void)
+BinaryFile	BinaryFile.h	/^class BinaryFile$/;"	c	namespace:DUtils
+BinaryFile::BinaryFile	BinaryFile.cpp	/^BinaryFile::BinaryFile(const char *filename, const FILE_MODES mode)$/;"	f	class:BinaryFile	signature:(const char *filename, const FILE_MODES mode)
+BinaryFile::BinaryFile	BinaryFile.cpp	/^BinaryFile::BinaryFile(const string &filename, const FILE_MODES mode)$/;"	f	class:BinaryFile	signature:(const string &filename, const FILE_MODES mode)
+BinaryFile::BinaryFile	BinaryFile.cpp	/^BinaryFile::BinaryFile(void): m_is_little_endian(-1)$/;"	f	class:BinaryFile	signature:(void)
+BinaryFile::BytesRead	BinaryFile.cpp	/^unsigned int BinaryFile::BytesRead()$/;"	f	class:BinaryFile	signature:()
+BinaryFile::Close	BinaryFile.cpp	/^void BinaryFile::Close()$/;"	f	class:BinaryFile	signature:()
+BinaryFile::DiscardBytes	BinaryFile.cpp	/^void BinaryFile::DiscardBytes(int count)$/;"	f	class:BinaryFile	signature:(int count)
+BinaryFile::Eof	BinaryFile.cpp	/^inline bool BinaryFile::Eof()$/;"	f	class:BinaryFile	signature:()
+BinaryFile::Init	BinaryFile.cpp	/^void BinaryFile::Init(const char *filename, const FILE_MODES mode)$/;"	f	class:BinaryFile	signature:(const char *filename, const FILE_MODES mode)
+BinaryFile::OpenForAppending	BinaryFile.cpp	/^void BinaryFile::OpenForAppending(const char *filename)$/;"	f	class:BinaryFile	signature:(const char *filename)
+BinaryFile::OpenForReading	BinaryFile.cpp	/^void BinaryFile::OpenForReading(const char *filename)$/;"	f	class:BinaryFile	signature:(const char *filename)
+BinaryFile::OpenForWriting	BinaryFile.cpp	/^void BinaryFile::OpenForWriting(const char *filename)$/;"	f	class:BinaryFile	signature:(const char *filename)
+BinaryFile::hton_d	BinaryFile.cpp	/^void BinaryFile::hton_d(double v, char buf[8]) const$/;"	f	class:BinaryFile	signature:(double v, char buf[8]) const
+BinaryFile::hton_f	BinaryFile.cpp	/^void BinaryFile::hton_f(float v, char buf[8]) const$/;"	f	class:BinaryFile	signature:(float v, char buf[8]) const
+BinaryFile::ntoh_d	BinaryFile.cpp	/^double BinaryFile::ntoh_d(char buf[8]) const$/;"	f	class:BinaryFile	signature:(char buf[8]) const
+BinaryFile::ntoh_f	BinaryFile.cpp	/^float BinaryFile::ntoh_f(char buf[8]) const$/;"	f	class:BinaryFile	signature:(char buf[8]) const
+BinaryFile::operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (char v)$/;"	f	class:BinaryFile	signature:(char v)
+BinaryFile::operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (double v)$/;"	f	class:BinaryFile	signature:(double v)
+BinaryFile::operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (float v)$/;"	f	class:BinaryFile	signature:(float v)
+BinaryFile::operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (int v)$/;"	f	class:BinaryFile	signature:(int v)
+BinaryFile::operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(char &v)$/;"	f	class:BinaryFile	signature:(char &v)
+BinaryFile::operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(double &v)$/;"	f	class:BinaryFile	signature:(double &v)
+BinaryFile::operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(float &v)$/;"	f	class:BinaryFile	signature:(float &v)
+BinaryFile::operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(int &v)$/;"	f	class:BinaryFile	signature:(int &v)
+BinaryFile::setEndianness	BinaryFile.cpp	/^void BinaryFile::setEndianness()$/;"	f	class:BinaryFile	signature:()
+BinaryFile::~BinaryFile	BinaryFile.cpp	/^BinaryFile::~BinaryFile(void)$/;"	f	class:BinaryFile	signature:(void)
+BytesRead	BinaryFile.cpp	/^unsigned int BinaryFile::BytesRead()$/;"	f	class:BinaryFile	signature:()
+BytesRead	BinaryFile.h	/^	unsigned int BytesRead();$/;"	p	class:DUtils::BinaryFile	access:public	signature:()
+CURRENT_TIME	Timestamp.h	/^    CURRENT_TIME = 0x1$/;"	e	enum:DUtils::Timestamp::tOptions
+Close	BinaryFile.cpp	/^void BinaryFile::Close()$/;"	f	class:BinaryFile	signature:()
+Close	BinaryFile.h	/^	void Close();$/;"	p	class:DUtils::BinaryFile	access:public	signature:()
+Close	ConfigFile.cpp	/^void ConfigFile::Close()$/;"	f	class:ConfigFile	signature:()
+Close	ConfigFile.h	/^	void Close();$/;"	p	class:DUtils::ConfigFile	access:public	signature:()
+Close	LineFile.cpp	/^void LineFile::Close()$/;"	f	class:LineFile	signature:()
+Close	LineFile.h	/^	void Close();$/;"	p	class:DUtils::LineFile	access:public	signature:()
+ConfigFile	ConfigFile.cpp	/^ConfigFile::ConfigFile()$/;"	f	class:ConfigFile	signature:()
+ConfigFile	ConfigFile.cpp	/^ConfigFile::ConfigFile(const char *filename, const FILE_MODES mode)$/;"	f	class:ConfigFile	signature:(const char *filename, const FILE_MODES mode)
+ConfigFile	ConfigFile.cpp	/^ConfigFile::ConfigFile(const string &filename, const FILE_MODES mode)$/;"	f	class:ConfigFile	signature:(const string &filename, const FILE_MODES mode)
+ConfigFile	ConfigFile.h	/^  ConfigFile();$/;"	p	class:DUtils::ConfigFile	access:public	signature:()
+ConfigFile	ConfigFile.h	/^  ConfigFile(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename, const FILE_MODES mode)
+ConfigFile	ConfigFile.h	/^  ConfigFile(const std::string &filename, const FILE_MODES mode);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename, const FILE_MODES mode)
+ConfigFile	ConfigFile.h	/^class ConfigFile$/;"	c	namespace:DUtils
+ConfigFile::Close	ConfigFile.cpp	/^void ConfigFile::Close()$/;"	f	class:ConfigFile	signature:()
+ConfigFile::ConfigFile	ConfigFile.cpp	/^ConfigFile::ConfigFile()$/;"	f	class:ConfigFile	signature:()
+ConfigFile::ConfigFile	ConfigFile.cpp	/^ConfigFile::ConfigFile(const char *filename, const FILE_MODES mode)$/;"	f	class:ConfigFile	signature:(const char *filename, const FILE_MODES mode)
+ConfigFile::ConfigFile	ConfigFile.cpp	/^ConfigFile::ConfigFile(const string &filename, const FILE_MODES mode)$/;"	f	class:ConfigFile	signature:(const string &filename, const FILE_MODES mode)
+ConfigFile::Init	ConfigFile.cpp	/^void ConfigFile::Init(const char *filename, const FILE_MODES mode)$/;"	f	class:ConfigFile	signature:(const char *filename, const FILE_MODES mode)
+ConfigFile::OpenForAppending	ConfigFile.cpp	/^void ConfigFile::OpenForAppending(const char *filename)$/;"	f	class:ConfigFile	signature:(const char *filename)
+ConfigFile::OpenForReading	ConfigFile.cpp	/^void ConfigFile::OpenForReading(const char *filename)$/;"	f	class:ConfigFile	signature:(const char *filename)
+ConfigFile::OpenForWriting	ConfigFile.cpp	/^void ConfigFile::OpenForWriting(const char *filename)$/;"	f	class:ConfigFile	signature:(const char *filename)
+ConfigFile::readContent	ConfigFile.cpp	/^void ConfigFile::readContent()$/;"	f	class:ConfigFile	signature:()
+ConfigFile::writeContent	ConfigFile.cpp	/^void ConfigFile::writeContent()$/;"	f	class:ConfigFile	signature:()
+ConfigFile::~ConfigFile	ConfigFile.cpp	/^ConfigFile::~ConfigFile()$/;"	f	class:ConfigFile	signature:()
+DException	DException.h	/^	DException(const char *msg) throw(): m_message(msg){}$/;"	f	class:DUtils::DException	access:public	signature:(const char *msg)
+DException	DException.h	/^	DException(const string &msg) throw(): m_message(msg){}$/;"	f	class:DUtils::DException	access:public	signature:(const string &msg)
+DException	DException.h	/^	DException(void) throw(): m_message("DUtils exception"){}$/;"	f	class:DUtils::DException	access:public	signature:(void)
+DException	DException.h	/^class DException :$/;"	c	namespace:DUtils	inherits:exception
+DIR	dirent_win.h	/^typedef struct DIR$/;"	s
+DIR	dirent_win.h	/^} DIR;$/;"	t	typeref:struct:DIR
+DIR::cached	dirent_win.h	/^   int    cached;             \/* Indicates un-processed entry in memory *\/$/;"	m	struct:DIR	access:public
+DIR::current	dirent_win.h	/^   dirent current;            \/* Current directory entry *\/$/;"	m	struct:DIR	access:public
+DIR::patt	dirent_win.h	/^   char   patt[MAX_PATH + 3]; \/* search pattern (3 = pattern + "\\\\*\\0") *\/$/;"	m	struct:DIR	access:public
+DIR::search_handle	dirent_win.h	/^   HANDLE search_handle;      \/* File search handle *\/$/;"	m	struct:DIR	access:public
+DIRENT_H	dirent_win.h	59;"	d
+DUtils	BinaryFile.h	/^namespace DUtils {$/;"	n
+DUtils	ConfigFile.h	/^namespace DUtils {$/;"	n
+DUtils	DException.h	/^namespace DUtils {$/;"	n
+DUtils	DUtils.h	/^namespace DUtils$/;"	n
+DUtils	FileFunctions.h	/^namespace DUtils {$/;"	n
+DUtils	FileModes.h	/^namespace DUtils {$/;"	n
+DUtils	LineFile.h	/^namespace DUtils {$/;"	n
+DUtils	Math.hpp	/^namespace DUtils {$/;"	n
+DUtils	Profiler.h	/^namespace DUtils {$/;"	n
+DUtils	Random.h	/^namespace DUtils {$/;"	n
+DUtils	STL.h	/^namespace DUtils {$/;"	n
+DUtils	StringFunctions.h	/^namespace DUtils {$/;"	n
+DUtils	TimeManager.h	/^namespace DUtils$/;"	n
+DUtils	Timestamp.h	/^namespace DUtils {$/;"	n
+DUtils::APPEND	FileModes.h	/^	APPEND = 4,$/;"	e	enum:DUtils::FILE_MODES
+DUtils::BinaryFile	BinaryFile.h	/^class BinaryFile$/;"	c	namespace:DUtils
+DUtils::BinaryFile::BinaryFile	BinaryFile.h	/^	BinaryFile(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename, const FILE_MODES mode)
+DUtils::BinaryFile::BinaryFile	BinaryFile.h	/^	BinaryFile(const string &filename, const FILE_MODES mode);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const string &filename, const FILE_MODES mode)
+DUtils::BinaryFile::BinaryFile	BinaryFile.h	/^	BinaryFile(void);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(void)
+DUtils::BinaryFile::BytesRead	BinaryFile.h	/^	unsigned int BytesRead();$/;"	p	class:DUtils::BinaryFile	access:public	signature:()
+DUtils::BinaryFile::Close	BinaryFile.h	/^	void Close();$/;"	p	class:DUtils::BinaryFile	access:public	signature:()
+DUtils::BinaryFile::DiscardBytes	BinaryFile.h	/^	void DiscardBytes(int count);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(int count)
+DUtils::BinaryFile::DiscardNextByte	BinaryFile.h	/^	inline void DiscardNextByte(){$/;"	f	class:DUtils::BinaryFile	access:public	signature:()
+DUtils::BinaryFile::Eof	BinaryFile.h	/^	inline bool Eof();$/;"	p	class:DUtils::BinaryFile	access:public	signature:()
+DUtils::BinaryFile::Init	BinaryFile.h	/^	void Init(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(const char *filename, const FILE_MODES mode)
+DUtils::BinaryFile::OpenForAppending	BinaryFile.h	/^	inline void OpenForAppending(const string &filename)$/;"	f	class:DUtils::BinaryFile	access:public	signature:(const string &filename)
+DUtils::BinaryFile::OpenForAppending	BinaryFile.h	/^	void OpenForAppending(const char *filename);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename)
+DUtils::BinaryFile::OpenForReading	BinaryFile.h	/^	inline void OpenForReading(const string &filename)$/;"	f	class:DUtils::BinaryFile	access:public	signature:(const string &filename)
+DUtils::BinaryFile::OpenForReading	BinaryFile.h	/^	void OpenForReading(const char *filename);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename)
+DUtils::BinaryFile::OpenForWriting	BinaryFile.h	/^	inline void OpenForWriting(const string &filename)$/;"	f	class:DUtils::BinaryFile	access:public	signature:(const string &filename)
+DUtils::BinaryFile::OpenForWriting	BinaryFile.h	/^	void OpenForWriting(const char *filename);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename)
+DUtils::BinaryFile::hton_d	BinaryFile.h	/^	void hton_d(double d, char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(double d, char buf[8]) const
+DUtils::BinaryFile::hton_f	BinaryFile.h	/^	void hton_f(float v, char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(float v, char buf[8]) const
+DUtils::BinaryFile::isLittleEndian	BinaryFile.h	/^	inline bool isLittleEndian() const$/;"	f	class:DUtils::BinaryFile	access:protected	signature:() const
+DUtils::BinaryFile::m_aux	BinaryFile.h	/^	char m_aux[8];	\/\/ auxiliar buffer$/;"	m	class:DUtils::BinaryFile	access:protected
+DUtils::BinaryFile::m_f	BinaryFile.h	/^	fstream m_f;			\/\/ fstream$/;"	m	class:DUtils::BinaryFile	access:protected
+DUtils::BinaryFile::m_is_little_endian	BinaryFile.h	/^	int m_is_little_endian; \/\/ 1: little endian, 0: big endian, -1: not set$/;"	m	class:DUtils::BinaryFile	access:protected
+DUtils::BinaryFile::m_mode	BinaryFile.h	/^	FILE_MODES m_mode;		\/\/ opening mode$/;"	m	class:DUtils::BinaryFile	access:protected
+DUtils::BinaryFile::ntoh_d	BinaryFile.h	/^	double ntoh_d(char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(char buf[8]) const
+DUtils::BinaryFile::ntoh_f	BinaryFile.h	/^	float ntoh_f(char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(char buf[8]) const
+DUtils::BinaryFile::operator <<	BinaryFile.h	/^	BinaryFile& operator<< (char v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(char v)
+DUtils::BinaryFile::operator <<	BinaryFile.h	/^	BinaryFile& operator<< (double v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(double v)
+DUtils::BinaryFile::operator <<	BinaryFile.h	/^	BinaryFile& operator<< (float v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(float v)
+DUtils::BinaryFile::operator <<	BinaryFile.h	/^	BinaryFile& operator<< (int v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(int v)
+DUtils::BinaryFile::operator >>	BinaryFile.h	/^	BinaryFile& operator>>(char &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(char &v)
+DUtils::BinaryFile::operator >>	BinaryFile.h	/^	BinaryFile& operator>>(double &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(double &v)
+DUtils::BinaryFile::operator >>	BinaryFile.h	/^	BinaryFile& operator>>(float &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(float &v)
+DUtils::BinaryFile::operator >>	BinaryFile.h	/^	BinaryFile& operator>>(int &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(int &v)
+DUtils::BinaryFile::setEndianness	BinaryFile.h	/^	void setEndianness();$/;"	p	class:DUtils::BinaryFile	access:protected	signature:()
+DUtils::BinaryFile::~BinaryFile	BinaryFile.h	/^	~BinaryFile(void);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(void)
+DUtils::ConfigFile	ConfigFile.h	/^class ConfigFile$/;"	c	namespace:DUtils
+DUtils::ConfigFile::Close	ConfigFile.h	/^	void Close();$/;"	p	class:DUtils::ConfigFile	access:public	signature:()
+DUtils::ConfigFile::ConfigFile	ConfigFile.h	/^  ConfigFile();$/;"	p	class:DUtils::ConfigFile	access:public	signature:()
+DUtils::ConfigFile::ConfigFile	ConfigFile.h	/^  ConfigFile(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename, const FILE_MODES mode)
+DUtils::ConfigFile::ConfigFile	ConfigFile.h	/^  ConfigFile(const std::string &filename, const FILE_MODES mode);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename, const FILE_MODES mode)
+DUtils::ConfigFile::Init	ConfigFile.h	/^  void Init(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::ConfigFile	access:protected	signature:(const char *filename, const FILE_MODES mode)
+DUtils::ConfigFile::OpenForAppending	ConfigFile.h	/^  inline void OpenForAppending(const std::string &filename)$/;"	f	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename)
+DUtils::ConfigFile::OpenForAppending	ConfigFile.h	/^  void OpenForAppending(const char *filename);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename)
+DUtils::ConfigFile::OpenForReading	ConfigFile.h	/^  inline void OpenForReading(const std::string &filename)$/;"	f	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename)
+DUtils::ConfigFile::OpenForReading	ConfigFile.h	/^  void OpenForReading(const char *filename);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename)
+DUtils::ConfigFile::OpenForWriting	ConfigFile.h	/^  inline void OpenForWriting(const std::string &filename)$/;"	f	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename)
+DUtils::ConfigFile::OpenForWriting	ConfigFile.h	/^  void OpenForWriting(const char *filename);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename)
+DUtils::ConfigFile::get	ConfigFile.h	/^	T get(const char *name) const;$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *name) const
+DUtils::ConfigFile::get	ConfigFile.h	/^	T get(const std::string &name) const;$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const std::string &name) const
+DUtils::ConfigFile::get	ConfigFile.h	/^T ConfigFile::get(const char *name) const$/;"	f	class:DUtils::ConfigFile	signature:(const char *name) const
+DUtils::ConfigFile::get	ConfigFile.h	/^T ConfigFile::get(const std::string &name) const$/;"	f	class:DUtils::ConfigFile	signature:(const std::string &name) const
+DUtils::ConfigFile::m_data	ConfigFile.h	/^  std::map<std::string, std::string> m_data; \/\/ <key, value>$/;"	m	class:DUtils::ConfigFile	access:protected
+DUtils::ConfigFile::m_file	ConfigFile.h	/^  LineFile m_file;$/;"	m	class:DUtils::ConfigFile	access:protected
+DUtils::ConfigFile::put	ConfigFile.h	/^	void put(const char *name, const T &data);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *name, const T &data)
+DUtils::ConfigFile::put	ConfigFile.h	/^	void put(const std::string &name, const T &data);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const std::string &name, const T &data)
+DUtils::ConfigFile::put	ConfigFile.h	/^void ConfigFile::put(const char *name, const T &data)$/;"	f	class:DUtils::ConfigFile	signature:(const char *name, const T &data)
+DUtils::ConfigFile::put	ConfigFile.h	/^void ConfigFile::put(const std::string &name, const T &data)$/;"	f	class:DUtils::ConfigFile	signature:(const std::string &name, const T &data)
+DUtils::ConfigFile::readContent	ConfigFile.h	/^  void readContent();$/;"	p	class:DUtils::ConfigFile	access:protected	signature:()
+DUtils::ConfigFile::writeContent	ConfigFile.h	/^  void writeContent();$/;"	p	class:DUtils::ConfigFile	access:protected	signature:()
+DUtils::ConfigFile::~ConfigFile	ConfigFile.h	/^  ~ConfigFile();$/;"	p	class:DUtils::ConfigFile	access:public	signature:()
+DUtils::DException	DException.h	/^class DException :$/;"	c	namespace:DUtils	inherits:exception
+DUtils::DException::DException	DException.h	/^	DException(const char *msg) throw(): m_message(msg){}$/;"	f	class:DUtils::DException	access:public	signature:(const char *msg)
+DUtils::DException::DException	DException.h	/^	DException(const string &msg) throw(): m_message(msg){}$/;"	f	class:DUtils::DException	access:public	signature:(const string &msg)
+DUtils::DException::DException	DException.h	/^	DException(void) throw(): m_message("DUtils exception"){}$/;"	f	class:DUtils::DException	access:public	signature:(void)
+DUtils::DException::m_message	DException.h	/^	string m_message;$/;"	m	class:DUtils::DException	access:protected
+DUtils::DException::what	DException.h	/^	virtual const char* what() const throw()$/;"	f	class:DUtils::DException	access:public	signature:() const
+DUtils::DException::~DException	DException.h	/^	virtual ~DException(void) throw(){}$/;"	f	class:DUtils::DException	access:public	signature:(void)
+DUtils::FILE_MODES	FileModes.h	/^enum FILE_MODES {$/;"	g	namespace:DUtils
+DUtils::FileFunctions	FileFunctions.h	/^class FileFunctions$/;"	c	namespace:DUtils
+DUtils::FileFunctions::Dir	FileFunctions.h	/^	static std::vector<std::string> Dir(const char *path, const char *right,$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path, const char *right, bool sorted = false)
+DUtils::FileFunctions::DirExists	FileFunctions.h	/^	static bool DirExists(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+DUtils::FileFunctions::FileExists	FileFunctions.h	/^	static bool FileExists(const char *filename);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *filename)
+DUtils::FileFunctions::FileName	FileFunctions.h	/^	static std::string FileName(const std::string filepath);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const std::string filepath)
+DUtils::FileFunctions::FileParts	FileFunctions.h	/^	static void FileParts(const std::string filepath, std::string &path, $/;"	p	class:DUtils::FileFunctions	access:public	signature:(const std::string filepath, std::string &path, std::string &filename, std::string &ext)
+DUtils::FileFunctions::MkDir	FileFunctions.h	/^	static void MkDir(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+DUtils::FileFunctions::RmDir	FileFunctions.h	/^	static void RmDir(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+DUtils::FileFunctions::RmFile	FileFunctions.h	/^	static void RmFile(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+DUtils::LineFile	LineFile.h	/^class LineFile$/;"	c	namespace:DUtils
+DUtils::LineFile::Close	LineFile.h	/^	void Close();$/;"	p	class:DUtils::LineFile	access:public	signature:()
+DUtils::LineFile::DiscardLine	LineFile.h	/^	void DiscardLine();$/;"	p	class:DUtils::LineFile	access:public	signature:()
+DUtils::LineFile::Dump	LineFile.h	/^	void Dump(const vector<string> &v);$/;"	p	class:DUtils::LineFile	access:public	signature:(const vector<string> &v)
+DUtils::LineFile::Eof	LineFile.h	/^	bool Eof();$/;"	p	class:DUtils::LineFile	access:public	signature:()
+DUtils::LineFile::GetOpenMode	LineFile.h	/^	inline FILE_MODES GetOpenMode() const { return m_mode; }$/;"	f	class:DUtils::LineFile	access:public	signature:() const
+DUtils::LineFile::Init	LineFile.h	/^	void Init(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::LineFile	access:protected	signature:(const char *filename, const FILE_MODES mode)
+DUtils::LineFile::LineFile	LineFile.h	/^	LineFile(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename, const FILE_MODES mode)
+DUtils::LineFile::LineFile	LineFile.h	/^	LineFile(const string &filename, const FILE_MODES mode);$/;"	p	class:DUtils::LineFile	access:public	signature:(const string &filename, const FILE_MODES mode)
+DUtils::LineFile::LineFile	LineFile.h	/^	LineFile(void);$/;"	p	class:DUtils::LineFile	access:public	signature:(void)
+DUtils::LineFile::OpenForAppending	LineFile.h	/^	inline void OpenForAppending(const string &filename)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &filename)
+DUtils::LineFile::OpenForAppending	LineFile.h	/^	void OpenForAppending(const char *filename);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename)
+DUtils::LineFile::OpenForReading	LineFile.h	/^	inline void OpenForReading(const string &filename)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &filename)
+DUtils::LineFile::OpenForReading	LineFile.h	/^	void OpenForReading(const char *filename);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename)
+DUtils::LineFile::OpenForWriting	LineFile.h	/^	inline void OpenForWriting(const string &filename)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &filename)
+DUtils::LineFile::OpenForWriting	LineFile.h	/^	void OpenForWriting(const char *filename);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename)
+DUtils::LineFile::m_f	LineFile.h	/^	fstream m_f;			\/\/ fstream$/;"	m	class:DUtils::LineFile	access:protected
+DUtils::LineFile::m_mode	LineFile.h	/^	FILE_MODES m_mode;		\/\/ opening mode$/;"	m	class:DUtils::LineFile	access:protected
+DUtils::LineFile::m_next_line	LineFile.h	/^	string m_next_line;	\/\/ next line to read$/;"	m	class:DUtils::LineFile	access:protected
+DUtils::LineFile::operator <<	LineFile.h	/^	LineFile& operator<< (const char *s);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *s)
+DUtils::LineFile::operator <<	LineFile.h	/^	inline LineFile& operator<< (const string &s)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &s)
+DUtils::LineFile::operator <<	LineFile.h	/^	inline LineFile& operator<< (const vector<string> &v)$/;"	f	class:DUtils::LineFile	access:public	signature:(const vector<string> &v)
+DUtils::LineFile::operator >>	LineFile.h	/^	LineFile& operator>> (string &s);$/;"	p	class:DUtils::LineFile	access:public	signature:(string &s)
+DUtils::LineFile::~LineFile	LineFile.h	/^	~LineFile(void);$/;"	p	class:DUtils::LineFile	access:public	signature:(void)
+DUtils::Math	Math.hpp	/^class Math {$/;"	c	namespace:DUtils
+DUtils::Math::Max	Math.hpp	/^  static T Max(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+DUtils::Math::Mean	Math.hpp	/^  static double Mean(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+DUtils::Math::Median	Math.hpp	/^  static double Median(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+DUtils::Math::Min	Math.hpp	/^  static T Min(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+DUtils::Math::MinMax	Math.hpp	/^  static T MinMax(const std::vector<T> &v, bool minormax, bool2type<false>);$/;"	p	class:DUtils::Math	access:protected	signature:(const std::vector<T> &v, bool minormax, bool2type<false>)
+DUtils::Math::MinMax	Math.hpp	/^  static T MinMax(const std::vector<T> &v, bool minormax, bool2type<true>);$/;"	p	class:DUtils::Math	access:protected	signature:(const std::vector<T> &v, bool minormax, bool2type<true>)
+DUtils::Math::MinMax	Math.hpp	/^T Math::MinMax(const std::vector<T> &v, bool minormax, bool2type<false>)$/;"	f	class:DUtils::Math	signature:(const std::vector<T> &v, bool minormax, bool2type<false>)
+DUtils::Math::MinMax	Math.hpp	/^T Math::MinMax(const std::vector<T> &v, bool minormax, bool2type<true>)$/;"	f	class:DUtils::Math	signature:(const std::vector<T> &v, bool minormax, bool2type<true>)
+DUtils::Math::Stdev	Math.hpp	/^  static double Stdev(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+DUtils::Math::Stdev	Math.hpp	/^  static double Stdev(const std::vector<T> &v, double mean)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v, double mean)
+DUtils::Math::bool2type	Math.hpp	/^  template<bool> struct bool2type { };$/;"	s	class:DUtils::Math	access:protected
+DUtils::Profiler	Profiler.h	/^class Profiler$/;"	c	namespace:DUtils
+DUtils::Profiler::Profiler	Profiler.h	/^  Profiler(): m_last_profile(""){}$/;"	f	class:DUtils::Profiler	access:public	signature:()
+DUtils::Profiler::add	Profiler.h	/^  void add(double v, const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(double v, const std::string &name = Ó)
+DUtils::Profiler::back	Profiler.h	/^  double back(const std::string &name = "") const;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+DUtils::Profiler::getMaxTime	Profiler.h	/^  double getMaxTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+DUtils::Profiler::getMeanTime	Profiler.h	/^  double getMeanTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+DUtils::Profiler::getMinTime	Profiler.h	/^  double getMinTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+DUtils::Profiler::getStatistics	Profiler.h	/^  void getStatistics(double &mean, double &stdev,$/;"	p	class:DUtils::Profiler	access:public	signature:(double &mean, double &stdev, double &min, double &max, const std::string &name = Ó) const
+DUtils::Profiler::getStdevTime	Profiler.h	/^  double getStdevTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+DUtils::Profiler::getTime	Profiler.h	/^  void getTime(std::vector<double> &time, const std::string &name = "") const;$/;"	p	class:DUtils::Profiler	access:public	signature:(std::vector<double> &time, const std::string &name = Ó) const
+DUtils::Profiler::m_last_profile	Profiler.h	/^  std::string m_last_profile;$/;"	m	class:DUtils::Profiler	access:protected
+DUtils::Profiler::m_profiles	Profiler.h	/^  std::map<std::string, std::vector<double> > m_profiles;$/;"	m	class:DUtils::Profiler	access:protected
+DUtils::Profiler::m_start_points	Profiler.h	/^  std::map<std::string, Timestamp> m_start_points;$/;"	m	class:DUtils::Profiler	access:protected
+DUtils::Profiler::profile	Profiler.h	/^  void profile(const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó)
+DUtils::Profiler::reset	Profiler.h	/^  void reset(const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó)
+DUtils::Profiler::resetAll	Profiler.h	/^  inline void resetAll()$/;"	f	class:DUtils::Profiler	access:public	signature:()
+DUtils::Profiler::stop	Profiler.h	/^  inline void stop(const std::string &name = "")$/;"	f	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó)
+DUtils::Profiler::stopAndScale	Profiler.h	/^  void stopAndScale(double scale, const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(double scale, const std::string &name = Ó)
+DUtils::Profiler::~Profiler	Profiler.h	/^  virtual ~Profiler(){}$/;"	f	class:DUtils::Profiler	access:public	signature:()
+DUtils::READ	FileModes.h	/^	READ = 1,$/;"	e	enum:DUtils::FILE_MODES
+DUtils::Random	Random.h	/^class Random$/;"	c	namespace:DUtils
+DUtils::Random::RandomGaussianValue	Random.h	/^	static T RandomGaussianValue(T mean, T sigma)$/;"	f	class:DUtils::Random	access:public	signature:(T mean, T sigma)
+DUtils::Random::RandomInt	Random.cpp	/^int DUtils::Random::RandomInt(int min, int max){$/;"	f	class:DUtils::Random	signature:(int min, int max)
+DUtils::Random::RandomInt	Random.h	/^	static int RandomInt(int min, int max);$/;"	p	class:DUtils::Random	access:public	signature:(int min, int max)
+DUtils::Random::RandomValue	Random.h	/^	static T RandomValue(){$/;"	f	class:DUtils::Random	access:public	signature:()
+DUtils::Random::RandomValue	Random.h	/^	static T RandomValue(T min, T max){$/;"	f	class:DUtils::Random	access:public	signature:(T min, T max)
+DUtils::Random::SeedRand	Random.cpp	/^void DUtils::Random::SeedRand(){$/;"	f	class:DUtils::Random	signature:()
+DUtils::Random::SeedRand	Random.cpp	/^void DUtils::Random::SeedRand(int seed)$/;"	f	class:DUtils::Random	signature:(int seed)
+DUtils::Random::SeedRand	Random.h	/^	static void SeedRand();$/;"	p	class:DUtils::Random	access:public	signature:()
+DUtils::Random::SeedRand	Random.h	/^	static void SeedRand(int seed);$/;"	p	class:DUtils::Random	access:public	signature:(int seed)
+DUtils::Random::SeedRandOnce	Random.cpp	/^void DUtils::Random::SeedRandOnce()$/;"	f	class:DUtils::Random	signature:()
+DUtils::Random::SeedRandOnce	Random.cpp	/^void DUtils::Random::SeedRandOnce(int seed)$/;"	f	class:DUtils::Random	signature:(int seed)
+DUtils::Random::SeedRandOnce	Random.h	/^	static void SeedRandOnce();$/;"	p	class:DUtils::Random	access:public	signature:()
+DUtils::Random::SeedRandOnce	Random.h	/^	static void SeedRandOnce(int seed);$/;"	p	class:DUtils::Random	access:public	signature:(int seed)
+DUtils::Random::UnrepeatedRandomizer	Random.h	/^class Random::UnrepeatedRandomizer$/;"	c	class:DUtils::Random
+DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer	Random.cpp	/^DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:(const DUtils::Random::UnrepeatedRandomizer& rnd)
+DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer	Random.cpp	/^DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer(int min, int max)$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:(int min, int max)
+DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer	Random.h	/^  UnrepeatedRandomizer(const UnrepeatedRandomizer& rnd);$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:(const UnrepeatedRandomizer& rnd)
+DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer	Random.h	/^  UnrepeatedRandomizer(int min, int max);$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:(int min, int max)
+DUtils::Random::UnrepeatedRandomizer::createValues	Random.cpp	/^void DUtils::Random::UnrepeatedRandomizer::createValues()$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:()
+DUtils::Random::UnrepeatedRandomizer::createValues	Random.h	/^  void createValues();$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:protected	signature:()
+DUtils::Random::UnrepeatedRandomizer::empty	Random.h	/^  inline bool empty() const { return m_values.empty(); }$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:() const
+DUtils::Random::UnrepeatedRandomizer::get	Random.cpp	/^int DUtils::Random::UnrepeatedRandomizer::get()$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:()
+DUtils::Random::UnrepeatedRandomizer::get	Random.h	/^  int get();$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:()
+DUtils::Random::UnrepeatedRandomizer::left	Random.h	/^  inline unsigned int left() const { return m_values.size(); }$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:() const
+DUtils::Random::UnrepeatedRandomizer::m_max	Random.h	/^  int m_max;$/;"	m	class:DUtils::Random::UnrepeatedRandomizer	access:protected
+DUtils::Random::UnrepeatedRandomizer::m_min	Random.h	/^  int m_min;$/;"	m	class:DUtils::Random::UnrepeatedRandomizer	access:protected
+DUtils::Random::UnrepeatedRandomizer::m_values	Random.h	/^  std::vector<int> m_values;$/;"	m	class:DUtils::Random::UnrepeatedRandomizer	access:protected
+DUtils::Random::UnrepeatedRandomizer::operator =	Random.cpp	/^DUtils::Random::UnrepeatedRandomizer::operator=$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:(const DUtils::Random::UnrepeatedRandomizer& rnd)
+DUtils::Random::UnrepeatedRandomizer::operator =	Random.h	/^  UnrepeatedRandomizer& operator=(const UnrepeatedRandomizer& rnd);$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:(const UnrepeatedRandomizer& rnd)
+DUtils::Random::UnrepeatedRandomizer::reset	Random.cpp	/^void DUtils::Random::UnrepeatedRandomizer::reset()$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:()
+DUtils::Random::UnrepeatedRandomizer::reset	Random.h	/^  void reset();$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:()
+DUtils::Random::UnrepeatedRandomizer::~UnrepeatedRandomizer	Random.h	/^  ~UnrepeatedRandomizer(){}$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:()
+DUtils::Random::m_already_seeded	Random.h	/^  static bool m_already_seeded;$/;"	m	class:DUtils::Random	access:private
+DUtils::STL	STL.h	/^class STL {$/;"	c	namespace:DUtils
+DUtils::STL::_removeIndices	STL.h	/^  static void _removeIndices(std::vector<T> &data, $/;"	p	class:DUtils::STL	access:private	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order)
+DUtils::STL::_removeIndices	STL.h	/^void STL::_removeIndices(std::vector<T> &data, $/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order)
+DUtils::STL::print	STL.h	/^  static void print(const std::vector<T> &v, const std::string &name,$/;"	p	class:DUtils::STL	access:public	signature:(const std::vector<T> &v, const std::string &name, std::ostream &f = std::cout)
+DUtils::STL::print	STL.h	/^void STL::print(const std::vector<T> &v, const std::string &name,$/;"	f	class:DUtils::STL	signature:(const std::vector<T> &v, const std::string &name, std::ostream &f)
+DUtils::STL::removeIndices	STL.h	/^  static void removeIndices(std::vector<T> &data, $/;"	p	class:DUtils::STL	access:public	signature:(std::vector<T> &data, const std::vector<unsigned int> &indices, bool preserve_order = true)
+DUtils::STL::removeIndices	STL.h	/^  static void removeIndices(std::vector<T> &data, $/;"	p	class:DUtils::STL	access:public	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order = true)
+DUtils::STL::removeIndices	STL.h	/^  static void removeIndices(std::vector<T> &data,$/;"	p	class:DUtils::STL	access:public	signature:(std::vector<T> &data, const std::vector<unsigned char> &status, bool preserve_order = true)
+DUtils::STL::removeIndices	STL.h	/^void STL::removeIndices(std::vector<T> &data, $/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, const std::vector<unsigned int> &indices, bool preserve_order)
+DUtils::STL::removeIndices	STL.h	/^void STL::removeIndices(std::vector<T> &data, $/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order)
+DUtils::STL::removeIndices	STL.h	/^void STL::removeIndices(std::vector<T> &data,$/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, const std::vector<unsigned char> &status, bool preserve_order)
+DUtils::StringFunctions	StringFunctions.h	/^class StringFunctions$/;"	c	namespace:DUtils
+DUtils::StringFunctions::fromString	StringFunctions.h	/^  static T fromString(const std::string &s);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(const std::string &s)
+DUtils::StringFunctions::fromString	StringFunctions.h	/^T StringFunctions::fromString(const std::string &s)$/;"	f	class:DUtils::StringFunctions	signature:(const std::string &s)
+DUtils::StringFunctions::removeFrom	StringFunctions.h	/^  static void removeFrom(std::string &s, const char c);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s, const char c)
+DUtils::StringFunctions::replace	StringFunctions.h	/^  static void replace(std::string &s, $/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s, const std::vector<std::pair<std::string, std::string> > &map)
+DUtils::StringFunctions::replace	StringFunctions.h	/^  static void replace(std::string &s, const std::string &search,$/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s, const std::string &search, const std::string &rep)
+DUtils::StringFunctions::split	StringFunctions.h	/^  static void split(const std::string &s, std::vector<std::string> &tokens,$/;"	p	class:DUtils::StringFunctions	access:public	signature:(const std::string &s, std::vector<std::string> &tokens, const std::string &delims = Ó)
+DUtils::StringFunctions::toString	StringFunctions.h	/^  static std::string toString(const T& data);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(const T& data)
+DUtils::StringFunctions::toString	StringFunctions.h	/^std::string StringFunctions::toString(const T& data)$/;"	f	class:DUtils::StringFunctions	signature:(const T& data)
+DUtils::StringFunctions::trim	StringFunctions.h	/^  static void trim(std::string &s);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s)
+DUtils::TimeManager	TimeManager.h	/^class TimeManager$/;"	c	namespace:DUtils
+DUtils::TimeManager::TimeManager	TimeManager.h	/^  TimeManager();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+DUtils::TimeManager::add	TimeManager.h	/^  void add(const Timestamp &t);$/;"	p	class:DUtils::TimeManager	access:public	signature:(const Timestamp &t)
+DUtils::TimeManager::begin	TimeManager.h	/^  iterator begin(float frequency = -1);$/;"	p	class:DUtils::TimeManager	access:public	signature:(float frequency = -1)
+DUtils::TimeManager::beginAfter	TimeManager.h	/^  iterator beginAfter(double seconds, float frequency = -1);$/;"	p	class:DUtils::TimeManager	access:public	signature:(double seconds, float frequency = -1)
+DUtils::TimeManager::beginAt	TimeManager.h	/^  iterator beginAt(const Timestamp &t, float frequency = -1);$/;"	p	class:DUtils::TimeManager	access:public	signature:(const Timestamp &t, float frequency = -1)
+DUtils::TimeManager::clear	TimeManager.h	/^  void clear();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+DUtils::TimeManager::getFirstTimestamp	TimeManager.h	/^  Timestamp getFirstTimestamp();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+DUtils::TimeManager::getLastTimestamp	TimeManager.h	/^  Timestamp getLastTimestamp();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+DUtils::TimeManager::iterator	TimeManager.h	/^  class iterator$/;"	c	class:DUtils::TimeManager	access:public
+DUtils::TimeManager::iterator::good	TimeManager.h	/^    inline bool good() const { return index >= 0; }$/;"	f	class:DUtils::TimeManager::iterator	access:public	signature:() const
+DUtils::TimeManager::iterator::index	TimeManager.h	/^    int index; $/;"	m	class:DUtils::TimeManager::iterator	access:public
+DUtils::TimeManager::iterator::m_frequency	TimeManager.h	/^    float m_frequency; \/\/ can be -1 to mean all the timestamps$/;"	m	class:DUtils::TimeManager::iterator	access:protected
+DUtils::TimeManager::iterator::m_tm	TimeManager.h	/^    const TimeManager *m_tm;$/;"	m	class:DUtils::TimeManager::iterator	access:protected
+DUtils::TimeManager::iterator::operator ++	TimeManager.h	/^    void operator++();$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:()
+DUtils::TimeManager::iterator::operator +=	TimeManager.h	/^    void operator+=(int n);$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:(int n)
+DUtils::TimeManager::iterator::operator --	TimeManager.h	/^    void operator--();$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:()
+DUtils::TimeManager::iterator::set	TimeManager.h	/^    void set(const Timestamp &desired_time, bool moving_backwards = false);$/;"	p	class:DUtils::TimeManager::iterator	access:protected	signature:(const Timestamp &desired_time, bool moving_backwards = false)
+DUtils::TimeManager::iterator::setFrequency	TimeManager.h	/^    inline void setFrequency(float frequency)$/;"	f	class:DUtils::TimeManager::iterator	access:public	signature:(float frequency)
+DUtils::TimeManager::iterator::step	TimeManager.h	/^    void step(double secs);$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:(double secs)
+DUtils::TimeManager::iterator::timestamp	TimeManager.h	/^    Timestamp timestamp;$/;"	m	class:DUtils::TimeManager::iterator	access:public
+DUtils::TimeManager::le	TimeManager.h	/^  static bool le(const tEntry &a, const tEntry &b);$/;"	p	class:DUtils::TimeManager	access:protected	signature:(const tEntry &a, const tEntry &b)
+DUtils::TimeManager::m_entries	TimeManager.h	/^  std::vector<tEntry> m_entries;$/;"	m	class:DUtils::TimeManager	access:protected
+DUtils::TimeManager::m_is_sorted	TimeManager.h	/^  bool m_is_sorted;$/;"	m	class:DUtils::TimeManager	access:protected
+DUtils::TimeManager::operator []	TimeManager.h	/^  Timestamp operator[](unsigned int idx);$/;"	p	class:DUtils::TimeManager	access:public	signature:(unsigned int idx)
+DUtils::TimeManager::remove	TimeManager.h	/^  void remove(const Timestamp &t, bool decrease_indexes);$/;"	p	class:DUtils::TimeManager	access:public	signature:(const Timestamp &t, bool decrease_indexes)
+DUtils::TimeManager::sort	TimeManager.h	/^  void sort();$/;"	p	class:DUtils::TimeManager	access:protected	signature:()
+DUtils::TimeManager::tEntry	TimeManager.h	/^  struct tEntry$/;"	s	class:DUtils::TimeManager	access:protected
+DUtils::TimeManager::tEntry::index	TimeManager.h	/^    unsigned int index; \/\/ index got when the timestamp was added$/;"	m	struct:DUtils::TimeManager::tEntry	access:public
+DUtils::TimeManager::tEntry::tEntry	TimeManager.h	/^    tEntry(){}$/;"	f	struct:DUtils::TimeManager::tEntry	access:public	signature:()
+DUtils::TimeManager::tEntry::tEntry	TimeManager.h	/^    tEntry(const Timestamp &t): timestamp(t), index(-1){}$/;"	f	struct:DUtils::TimeManager::tEntry	access:public	signature:(const Timestamp &t)
+DUtils::TimeManager::tEntry::tEntry	TimeManager.h	/^    tEntry(const Timestamp &t, unsigned int i): timestamp(t), index(i){}$/;"	f	struct:DUtils::TimeManager::tEntry	access:public	signature:(const Timestamp &t, unsigned int i)
+DUtils::TimeManager::tEntry::timestamp	TimeManager.h	/^    Timestamp timestamp;$/;"	m	struct:DUtils::TimeManager::tEntry	access:public
+DUtils::TimeManager::~TimeManager	TimeManager.h	/^  ~TimeManager();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+DUtils::Timestamp	Timestamp.h	/^class Timestamp$/;"	c	namespace:DUtils
+DUtils::Timestamp::CURRENT_TIME	Timestamp.h	/^    CURRENT_TIME = 0x1$/;"	e	enum:DUtils::Timestamp::tOptions
+DUtils::Timestamp::Format	Timestamp.h	/^	static string Format(double s);$/;"	p	class:DUtils::Timestamp	access:public	signature:(double s)
+DUtils::Timestamp::Format	Timestamp.h	/^  string Format(bool machine_friendly = false) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(bool machine_friendly = false) const
+DUtils::Timestamp::NONE	Timestamp.h	/^    NONE = 0,$/;"	e	enum:DUtils::Timestamp::tOptions
+DUtils::Timestamp::Timestamp	Timestamp.h	/^	Timestamp(Timestamp::tOptions option = NONE);$/;"	p	class:DUtils::Timestamp	access:public	signature:(Timestamp::tOptions option = NONE)
+DUtils::Timestamp::getFloatTime	Timestamp.h	/^	double getFloatTime() const;$/;"	p	class:DUtils::Timestamp	access:public	signature:() const
+DUtils::Timestamp::getStringTime	Timestamp.h	/^	string getStringTime() const;$/;"	p	class:DUtils::Timestamp	access:public	signature:() const
+DUtils::Timestamp::getTime	Timestamp.h	/^	inline void getTime(unsigned long &secs, unsigned long &usecs) const$/;"	f	class:DUtils::Timestamp	access:public	signature:(unsigned long &secs, unsigned long &usecs) const
+DUtils::Timestamp::m_secs	Timestamp.h	/^	unsigned long m_secs;	\/\/ seconds$/;"	m	class:DUtils::Timestamp	access:protected
+DUtils::Timestamp::m_usecs	Timestamp.h	/^	unsigned long m_usecs;	\/\/ microseconds$/;"	m	class:DUtils::Timestamp	access:protected
+DUtils::Timestamp::minus	Timestamp.h	/^  Timestamp minus(unsigned long s, unsigned long us) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(unsigned long s, unsigned long us) const
+DUtils::Timestamp::operator +	Timestamp.h	/^	Timestamp operator+ (double s) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(double s) const
+DUtils::Timestamp::operator -	Timestamp.h	/^	Timestamp operator- (double s) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(double s) const
+DUtils::Timestamp::operator -	Timestamp.h	/^	double operator- (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+DUtils::Timestamp::operator <	Timestamp.h	/^	bool operator< (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+DUtils::Timestamp::operator <=	Timestamp.h	/^	bool operator<= (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+DUtils::Timestamp::operator ==	Timestamp.h	/^	bool operator== (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+DUtils::Timestamp::operator >	Timestamp.h	/^	bool operator> (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+DUtils::Timestamp::operator >=	Timestamp.h	/^	bool operator>= (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+DUtils::Timestamp::plus	Timestamp.h	/^	Timestamp plus(unsigned long s, unsigned long us) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(unsigned long s, unsigned long us) const
+DUtils::Timestamp::setTime	Timestamp.h	/^	inline void setTime(unsigned long secs, unsigned long usecs){$/;"	f	class:DUtils::Timestamp	access:public	signature:(unsigned long secs, unsigned long usecs)
+DUtils::Timestamp::setTime	Timestamp.h	/^	void setTime(const string &stime);$/;"	p	class:DUtils::Timestamp	access:public	signature:(const string &stime)
+DUtils::Timestamp::setToCurrentTime	Timestamp.h	/^	void setToCurrentTime();$/;"	p	class:DUtils::Timestamp	access:public	signature:()
+DUtils::Timestamp::tOptions	Timestamp.h	/^  enum tOptions$/;"	g	class:DUtils::Timestamp	access:public
+DUtils::Timestamp::~Timestamp	Timestamp.h	/^	virtual ~Timestamp(void);$/;"	p	class:DUtils::Timestamp	access:public	signature:(void)
+DUtils::WRITE	FileModes.h	/^	WRITE = 2,$/;"	e	enum:DUtils::FILE_MODES
+DUtils::WRITE_APPEND	FileModes.h	/^	WRITE_APPEND = 6 \/\/ == WRITE & APPEND$/;"	e	enum:DUtils::FILE_MODES
+Dir	FileFunctions.cpp	/^std::vector<std::string> FileFunctions::Dir(const char *path, const char *right,$/;"	f	class:FileFunctions	signature:(const char *path, const char *right, bool sorted)
+Dir	FileFunctions.h	/^	static std::vector<std::string> Dir(const char *path, const char *right,$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path, const char *right, bool sorted = false)
+DirExists	FileFunctions.cpp	/^bool FileFunctions::DirExists(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+DirExists	FileFunctions.h	/^	static bool DirExists(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+DiscardBytes	BinaryFile.cpp	/^void BinaryFile::DiscardBytes(int count)$/;"	f	class:BinaryFile	signature:(int count)
+DiscardBytes	BinaryFile.h	/^	void DiscardBytes(int count);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(int count)
+DiscardLine	LineFile.cpp	/^void LineFile::DiscardLine()$/;"	f	class:LineFile	signature:()
+DiscardLine	LineFile.h	/^	void DiscardLine();$/;"	p	class:DUtils::LineFile	access:public	signature:()
+DiscardNextByte	BinaryFile.h	/^	inline void DiscardNextByte(){$/;"	f	class:DUtils::BinaryFile	access:public	signature:()
+Dump	LineFile.cpp	/^void LineFile::Dump(const vector<string> &v)$/;"	f	class:LineFile	signature:(const vector<string> &v)
+Dump	LineFile.h	/^	void Dump(const vector<string> &v);$/;"	p	class:DUtils::LineFile	access:public	signature:(const vector<string> &v)
+Eof	BinaryFile.cpp	/^inline bool BinaryFile::Eof()$/;"	f	class:BinaryFile	signature:()
+Eof	BinaryFile.h	/^	inline bool Eof();$/;"	p	class:DUtils::BinaryFile	access:public	signature:()
+Eof	LineFile.cpp	/^bool LineFile::Eof()$/;"	f	class:LineFile	signature:()
+Eof	LineFile.h	/^	bool Eof();$/;"	p	class:DUtils::LineFile	access:public	signature:()
+FILE_MODES	FileModes.h	/^enum FILE_MODES {$/;"	g	namespace:DUtils
+FileExists	FileFunctions.cpp	/^bool FileFunctions::FileExists(const char *filename)$/;"	f	class:FileFunctions	signature:(const char *filename)
+FileExists	FileFunctions.h	/^	static bool FileExists(const char *filename);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *filename)
+FileFunctions	FileFunctions.h	/^class FileFunctions$/;"	c	namespace:DUtils
+FileFunctions::Dir	FileFunctions.cpp	/^std::vector<std::string> FileFunctions::Dir(const char *path, const char *right,$/;"	f	class:FileFunctions	signature:(const char *path, const char *right, bool sorted)
+FileFunctions::DirExists	FileFunctions.cpp	/^bool FileFunctions::DirExists(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+FileFunctions::FileExists	FileFunctions.cpp	/^bool FileFunctions::FileExists(const char *filename)$/;"	f	class:FileFunctions	signature:(const char *filename)
+FileFunctions::FileName	FileFunctions.cpp	/^std::string FileFunctions::FileName(const std::string filepath)$/;"	f	class:FileFunctions	signature:(const std::string filepath)
+FileFunctions::FileParts	FileFunctions.cpp	/^void FileFunctions::FileParts(const std::string filepath, std::string &path,$/;"	f	class:FileFunctions	signature:(const std::string filepath, std::string &path, std::string &filename, std::string &ext)
+FileFunctions::MkDir	FileFunctions.cpp	/^void FileFunctions::MkDir(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+FileFunctions::RmDir	FileFunctions.cpp	/^void FileFunctions::RmDir(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+FileFunctions::RmFile	FileFunctions.cpp	/^void FileFunctions::RmFile(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+FileName	FileFunctions.cpp	/^std::string FileFunctions::FileName(const std::string filepath)$/;"	f	class:FileFunctions	signature:(const std::string filepath)
+FileName	FileFunctions.h	/^	static std::string FileName(const std::string filepath);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const std::string filepath)
+FileParts	FileFunctions.cpp	/^void FileFunctions::FileParts(const std::string filepath, std::string &path,$/;"	f	class:FileFunctions	signature:(const std::string filepath, std::string &path, std::string &filename, std::string &ext)
+FileParts	FileFunctions.h	/^	static void FileParts(const std::string filepath, std::string &path, $/;"	p	class:DUtils::FileFunctions	access:public	signature:(const std::string filepath, std::string &path, std::string &filename, std::string &ext)
+Format	Timestamp.cpp	/^string Timestamp::Format(bool machine_friendly) const $/;"	f	class:Timestamp	signature:(bool machine_friendly) const
+Format	Timestamp.cpp	/^string Timestamp::Format(double s) {$/;"	f	class:Timestamp	signature:(double s)
+Format	Timestamp.h	/^	static string Format(double s);$/;"	p	class:DUtils::Timestamp	access:public	signature:(double s)
+Format	Timestamp.h	/^  string Format(bool machine_friendly = false) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(bool machine_friendly = false) const
+GetOpenMode	LineFile.h	/^	inline FILE_MODES GetOpenMode() const { return m_mode; }$/;"	f	class:DUtils::LineFile	access:public	signature:() const
+Init	BinaryFile.cpp	/^void BinaryFile::Init(const char *filename, const FILE_MODES mode)$/;"	f	class:BinaryFile	signature:(const char *filename, const FILE_MODES mode)
+Init	BinaryFile.h	/^	void Init(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(const char *filename, const FILE_MODES mode)
+Init	ConfigFile.cpp	/^void ConfigFile::Init(const char *filename, const FILE_MODES mode)$/;"	f	class:ConfigFile	signature:(const char *filename, const FILE_MODES mode)
+Init	ConfigFile.h	/^  void Init(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::ConfigFile	access:protected	signature:(const char *filename, const FILE_MODES mode)
+Init	LineFile.cpp	/^void LineFile::Init(const char *filename, const FILE_MODES mode)$/;"	f	class:LineFile	signature:(const char *filename, const FILE_MODES mode)
+Init	LineFile.h	/^	void Init(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::LineFile	access:protected	signature:(const char *filename, const FILE_MODES mode)
+LineFile	LineFile.cpp	/^LineFile::LineFile(const char *filename, const FILE_MODES mode)$/;"	f	class:LineFile	signature:(const char *filename, const FILE_MODES mode)
+LineFile	LineFile.cpp	/^LineFile::LineFile(const string &filename, const FILE_MODES mode)$/;"	f	class:LineFile	signature:(const string &filename, const FILE_MODES mode)
+LineFile	LineFile.cpp	/^LineFile::LineFile(void): m_next_line("")$/;"	f	class:LineFile	signature:(void)
+LineFile	LineFile.h	/^	LineFile(const char *filename, const FILE_MODES mode);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename, const FILE_MODES mode)
+LineFile	LineFile.h	/^	LineFile(const string &filename, const FILE_MODES mode);$/;"	p	class:DUtils::LineFile	access:public	signature:(const string &filename, const FILE_MODES mode)
+LineFile	LineFile.h	/^	LineFile(void);$/;"	p	class:DUtils::LineFile	access:public	signature:(void)
+LineFile	LineFile.h	/^class LineFile$/;"	c	namespace:DUtils
+LineFile::Close	LineFile.cpp	/^void LineFile::Close()$/;"	f	class:LineFile	signature:()
+LineFile::DiscardLine	LineFile.cpp	/^void LineFile::DiscardLine()$/;"	f	class:LineFile	signature:()
+LineFile::Dump	LineFile.cpp	/^void LineFile::Dump(const vector<string> &v)$/;"	f	class:LineFile	signature:(const vector<string> &v)
+LineFile::Eof	LineFile.cpp	/^bool LineFile::Eof()$/;"	f	class:LineFile	signature:()
+LineFile::Init	LineFile.cpp	/^void LineFile::Init(const char *filename, const FILE_MODES mode)$/;"	f	class:LineFile	signature:(const char *filename, const FILE_MODES mode)
+LineFile::LineFile	LineFile.cpp	/^LineFile::LineFile(const char *filename, const FILE_MODES mode)$/;"	f	class:LineFile	signature:(const char *filename, const FILE_MODES mode)
+LineFile::LineFile	LineFile.cpp	/^LineFile::LineFile(const string &filename, const FILE_MODES mode)$/;"	f	class:LineFile	signature:(const string &filename, const FILE_MODES mode)
+LineFile::LineFile	LineFile.cpp	/^LineFile::LineFile(void): m_next_line("")$/;"	f	class:LineFile	signature:(void)
+LineFile::OpenForAppending	LineFile.cpp	/^void LineFile::OpenForAppending(const char *filename)$/;"	f	class:LineFile	signature:(const char *filename)
+LineFile::OpenForReading	LineFile.cpp	/^void LineFile::OpenForReading(const char *filename)$/;"	f	class:LineFile	signature:(const char *filename)
+LineFile::OpenForWriting	LineFile.cpp	/^void LineFile::OpenForWriting(const char *filename)$/;"	f	class:LineFile	signature:(const char *filename)
+LineFile::operator <<	LineFile.cpp	/^LineFile& LineFile::operator<< (const char *s)$/;"	f	class:LineFile	signature:(const char *s)
+LineFile::operator >>	LineFile.cpp	/^LineFile& LineFile::operator>> (string &s)$/;"	f	class:LineFile	signature:(string &s)
+LineFile::~LineFile	LineFile.cpp	/^LineFile::~LineFile(void)$/;"	f	class:LineFile	signature:(void)
+Math	Math.hpp	/^class Math {$/;"	c	namespace:DUtils
+Max	Math.hpp	/^  static T Max(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+Mean	Math.hpp	/^  static double Mean(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+Median	Math.hpp	/^  static double Median(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+Min	Math.hpp	/^  static T Min(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+MinMax	Math.hpp	/^  static T MinMax(const std::vector<T> &v, bool minormax, bool2type<false>);$/;"	p	class:DUtils::Math	access:protected	signature:(const std::vector<T> &v, bool minormax, bool2type<false>)
+MinMax	Math.hpp	/^  static T MinMax(const std::vector<T> &v, bool minormax, bool2type<true>);$/;"	p	class:DUtils::Math	access:protected	signature:(const std::vector<T> &v, bool minormax, bool2type<true>)
+MinMax	Math.hpp	/^T Math::MinMax(const std::vector<T> &v, bool minormax, bool2type<false>)$/;"	f	class:DUtils::Math	signature:(const std::vector<T> &v, bool minormax, bool2type<false>)
+MinMax	Math.hpp	/^T Math::MinMax(const std::vector<T> &v, bool minormax, bool2type<true>)$/;"	f	class:DUtils::Math	signature:(const std::vector<T> &v, bool minormax, bool2type<true>)
+MkDir	FileFunctions.cpp	/^void FileFunctions::MkDir(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+MkDir	FileFunctions.h	/^	static void MkDir(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+NONE	Timestamp.h	/^    NONE = 0,$/;"	e	enum:DUtils::Timestamp::tOptions
+OpenForAppending	BinaryFile.cpp	/^void BinaryFile::OpenForAppending(const char *filename)$/;"	f	class:BinaryFile	signature:(const char *filename)
+OpenForAppending	BinaryFile.h	/^	inline void OpenForAppending(const string &filename)$/;"	f	class:DUtils::BinaryFile	access:public	signature:(const string &filename)
+OpenForAppending	BinaryFile.h	/^	void OpenForAppending(const char *filename);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename)
+OpenForAppending	ConfigFile.cpp	/^void ConfigFile::OpenForAppending(const char *filename)$/;"	f	class:ConfigFile	signature:(const char *filename)
+OpenForAppending	ConfigFile.h	/^  inline void OpenForAppending(const std::string &filename)$/;"	f	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename)
+OpenForAppending	ConfigFile.h	/^  void OpenForAppending(const char *filename);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename)
+OpenForAppending	LineFile.cpp	/^void LineFile::OpenForAppending(const char *filename)$/;"	f	class:LineFile	signature:(const char *filename)
+OpenForAppending	LineFile.h	/^	inline void OpenForAppending(const string &filename)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &filename)
+OpenForAppending	LineFile.h	/^	void OpenForAppending(const char *filename);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename)
+OpenForReading	BinaryFile.cpp	/^void BinaryFile::OpenForReading(const char *filename)$/;"	f	class:BinaryFile	signature:(const char *filename)
+OpenForReading	BinaryFile.h	/^	inline void OpenForReading(const string &filename)$/;"	f	class:DUtils::BinaryFile	access:public	signature:(const string &filename)
+OpenForReading	BinaryFile.h	/^	void OpenForReading(const char *filename);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename)
+OpenForReading	ConfigFile.cpp	/^void ConfigFile::OpenForReading(const char *filename)$/;"	f	class:ConfigFile	signature:(const char *filename)
+OpenForReading	ConfigFile.h	/^  inline void OpenForReading(const std::string &filename)$/;"	f	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename)
+OpenForReading	ConfigFile.h	/^  void OpenForReading(const char *filename);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename)
+OpenForReading	LineFile.cpp	/^void LineFile::OpenForReading(const char *filename)$/;"	f	class:LineFile	signature:(const char *filename)
+OpenForReading	LineFile.h	/^	inline void OpenForReading(const string &filename)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &filename)
+OpenForReading	LineFile.h	/^	void OpenForReading(const char *filename);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename)
+OpenForWriting	BinaryFile.cpp	/^void BinaryFile::OpenForWriting(const char *filename)$/;"	f	class:BinaryFile	signature:(const char *filename)
+OpenForWriting	BinaryFile.h	/^	inline void OpenForWriting(const string &filename)$/;"	f	class:DUtils::BinaryFile	access:public	signature:(const string &filename)
+OpenForWriting	BinaryFile.h	/^	void OpenForWriting(const char *filename);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(const char *filename)
+OpenForWriting	ConfigFile.cpp	/^void ConfigFile::OpenForWriting(const char *filename)$/;"	f	class:ConfigFile	signature:(const char *filename)
+OpenForWriting	ConfigFile.h	/^  inline void OpenForWriting(const std::string &filename)$/;"	f	class:DUtils::ConfigFile	access:public	signature:(const std::string &filename)
+OpenForWriting	ConfigFile.h	/^  void OpenForWriting(const char *filename);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *filename)
+OpenForWriting	LineFile.cpp	/^void LineFile::OpenForWriting(const char *filename)$/;"	f	class:LineFile	signature:(const char *filename)
+OpenForWriting	LineFile.h	/^	inline void OpenForWriting(const string &filename)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &filename)
+OpenForWriting	LineFile.h	/^	void OpenForWriting(const char *filename);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *filename)
+PROFILE	Profiler.h	56;"	d
+PROFILE_CODE	Profiler.h	65;"	d
+PROFILE_S	Profiler.h	42;"	d
+Profiler	Profiler.h	/^  Profiler(): m_last_profile(""){}$/;"	f	class:DUtils::Profiler	access:public	signature:()
+Profiler	Profiler.h	/^class Profiler$/;"	c	namespace:DUtils
+Profiler::add	Profiler.cpp	/^void Profiler::add(double v, const std::string &name)$/;"	f	class:Profiler	signature:(double v, const std::string &name)
+Profiler::back	Profiler.cpp	/^double Profiler::back(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+Profiler::getMaxTime	Profiler.cpp	/^double Profiler::getMaxTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+Profiler::getMeanTime	Profiler.cpp	/^double Profiler::getMeanTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+Profiler::getMinTime	Profiler.cpp	/^double Profiler::getMinTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+Profiler::getStatistics	Profiler.cpp	/^void Profiler::getStatistics(double &mean, double &stdev, double &min, $/;"	f	class:Profiler	signature:(double &mean, double &stdev, double &min, double &max, const std::string &name) const
+Profiler::getStdevTime	Profiler.cpp	/^double Profiler::getStdevTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+Profiler::getTime	Profiler.cpp	/^Profiler::getTime(std::vector<double> &time, const std::string &name) const$/;"	f	class:Profiler	signature:(std::vector<double> &time, const std::string &name) const
+Profiler::profile	Profiler.cpp	/^void Profiler::profile(const std::string &name)$/;"	f	class:Profiler	signature:(const std::string &name)
+Profiler::reset	Profiler.cpp	/^void Profiler::reset(const std::string &name)$/;"	f	class:Profiler	signature:(const std::string &name)
+Profiler::stopAndScale	Profiler.cpp	/^void Profiler::stopAndScale(double scale, const std::string &name)$/;"	f	class:Profiler	signature:(double scale, const std::string &name)
+READ	FileModes.h	/^	READ = 1,$/;"	e	enum:DUtils::FILE_MODES
+Random	Random.h	/^class Random$/;"	c	namespace:DUtils
+RandomGaussianValue	Random.h	/^	static T RandomGaussianValue(T mean, T sigma)$/;"	f	class:DUtils::Random	access:public	signature:(T mean, T sigma)
+RandomInt	Random.cpp	/^int DUtils::Random::RandomInt(int min, int max){$/;"	f	class:DUtils::Random	signature:(int min, int max)
+RandomInt	Random.h	/^	static int RandomInt(int min, int max);$/;"	p	class:DUtils::Random	access:public	signature:(int min, int max)
+RandomValue	Random.h	/^	static T RandomValue(){$/;"	f	class:DUtils::Random	access:public	signature:()
+RandomValue	Random.h	/^	static T RandomValue(T min, T max){$/;"	f	class:DUtils::Random	access:public	signature:(T min, T max)
+RmDir	FileFunctions.cpp	/^void FileFunctions::RmDir(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+RmDir	FileFunctions.h	/^	static void RmDir(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+RmFile	FileFunctions.cpp	/^void FileFunctions::RmFile(const char *path)$/;"	f	class:FileFunctions	signature:(const char *path)
+RmFile	FileFunctions.h	/^	static void RmFile(const char *path);$/;"	p	class:DUtils::FileFunctions	access:public	signature:(const char *path)
+STL	STL.h	/^class STL {$/;"	c	namespace:DUtils
+STRNCPY	dirent_win.h	91;"	d
+STRNCPY	dirent_win.h	93;"	d
+SeedRand	Random.cpp	/^void DUtils::Random::SeedRand(){$/;"	f	class:DUtils::Random	signature:()
+SeedRand	Random.cpp	/^void DUtils::Random::SeedRand(int seed)$/;"	f	class:DUtils::Random	signature:(int seed)
+SeedRand	Random.h	/^	static void SeedRand();$/;"	p	class:DUtils::Random	access:public	signature:()
+SeedRand	Random.h	/^	static void SeedRand(int seed);$/;"	p	class:DUtils::Random	access:public	signature:(int seed)
+SeedRandOnce	Random.cpp	/^void DUtils::Random::SeedRandOnce()$/;"	f	class:DUtils::Random	signature:()
+SeedRandOnce	Random.cpp	/^void DUtils::Random::SeedRandOnce(int seed)$/;"	f	class:DUtils::Random	signature:(int seed)
+SeedRandOnce	Random.h	/^	static void SeedRandOnce();$/;"	p	class:DUtils::Random	access:public	signature:()
+SeedRandOnce	Random.h	/^	static void SeedRandOnce(int seed);$/;"	p	class:DUtils::Random	access:public	signature:(int seed)
+Stdev	Math.hpp	/^  static double Stdev(const std::vector<T> &v)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v)
+Stdev	Math.hpp	/^  static double Stdev(const std::vector<T> &v, double mean)$/;"	f	class:DUtils::Math	access:public	signature:(const std::vector<T> &v, double mean)
+StringFunctions	StringFunctions.h	/^class StringFunctions$/;"	c	namespace:DUtils
+StringFunctions::removeFrom	StringFunctions.cpp	/^void StringFunctions::removeFrom(std::string &s, const char c)$/;"	f	class:StringFunctions	signature:(std::string &s, const char c)
+StringFunctions::replace	StringFunctions.cpp	/^void StringFunctions::replace(std::string &s, $/;"	f	class:StringFunctions	signature:(std::string &s, const std::vector<std::pair<std::string, std::string> > &map)
+StringFunctions::replace	StringFunctions.cpp	/^void StringFunctions::replace(std::string &s, const std::string &search,$/;"	f	class:StringFunctions	signature:(std::string &s, const std::string &search, const std::string &rep)
+StringFunctions::split	StringFunctions.cpp	/^void StringFunctions::split(const std::string &s, $/;"	f	class:StringFunctions	signature:(const std::string &s, std::vector<std::string> &tokens, const std::string &delims)
+StringFunctions::trim	StringFunctions.cpp	/^void StringFunctions::trim(std::string &s)$/;"	f	class:StringFunctions	signature:(std::string &s)
+TimeManager	TimeManager.cpp	/^TimeManager::TimeManager()$/;"	f	class:TimeManager	signature:()
+TimeManager	TimeManager.h	/^  TimeManager();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+TimeManager	TimeManager.h	/^class TimeManager$/;"	c	namespace:DUtils
+TimeManager::TimeManager	TimeManager.cpp	/^TimeManager::TimeManager()$/;"	f	class:TimeManager	signature:()
+TimeManager::add	TimeManager.cpp	/^void TimeManager::add(const Timestamp &t)$/;"	f	class:TimeManager	signature:(const Timestamp &t)
+TimeManager::begin	TimeManager.cpp	/^TimeManager::iterator TimeManager::begin(float frequency)$/;"	f	class:TimeManager	signature:(float frequency)
+TimeManager::beginAfter	TimeManager.cpp	/^TimeManager::iterator TimeManager::beginAfter(double seconds, float frequency)$/;"	f	class:TimeManager	signature:(double seconds, float frequency)
+TimeManager::beginAt	TimeManager.cpp	/^TimeManager::iterator TimeManager::beginAt(const Timestamp &t, float frequency)$/;"	f	class:TimeManager	signature:(const Timestamp &t, float frequency)
+TimeManager::clear	TimeManager.cpp	/^void TimeManager::clear()$/;"	f	class:TimeManager	signature:()
+TimeManager::getFirstTimestamp	TimeManager.cpp	/^Timestamp TimeManager::getFirstTimestamp()$/;"	f	class:TimeManager	signature:()
+TimeManager::getLastTimestamp	TimeManager.cpp	/^Timestamp TimeManager::getLastTimestamp()$/;"	f	class:TimeManager	signature:()
+TimeManager::iterator::operator ++	TimeManager.cpp	/^void TimeManager::iterator::operator++()$/;"	f	class:TimeManager::iterator	signature:()
+TimeManager::iterator::operator +=	TimeManager.cpp	/^void TimeManager::iterator::operator+=(int n)$/;"	f	class:TimeManager::iterator	signature:(int n)
+TimeManager::iterator::operator --	TimeManager.cpp	/^void TimeManager::iterator::operator--()$/;"	f	class:TimeManager::iterator	signature:()
+TimeManager::iterator::set	TimeManager.cpp	/^void TimeManager::iterator::set(const Timestamp &desired_time, bool moving_backwards)$/;"	f	class:TimeManager::iterator	signature:(const Timestamp &desired_time, bool moving_backwards)
+TimeManager::iterator::step	TimeManager.cpp	/^void TimeManager::iterator::step(double secs)$/;"	f	class:TimeManager::iterator	signature:(double secs)
+TimeManager::le	TimeManager.cpp	/^bool TimeManager::le(const tEntry &a, const tEntry &b)$/;"	f	class:TimeManager	signature:(const tEntry &a, const tEntry &b)
+TimeManager::operator []	TimeManager.cpp	/^Timestamp TimeManager::operator[](unsigned int idx)$/;"	f	class:TimeManager	signature:(unsigned int idx)
+TimeManager::remove	TimeManager.cpp	/^void TimeManager::remove(const Timestamp &t, bool decrease_indexes)$/;"	f	class:TimeManager	signature:(const Timestamp &t, bool decrease_indexes)
+TimeManager::sort	TimeManager.cpp	/^void TimeManager::sort()$/;"	f	class:TimeManager	signature:()
+TimeManager::~TimeManager	TimeManager.cpp	/^TimeManager::~TimeManager()$/;"	f	class:TimeManager	signature:()
+Timestamp	Timestamp.cpp	/^Timestamp::Timestamp(Timestamp::tOptions option)$/;"	f	class:Timestamp	signature:(Timestamp::tOptions option)
+Timestamp	Timestamp.h	/^	Timestamp(Timestamp::tOptions option = NONE);$/;"	p	class:DUtils::Timestamp	access:public	signature:(Timestamp::tOptions option = NONE)
+Timestamp	Timestamp.h	/^class Timestamp$/;"	c	namespace:DUtils
+Timestamp::Format	Timestamp.cpp	/^string Timestamp::Format(bool machine_friendly) const $/;"	f	class:Timestamp	signature:(bool machine_friendly) const
+Timestamp::Format	Timestamp.cpp	/^string Timestamp::Format(double s) {$/;"	f	class:Timestamp	signature:(double s)
+Timestamp::Timestamp	Timestamp.cpp	/^Timestamp::Timestamp(Timestamp::tOptions option)$/;"	f	class:Timestamp	signature:(Timestamp::tOptions option)
+Timestamp::getFloatTime	Timestamp.cpp	/^double Timestamp::getFloatTime() const {$/;"	f	class:Timestamp	signature:() const
+Timestamp::getStringTime	Timestamp.cpp	/^string Timestamp::getStringTime() const {$/;"	f	class:Timestamp	signature:() const
+Timestamp::minus	Timestamp.cpp	/^Timestamp Timestamp::minus(unsigned long secs, unsigned long usecs) const$/;"	f	class:Timestamp	signature:(unsigned long secs, unsigned long usecs) const
+Timestamp::operator +	Timestamp.cpp	/^Timestamp Timestamp::operator+ (double s) const$/;"	f	class:Timestamp	signature:(double s) const
+Timestamp::operator -	Timestamp.cpp	/^Timestamp Timestamp::operator- (double s) const$/;"	f	class:Timestamp	signature:(double s) const
+Timestamp::operator -	Timestamp.cpp	/^double Timestamp::operator- (const Timestamp &t) const {$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+Timestamp::operator <	Timestamp.cpp	/^bool Timestamp::operator< (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+Timestamp::operator <=	Timestamp.cpp	/^bool Timestamp::operator<= (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+Timestamp::operator ==	Timestamp.cpp	/^bool Timestamp::operator== (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+Timestamp::operator >	Timestamp.cpp	/^bool Timestamp::operator> (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+Timestamp::operator >=	Timestamp.cpp	/^bool Timestamp::operator>= (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+Timestamp::plus	Timestamp.cpp	/^Timestamp Timestamp::plus(unsigned long secs, unsigned long usecs) const$/;"	f	class:Timestamp	signature:(unsigned long secs, unsigned long usecs) const
+Timestamp::setTime	Timestamp.cpp	/^void Timestamp::setTime(const string &stime){$/;"	f	class:Timestamp	signature:(const string &stime)
+Timestamp::setToCurrentTime	Timestamp.cpp	/^void Timestamp::setToCurrentTime(){$/;"	f	class:Timestamp	signature:()
+Timestamp::~Timestamp	Timestamp.cpp	/^Timestamp::~Timestamp(void)$/;"	f	class:Timestamp	signature:(void)
+UnrepeatedRandomizer	Random.cpp	/^DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:(const DUtils::Random::UnrepeatedRandomizer& rnd)
+UnrepeatedRandomizer	Random.cpp	/^DUtils::Random::UnrepeatedRandomizer::UnrepeatedRandomizer(int min, int max)$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:(int min, int max)
+UnrepeatedRandomizer	Random.h	/^  UnrepeatedRandomizer(const UnrepeatedRandomizer& rnd);$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:(const UnrepeatedRandomizer& rnd)
+UnrepeatedRandomizer	Random.h	/^  UnrepeatedRandomizer(int min, int max);$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:(int min, int max)
+UnrepeatedRandomizer	Random.h	/^class Random::UnrepeatedRandomizer$/;"	c	class:DUtils::Random
+WIN32	BinaryFile.cpp	30;"	d	file:
+WIN32	FileFunctions.cpp	33;"	d	file:
+WIN32	Timestamp.cpp	34;"	d	file:
+WRITE	FileModes.h	/^	WRITE = 2,$/;"	e	enum:DUtils::FILE_MODES
+WRITE_APPEND	FileModes.h	/^	WRITE_APPEND = 6 \/\/ == WRITE & APPEND$/;"	e	enum:DUtils::FILE_MODES
+__D_BINARY_FILE__	BinaryFile.h	27;"	d
+__D_CONFIG_FILE__	ConfigFile.h	29;"	d
+__D_EXCEPTION__	DException.h	27;"	d
+__D_FILE_FUNCTIONS__	FileFunctions.h	24;"	d
+__D_FILE_MODES__	FileModes.h	25;"	d
+__D_LINE_FILE__	LineFile.h	26;"	d
+__D_MATH__	Math.hpp	27;"	d
+__D_PROFILER__	Profiler.h	26;"	d
+__D_RANDOM__	Random.h	26;"	d
+__D_STL__	STL.h	26;"	d
+__D_STRING__	StringFunctions.h	24;"	d
+__D_TIMESTAMP__	Timestamp.h	24;"	d
+__D_TIME_MANAGER__	TimeManager.h	25;"	d
+__D_UTILS__	DUtils.h	46;"	d
+_removeIndices	STL.h	/^  static void _removeIndices(std::vector<T> &data, $/;"	p	class:DUtils::STL	access:private	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order)
+_removeIndices	STL.h	/^void STL::_removeIndices(std::vector<T> &data, $/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order)
+add	Profiler.cpp	/^void Profiler::add(double v, const std::string &name)$/;"	f	class:Profiler	signature:(double v, const std::string &name)
+add	Profiler.h	/^  void add(double v, const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(double v, const std::string &name = Ó)
+add	TimeManager.cpp	/^void TimeManager::add(const Timestamp &t)$/;"	f	class:TimeManager	signature:(const Timestamp &t)
+add	TimeManager.h	/^  void add(const Timestamp &t);$/;"	p	class:DUtils::TimeManager	access:public	signature:(const Timestamp &t)
+back	Profiler.cpp	/^double Profiler::back(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+back	Profiler.h	/^  double back(const std::string &name = "") const;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+begin	TimeManager.cpp	/^TimeManager::iterator TimeManager::begin(float frequency)$/;"	f	class:TimeManager	signature:(float frequency)
+begin	TimeManager.h	/^  iterator begin(float frequency = -1);$/;"	p	class:DUtils::TimeManager	access:public	signature:(float frequency = -1)
+beginAfter	TimeManager.cpp	/^TimeManager::iterator TimeManager::beginAfter(double seconds, float frequency)$/;"	f	class:TimeManager	signature:(double seconds, float frequency)
+beginAfter	TimeManager.h	/^  iterator beginAfter(double seconds, float frequency = -1);$/;"	p	class:DUtils::TimeManager	access:public	signature:(double seconds, float frequency = -1)
+beginAt	TimeManager.cpp	/^TimeManager::iterator TimeManager::beginAt(const Timestamp &t, float frequency)$/;"	f	class:TimeManager	signature:(const Timestamp &t, float frequency)
+beginAt	TimeManager.h	/^  iterator beginAt(const Timestamp &t, float frequency = -1);$/;"	p	class:DUtils::TimeManager	access:public	signature:(const Timestamp &t, float frequency = -1)
+bool2type	Math.hpp	/^  template<bool> struct bool2type { };$/;"	s	class:DUtils::Math	access:protected
+cached	dirent_win.h	/^   int    cached;             \/* Indicates un-processed entry in memory *\/$/;"	m	struct:DIR	access:public
+clear	TimeManager.cpp	/^void TimeManager::clear()$/;"	f	class:TimeManager	signature:()
+clear	TimeManager.h	/^  void clear();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+closedir	dirent_win.h	/^static int closedir (DIR *dirp);$/;"	p	signature:(DIR *dirp)
+closedir	dirent_win.h	/^static int closedir(DIR *dirp)$/;"	f	signature:(DIR *dirp)
+createValues	Random.cpp	/^void DUtils::Random::UnrepeatedRandomizer::createValues()$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:()
+createValues	Random.h	/^  void createValues();$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:protected	signature:()
+current	dirent_win.h	/^   dirent current;            \/* Current directory entry *\/$/;"	m	struct:DIR	access:public
+d_name	dirent_win.h	/^   char d_name[MAX_PATH + 1]; \/* current dir entry (multi-byte char string) *\/$/;"	m	struct:dirent	access:public
+data	dirent_win.h	/^   WIN32_FIND_DATAA data;     \/* file attributes *\/$/;"	m	struct:dirent	access:public
+dirent	dirent_win.h	/^typedef struct dirent$/;"	s
+dirent	dirent_win.h	/^}  dirent;$/;"	t	typeref:struct:dirent
+dirent::d_name	dirent_win.h	/^   char d_name[MAX_PATH + 1]; \/* current dir entry (multi-byte char string) *\/$/;"	m	struct:dirent	access:public
+dirent::data	dirent_win.h	/^   WIN32_FIND_DATAA data;     \/* file attributes *\/$/;"	m	struct:dirent	access:public
+empty	Random.h	/^  inline bool empty() const { return m_values.empty(); }$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:() const
+fromString	StringFunctions.h	/^  static T fromString(const std::string &s);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(const std::string &s)
+fromString	StringFunctions.h	/^T StringFunctions::fromString(const std::string &s)$/;"	f	class:DUtils::StringFunctions	signature:(const std::string &s)
+get	ConfigFile.h	/^	T get(const char *name) const;$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *name) const
+get	ConfigFile.h	/^	T get(const std::string &name) const;$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const std::string &name) const
+get	ConfigFile.h	/^T ConfigFile::get(const char *name) const$/;"	f	class:DUtils::ConfigFile	signature:(const char *name) const
+get	ConfigFile.h	/^T ConfigFile::get(const std::string &name) const$/;"	f	class:DUtils::ConfigFile	signature:(const std::string &name) const
+get	Random.cpp	/^int DUtils::Random::UnrepeatedRandomizer::get()$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:()
+get	Random.h	/^  int get();$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:()
+getFirstTimestamp	TimeManager.cpp	/^Timestamp TimeManager::getFirstTimestamp()$/;"	f	class:TimeManager	signature:()
+getFirstTimestamp	TimeManager.h	/^  Timestamp getFirstTimestamp();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+getFloatTime	Timestamp.cpp	/^double Timestamp::getFloatTime() const {$/;"	f	class:Timestamp	signature:() const
+getFloatTime	Timestamp.h	/^	double getFloatTime() const;$/;"	p	class:DUtils::Timestamp	access:public	signature:() const
+getLastTimestamp	TimeManager.cpp	/^Timestamp TimeManager::getLastTimestamp()$/;"	f	class:TimeManager	signature:()
+getLastTimestamp	TimeManager.h	/^  Timestamp getLastTimestamp();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+getMaxTime	Profiler.cpp	/^double Profiler::getMaxTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+getMaxTime	Profiler.h	/^  double getMaxTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+getMeanTime	Profiler.cpp	/^double Profiler::getMeanTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+getMeanTime	Profiler.h	/^  double getMeanTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+getMinTime	Profiler.cpp	/^double Profiler::getMinTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+getMinTime	Profiler.h	/^  double getMinTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+getStatistics	Profiler.cpp	/^void Profiler::getStatistics(double &mean, double &stdev, double &min, $/;"	f	class:Profiler	signature:(double &mean, double &stdev, double &min, double &max, const std::string &name) const
+getStatistics	Profiler.h	/^  void getStatistics(double &mean, double &stdev,$/;"	p	class:DUtils::Profiler	access:public	signature:(double &mean, double &stdev, double &min, double &max, const std::string &name = Ó) const
+getStdevTime	Profiler.cpp	/^double Profiler::getStdevTime(const std::string &name) const$/;"	f	class:Profiler	signature:(const std::string &name) const
+getStdevTime	Profiler.h	/^  double getStdevTime(const std::string &name = "") const ;$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó) const
+getStringTime	Timestamp.cpp	/^string Timestamp::getStringTime() const {$/;"	f	class:Timestamp	signature:() const
+getStringTime	Timestamp.h	/^	string getStringTime() const;$/;"	p	class:DUtils::Timestamp	access:public	signature:() const
+getTime	Profiler.cpp	/^Profiler::getTime(std::vector<double> &time, const std::string &name) const$/;"	f	class:Profiler	signature:(std::vector<double> &time, const std::string &name) const
+getTime	Profiler.h	/^  void getTime(std::vector<double> &time, const std::string &name = "") const;$/;"	p	class:DUtils::Profiler	access:public	signature:(std::vector<double> &time, const std::string &name = Ó) const
+getTime	Timestamp.h	/^	inline void getTime(unsigned long &secs, unsigned long &usecs) const$/;"	f	class:DUtils::Timestamp	access:public	signature:(unsigned long &secs, unsigned long &usecs) const
+good	TimeManager.h	/^    inline bool good() const { return index >= 0; }$/;"	f	class:DUtils::TimeManager::iterator	access:public	signature:() const
+hton_d	BinaryFile.cpp	/^void BinaryFile::hton_d(double v, char buf[8]) const$/;"	f	class:BinaryFile	signature:(double v, char buf[8]) const
+hton_d	BinaryFile.h	/^	void hton_d(double d, char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(double d, char buf[8]) const
+hton_f	BinaryFile.cpp	/^void BinaryFile::hton_f(float v, char buf[8]) const$/;"	f	class:BinaryFile	signature:(float v, char buf[8]) const
+hton_f	BinaryFile.h	/^	void hton_f(float v, char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(float v, char buf[8]) const
+index	TimeManager.h	/^    int index; $/;"	m	class:DUtils::TimeManager::iterator	access:public
+index	TimeManager.h	/^    unsigned int index; \/\/ index got when the timestamp was added$/;"	m	struct:DUtils::TimeManager::tEntry	access:public
+int32_t	BinaryFile.cpp	/^typedef __int32 int32_t;$/;"	t	file:
+int64_t	BinaryFile.cpp	/^typedef __int64 int64_t;$/;"	t	file:
+isLittleEndian	BinaryFile.h	/^	inline bool isLittleEndian() const$/;"	f	class:DUtils::BinaryFile	access:protected	signature:() const
+iterator	TimeManager.h	/^  class iterator$/;"	c	class:DUtils::TimeManager	access:public
+le	TimeManager.cpp	/^bool TimeManager::le(const tEntry &a, const tEntry &b)$/;"	f	class:TimeManager	signature:(const tEntry &a, const tEntry &b)
+le	TimeManager.h	/^  static bool le(const tEntry &a, const tEntry &b);$/;"	p	class:DUtils::TimeManager	access:protected	signature:(const tEntry &a, const tEntry &b)
+left	Random.h	/^  inline unsigned int left() const { return m_values.size(); }$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:() const
+m_already_seeded	Random.h	/^  static bool m_already_seeded;$/;"	m	class:DUtils::Random	access:private
+m_aux	BinaryFile.h	/^	char m_aux[8];	\/\/ auxiliar buffer$/;"	m	class:DUtils::BinaryFile	access:protected
+m_data	ConfigFile.h	/^  std::map<std::string, std::string> m_data; \/\/ <key, value>$/;"	m	class:DUtils::ConfigFile	access:protected
+m_entries	TimeManager.h	/^  std::vector<tEntry> m_entries;$/;"	m	class:DUtils::TimeManager	access:protected
+m_f	BinaryFile.h	/^	fstream m_f;			\/\/ fstream$/;"	m	class:DUtils::BinaryFile	access:protected
+m_f	LineFile.h	/^	fstream m_f;			\/\/ fstream$/;"	m	class:DUtils::LineFile	access:protected
+m_file	ConfigFile.h	/^  LineFile m_file;$/;"	m	class:DUtils::ConfigFile	access:protected
+m_frequency	TimeManager.h	/^    float m_frequency; \/\/ can be -1 to mean all the timestamps$/;"	m	class:DUtils::TimeManager::iterator	access:protected
+m_is_little_endian	BinaryFile.h	/^	int m_is_little_endian; \/\/ 1: little endian, 0: big endian, -1: not set$/;"	m	class:DUtils::BinaryFile	access:protected
+m_is_sorted	TimeManager.h	/^  bool m_is_sorted;$/;"	m	class:DUtils::TimeManager	access:protected
+m_last_profile	Profiler.h	/^  std::string m_last_profile;$/;"	m	class:DUtils::Profiler	access:protected
+m_max	Random.h	/^  int m_max;$/;"	m	class:DUtils::Random::UnrepeatedRandomizer	access:protected
+m_message	DException.h	/^	string m_message;$/;"	m	class:DUtils::DException	access:protected
+m_min	Random.h	/^  int m_min;$/;"	m	class:DUtils::Random::UnrepeatedRandomizer	access:protected
+m_mode	BinaryFile.h	/^	FILE_MODES m_mode;		\/\/ opening mode$/;"	m	class:DUtils::BinaryFile	access:protected
+m_mode	LineFile.h	/^	FILE_MODES m_mode;		\/\/ opening mode$/;"	m	class:DUtils::LineFile	access:protected
+m_next_line	LineFile.h	/^	string m_next_line;	\/\/ next line to read$/;"	m	class:DUtils::LineFile	access:protected
+m_profiles	Profiler.h	/^  std::map<std::string, std::vector<double> > m_profiles;$/;"	m	class:DUtils::Profiler	access:protected
+m_secs	Timestamp.h	/^	unsigned long m_secs;	\/\/ seconds$/;"	m	class:DUtils::Timestamp	access:protected
+m_start_points	Profiler.h	/^  std::map<std::string, Timestamp> m_start_points;$/;"	m	class:DUtils::Profiler	access:protected
+m_tm	TimeManager.h	/^    const TimeManager *m_tm;$/;"	m	class:DUtils::TimeManager::iterator	access:protected
+m_usecs	Timestamp.h	/^	unsigned long m_usecs;	\/\/ microseconds$/;"	m	class:DUtils::Timestamp	access:protected
+m_values	Random.h	/^  std::vector<int> m_values;$/;"	m	class:DUtils::Random::UnrepeatedRandomizer	access:protected
+minus	Timestamp.cpp	/^Timestamp Timestamp::minus(unsigned long secs, unsigned long usecs) const$/;"	f	class:Timestamp	signature:(unsigned long secs, unsigned long usecs) const
+minus	Timestamp.h	/^  Timestamp minus(unsigned long s, unsigned long us) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(unsigned long s, unsigned long us) const
+mkdir	FileFunctions.cpp	40;"	d	file:
+mkdir	FileFunctions.cpp	44;"	d	file:
+notvalid	StringFunctions.cpp	76;"	d	file:
+notvalid	StringFunctions.cpp	88;"	d	file:
+ntoh_d	BinaryFile.cpp	/^double BinaryFile::ntoh_d(char buf[8]) const$/;"	f	class:BinaryFile	signature:(char buf[8]) const
+ntoh_d	BinaryFile.h	/^	double ntoh_d(char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(char buf[8]) const
+ntoh_f	BinaryFile.cpp	/^float BinaryFile::ntoh_f(char buf[8]) const$/;"	f	class:BinaryFile	signature:(char buf[8]) const
+ntoh_f	BinaryFile.h	/^	float ntoh_f(char buf[8]) const;$/;"	p	class:DUtils::BinaryFile	access:protected	signature:(char buf[8]) const
+opendir	dirent_win.h	/^static DIR *opendir (const char *dirname);$/;"	p	signature:(const char *dirname)
+opendir	dirent_win.h	/^static DIR *opendir(const char *dirname)$/;"	f	signature:(const char *dirname)
+operator +	Timestamp.cpp	/^Timestamp Timestamp::operator+ (double s) const$/;"	f	class:Timestamp	signature:(double s) const
+operator +	Timestamp.h	/^	Timestamp operator+ (double s) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(double s) const
+operator ++	TimeManager.cpp	/^void TimeManager::iterator::operator++()$/;"	f	class:TimeManager::iterator	signature:()
+operator ++	TimeManager.h	/^    void operator++();$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:()
+operator +=	TimeManager.cpp	/^void TimeManager::iterator::operator+=(int n)$/;"	f	class:TimeManager::iterator	signature:(int n)
+operator +=	TimeManager.h	/^    void operator+=(int n);$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:(int n)
+operator -	Timestamp.cpp	/^Timestamp Timestamp::operator- (double s) const$/;"	f	class:Timestamp	signature:(double s) const
+operator -	Timestamp.cpp	/^double Timestamp::operator- (const Timestamp &t) const {$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+operator -	Timestamp.h	/^	Timestamp operator- (double s) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(double s) const
+operator -	Timestamp.h	/^	double operator- (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+operator --	TimeManager.cpp	/^void TimeManager::iterator::operator--()$/;"	f	class:TimeManager::iterator	signature:()
+operator --	TimeManager.h	/^    void operator--();$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:()
+operator <	Timestamp.cpp	/^bool Timestamp::operator< (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+operator <	Timestamp.h	/^	bool operator< (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (char v)$/;"	f	class:BinaryFile	signature:(char v)
+operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (double v)$/;"	f	class:BinaryFile	signature:(double v)
+operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (float v)$/;"	f	class:BinaryFile	signature:(float v)
+operator <<	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator<< (int v)$/;"	f	class:BinaryFile	signature:(int v)
+operator <<	BinaryFile.h	/^	BinaryFile& operator<< (char v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(char v)
+operator <<	BinaryFile.h	/^	BinaryFile& operator<< (double v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(double v)
+operator <<	BinaryFile.h	/^	BinaryFile& operator<< (float v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(float v)
+operator <<	BinaryFile.h	/^	BinaryFile& operator<< (int v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(int v)
+operator <<	LineFile.cpp	/^LineFile& LineFile::operator<< (const char *s)$/;"	f	class:LineFile	signature:(const char *s)
+operator <<	LineFile.h	/^	LineFile& operator<< (const char *s);$/;"	p	class:DUtils::LineFile	access:public	signature:(const char *s)
+operator <<	LineFile.h	/^	inline LineFile& operator<< (const string &s)$/;"	f	class:DUtils::LineFile	access:public	signature:(const string &s)
+operator <<	LineFile.h	/^	inline LineFile& operator<< (const vector<string> &v)$/;"	f	class:DUtils::LineFile	access:public	signature:(const vector<string> &v)
+operator <=	Timestamp.cpp	/^bool Timestamp::operator<= (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+operator <=	Timestamp.h	/^	bool operator<= (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+operator =	Random.cpp	/^DUtils::Random::UnrepeatedRandomizer::operator=$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:(const DUtils::Random::UnrepeatedRandomizer& rnd)
+operator =	Random.h	/^  UnrepeatedRandomizer& operator=(const UnrepeatedRandomizer& rnd);$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:(const UnrepeatedRandomizer& rnd)
+operator ==	Timestamp.cpp	/^bool Timestamp::operator== (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+operator ==	Timestamp.h	/^	bool operator== (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+operator >	Timestamp.cpp	/^bool Timestamp::operator> (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+operator >	Timestamp.h	/^	bool operator> (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+operator >=	Timestamp.cpp	/^bool Timestamp::operator>= (const Timestamp &t) const$/;"	f	class:Timestamp	signature:(const Timestamp &t) const
+operator >=	Timestamp.h	/^	bool operator>= (const Timestamp &t) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(const Timestamp &t) const
+operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(char &v)$/;"	f	class:BinaryFile	signature:(char &v)
+operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(double &v)$/;"	f	class:BinaryFile	signature:(double &v)
+operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(float &v)$/;"	f	class:BinaryFile	signature:(float &v)
+operator >>	BinaryFile.cpp	/^BinaryFile& BinaryFile::operator>>(int &v)$/;"	f	class:BinaryFile	signature:(int &v)
+operator >>	BinaryFile.h	/^	BinaryFile& operator>>(char &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(char &v)
+operator >>	BinaryFile.h	/^	BinaryFile& operator>>(double &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(double &v)
+operator >>	BinaryFile.h	/^	BinaryFile& operator>>(float &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(float &v)
+operator >>	BinaryFile.h	/^	BinaryFile& operator>>(int &v);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(int &v)
+operator >>	LineFile.cpp	/^LineFile& LineFile::operator>> (string &s)$/;"	f	class:LineFile	signature:(string &s)
+operator >>	LineFile.h	/^	LineFile& operator>> (string &s);$/;"	p	class:DUtils::LineFile	access:public	signature:(string &s)
+operator []	TimeManager.cpp	/^Timestamp TimeManager::operator[](unsigned int idx)$/;"	f	class:TimeManager	signature:(unsigned int idx)
+operator []	TimeManager.h	/^  Timestamp operator[](unsigned int idx);$/;"	p	class:DUtils::TimeManager	access:public	signature:(unsigned int idx)
+patt	dirent_win.h	/^   char   patt[MAX_PATH + 3]; \/* search pattern (3 = pattern + "\\\\*\\0") *\/$/;"	m	struct:DIR	access:public
+plus	Timestamp.cpp	/^Timestamp Timestamp::plus(unsigned long secs, unsigned long usecs) const$/;"	f	class:Timestamp	signature:(unsigned long secs, unsigned long usecs) const
+plus	Timestamp.h	/^	Timestamp plus(unsigned long s, unsigned long us) const;$/;"	p	class:DUtils::Timestamp	access:public	signature:(unsigned long s, unsigned long us) const
+print	STL.h	/^  static void print(const std::vector<T> &v, const std::string &name,$/;"	p	class:DUtils::STL	access:public	signature:(const std::vector<T> &v, const std::string &name, std::ostream &f = std::cout)
+print	STL.h	/^void STL::print(const std::vector<T> &v, const std::string &name,$/;"	f	class:DUtils::STL	signature:(const std::vector<T> &v, const std::string &name, std::ostream &f)
+profile	Profiler.cpp	/^void Profiler::profile(const std::string &name)$/;"	f	class:Profiler	signature:(const std::string &name)
+profile	Profiler.h	/^  void profile(const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó)
+put	ConfigFile.h	/^	void put(const char *name, const T &data);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const char *name, const T &data)
+put	ConfigFile.h	/^	void put(const std::string &name, const T &data);$/;"	p	class:DUtils::ConfigFile	access:public	signature:(const std::string &name, const T &data)
+put	ConfigFile.h	/^void ConfigFile::put(const char *name, const T &data)$/;"	f	class:DUtils::ConfigFile	signature:(const char *name, const T &data)
+put	ConfigFile.h	/^void ConfigFile::put(const std::string &name, const T &data)$/;"	f	class:DUtils::ConfigFile	signature:(const std::string &name, const T &data)
+readContent	ConfigFile.cpp	/^void ConfigFile::readContent()$/;"	f	class:ConfigFile	signature:()
+readContent	ConfigFile.h	/^  void readContent();$/;"	p	class:DUtils::ConfigFile	access:protected	signature:()
+readdir	dirent_win.h	/^static struct dirent *readdir (DIR *dirp);$/;"	p	signature:(DIR *dirp)
+readdir	dirent_win.h	/^static struct dirent *readdir(DIR *dirp)$/;"	f	signature:(DIR *dirp)
+remove	TimeManager.cpp	/^void TimeManager::remove(const Timestamp &t, bool decrease_indexes)$/;"	f	class:TimeManager	signature:(const Timestamp &t, bool decrease_indexes)
+remove	TimeManager.h	/^  void remove(const Timestamp &t, bool decrease_indexes);$/;"	p	class:DUtils::TimeManager	access:public	signature:(const Timestamp &t, bool decrease_indexes)
+removeFrom	StringFunctions.cpp	/^void StringFunctions::removeFrom(std::string &s, const char c)$/;"	f	class:StringFunctions	signature:(std::string &s, const char c)
+removeFrom	StringFunctions.h	/^  static void removeFrom(std::string &s, const char c);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s, const char c)
+removeIndices	STL.h	/^  static void removeIndices(std::vector<T> &data, $/;"	p	class:DUtils::STL	access:public	signature:(std::vector<T> &data, const std::vector<unsigned int> &indices, bool preserve_order = true)
+removeIndices	STL.h	/^  static void removeIndices(std::vector<T> &data, $/;"	p	class:DUtils::STL	access:public	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order = true)
+removeIndices	STL.h	/^  static void removeIndices(std::vector<T> &data,$/;"	p	class:DUtils::STL	access:public	signature:(std::vector<T> &data, const std::vector<unsigned char> &status, bool preserve_order = true)
+removeIndices	STL.h	/^void STL::removeIndices(std::vector<T> &data, $/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, const std::vector<unsigned int> &indices, bool preserve_order)
+removeIndices	STL.h	/^void STL::removeIndices(std::vector<T> &data, $/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, std::vector<unsigned int> &indices, bool preserve_order)
+removeIndices	STL.h	/^void STL::removeIndices(std::vector<T> &data,$/;"	f	class:DUtils::STL	signature:(std::vector<T> &data, const std::vector<unsigned char> &status, bool preserve_order)
+replace	StringFunctions.cpp	/^void StringFunctions::replace(std::string &s, $/;"	f	class:StringFunctions	signature:(std::string &s, const std::vector<std::pair<std::string, std::string> > &map)
+replace	StringFunctions.cpp	/^void StringFunctions::replace(std::string &s, const std::string &search,$/;"	f	class:StringFunctions	signature:(std::string &s, const std::string &search, const std::string &rep)
+replace	StringFunctions.h	/^  static void replace(std::string &s, $/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s, const std::vector<std::pair<std::string, std::string> > &map)
+replace	StringFunctions.h	/^  static void replace(std::string &s, const std::string &search,$/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s, const std::string &search, const std::string &rep)
+reset	Profiler.cpp	/^void Profiler::reset(const std::string &name)$/;"	f	class:Profiler	signature:(const std::string &name)
+reset	Profiler.h	/^  void reset(const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó)
+reset	Random.cpp	/^void DUtils::Random::UnrepeatedRandomizer::reset()$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	signature:()
+reset	Random.h	/^  void reset();$/;"	p	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:()
+resetAll	Profiler.h	/^  inline void resetAll()$/;"	f	class:DUtils::Profiler	access:public	signature:()
+rewinddir	dirent_win.h	/^static void rewinddir(DIR* dirp)$/;"	f	signature:(DIR* dirp)
+rewinddir	dirent_win.h	/^static void rewinddir(DIR* dirp);$/;"	p	signature:(DIR* dirp)
+search_handle	dirent_win.h	/^   HANDLE search_handle;      \/* File search handle *\/$/;"	m	struct:DIR	access:public
+set	TimeManager.cpp	/^void TimeManager::iterator::set(const Timestamp &desired_time, bool moving_backwards)$/;"	f	class:TimeManager::iterator	signature:(const Timestamp &desired_time, bool moving_backwards)
+set	TimeManager.h	/^    void set(const Timestamp &desired_time, bool moving_backwards = false);$/;"	p	class:DUtils::TimeManager::iterator	access:protected	signature:(const Timestamp &desired_time, bool moving_backwards = false)
+setEndianness	BinaryFile.cpp	/^void BinaryFile::setEndianness()$/;"	f	class:BinaryFile	signature:()
+setEndianness	BinaryFile.h	/^	void setEndianness();$/;"	p	class:DUtils::BinaryFile	access:protected	signature:()
+setFrequency	TimeManager.h	/^    inline void setFrequency(float frequency)$/;"	f	class:DUtils::TimeManager::iterator	access:public	signature:(float frequency)
+setTime	Timestamp.cpp	/^void Timestamp::setTime(const string &stime){$/;"	f	class:Timestamp	signature:(const string &stime)
+setTime	Timestamp.h	/^	inline void setTime(unsigned long secs, unsigned long usecs){$/;"	f	class:DUtils::Timestamp	access:public	signature:(unsigned long secs, unsigned long usecs)
+setTime	Timestamp.h	/^	void setTime(const string &stime);$/;"	p	class:DUtils::Timestamp	access:public	signature:(const string &stime)
+setToCurrentTime	Timestamp.cpp	/^void Timestamp::setToCurrentTime(){$/;"	f	class:Timestamp	signature:()
+setToCurrentTime	Timestamp.h	/^	void setToCurrentTime();$/;"	p	class:DUtils::Timestamp	access:public	signature:()
+sort	TimeManager.cpp	/^void TimeManager::sort()$/;"	f	class:TimeManager	signature:()
+sort	TimeManager.h	/^  void sort();$/;"	p	class:DUtils::TimeManager	access:protected	signature:()
+split	StringFunctions.cpp	/^void StringFunctions::split(const std::string &s, $/;"	f	class:StringFunctions	signature:(const std::string &s, std::vector<std::string> &tokens, const std::string &delims)
+split	StringFunctions.h	/^  static void split(const std::string &s, std::vector<std::string> &tokens,$/;"	p	class:DUtils::StringFunctions	access:public	signature:(const std::string &s, std::vector<std::string> &tokens, const std::string &delims = Ó)
+sprintf	Timestamp.cpp	40;"	d	file:
+step	TimeManager.cpp	/^void TimeManager::iterator::step(double secs)$/;"	f	class:TimeManager::iterator	signature:(double secs)
+step	TimeManager.h	/^    void step(double secs);$/;"	p	class:DUtils::TimeManager::iterator	access:public	signature:(double secs)
+stop	Profiler.h	/^  inline void stop(const std::string &name = "")$/;"	f	class:DUtils::Profiler	access:public	signature:(const std::string &name = Ó)
+stopAndScale	Profiler.cpp	/^void Profiler::stopAndScale(double scale, const std::string &name)$/;"	f	class:Profiler	signature:(double scale, const std::string &name)
+stopAndScale	Profiler.h	/^  void stopAndScale(double scale, const std::string &name = "");$/;"	p	class:DUtils::Profiler	access:public	signature:(double scale, const std::string &name = Ó)
+tEntry	TimeManager.h	/^    tEntry(){}$/;"	f	struct:DUtils::TimeManager::tEntry	access:public	signature:()
+tEntry	TimeManager.h	/^    tEntry(const Timestamp &t): timestamp(t), index(-1){}$/;"	f	struct:DUtils::TimeManager::tEntry	access:public	signature:(const Timestamp &t)
+tEntry	TimeManager.h	/^    tEntry(const Timestamp &t, unsigned int i): timestamp(t), index(i){}$/;"	f	struct:DUtils::TimeManager::tEntry	access:public	signature:(const Timestamp &t, unsigned int i)
+tEntry	TimeManager.h	/^  struct tEntry$/;"	s	class:DUtils::TimeManager	access:protected
+tOptions	Timestamp.h	/^  enum tOptions$/;"	g	class:DUtils::Timestamp	access:public
+timestamp	TimeManager.h	/^    Timestamp timestamp;$/;"	m	class:DUtils::TimeManager::iterator	access:public
+timestamp	TimeManager.h	/^    Timestamp timestamp;$/;"	m	struct:DUtils::TimeManager::tEntry	access:public
+toString	StringFunctions.h	/^  static std::string toString(const T& data);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(const T& data)
+toString	StringFunctions.h	/^std::string StringFunctions::toString(const T& data)$/;"	f	class:DUtils::StringFunctions	signature:(const T& data)
+trim	StringFunctions.cpp	/^void StringFunctions::trim(std::string &s)$/;"	f	class:StringFunctions	signature:(std::string &s)
+trim	StringFunctions.h	/^  static void trim(std::string &s);$/;"	p	class:DUtils::StringFunctions	access:public	signature:(std::string &s)
+uint32_t	BinaryFile.cpp	/^typedef unsigned __int32 uint32_t;$/;"	t	file:
+uint64_t	BinaryFile.cpp	/^typedef unsigned __int32 uint64_t;$/;"	t	file:
+what	DException.h	/^	virtual const char* what() const throw()$/;"	f	class:DUtils::DException	access:public	signature:() const
+writeContent	ConfigFile.cpp	/^void ConfigFile::writeContent()$/;"	f	class:ConfigFile	signature:()
+writeContent	ConfigFile.h	/^  void writeContent();$/;"	p	class:DUtils::ConfigFile	access:protected	signature:()
+~BinaryFile	BinaryFile.cpp	/^BinaryFile::~BinaryFile(void)$/;"	f	class:BinaryFile	signature:(void)
+~BinaryFile	BinaryFile.h	/^	~BinaryFile(void);$/;"	p	class:DUtils::BinaryFile	access:public	signature:(void)
+~ConfigFile	ConfigFile.cpp	/^ConfigFile::~ConfigFile()$/;"	f	class:ConfigFile	signature:()
+~ConfigFile	ConfigFile.h	/^  ~ConfigFile();$/;"	p	class:DUtils::ConfigFile	access:public	signature:()
+~DException	DException.h	/^	virtual ~DException(void) throw(){}$/;"	f	class:DUtils::DException	access:public	signature:(void)
+~LineFile	LineFile.cpp	/^LineFile::~LineFile(void)$/;"	f	class:LineFile	signature:(void)
+~LineFile	LineFile.h	/^	~LineFile(void);$/;"	p	class:DUtils::LineFile	access:public	signature:(void)
+~Profiler	Profiler.h	/^  virtual ~Profiler(){}$/;"	f	class:DUtils::Profiler	access:public	signature:()
+~TimeManager	TimeManager.cpp	/^TimeManager::~TimeManager()$/;"	f	class:TimeManager	signature:()
+~TimeManager	TimeManager.h	/^  ~TimeManager();$/;"	p	class:DUtils::TimeManager	access:public	signature:()
+~Timestamp	Timestamp.cpp	/^Timestamp::~Timestamp(void)$/;"	f	class:Timestamp	signature:(void)
+~Timestamp	Timestamp.h	/^	virtual ~Timestamp(void);$/;"	p	class:DUtils::Timestamp	access:public	signature:(void)
+~UnrepeatedRandomizer	Random.h	/^  ~UnrepeatedRandomizer(){}$/;"	f	class:DUtils::Random::UnrepeatedRandomizer	access:public	signature:()

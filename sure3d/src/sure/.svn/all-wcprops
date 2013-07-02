@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/15/trunk/src/sure
+END
+normal_histogram.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/6/trunk/src/sure/normal_histogram.cpp
+END
+sure_estimator.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/6/trunk/src/sure/sure_estimator.cpp
+END
+configuration.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/src/sure/configuration.cpp
+END
+octree_value.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/15/trunk/src/sure/octree_value.cpp
+END
+hue_descriptor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/6/trunk/src/sure/hue_descriptor.cpp
+END
+histogram_emd.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/6/trunk/src/sure/histogram_emd.cpp
+END
+color_surflet.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/6/trunk/src/sure/color_surflet.cpp
+END
+surflet.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/12/trunk/src/sure/surflet.cpp
+END
+histogram_base.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/6/trunk/src/sure/histogram_base.cpp
+END
+histogram_l2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/6/trunk/src/sure/histogram_l2.cpp
+END
+feature.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/12/trunk/src/sure/feature.cpp
+END
+lightness_descriptor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/6/trunk/src/sure/lightness_descriptor.cpp
+END
+range_image.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/6/trunk/src/sure/range_image.cpp
+END
+point_feature_descriptor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/6/trunk/src/sure/point_feature_descriptor.cpp
+END
+map2d.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/6/trunk/src/sure/map2d.cpp
+END

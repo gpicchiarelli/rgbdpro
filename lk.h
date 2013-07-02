@@ -45,6 +45,9 @@
 #include <pcl/filters/statistical_outlier_removal.h>
 #include <pcl/range_image/range_image.h>
 #include <pcl/io/pcd_io.h>
+#include <vtk-5.8/vtkSmartPointer.h>
+#include <vtk-5.8/vtkImageShiftScale.h>
+#include <pcl/range_image/range_image_planar.h>
 #include <pcl/visualization/range_image_visualizer.h>
 #include <pcl/visualization/pcl_visualizer.h>
 #include <pcl/visualization/image_viewer.h>
@@ -123,6 +126,7 @@ void loopClosing3d(const BoWFeatures &features);
 void loadFeatures3d(BoWFeatures &features);
 void loadFeaturesRGB(BoWFeatures &features);
 void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb);
+void testVocCreation(const BoWFeatures &features);
 void saveFeaturesFile(const BoWFeatures &features,string filename);
 void loadFeaturesFile(BoWFeatures &features,string filename);
 void searchRegistro(string pos);
@@ -131,6 +135,8 @@ void changeStructure(const vector<float> &plain, vector<vector<float> > &out,int
 void readPoseFile(const char *filename,  vector<double> &xs,  vector<double> &ys);
 pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t);
 void wait();
+void saveRangeImagePlanarFilePNG (const std::string &file_name, const RangeImage &range_image);
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void saveFeaturesFile(const BoWFeatures &features, string filename){ 
@@ -217,7 +223,7 @@ void searchRegistro(string pos)
                 string h = w1[0];
                 //nome immagine
                 StringFunctions::trim(h);
-                registro_interno.insert(PairInt(lexical_cast<int>(h),lexical_cast<int>(w)));
+                registro_interno.insert(PairInt(boost::lexical_cast<int>(h),boost::lexical_cast<int>(w)));
             }
         }
         Myfile.close();

@@ -154,6 +154,52 @@ pcl::RangeImage Registro3D::getRangeImageAt(int position){
     return range_image;
 }
 
+double Registro3D::getCentroidDiff(int src_p,int dst_p){
+    Eigen::Vector4f cstart, cend;
+    const float VOXEL_GRID_SIZE = 0.02;
+    //TODO use pose of scan
+
+    pcl::PointCloud<pcl::PointXYZ>::Ptr src_ptr( new pcl::PointCloud<pcl::PointXYZ>() );
+    pcl::io::loadPCDFile (this->__files_list_3d[src_p], *src_ptr);
+    
+    std::vector<int> indices;
+    pcl::removeNaNFromPointCloud (*src_ptr,*src_ptr,indices);
+    indices.clear();
+    
+    pcl::PointCloud<pcl::PointXYZ>::Ptr dst_ptr( new pcl::PointCloud<pcl::PointXYZ>() );
+    pcl::io::loadPCDFile (this->__files_list_3d[dst_p], *dst_ptr);
+    
+    pcl::removeNaNFromPointCloud (*dst_ptr,*dst_ptr,indices);
+    
+    //voxelgrid
+    pcl::PointCloud<pcl::PointXYZ>::Ptr src_ptr_f( new pcl::PointCloud<pcl::PointXYZ>() );
+    pcl::PointCloud<pcl::PointXYZ>::Ptr dst_ptr_f( new pcl::PointCloud<pcl::PointXYZ>() );
+    
+    pcl::VoxelGrid<pcl::PointXYZ> vox_grid;
+    vox_grid.setLeafSize( VOXEL_GRID_SIZE, VOXEL_GRID_SIZE, VOXEL_GRID_SIZE );    
+    vox_grid.setInputCloud( src_ptr );
+    vox_grid.filter( *src_ptr_f );
+    
+    vox_grid.setInputCloud( dst_ptr );
+    vox_grid.filter( *dst_ptr_f );     
+    
+    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+    
+    icp.setMaxCorrespondenceDistance (0.1);
+    icp.setRANSACOutlierRejectionThreshold (0.5);
+    icp.setTransformationEpsilon (1e-3); //e-8
+    icp.setMaximumIterations (4);
+    icp.setInputCloud (src_ptr_f);
+    icp.setInputTarget (dst_ptr_f);
+    icp.align (*(this->aligned));
+    
+    pcl::compute3DCentroid (*src_ptr_f, cstart);
+    pcl::compute3DCentroid (*(this->aligned), cend);
+    Eigen::Vector4f diff = cend - cstart;
+cout << diff.norm() << endl;
+    return diff.norm();
+}
+
 double Registro3D::getScoreFit(int src_p, int dst_p)
 {
     typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;

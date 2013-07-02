@@ -1,0 +1,36 @@
+./lk -l-rgb --s-rgb=0.41 --dataset=diei1 -U -offset=110
+RGB size bucket 5
+ ======== Statistiche (%) ========= 
+Precision: 94.1781
+Recall: 29.0391
+Accuracy: 62.957
+
+TP:275
+FP:17
+TN:896
+FN:672
+
+./lk -l-3d --s-3d=0.68 --dataset=diei1 -U -offset=110
+3D size bucket 5
+ ======== Statistiche (%) ========= 
+Precision: 38.2353
+Recall: 4.64839
+Accuracy: 53.6022
+
+TP:39
+FP:63
+TN:958
+FN:800
+
+./lk -l-3d --s-3d=0.75 --dataset=diei1 -U -offset=110
+3D risoluzione 0.2
+ ======== Statistiche (%) ========= 
+Precision: 50.7692
+Recall: 3.88235
+Accuracy: 54.3548
+
+TP:33
+FP:32
+TN:978
+FN:817
+

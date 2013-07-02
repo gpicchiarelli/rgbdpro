@@ -17,6 +17,7 @@
  */
 
 #include "lk.h"
+#include <ctime>
 
 //impostazioni utili al debug
 #define DEBUG 0
@@ -57,33 +58,34 @@ int main(int nNumberofArgs, char* argv[])
             if (boost::starts_with(parm,"--s-3d=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--s-3d="); 
-                SOGLIA_3D = lexical_cast<double>(h);            
+                SOGLIA_3D = boost::lexical_cast<double>(h);            
             }
             if (boost::starts_with(parm,"--s-rgb=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--s-rgb="); 
-                SOGLIA_RGB = lexical_cast<double>(h);
+                SOGLIA_RGB = boost::lexical_cast<double>(h);
             }
             if (boost::starts_with(parm,"--offset=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--offset="); 
-                I_OFFSET = lexical_cast<int>(h);
+                I_OFFSET = boost::lexical_cast<int>(h);
             }
             if (boost::starts_with(parm,"--sanity=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--sanity="); 
-                SANITY = lexical_cast<double>(h);
+                SANITY = boost::lexical_cast<double>(h);
             }
             if (boost::starts_with(parm,"--voc=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--voc="); 
-                VOC = lexical_cast<int>(h);
+                VOC = boost::lexical_cast<int>(h);
             }
             if (boost::starts_with(parm,"--root-datasets=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--root-datasets=");               
                 datasets_root = h+"/";
-            }
+            } 
+
             if (boost::starts_with(parm,"--dataset=")){   
                 string h = argv[y];
                 boost::erase_all(h, "--dataset=");               
@@ -267,14 +269,51 @@ int main(int nNumberofArgs, char* argv[])
     cout << "DBoW2 TEST: terminato." << endl;
     return 0;
 }
+void saveRangeImagePlanarFilePNG (const std::string &file_name, const pcl::RangeImage& range_image) 
+{ 
+  vtkSmartPointer<vtkImageData> image = vtkSmartPointer<vtkImageData>::New(); 
+  image->SetDimensions(range_image.width, range_image.height, 1); 
+  image->SetNumberOfScalarComponents(1); 
+  image->SetScalarTypeToFloat(); 
+  image->AllocateScalars(); 
+
+  int* dims = image->GetDimensions(); 
+
+  std::cout << "Dims: " << " x: " << dims[0] << " y: " << dims[1] << " z: " << dims[2] << std::endl; 
+
+  for (int y = 0; y < dims[1]; y++) 
+    { 
+    for (int x = 0; x < dims[0]; x++) 
+      { 
+      float* pixel = static_cast<float*>(image->GetScalarPointer(x,y,0)); 
+      pixel[0] = range_image(y,x).range; 
+      } 
+    } 
+
+  // Compute the scaling 
+  float oldRange = image->GetScalarRange()[1] - image->GetScalarRange()[0]; 
+  float newRange = 255; // We want the output [0,255] 
+  vtkSmartPointer<vtkImageShiftScale> shiftScaleFilter = 
+  vtkSmartPointer<vtkImageShiftScale>::New(); 
+  shiftScaleFilter->SetOutputScalarTypeToUnsignedChar(); 
+  shiftScaleFilter->SetInputConnection(image->GetProducerPort()); 
+  shiftScaleFilter->SetShift(-1.0f * image->GetScalarRange()[0]); // brings the lower bound to 0 
+  shiftScaleFilter->SetScale(newRange/oldRange); 
+  shiftScaleFilter->Update(); 
+
+  vtkSmartPointer<vtkPNGWriter> writer = vtkSmartPointer<vtkPNGWriter>::New(); 
+  writer->SetFileName(file_name.c_str()); 
+  writer->SetInputConnection(shiftScaleFilter->GetOutputPort()); 
+  writer->Write(); 
+} 
 
 void loopClosingRGB(const BoWFeatures &features){
     
     int OFFSET = I_OFFSET;
     double MATCH_THRESHOLD = SOGLIA_RGB;
     double SANITY_THRESHOLD = SANITY;
-    int SIZE_BUCKET = 15;
-    int TEMP_CONS = 6;
+    int SIZE_BUCKET = 5;
+    int TEMP_CONS = 4;
     bool loop_found = false;
     
     // load robot poses
@@ -422,8 +461,8 @@ void loopClosing3d(const BoWFeatures &features)
     int OFFSET = I_OFFSET;
     double SANITY_THRESHOLD = SANITY;
     double MATCH_THRESHOLD = SOGLIA_3D;
-    int SIZE_BUCKET = 15;
-    int TEMP_CONS = 6;
+    int SIZE_BUCKET = 5;
+    int TEMP_CONS = 10;
     bool loop_found = false;
 
     if (!DEBUG) { wait(); }
@@ -518,7 +557,7 @@ void loopClosing3d(const BoWFeatures &features)
                     }
                 }
                 bucket.erase(std::remove( bucket.begin(), bucket.end(),-1), bucket.end());
-                double maxInliers = 0;//maxInliers = numeric_limits<double>::max();
+                double maxInliers = numeric_limits<double>::max();
                 double maxIdInliers = -1;
                 double tyu = 0;
                 if(bucket.size() == 1){
@@ -527,11 +566,9 @@ void loopClosing3d(const BoWFeatures &features)
                     #pragma omp parallel for
                     for(int yy = 0; yy < bucket.size(); yy++){  
                         BowVector v1,v2;
-                        voc.transform(features[i],v1);                        
-                        voc.transform(features[bucket[yy]],v2);
-                        tyu = voc.score(v1,v2);//reg_3D->getScoreFit(i,bucket[yy]);
+                        tyu = reg_3D->getCentroidDiff(i,bucket[yy]);
                         cout << "score: " << tyu <<endl;
-                        if (maxInliers < tyu){
+                        if (maxInliers > tyu){
                             maxInliers = tyu;
                             maxIdInliers = bucket[yy];
                         }                        
@@ -566,18 +603,35 @@ void loadFeaturesRGB(BoWFeatures &features)
 {
     features.clear();
     features.reserve(files_list_rgb.size());
-    cv::SURF surf(300, 4, 3, true);
+    cv::SURF surf(500, 4, 2, true);
+    
+    double acc_media = 0,media=0,scarti=0,varianza=0;
+    DUtilsCV::GUI::tWinHandler win = "SURF";
     
     for (int i = 0; i < files_list_rgb.size(); ++i) {
         cout << "Estrazione SURF: " << files_list_rgb[i];
+        clock_t begin = clock();
         
         cv::Mat image = cv::imread(files_list_rgb[i]);
-        cv::Mat mask;
+        cv::Mat mask,outImg;
         vector<cv::KeyPoint> keypoints;
         vector<float> descriptors;
         surf(image, mask, keypoints, descriptors);
+        drawKeypoints(image, keypoints, outImg );
+        DUtilsCV::GUI::showImage(outImg, true, &win, 10);
         features.push_back(vector<vector<float> >());
         changeStructure(descriptors, features.back(), surf.descriptorSize());
+        
+     
+        clock_t end = clock();
+        double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+        media = media + elapsed_secs;
+        acc_media = media / (i+1);
+        cout << "media: " << acc_media<<endl;
+        scarti += pow(elapsed_secs-acc_media,2);
+        varianza = sqrt(scarti/(i+1));
+        cout << "varianza: " << varianza<<endl; 
+        
         cout << ". Estratti " << features[i].size() << " descrittori." << endl;
         descriptors.clear();
         keypoints.clear();
@@ -622,7 +676,7 @@ pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd
 void loadFeatures3d(BoWFeatures &features)
 {
     typedef pcl::PointXYZ PointType;
-    float angular_resolution = pcl::deg2rad (0.3f);
+    float angular_resolution = pcl::deg2rad (0.5f);
     float support_size = 0.1f;
 
     features.clear();
@@ -632,21 +686,26 @@ void loadFeatures3d(BoWFeatures &features)
     float min_range = 0.0f;
     int border_size = 1;
     
+    double acc_media = 0,media=0,scarti=0,varianza=0;
     //pcl::visualization::RangeImageVisualizer range_image_widget ("Range image");
     pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
     pcl::RangeImage::Ptr range_image_ptr (new pcl::RangeImage);
     pcl::RangeImage& range_image = *range_image_ptr;
     
     for (int i = 0; i < files_list_3d.size(); ++i) {
+        clock_t begin = clock();
         pcl::PointCloud<PointType>::Ptr point_cloud_wf (new pcl::PointCloud<PointType>);
         pcl::PointCloud<PointType>::Ptr point_cloud (new pcl::PointCloud<PointType>);
         
         pcl::io::loadPCDFile (files_list_3d[i], *point_cloud_wf);
-        
+
         //filtraggio valori NaN
         std::vector<int> indices;
-        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud,indices);
-        
+        pcl::removeNaNFromPointCloud (*point_cloud_wf,*point_cloud_wf,indices);
+        pcl::VoxelGrid<PointType> sor;
+        sor.setInputCloud (point_cloud_wf);
+        sor.setLeafSize (0.01f, 0.01f, 0.01f);
+        sor.filter (*point_cloud);
         cout << "Estrazione NARF: " << files_list_3d[i] ;
         
         Eigen::Affine3f scene_sensor_pose (Eigen::Affine3f::Identity());
@@ -654,13 +713,14 @@ void loadFeatures3d(BoWFeatures &features)
                                              (*point_cloud).sensor_origin_[1],
                 (*point_cloud).sensor_origin_[2])) *
                 Eigen::Affine3f ((*point_cloud).sensor_orientation_);
-        
+       // pcl::visualization::RangeImageVisualizer range_image_widget ("Range image");
         range_image.max_no_of_threads = 2;
         range_image.createFromPointCloud ((*point_cloud),angular_resolution,pcl::deg2rad(360.0f),pcl::deg2rad(180.0f),scene_sensor_pose,coordinate_frame,noise_level,min_range,border_size);
         range_image.setUnseenToMaxRange();
+        //saveRangeImagePlanarFilePNG(boost::lexical_cast<string>(i),range_image);
         
         //range_image_widget.showRangeImage (range_image);
-        
+        //range_image_widget.spin();
         pcl::RangeImageBorderExtractor range_image_border_extractor;
         pcl::NarfKeypoint narf_keypoint_detector;
         narf_keypoint_detector.setRangeImageBorderExtractor (&range_image_border_extractor);
@@ -668,8 +728,8 @@ void loadFeatures3d(BoWFeatures &features)
         narf_keypoint_detector.getParameters().support_size = support_size;
         //euristiche, per avvicinarsi al real time
         narf_keypoint_detector.getParameters().max_no_of_threads = 2;
-        narf_keypoint_detector.getParameters().calculate_sparse_interest_image=true; //false
-        narf_keypoint_detector.getParameters().use_recursive_scale_reduction=false; //true
+        narf_keypoint_detector.getParameters().calculate_sparse_interest_image=false; //false
+        narf_keypoint_detector.getParameters().use_recursive_scale_reduction=true; //true
         //narf_keypoint_detector.getParameters().add_points_on_straight_edges=true;
         
         pcl::PointCloud<int> keypoint_indices;
@@ -686,6 +746,14 @@ void loadFeatures3d(BoWFeatures &features)
         
         narf_descriptor.compute (narf_descriptors);
         
+        clock_t end = clock();
+        double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+        media = media + elapsed_secs;
+        acc_media = media / (i+1);
+        cout << "media: " << acc_media<<endl;
+        scarti += pow(elapsed_secs-acc_media,2);
+        varianza = sqrt(scarti/(i+1));
+        cout << "varianza: " << varianza<<endl; 
         cout << ". Estratti "<<narf_descriptors.size ()<<" descrittori. Punti: " <<keypoint_indices.points.size ()<< "."<<endl;
         
         features.push_back(vector<vector<float> >());
@@ -730,7 +798,7 @@ void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb)
     
     if ((!fs.isOpened()) || (!fs2.isOpened()))
     {
-        NarfVocabulary voc(k, L, weight, score);
+        NarfVocabulary voc(15, 2, weight, score);
         BoWFeatures tmp,tmp2; 
         for(int yy=0; yy<features.size(); yy+=3){
             tmp.push_back(features[yy]);

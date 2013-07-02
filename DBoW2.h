@@ -79,6 +79,7 @@ namespace DBoW2
 #include "FNarf.h"
 #include "FSurf64.h"
 #include "FSurf128.h"
+#include "FSure.h"
 
 /// SURF1 Vocabulary
 typedef DBoW2::TemplatedVocabulary<DBoW2::FSurf64::TDescriptor, DBoW2::FSurf64> 
@@ -97,6 +98,13 @@ typedef DBoW2::TemplatedDatabase<DBoW2::FBrief::TDescriptor, DBoW2::FBrief>
   BriefDatabase;
 
 // Giacomo Picchiarelli
+/// Sure Vocabulary
+typedef DBoW2::TemplatedVocabulary<DBoW2::FSure::TDescriptor, DBoW2::FSure> 
+  SUREVocabulary;
+
+/// Sure Database
+typedef DBoW2::TemplatedDatabase<DBoW2::FSure::TDescriptor, DBoW2::FSure> 
+  SUREDatabase;
 
 /// NARF Vocabulary
 typedef DBoW2::TemplatedVocabulary<DBoW2::FNarf::TDescriptor, DBoW2::FNarf> 

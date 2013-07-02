@@ -62,6 +62,42 @@ int RegistroRGB::inliersRGB(int src,int dst)
     findHomography(Mat(points1), Mat(points2), inliersMask, CV_FM_RANSAC, 1);
     numInliers =  count(inliersMask.begin(), inliersMask.end(), 1);
 
+    
+    Mat img_matches;
+    drawMatches( image1, keypoints1, image2, keypoints2,
+                 matches, img_matches, Scalar::all(-1), Scalar::all(-1),
+                 vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS );
+  
+    //-- Localize the object
+    std::vector<Point2f> obj;
+    std::vector<Point2f> scene;
+  
+    for( int i = 0; i < matches.size(); i++ )
+    {
+      //-- Get the keypoints from the good matches
+      obj.push_back( keypoints1[ matches[i].queryIdx ].pt );
+      scene.push_back( keypoints2[ matches[i].trainIdx ].pt );
+    }
+  
+    Mat H = findHomography( obj, scene, CV_RANSAC );
+  
+    //-- Get the corners from the image_1 ( the object to be "detected" )
+    std::vector<Point2f> obj_corners(4);
+    obj_corners[0] = cvPoint(0,0); obj_corners[1] = cvPoint( image1.cols, 0 );
+    obj_corners[2] = cvPoint( image1.cols, image1.rows ); obj_corners[3] = cvPoint( 0, image1.rows );
+    std::vector<Point2f> scene_corners(4);
+  
+    perspectiveTransform( obj_corners, scene_corners, H);
+  /*
+    //-- Draw lines between the corners (the mapped object in the scene - image_2 )
+    line( img_matches, scene_corners[0] + Point2f( image1.cols, 0), scene_corners[1] + Point2f( image1.cols, 0), Scalar(0, 255, 0), 4 );
+    line( img_matches, scene_corners[1] + Point2f( image1.cols, 0), scene_corners[2] + Point2f( image1.cols, 0), Scalar( 0, 255, 0), 4 );
+    line( img_matches, scene_corners[2] + Point2f( image1.cols, 0), scene_corners[3] + Point2f( image1.cols, 0), Scalar( 0, 255, 0), 4 );
+    line( img_matches, scene_corners[3] + Point2f( image1.cols, 0), scene_corners[0] + Point2f( image1.cols, 0), Scalar( 0, 255, 0), 4 );
+  */
+    //-- Show detected matches
+    imshow( "Good Matches & Object detection", img_matches );
+    
     inliersMask.clear();
     p1vec.clear();
     p2vec.clear();

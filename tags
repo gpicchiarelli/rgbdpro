@@ -405,6 +405,8 @@ Registro3D::__files_list_3d	registro3d.h	/^        vector<string> __files_list_3
 Registro3D::addFrame	registro3d.cpp	/^void Registro3D::addFrame(PointCloud<Narf36> frame,string name)$/;"	f	class:Registro3D	signature:(PointCloud<Narf36> frame,string name)
 Registro3D::addFrame	registro3d.h	/^        void addFrame(PointCloud<Narf36> frame,string name);$/;"	p	class:Registro3D	access:public	signature:(PointCloud<Narf36> frame,string name)
 Registro3D::aligned	registro3d.h	/^        pcl::PointCloud<pcl::PointXYZ>::Ptr aligned;$/;"	m	class:Registro3D	access:private
+Registro3D::extractNARF	registro3d.cpp	/^PointCloud<pcl::Narf36> Registro3D::extractNARF(int i){  $/;"	f	class:Registro3D	signature:(int i)
+Registro3D::extractNARF	registro3d.h	/^        PointCloud<pcl::Narf36> extractNARF(int i);$/;"	p	class:Registro3D	access:public	signature:(int i)
 Registro3D::getCorrispondences	registro3d.cpp	/^float Registro3D::getCorrispondences(int src_p,int dst_p){$/;"	f	class:Registro3D	signature:(int src_p,int dst_p)
 Registro3D::getCorrispondences	registro3d.h	/^        float getCorrispondences(int src,int dst);$/;"	p	class:Registro3D	access:public	signature:(int src,int dst)
 Registro3D::getRangeImageAt	registro3d.cpp	/^pcl::RangeImage Registro3D::getRangeImageAt(int position){$/;"	f	class:Registro3D	signature:(int position)
@@ -616,9 +618,21 @@ endl	back_sac_align.cpp	/^cout<< "Normals estimated." <<endl;$/;"	v
 entry_id	TemplatedDatabase.h	/^    EntryId entry_id;$/;"	m	struct:DBoW2::TemplatedDatabase::IFPair	access:public
 extractIndicesPCD	lk.cpp	/^pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t){ $/;"	f	signature:(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t)
 extractIndicesPCD	lk.h	/^pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t);$/;"	p	signature:(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd_t)
+extractNARF	registro3d.cpp	/^PointCloud<pcl::Narf36> Registro3D::extractNARF(int i){  $/;"	f	class:Registro3D	signature:(int i)
+extractNARF	registro3d.h	/^        PointCloud<pcl::Narf36> extractNARF(int i);$/;"	p	class:Registro3D	access:public	signature:(int i)
 filename_voc_3d	lk.cpp	/^string filename_voc_3d,filename_voc_rgb,dataset_sub;$/;"	v
 filename_voc_rgb	lk.cpp	/^string filename_voc_3d,filename_voc_rgb,dataset_sub;$/;"	v
 files_list	demo.cpp	/^std::vector<string> files_list;$/;"	v
+flag_bin	lk.cpp	/^bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;$/;"	v
+flag_debug	lk.cpp	/^bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;$/;"	v
+flag_l3d	lk.cpp	/^bool flag_l3d=false,flag_lrgb=false,flag_stats=false,flag_s3d=false;$/;"	v
+flag_loop	lk.cpp	/^bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;$/;"	v
+flag_lrgb	lk.cpp	/^bool flag_l3d=false,flag_lrgb=false,flag_stats=false,flag_s3d=false;$/;"	v
+flag_s	lk.cpp	/^bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;$/;"	v
+flag_s3d	lk.cpp	/^bool flag_l3d=false,flag_lrgb=false,flag_stats=false,flag_s3d=false;$/;"	v
+flag_stats	lk.cpp	/^bool flag_l3d=false,flag_lrgb=false,flag_stats=false,flag_s3d=false;$/;"	v
+flag_u	lk.cpp	/^bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;$/;"	v
+flag_voc	lk.cpp	/^bool flag_voc=false, flag_debug=false,flag_loop = false,flag_bin = false,flag_s=false,flag_u=false;$/;"	v
 fpfh_prec	back_sac_align.cpp	/^pcl::FPFHEstimationOMP<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33> fpfh_prec;$/;"	v
 fpfh_wf	back_sac_align.cpp	/^pcl::FPFHEstimationOMP<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33> fpfh_wf;$/;"	v
 frame_features	back_sac_align.cpp	/^pcl::PointCloud<pcl::FPFHSignature33>::Ptr frame_features (new pcl::PointCloud<pcl::FPFHSignature33> ());$/;"	p	file:	signature:(new pcl::PointCloud<pcl::FPFHSignature33> ())
