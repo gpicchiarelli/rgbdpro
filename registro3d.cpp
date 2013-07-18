@@ -196,7 +196,7 @@ double Registro3D::getCentroidDiff(int src_p,int dst_p){
     pcl::compute3DCentroid (*src_ptr_f, cstart);
     pcl::compute3DCentroid (*(this->aligned), cend);
     Eigen::Vector4f diff = cend - cstart;
-cout << diff.norm() << endl;
+
     return diff.norm();
 }
 

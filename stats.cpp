@@ -55,12 +55,12 @@ void stats::calc(){
         int z2 = it_2->second;        
         if (z1 == z2){
             this->TruePositive++;   
-            cout << "TP: "<< it->first << " = " << it->second << endl;
-            //creo negativi togliendo tutti i positivi che incrementalmente sto valutando
-            immagini_n.erase(std::remove(immagini_n.begin(), immagini_n.end(), it->first), immagini_n.end());                
+            //cout << "TP: "<< it->first << " = " << it->second << endl;
+            //creo negativi togliendo tutti i positivi che incrementalmente sto valutando                   
         }else{
             this->FalsePositive++;
         }
+        immagini_n.erase(std::remove(immagini_n.begin(), immagini_n.end(), it->first), immagini_n.end());         
     }
     for(int i=0;i<immagini_n.size();i++){
         bool found = false; 
@@ -68,7 +68,7 @@ void stats::calc(){
         int yyy = immagini_n[i] - this->__offset;
         if (yyy < 0) {yyy = 0;}
         for(int j = yyy; j >= 0 ; j--){
-            cout << immagini_n[i] << " - " << immagini_all[j] << " = " <<immagini_n[i]-immagini_all[j]<< " (" << j << ") "<<endl;
+            //cout << immagini_n[i] << " - " << immagini_all[j] << " = " <<immagini_n[i]-immagini_all[j]<< " (" << j << ") "<<endl;
             if(immagini_n[i]-immagini_all[j] >= this->__offset || yyy == 1){
                 std::map<int,int>::iterator it_1,it_2;                
                 it_1 = this->__registro_interno.find(immagini_n[i]); //loop
@@ -84,7 +84,7 @@ void stats::calc(){
         if (!found){
             this->TrueNegative++;
         }else{
-            cout << "FN" << immagini_n[i] << endl;            
+            //cout << "FN" << immagini_n[i] << endl;            
             this->FalseNegative++;
         } 
     }    

@@ -328,9 +328,9 @@ void loopClosingRGB(const BoWFeatures &features){
     DUtilsCV::GUI::tWinHandler win = "Immagine Analizzata";
     DUtilsCV::GUI::tWinHandler winplot = "TraiettoriaRGB";
     
-    DUtilsCV::Drawing::Plot::Style normal_style(1); // thickness
+    DUtilsCV::Drawing::Plot::Style normal_style('b',2); // thickness
     DUtilsCV::Drawing::Plot::Style loop_style('r', 2); // color, thickness
-    
+
     DUtilsCV::Drawing::Plot implot(240, 320,
                                    - *std::max_element(xs.begin(), xs.end()),
                                    - *std::min_element(xs.begin(), xs.end()),
@@ -461,8 +461,8 @@ void loopClosing3d(const BoWFeatures &features)
     int OFFSET = I_OFFSET;
     double SANITY_THRESHOLD = SANITY;
     double MATCH_THRESHOLD = SOGLIA_3D;
-    int SIZE_BUCKET = 5;
-    int TEMP_CONS = 10;
+    int SIZE_BUCKET = 7;
+    int TEMP_CONS = 5;
     bool loop_found = false;
 
     if (!DEBUG) { wait(); }
@@ -475,7 +475,7 @@ void loopClosing3d(const BoWFeatures &features)
     
     DUtilsCV::GUI::tWinHandler winplot = "Traiettoria3D";
     
-    DUtilsCV::Drawing::Plot::Style normal_style(1); // thickness
+    DUtilsCV::Drawing::Plot::Style normal_style(2); // thickness
     DUtilsCV::Drawing::Plot::Style loop_style('r', 2); // color, thickness
     
     DUtilsCV::Drawing::Plot implot(240, 320,
@@ -676,7 +676,7 @@ pcl::PointIndices::Ptr extractIndicesPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr pcd
 void loadFeatures3d(BoWFeatures &features)
 {
     typedef pcl::PointXYZ PointType;
-    float angular_resolution = pcl::deg2rad (0.5f);
+    float angular_resolution = pcl::deg2rad (0.15f);
     float support_size = 0.1f;
 
     features.clear();
@@ -798,7 +798,7 @@ void testVocCreation(const BoWFeatures &features,const BoWFeatures &featuresrgb)
     
     if ((!fs.isOpened()) || (!fs2.isOpened()))
     {
-        NarfVocabulary voc(15, 2, weight, score);
+        NarfVocabulary voc(k, L, weight, score);
         BoWFeatures tmp,tmp2; 
         for(int yy=0; yy<features.size(); yy+=3){
             tmp.push_back(features[yy]);
